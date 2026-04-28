@@ -1,0 +1,66 @@
+{
+  "name": "power-cat-skills",
+  "displayName": "Power CAT Skills",
+  "owner": {
+    "name": "Microsoft Power CAT"
+  },
+  "description": "Power Platform development extensions curated by Microsoft Power CAT (Customer Advisory Team)",
+  "plugins": [    
+    {
+      "name": "analyze-canvas-performance",
+      "description": "Analyze and audit a Power Apps canvas app for performance issues, delegation warnings, and best practice violations.",
+      "source": "./skills/analyze-canvas-performance",
+      "skills": ["./skills/analyze-canvas-performance"],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "code review",
+            "tags": [
+                "performance report",
+                "canvas apps",
+                "power platform",
+                "power apps",
+                "microsoft power platform",
+                "microsoft"
+            ]
+    },    
+    {
+      "name": "infopath-to-canvas",
+      "description": "Migrate a Microsoft InfoPath form (.xsn) to a Power Apps Canvas app.",
+      "source": "./skills/infopath-to-canvas",
+      "skills": ["./skills/infopath-to-canvas"],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+            "tags": [
+                "microsoft InfoPath",
+                "canvas apps",
+                "power platform",
+                "power apps",
+                "microsoft power platform",
+                "microsoft"
+            ]
+    },
+    {
+      "name": "migrate-to-dataverse",
+      "description": "Replace Power FX data source calls with equivalent Dataverse table calls in existing Canvas Apps.",
+      "source": "./skills/migrate-to-dataverse",
+      "skills": ["./skills/migrate-to-dataverse"],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+            "tags": [
+                "microsoft sql",
+                "microsoft sharepoint",
+                "microsoft dataverse",
+                "canvas apps",
+                "power platform",
+                "power apps",
+                "microsoft power platform",
+                "microsoft"
+            ]
+    }
+  ]
+}

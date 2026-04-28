@@ -1,0 +1,29 @@
+{
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(pac *)",
+      "Bash(node *)",
+      "Bash(dotnet *)",
+      "Bash(cd:*)",
+      "Bash(powershell *)",
+      "Bash(npx *)",
+      "Bash(dir:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "mcp__playwright__*",
+      "mcp__*__browser_*"
+    ]
+  }
+}
