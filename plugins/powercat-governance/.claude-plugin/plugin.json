@@ -1,0 +1,19 @@
+{
+  "name": "powercat-governance",
+  "version": "1.0.0",
+  "description": "Claude skills for Power Platform governance and administration — provision developer environments with standard governance defaults, enforce consistent configuration, and automate admin center workflows.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "governance",
+    "power-platform",
+    "admin",
+    "developer-environment",
+    "managed-environment"
+  ]
+}
