@@ -13,14 +13,21 @@ power-cat-skills/
 ├── .claude-plugin/
 │   └── marketplace.json      # Marketplace manifest (lists all available plugins)
 ├── plugins/                  # Directory containing individual plugins
-│   └── <plugin-name>/        # Individual plugin (e.g., power-pages)
-│       ├── .claude-plugin/
-│       │   └── plugin.json   # Plugin manifest
-│       ├── AGENTS.md         # Plugin-specific development guidelines
-│       ├── agents/           # Agent persona files
-│       ├── commands/         # Command entry points
-│       ├── shared/           # Shared resources and documentation
-│       └── skills/           # Skill workflows (SKILL.md in subdirectories)
+│   ├── powercat-adoption/    # Adoption storytelling plugin
+│   │   └── skills/
+│   │       └── powercat-storytelling/        # Generate a 5-slide HTML customer story deck
+│   ├── powercat-canvas-apps/ # Canvas Apps authoring & migration plugin
+│   │   └── skills/
+│   │       ├── analyze-canvas-performance/   # Code review & performance audit of pa.yaml files
+│   │       ├── infopath-to-canvas/           # Migrate InfoPath .xsn forms to Canvas Apps
+│   │       └── migrate-to-dataverse/         # Replace SharePoint lists with Dataverse tables
+│   ├── powercat-dataverse/   # Dataverse query authoring plugin
+│   │   └── skills/
+│   │       ├── dataverse-webapi-query/       # Author & ship Dataverse Web API queries
+│   │       └── powercat-storytelling/        # (shared) Generate a 5-slide HTML customer story deck
+│   └── powercat-governance/  # Power Platform governance & admin plugin
+│       └── skills/
+│           └── create-pp-dev-env/            # Provision a Developer environment via BAP API
 ├── shared/                   # Cross-plugin shared resources
 │   └── skills/               # Shared skill definitions
 │       └── <skill-name>/     # SKILL.template.md + workflow .md files
@@ -28,6 +35,17 @@ power-cat-skills/
 ├── CLAUDE.md                 # Repository overview
 └── README.md                 # Repository overview
 ```
+
+## Plugins & Skills
+
+| Plugin | Skill | Description |
+|--------|-------|-------------|
+| `powercat-adoption` | `/powercat-storytelling` | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
+| `powercat-canvas-apps` | `/analyze-canvas-performance` | Code review and performance audit of Canvas App pa.yaml files |
+| `powercat-canvas-apps` | `/infopath-to-canvas` | Migrate InfoPath .xsn forms to Power Apps Canvas Apps |
+| `powercat-canvas-apps` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
+| `powercat-dataverse` | `/dataverse-webapi-query` | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting, error diagnosis |
+| `powercat-governance` | `/create-pp-dev-env` | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user |
 
 ## Local Development
 
