@@ -2,15 +2,35 @@
 
 > Power Platform development extensions curated by Microsoft Power CAT (Customer Advisory Team)
 
-A plugin for **Claude Code** and **GitHub Copilot** that provides specialized skills for Power Apps canvas app development.
+A plugin marketplace for **Claude Code** and **GitHub Copilot** that provides specialized skills for Power Platform development — from Canvas App authoring to Dataverse query crafting, environment governance, and customer storytelling.
 
-## Skills Included
+## Plugins & Skills
+
+### `powercat-canvas-apps` — Canvas Apps
 
 | Skill | Description |
 |-------|-------------|
 | **analyze-canvas-performance** | Audit Power Apps for performance, delegation, and best-practice issues |
 | **infopath-to-canvas** | Migrate InfoPath forms (.xsn) to modern Canvas Apps |
-| **migrate-to-dataverse** | Replace data source calls with Dataverse table equivalents |
+| **migrate-to-dataverse** | Replace SharePoint list data sources with Dataverse table equivalents |
+
+### `powercat-dataverse` — Dataverse
+
+| Skill | Description |
+|-------|-------------|
+| **dataverse-webapi-query** | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting (Generative Pages, Code Apps, Xrm.WebApi, Canvas, Power Automate), and error diagnosis |
+
+### `powercat-governance` — Governance
+
+| Skill | Description |
+|-------|-------------|
+| **create-pp-dev-env** | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user — no admin center required |
+
+### `powercat-adoption` — Adoption
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-storytelling** | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
 
 ## Prerequisites
 
@@ -35,16 +55,19 @@ Run these commands inside a Claude Code or GitHub Copilot CLI session:
     ```bash
     /plugin install canvas-apps@power-platform-skills    
     ```
-3. Add the marketplace (Requirement)
+3. Add the Power CAT Skills marketplace
 
 ```bash
 /plugin marketplace add microsoft/power-cat-skills
 ```
 
-4. Install the desired plugin
+4. Install the desired plugin — choose one or more:
 
     ```bash
-    /plugin install powercat-canvas-apps@power-cat-skills    
+    /plugin install powercat-canvas-apps@power-cat-skills
+    /plugin install powercat-dataverse@power-cat-skills
+    /plugin install powercat-governance@power-cat-skills
+    /plugin install powercat-adoption@power-cat-skills
     ```
 
 ### Configure the MCP Server
@@ -69,6 +92,18 @@ Analyze my Canvas Apps for performance issues
 
 ```
 Migrate my SharePoint data sources to Dataverse
+```
+
+```
+Write a Dataverse Web API query that returns the top 10 active accounts in Sydney
+```
+
+```
+Create a dev environment for adelev@contoso.com
+```
+
+```
+Create a customer story deck for Contoso
 ```
 
 ## Running Without Interruption
@@ -138,15 +173,24 @@ See the [Copilot CLI docs](https://docs.github.com/en/copilot/how-tos/use-copilo
 ```
 power-cat-skills/
 ├── .claude-plugin/
-│   └── plugin.json           # Plugin manifest
-├── skills/
-│   ├── analyze-canvas-performance/
-│   │   └── SKILL.md
-│   ├── infopath-to-canvas/
-│   │   └── SKILL.md
-│   └── migrate-to-dataverse/
-│       └── SKILL.md
-├── marketplace.json          # Marketplace registry
+│   └── marketplace.json      # Marketplace manifest
+├── plugins/
+│   ├── powercat-adoption/
+│   │   └── skills/
+│   │       └── powercat-storytelling/
+│   ├── powercat-canvas-apps/
+│   │   └── skills/
+│   │       ├── analyze-canvas-performance/
+│   │       ├── infopath-to-canvas/
+│   │       └── migrate-to-dataverse/
+│   ├── powercat-dataverse/
+│   │   └── skills/
+│   │       └── dataverse-webapi-query/
+│   └── powercat-governance/
+│       └── skills/
+│           └── create-pp-dev-env/
+├── shared/
+│   └── skills/               # Cross-plugin shared skill definitions
 └── README.md
 ```
 ## References

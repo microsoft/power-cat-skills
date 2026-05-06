@@ -1,0 +1,19 @@
+{
+  "name": "powercat-canvas-apps",
+  "version": "1.0.7",
+  "description": "Claude skills to analyze Canvas App performance and guide migrations from InfoPath and SharePoint to modern Power Platform architectures using Power Apps and Dataverse.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "canvas-apps",
+    "power-apps",
+    "canvas",
+    "pa-yaml",
+    "msapp"
+  ]
+}
