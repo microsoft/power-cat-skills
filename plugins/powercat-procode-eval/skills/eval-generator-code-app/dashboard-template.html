@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT_NAME — Eval Dashboard</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI",sans-serif;background:#f3f2f1;color:#323130}
+    header{background:#0078d4;color:white;padding:16px 24px}
+    header .sub{font-size:.85rem;opacity:.85}
+    header h1{font-size:1.3rem;font-weight:600;color:white}
+    .tabs{display:flex;background:white;border-bottom:2px solid #edebe9;padding:0 24px}
+    .tab{padding:12px 20px;cursor:pointer;font-weight:500;color:#605e5c;border-bottom:3px solid transparent;margin-bottom:-2px}
+    .tab.active{color:#0078d4;border-bottom-color:#0078d4}
+    .pane{display:none;padding:24px}.pane.active{display:block}
+    .summary{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+    .stat{background:white;border-radius:6px;padding:16px 20px;min-width:110px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+    .stat .val{font-size:2rem;font-weight:700;line-height:1}
+    .stat .lbl{font-size:.75rem;color:#605e5c;margin-top:4px}
+    .stat.green .val{color:#107c10}.stat.red .val{color:#a4262c}.stat.blue .val{color:#0078d4}.stat.amber .val{color:#7a5f00}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+    th{background:#0078d4;color:white;padding:10px 14px;text-align:left;font-size:.85rem}
+    td{padding:10px 14px;border-top:1px solid #edebe9;font-size:.85rem;vertical-align:top}
+    tr.expandable{cursor:pointer}tr.expandable:hover td{background:#f3f9ff}
+    tr.dr{display:none;background:#fafbfc}tr.dr.open{display:table-row}
+    .di{padding:6px 16px 10px 32px}
+    .di table{font-size:.8rem;box-shadow:none;background:transparent}
+    .di th{background:#444;font-size:.78rem;padding:5px 10px}
+    .di td{padding:5px 10px;border-top:1px solid #f0f0f0}
+    .tog{font-size:.72rem;color:#0078d4;margin-left:6px;background:none;border:none;cursor:pointer;padding:0}
+    pre.em{margin:3px 0 0;padding:4px 8px;background:#fff0f0;border:1px solid #fbb;border-radius:3px;font-size:.7rem;white-space:pre-wrap;max-height:80px;overflow:auto}
+    .pass{color:#107c10;font-weight:600}.fail{color:#a4262c;font-weight:600}.warn{color:#7a5f00;font-weight:600}.stub{color:#8a8886;font-style:italic}
+    .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:.75rem;font-weight:600}
+    .badge-high{background:#fde7e9;color:#a4262c}.badge-med{background:#fff4ce;color:#7a5f00}.badge-low{background:#dff6dd;color:#107c10}
+    .sev-c{color:#a4262c;font-weight:700}.sev-h{color:#c7511f;font-weight:700}.sev-m{color:#7a5f00;font-weight:700}.sev-l{color:#107c10;font-weight:700}
+    .gap-box{background:white;border-radius:6px;padding:16px 20px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:16px}
+    .gap-box h3{font-size:1rem;margin-bottom:10px}
+    .gap-box.red h3{color:#a4262c}.gap-box.amber h3{color:#7a5f00}.gap-box.green h3{color:#107c10}
+    .gap-box li{margin:6px 0 6px 18px;font-size:.85rem;line-height:1.5}
+    .ts{font-size:.8rem;color:#605e5c;margin-bottom:20px}
+    .reg{background:#fde7e9!important}.imp{background:#dff6dd!important}
+    .iter-note{background:#fff4ce;border-left:4px solid #f0b400;padding:12px 16px;border-radius:4px;font-size:.85rem;margin-bottom:16px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="sub">PROJECT_NAME &middot; Iteration ITERATION_NUMBER</div>
+  <h1>Eval Dashboard</h1>
+</header>
+<div class="tabs">
+  <div class="tab active" onclick="showTab('run',this)">Current Run</div>
+  <div class="tab" onclick="showTab('unit',this)">Unit Tests</div>
+  <div class="tab" onclick="showTab('gaps',this)">BRD Gaps</div>
+  <div class="tab" onclick="showTab('sec',this)">Security</div>
+  <div class="tab" onclick="showTab('iter',this)">Iteration History</div>
+</div>
+<div id="tab-run"  class="pane active"></div>
+<div id="tab-unit" class="pane"></div>
+<div id="tab-gaps" class="pane"></div>
+<div id="tab-sec"  class="pane"></div>
+<div id="tab-iter" class="pane"></div>
+
+<script>
+/* BAKED DATA — replaced by npm run eval — do not edit manually */
+var DATA = { "timestamp": null, "layers": [], "summary": { "totalFeatures": 0 } };
+/* END BAKED DATA */
+
+var FEATURES = [
+  /* GENERATED — replace with actual features: { id, title, priority, note? } */
+];
+
+function showTab(name,el){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('active');});
+  el.classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+}
+function togDetail(id,e){
+  if(e)e.stopPropagation();
+  var el=document.getElementById(id);
+  if(el)el.classList.toggle('open');
+}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function badge(p){return p==='high'?'<span class="badge badge-high">high</span>':p==='low'?'<span class="badge badge-low">low</span>':'<span class="badge badge-med">med</span>';}
+function unitIcon(st){
+  if(!st)return '<span class="stub">—</span>';
+  if(st==='pass')return '<span class="pass">✓ Pass</span>';
+  if(st==='fail')return '<span class="fail">✗ Fail</span>';
+  if(st==='partial')return '<span class="warn">⚡ Partial</span>';
+  return '<span class="stub">□ Stub</span>';
+}
+function featureSt(fid,ul){
+  if(!ul)return null;
+  var ts=(ul.details||[]).filter(function(d){return d.featureId===fid;});
+  if(!ts.length)return null;
+  if(ts.every(function(t){return t.status==='skip';}))return 'stub';
+  if(ts.some(function(t){return t.status==='fail';}))return 'fail';
+  if(ts.some(function(t){return t.status==='skip';}))return 'partial';
+  return 'pass';
+}
+
+(function renderSecurity(){
+  var sf=DATA.summary&&DATA.summary.securityFindings?DATA.summary.securityFindings:[];
+  var sevClass={critical:'sev-c',high:'sev-h',medium:'sev-m',low:'sev-l'};
+
+  // All security categories — shown as a full checklist regardless of findings
+  var CATEGORIES=[
+    {id:'SEC-001',label:'OData Injection',        severity:'critical', what:'OData $filter strings built from user input (SQL-injection equivalent for Dataverse)'},
+    {id:'SEC-002',label:'XSS',                    severity:'critical', what:'dangerouslySetInnerHTML or .innerHTML= with dynamic content'},
+    {id:'SEC-003',label:'Hardcoded Secret',        severity:'critical', what:'API keys, passwords, tokens, or secrets assigned as string literals in source code'},
+    {id:'SEC-004',label:'PII in Logs',             severity:'high',     what:'Sensitive fields (email, userId, phone, DisplayName) written to console'},
+    {id:'SEC-005',label:'Error Disclosure',        severity:'high',     what:'Raw error messages (e.message, String(e)) surfaced directly to UI state'},
+    {id:'SEC-006',label:'Unsafe fetch() Call',     severity:'high',     what:'fetch() to a URL outside *.dynamics.com / *.microsoft.com / *.microsoftonline.com'},
+    {id:'SEC-007',label:'Client-Side Auth Bypass', severity:'high',     what:'Role/permission check in UI code without a corresponding server-side guard on service writes'},
+    {id:'SEC-008',label:'PII in Browser Storage',  severity:'medium',   what:'PII or auth data stored in localStorage or sessionStorage (XSS-exfiltrable)'},
+    {id:'SEC-009',label:'Unvalidated Service Input',severity:'medium',  what:'User input variables passed directly into generated service method calls without validation'},
+    {id:'SEC-010',label:'Sensitive Data in State', severity:'low',      what:'password, token, or secret held in React component state'},
+    {id:'SEC-011',label:'Secrets in Bundle',       severity:'high',     what:'VITE_* env vars containing KEY/SECRET/TOKEN bundled into public JavaScript'},
+    {id:'SEC-012',label:'power.config.json Secrets',severity:'critical',what:'Credentials or secrets detected in power.config.json (committed to source control)'},
+    {id:'SEC-013',label:'Vulnerable Dependencies', severity:'high',     what:'npm audit — known CVEs (high/critical) in installed packages'},
+    {id:'SEC-014',label:'Dynamic Code Execution',  severity:'critical', what:'eval(), new Function(), or setTimeout/setInterval with string argument'},
+    {id:'SEC-015',label:'Unsafe HTTP Client',       severity:'high',     what:'axios, XMLHttpRequest, or $.ajax calls to non-Microsoft external URLs'},
+    {id:'SEC-016',label:'Sensitive URL Params',    severity:'high',     what:'token/auth/secret/userId exposed in URL query strings or useSearchParams'},
+  ];
+
+  var findingsByCategory={};
+  sf.forEach(function(f){
+    if(!findingsByCategory[f.id])findingsByCategory[f.id]=[];
+    findingsByCategory[f.id].push(f);
+  });
+
+  var totalFindings=sf.length;
+  var critHigh=sf.filter(function(f){return f.severity==='critical'||f.severity==='high';}).length;
+
+  var html='<h2 style="font-size:1.1rem;margin-bottom:4px">Security Analysis</h2>';
+  html+='<p style="font-size:.82rem;color:#605e5c;margin-bottom:16px">'+CATEGORIES.length+' categories checked &mdash; '+(totalFindings===0?'<span style="color:#107c10;font-weight:600">all passed &#x2705;</span>':'<span style="color:#a4262c;font-weight:600">'+totalFindings+' finding'+(totalFindings>1?'s':'')+' ('+critHigh+' critical/high)</span>')+'</p>';
+
+  html+='<table><thead><tr><th style="width:90px">Check</th><th>Category</th><th style="width:80px">Severity</th><th style="width:80px">Status</th><th>What was checked</th></tr></thead><tbody>';
+
+  CATEGORIES.forEach(function(cat,ci){
+    var catFindings=findingsByCategory[cat.id]||[];
+    var passed=catFindings.length===0;
+    var statusCell=passed
+      ?'<span class="pass">&#x2713; Pass</span>'
+      :'<span class="fail">&#x2717; '+catFindings.length+' finding'+(catFindings.length>1?'s':'')+'</span>';
+    var sevLabel='<span class="'+sevClass[cat.severity]+'">'+cat.severity+'</span>';
+    html+='<tr class="'+(passed?'':'expandable')+'" '+(passed?'':('onclick="togDetail(\'sec'+ci+'\',event)"'))+'>';
+    html+='<td><strong>'+esc(cat.id)+'</strong></td>';
+    html+='<td>'+esc(cat.label)+(passed?'':'<button class="tog" onclick="togDetail(\'sec'+ci+'\',event)">&#x25ba;</button>')+'</td>';
+    html+='<td>'+sevLabel+'</td>';
+    html+='<td>'+statusCell+'</td>';
+    html+='<td><small style="color:#605e5c">'+esc(cat.what)+'</small></td>';
+    html+='</tr>';
+    if(!passed){
+      html+='<tr class="dr" id="sec'+ci+'"><td colspan="5"><div class="di"><ul style="margin:0;padding-left:16px">';
+      catFindings.forEach(function(f){
+        html+='<li style="margin:4px 0">'+esc(f.detail)+'<br><small style="color:#888">'+esc(f.file)+(f.line?' line '+f.line:'')+'</small></li>';
+      });
+      html+='</ul></div></td></tr>';
+    }
+  });
+
+  html+='</tbody></table>';
+  document.getElementById('tab-sec').innerHTML=html;
+})();
+
+(function renderRun(){
+  var presence=DATA.layers.find(function(l){return l.layer==='presence';})||{};
+  var unit=DATA.layers.find(function(l){return l.layer==='unit';})||{};
+  var gaps=DATA.summary&&DATA.summary.openBRDGaps?DATA.summary.openBRDGaps:[];
+  var blockers=DATA.summary&&DATA.summary.blockers?DATA.summary.blockers:[];
+  var secFindings=DATA.summary&&DATA.summary.securityFindings?DATA.summary.securityFindings:[];
+  var secCritHigh=secFindings.filter(function(f){return f.severity==='critical'||f.severity==='high';}).length;
+
+  document.getElementById('tab-run').innerHTML=
+    '<p class="ts">Last run: '+(DATA.timestamp||'never — run npm run eval')+'</p>'
+    +'<div class="summary">'
+    +'<div class="stat blue"><div class="val">'+(DATA.summary.totalFeatures||FEATURES.length)+'</div><div class="lbl">Features</div></div>'
+    +'<div class="stat green"><div class="val">'+(presence.passed||0)+'</div><div class="lbl">Presence ✓</div></div>'
+    +'<div class="stat '+(presence.failed?'red':'green')+'"><div class="val">'+(presence.failed||0)+'</div><div class="lbl">Presence ✗</div></div>'
+    +'<div class="stat green"><div class="val">'+(unit.passed||0)+'</div><div class="lbl">Unit ✓</div></div>'
+    +'<div class="stat amber"><div class="val">'+(unit.todo||unit.skipped||0)+'</div><div class="lbl">Unit TODO</div></div>'
+    +'<div class="stat amber"><div class="val">'+gaps.length+'</div><div class="lbl">BRD Gaps</div></div>'
+    +'<div class="stat '+(secCritHigh?'red':'green')+'"><div class="val">'+secFindings.length+'</div><div class="lbl">Sec Issues</div></div>'
+    +'</div>'
+    +'<table><thead><tr><th>Feature</th><th>Priority</th><th>Presence</th><th>Unit</th><th>Notes</th></tr></thead><tbody id="feat-rows"></tbody></table>';
+
+  var tbody=document.getElementById('feat-rows');
+  FEATURES.forEach(function(f,i){
+    var presDetails=(presence.details||[]).filter(function(d){return d.featureId===f.id;});
+    var presFailed=presDetails.some(function(d){return d.status==='fail';});
+    var presCell=presDetails.length===0
+      ?'<span class="stub">— Not run</span>'
+      :(presFailed?'<span class="fail">✗ Fail</span>':'<span class="pass">✓ Pass</span>');
+    var unitTests=(unit.details||[]).filter(function(d){return d.featureId===f.id;});
+    var unitSt=featureSt(f.id,unit);
+    var unitCell;
+    if(!unitTests.length){
+      var unitLayerRan=!!(unit&&unit.layer);
+      unitCell=unitLayerRan?'<span class="warn">⏭ No tests</span>':'<span class="stub">— Not run</span>';
+      if(f.note)unitCell='<span class="stub">□ Stub/Partial</span>';
+    } else {
+      unitCell=unitIcon(unitSt)+'<button class="tog" onclick="togDetail(\'d'+i+'\',event)">▶ '+unitTests.length+' test'+(unitTests.length>1?'s':'')+'</button>';
+    }
+    var note=f.note?'<span class="warn">'+esc(f.note)+'</span>':'';
+    var tr=document.createElement('tr');
+    tr.className='expandable';
+    tr.setAttribute('onclick',"togDetail('d"+i+"',event)");
+    tr.innerHTML='<td><strong>'+esc(f.title)+'</strong><br><small style="color:#888">'+f.id+'</small></td><td>'+badge(f.priority)+'</td><td>'+presCell+'</td><td>'+unitCell+'</td><td>'+note+'</td>';
+    tbody.appendChild(tr);
+    if(unitTests.length){
+      var trows=unitTests.map(function(t){
+        var ico=t.status==='pass'?'✅':t.status==='fail'?'❌':'⏭';
+        var err=(t.status==='fail'&&t.detail)?'<pre class="em">'+esc(t.detail)+'</pre>':'';
+        return '<tr><td>'+ico+'</td><td>'+esc(t.name)+err+'</td></tr>';
+      }).join('');
+      var dr=document.createElement('tr');
+      dr.className='dr';dr.id='d'+i;
+      dr.innerHTML='<td colspan="5"><div class="di"><table><thead><tr><th style="width:28px"></th><th>Unit Test</th></tr></thead><tbody>'+trows+'</tbody></table></div></td>';
+      tbody.appendChild(dr);
+    }
+  });
+
+  document.getElementById('tab-gaps').innerHTML=
+    '<div class="gap-box red"><h3>🔴 Blockers</h3><ul>'+(blockers.length?blockers.map(function(b){return '<li>'+esc(b)+'</li>';}).join(''):'<li>None 🎉</li>')+'</ul></div>'
+    +'<div class="gap-box amber"><h3>⚠️ Open BRD Gaps</h3><ul>'+(gaps.length?gaps.map(function(g){return '<li>'+esc(g)+'</li>';}).join(''):'<li>None 🎉</li>')+'</ul></div>';
+})();
+
+(function renderHistory(){
+  var snaps=DATA.snapshots||[];
+  var el=document.getElementById('tab-iter');
+  if(!snaps.length){
+    el.innerHTML='<div class="iter-note">No iteration snapshots yet. Invoke the eval skill again after the next AI iteration to see a regression diff here.</div>';
+    return;
+  }
+  var labels=snaps.map(function(_,i){return 'Iter '+(i+1);});
+  labels.push('Current');
+  var all=snaps.concat([DATA]);
+  var hdr=labels.map(function(l){return '<th>'+l+'</th>';}).join('');
+  var rows=FEATURES.map(function(f){
+    var cells=all.map(function(snap,i){
+      var ul=snap.layers&&snap.layers.find(function(l){return l.layer==='unit';});
+      var prev=i>0?featureSt(f.id,all[i-1].layers&&all[i-1].layers.find(function(l){return l.layer==='unit';})):null;
+      var cur=featureSt(f.id,ul);
+      var cls=prev==='pass'&&cur==='fail'?'reg':prev&&prev!=='pass'&&cur==='pass'?'imp':'';
+      return '<td class="'+cls+'">'+unitIcon(cur)+'</td>';
+    }).join('');
+    return '<tr><td><strong>'+esc(f.title)+'</strong></td>'+cells+'</tr>';
+  }).join('');
+  el.innerHTML='<div class="iter-note">&#x1f534; = regression &nbsp; &#x1f7e2; = improvement &nbsp; New checks added by the skill may appear as new gaps even when code did not change.</div>'
+    +'<table><thead><tr><th>Feature</th>'+hdr+'</tr></thead><tbody>'+rows+'</tbody></table>';
+})();
+
+(function renderUnitTests(){
+  var unit=DATA.layers&&DATA.layers.find(function(l){return l.layer==='unit';})||{};
+  var details=unit.details||[];
+  var el=document.getElementById('tab-unit');
+
+  var total=details.length;
+  var nPassed=details.filter(function(t){return t.status==='pass';}).length;
+  var nFailed=details.filter(function(t){return t.status==='fail';}).length;
+  var nSkipped=details.filter(function(t){return t.status==='skip';}).length;
+
+  var html='<h2 style="font-size:1.1rem;margin-bottom:4px">Unit Tests</h2>';
+
+  if(!total){
+    html+='<div class="gap-box amber"><h3>&#x26a0;&#xfe0f; No unit test results found</h3>';
+    html+='<p style="font-size:.85rem">Run <code>npm run eval</code> to populate results, or check that each <code>it()</code> name starts with the exact feature ID from <code>evals/manifest.json</code>.</p></div>';
+    el.innerHTML=html;
+    return;
+  }
+
+  html+='<p style="font-size:.82rem;color:#605e5c;margin-bottom:16px">'+total+' tests &mdash; ';
+  html+='<span style="color:#107c10;font-weight:600">'+nPassed+' passed</span>';
+  if(nFailed) html+=' &nbsp;<span style="color:#a4262c;font-weight:600">'+nFailed+' failed</span>';
+  if(nSkipped) html+=' &nbsp;<span style="color:#7a5f00;font-weight:600">'+nSkipped+' todo/skipped</span>';
+  html+='</p>';
+
+  var byFeature={};var featureOrder=[];
+  details.forEach(function(t){
+    if(!byFeature[t.featureId]){byFeature[t.featureId]=[];featureOrder.push(t.featureId);}
+    byFeature[t.featureId].push(t);
+  });
+
+  featureOrder.forEach(function(fid){
+    var tests=byFeature[fid];
+    var feat=FEATURES.find(function(f){return f.id===fid;})||{id:fid,title:fid,priority:'medium'};
+    var fPassed=tests.filter(function(t){return t.status==='pass';}).length;
+    var fFailed=tests.filter(function(t){return t.status==='fail';}).length;
+    var fSkipped=tests.filter(function(t){return t.status==='skip';}).length;
+    var allPass=fFailed===0&&fSkipped===0;
+    var icon=fFailed>0?'&#x274c;':fSkipped>0&&fPassed===0?'&#x23ed;':'&#x2705;';
+    var countCls=fFailed>0?'color:#a4262c':allPass?'color:#107c10':'color:#7a5f00';
+
+    html+='<div style="background:white;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:14px;overflow:hidden">';
+    html+='<div style="padding:12px 16px;border-bottom:1px solid #edebe9;display:flex;align-items:center;gap:12px">';
+    html+='<span style="font-size:1.1rem">'+icon+'</span>';
+    html+='<div style="flex:1"><strong>'+esc(feat.title||fid)+'</strong> <small style="color:#888">'+esc(fid)+'</small></div>';
+    html+='<div style="font-size:.8rem;'+countCls+'">'+fPassed+' passed'+(fFailed?' &nbsp;'+fFailed+' failed':'')+(fSkipped?' &nbsp;'+fSkipped+' todo':'')+'</div>';
+    html+='</div>';
+    html+='<table style="width:100%;border-collapse:collapse"><thead><tr>';
+    html+='<th style="width:24px;background:#555;color:#fff;padding:7px 10px;font-size:.75rem"></th>';
+    html+='<th style="background:#555;color:#fff;padding:7px 12px;font-size:.75rem;text-align:left">What it verifies</th>';
+    html+='<th style="background:#555;color:#fff;padding:7px 10px;font-size:.75rem;width:65px">Result</th>';
+    html+='</tr></thead><tbody>';
+    tests.forEach(function(t){
+      var ico=t.status==='pass'?'&#x2705;':t.status==='fail'?'&#x274c;':'&#x23ed;';
+      var res=t.status==='pass'?'<span class="pass">Pass</span>':t.status==='fail'?'<span class="fail">Fail</span>':'<span class="warn">Todo</span>';
+      html+='<tr style="border-top:1px solid #f0f0f0">';
+      html+='<td style="padding:8px 10px;text-align:center;font-size:.9rem">'+ico+'</td>';
+      html+='<td style="padding:8px 12px;font-size:.83rem">'+esc(t.name);
+      if(t.status==='fail'&&t.detail) html+='<pre class="em">'+esc(t.detail.slice(0,400))+'</pre>';
+      html+='</td><td style="padding:8px 10px">'+res+'</td></tr>';
+    });
+    html+='</tbody></table></div>';
+  });
+
+  el.innerHTML=html;
+})();
+</script>
+</body>
+</html>
