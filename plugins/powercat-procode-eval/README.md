@@ -1,6 +1,10 @@
-# Power CAT Power Apps Eval Plugin
+# Power CAT Pro-Code Eval Plugin
 
-This plugin provides automated eval generation for Power Apps Code Apps and Generative Pages — two of the modern development surfaces on Microsoft Power Platform. In a single command it reads your source code, maps what is built against what was planned, runs unit tests in a sandboxed environment, and performs a static security scan. Results are surfaced through a self-contained HTML dashboard.
+This plugin provides automated eval generation for Power Apps Code Apps and Generative Pages — two of the modern pro-code development surfaces on Microsoft Power Platform. In a single command it reads your source code, maps what is built against what was planned, runs unit tests in a sandboxed environment, and performs a static security scan. Results are surfaced through a self-contained HTML dashboard.
+
+![Eval Dashboard — Current Run](assets/dashboard-current-run.png)
+
+![Eval Dashboard — Security Analysis](assets/dashboard-security.png)
 
 > **Preview:** This plugin is currently in [preview](https://www.microsoft.com/en-us/business-applications/legal/supp-powerplatform-preview/). These features are available before official release for customers to provide feedback.
 
