@@ -40,6 +40,23 @@
          "code apps", "power platform", "power apps",
          "design guide", "brand", "microsoft"
        ]
+     },
+     {
+       "name": "powercat-architecture-advisor",
+       "description": "Power CAT style architecture advisor for Power Platform scenarios with structured discovery and comprehensive implementation recommendations.",
+       "source": "./plugins/powercat-architecture-advisor",
+       "skills": [
+         "./plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor"
+       ],
+       "version": "0.1.0",
+       "repository": "https://github.com/microsoft/power-cat-skills",
+       "license": "MIT",
+       "category": "architecture",
+       "tags": [
+         "power platform", "architecture", "power apps",
+         "dataverse", "governance", "security",
+         "solution design", "microsoft"
+       ]
      }
   ]
 }
