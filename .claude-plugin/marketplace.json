@@ -5,41 +5,107 @@
     "name": "Microsoft Power CAT"
   },
   "description": "Power Platform development extensions curated by Microsoft Power CAT (Customer Advisory Team)",
-  "plugins": [    
+  "plugins": [
     {
-       "name": "powercat-canvas-apps",
-       "description": "Skills to analyze Canvas App performance and guide migrations from InfoPath and SharePoint to modern Power Platform.",
-       "source": "./plugins/powercat-canvas-apps",
-       "skills": [
-         "./plugins/powercat-canvas-apps/skills/analyze-canvas-performance",
-         "./plugins/powercat-canvas-apps/skills/infopath-to-canvas",
-         "./plugins/powercat-canvas-apps/skills/migrate-to-dataverse"
-       ],
-       "version": "1.0.7",
-       "repository": "https://github.com/microsoft/power-cat-skills",
-       "license": "MIT",
-       "category": "development",
-       "tags": [
-         "canvas apps", "power platform", "power apps",
-         "infopath", "dataverse", "performance",
-         "microsoft power platform", "microsoft"
-       ]
-     },
-     {
-       "name": "powercat-code-apps",
-       "description": "Skills to generate brand-aligned design guides for code apps built on the Power Platform.",
-       "source": "./plugins/powercat-code-apps",
-       "skills": [
-         "./plugins/powercat-code-apps/skills/design-guide"
-       ],
-       "version": "1.0.0",
-       "repository": "https://github.com/microsoft/power-cat-skills",
-       "license": "MIT",
-       "category": "development",
-       "tags": [
-         "code apps", "power platform", "power apps",
-         "design guide", "brand", "microsoft"
-       ]
-     }
+      "name": "powercat-adoption",
+      "description": "Skills for Power Platform adoption storytelling — turn customer stories into polished, brand-matched HTML presentation decks.",
+      "source": "./plugins/powercat-adoption",
+      "skills": [
+        "./plugins/powercat-adoption/skills/powercat-storytelling"
+      ],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "adoption", "storytelling", "power platform",
+        "presentations", "customer stories", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-canvas-apps",
+      "description": "Skills to analyze Canvas App performance and guide migrations from InfoPath and SharePoint to modern Power Platform.",
+      "source": "./plugins/powercat-canvas-apps",
+      "skills": [
+        "./plugins/powercat-canvas-apps/skills/analyze-canvas-performance",
+        "./plugins/powercat-canvas-apps/skills/infopath-to-canvas",
+        "./plugins/powercat-canvas-apps/skills/migrate-to-dataverse"
+      ],
+      "version": "1.0.7",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "canvas apps", "power platform", "power apps",
+        "infopath", "dataverse", "performance",
+        "microsoft power platform", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-code-apps",
+      "description": "Skills to generate brand-aligned design guides for code apps built on the Power Platform.",
+      "source": "./plugins/powercat-code-apps",
+      "skills": [
+        "./plugins/powercat-code-apps/skills/design-guide"
+      ],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "code apps", "power platform", "power apps",
+        "design guide", "brand", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-dataverse",
+      "description": "Skills for authoring and troubleshooting Microsoft Dataverse Web API queries — natural language to OData, FetchXML conversion, multi-surface targeting, and error diagnosis.",
+      "source": "./plugins/powercat-dataverse",
+      "skills": [
+        "./plugins/powercat-dataverse/skills/dataverse-webapi-query",
+        "./plugins/powercat-dataverse/skills/powercat-storytelling"
+      ],
+      "version": "1.0.7",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "dataverse", "web api", "odata", "fetchxml",
+        "power platform", "power apps", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-governance",
+      "description": "Skills for Power Platform governance and administration — provision developer environments with standard governance defaults and automate admin center workflows.",
+      "source": "./plugins/powercat-governance",
+      "skills": [
+        "./plugins/powercat-governance/skills/create-pp-dev-env"
+      ],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "governance", "power platform", "admin",
+        "developer environment", "managed environment", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-procode-eval",
+      "description": "Automated eval generation for Power Apps Code Apps and Generative Pages — feature presence checks, unit tests, static security analysis, and an HTML dashboard.",
+      "source": "./plugins/powercat-procode-eval",
+      "skills": [
+        "./plugins/powercat-procode-eval/skills/eval-generator-code-app",
+        "./plugins/powercat-procode-eval/skills/eval-generator-gen-pages"
+      ],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "eval", "testing", "code apps", "generative pages",
+        "security", "power platform", "power apps", "microsoft"
+      ]
+    }
   ]
 }
