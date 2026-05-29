@@ -1,0 +1,10 @@
+{
+  "name": "powercat-publish",
+  "version": "0.1.0",
+  "description": "Packages a folder of one or more skills into a Copilot CLI plugin with marketplace metadata and a generated README, optionally installs it locally, and optionally publishes it as a pull request to either microsoft/Power-CAT-Skills-Internal (Internal) or microsoft/power-cat-skills (Public). Includes automated public-readiness checks for PII, secrets, internal URLs, and local paths.",
+  "author": {
+    "name": "Power CAT",
+    "email": "ifain@microsoft.com"
+  },
+  "keywords": ["power-platform", "powercat", "plugin", "publish", "marketplace", "packaging"]
+}
