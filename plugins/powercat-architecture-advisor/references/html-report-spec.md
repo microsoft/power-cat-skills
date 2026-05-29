@@ -8,6 +8,7 @@ Read this file in full before writing the HTML output. Do not rely on the inline
 ## Overall structure
 
 The report has:
+
 - A **header bar** (Fluent blue `#0078d4`) showing the scenario name and generation date
 - **5 tabs**: Overview · Roadmap · Backlog · Decisions · Next Steps
 - A **sticky footer** with an "Email this report" button and a "Print / Save as PDF" button
@@ -74,6 +75,7 @@ footer { position: sticky; bottom: 0; background: white;
 ## Tab 1 — Overview
 
 Contains in order:
+
 1. **Scenario summary card** — 3–5 sentences: the problem, users, key decisions made
 2. **Architecture diagram card** — render the Mermaid diagram here using `<pre class="mermaid">…</pre>`
 3. **Component summary card** — one row per component (Canvas App, Dataverse tables, Power Automate flows, Power BI, connectors) with a plain-language "what it does" column
@@ -85,6 +87,7 @@ Contains in order:
 ## Tab 2 — Roadmap
 
 Three phase cards (use `.phase`, `.phase.p2`, `.phase.p3` classes):
+
 - **Phase 1 (Days 0–30) — Foundation**: table of tasks with Who and Notes columns
 - **Phase 2 (Days 31–60) — Build + Automate**: table of tasks
 - **Phase 3 (Days 61–90) — Harden + Scale**: table of tasks
@@ -101,6 +104,7 @@ A filterable table. Include a small `<input>` search box above the table that fi
 Seed with at least 3 starter rows covering environment setup, core tables, and solution structure. Add all backlog items derived from discovery.
 
 Filter JavaScript (inline):
+
 ```js
 document.getElementById('bl-search').addEventListener('input', function() {
   const q = this.value.toLowerCase();
@@ -115,6 +119,7 @@ document.getElementById('bl-search').addEventListener('input', function() {
 ## Tab 4 — Decisions
 
 One card per decision. Each card shows:
+
 - Decision ID + title (card heading)
 - Decision made (bold)
 - Options considered (bullet list)
@@ -129,11 +134,13 @@ Seed with at least DEC-001 (data source) and DEC-002 (app type), plus all decisi
 ## Tab 5 — Next Steps
 
 A numbered checklist of the top 5–8 actions the user should take immediately after reading this report. Each item:
+
 - Action verb + plain-language description
 - Who should do it
 - Any blocker or dependency called out in a `⚠️` note
 
 Example items:
+
 1. Share this report with your IT Admin — ask them to provision a Dev environment and review the DLP policy recommendation
 2. Confirm your Power BI Pro licence status before starting Phase 3
 3. Archive (do not delete) existing spreadsheets before the first data migration
@@ -143,6 +150,7 @@ Example items:
 ## Email button behaviour
 
 The footer "Email this report" button uses a `mailto:` link that:
+
 - Pre-fills **Subject**: `Power Platform Architecture Report — [Scenario Name]`
 - Pre-fills **Body**: a 5–8 line plain-text summary of the recommendation (scenario, pattern chosen, top 3 components, top 2 risks, link to open the HTML file if saved locally)
 - The button text: `📧 Email this report`
@@ -154,6 +162,7 @@ Generate the mailto body dynamically in JavaScript on page load so it reflects t
 ## Print button behaviour
 
 The footer "Print / Save as PDF" button calls `window.print()`. Add a `@media print` CSS block that:
+
 - Shows all tabs/panes (not just the active one)
 - Removes the sticky footer
 - Removes the tab bar

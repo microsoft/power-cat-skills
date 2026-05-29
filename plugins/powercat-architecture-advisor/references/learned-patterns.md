@@ -9,6 +9,6 @@ Entries here are reviewed by skill maintainers and promoted to the main table wh
 
 Each row uses the same column format as the main schema hints table:
 
-| Industry / Domain | Keywords to match | Suggested tables / patterns | Compliance / integration flags |
-|-------------------|------------------|-----------------------------|-------------------------------|
-| _(new entries appended below this row)_ | | | |
+| Industry / Domain                       | Keywords to match | Suggested tables / patterns | Compliance / integration flags |
+|-----------------------------------------|-------------------|-----------------------------|--------------------------------|
+| _(new entries appended below this row)_ |                   |                             |                                |
