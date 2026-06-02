@@ -1,0 +1,19 @@
+{
+  "name": "powercat-paranoid-curious-portfolio-pulse",
+  "version": "1.1.0",
+  "description": "Portfolio Pulse dashboard — aggregates Power BI and Sales Insights MCP data into an executive-ready portfolio health view.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "portfolio",
+    "dashboard",
+    "power-bi",
+    "sales-insights",
+    "mcp"
+  ]
+}

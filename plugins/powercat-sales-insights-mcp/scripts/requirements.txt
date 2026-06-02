@@ -1,0 +1,4 @@
+# Sales Insights MCP server dependencies
+msal>=1.31
+fastmcp>=0.1
+httpx>=0.28

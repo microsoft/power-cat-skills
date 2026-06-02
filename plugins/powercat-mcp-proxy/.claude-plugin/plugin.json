@@ -1,0 +1,19 @@
+{
+  "name": "powercat-mcp-proxy",
+  "version": "1.1.0",
+  "description": "MCP reverse-proxy manager — add, remove, and sign-in to MCP servers that require OAuth bearer tokens via a local FastAPI proxy.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "proxy",
+    "oauth",
+    "bearer-token",
+    "power-platform"
+  ]
+}

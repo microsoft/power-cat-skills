@@ -1,0 +1,19 @@
+{
+  "name": "powercat-sales-insights-mcp",
+  "version": "1.0.0",
+  "description": "Standalone local FastMCP server for Sales Insights — exposes successhub_query, open_pipeline, and cohort tools backed by Dataverse OData.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "sales-insights",
+    "mcp",
+    "dataverse",
+    "fastmcp",
+    "local-server"
+  ]
+}

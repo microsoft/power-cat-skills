@@ -106,6 +106,48 @@
         "eval", "testing", "code apps", "generative pages",
         "security", "power platform", "power apps", "microsoft"
       ]
+    },
+    {
+      "name": "powercat-mcp-proxy",
+      "description": "MCP reverse-proxy manager — add, remove, and sign-in to MCP servers that require OAuth bearer tokens via a local FastAPI proxy.",
+      "source": "./plugins/powercat-mcp-proxy",
+      "skills": [],
+      "version": "1.1.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "infrastructure",
+      "tags": [
+        "mcp", "proxy", "oauth", "bearer-token",
+        "power platform", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-sales-insights-mcp",
+      "description": "Standalone local FastMCP server for Sales Insights — exposes successhub_query, open_pipeline, and cohort tools backed by Dataverse OData.",
+      "source": "./plugins/powercat-sales-insights-mcp",
+      "skills": [],
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "infrastructure",
+      "tags": [
+        "sales-insights", "mcp", "dataverse", "fastmcp",
+        "local-server", "power platform", "microsoft"
+      ]
+    },
+    {
+      "name": "powercat-paranoid-curious-portfolio-pulse",
+      "description": "Portfolio Pulse dashboard — aggregates Power BI and Sales Insights MCP data into an executive-ready portfolio health view.",
+      "source": "./plugins/powercat-paranoid-curious-portfolio-pulse",
+      "skills": [],
+      "version": "1.1.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "dashboard",
+      "tags": [
+        "portfolio", "dashboard", "power-bi", "sales-insights",
+        "mcp", "power platform", "microsoft"
+      ]
     }
   ]
 }

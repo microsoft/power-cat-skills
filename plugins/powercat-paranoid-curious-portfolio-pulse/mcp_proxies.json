@@ -1,0 +1,12 @@
+{
+  "power_bi_mcp": {
+    "port": 8765,
+    "type": "reverse-proxy",
+    "upstream": "https://api.powerbi.com/mcp"
+  },
+  "sales_insights_-_dataverse": {
+    "port": 8767,
+    "type": "standalone-local",
+    "note": "SI MCP is a local FastMCP server, NOT a reverse proxy. Use install-task.ps1 from powercat-sales-insights-mcp."
+  }
+}
