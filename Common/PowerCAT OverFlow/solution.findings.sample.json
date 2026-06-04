@@ -1,0 +1,279 @@
+{
+  "solution": {
+    "name": "Engineering Workflow Integration",
+    "uniqueName": "EngineeringWorkflowIntegration",
+    "version": "1.0.0.332",
+    "summary": "This solution orchestrates the engineering case-handling lifecycle across CRM, SAP and SharePoint with 75 cloud flows. Overall posture is **high risk** — the solution mixes long-running orchestrations with point integrations, several copies of the same flow (Copyof-cf_SingleTaskAllocation, two variants of cf_SOFEuropeSingleTaskAllocation, MayankTest, Test, Test2) live alongside production flows, and child-flow patterns are inconsistent. Top priorities: consolidate the duplicated allocation flows, remove the *Test*/*MayankTest* flows from the production solution, and split the largest orchestrators into child flows.",
+    "categories": [
+      {
+        "category": "Complexity",
+        "impact": "high",
+        "summary": "Several flows exceed the 50-action guideline and use deeply nested switch/condition trees. cf_DERSLAScheduledProcessForMCD and cf_MasterDataMigration_Latest are the worst offenders.",
+        "flowsAffected": 18
+      },
+      {
+        "category": "Maintainability",
+        "impact": "high",
+        "summary": "Five duplicate/test flows in the production solution and inconsistent naming (Cf_ vs cf_ prefix) hurt long-term maintenance. No flows have run-history-friendly Scope grouping.",
+        "flowsAffected": 22
+      },
+      {
+        "category": "Security",
+        "impact": "medium",
+        "summary": "HTTP actions use bearer tokens read from variables initialized in plaintext. No explicit consent/connection reference checks. Recommend moving secrets to Key Vault and using service-principal connections.",
+        "flowsAffected": 9
+      },
+      {
+        "category": "Performance",
+        "impact": "medium",
+        "summary": "Allocation scheduler flows query Dataverse with unfiltered List Rows and then filter in-flow. Several flows use Do Until with default 60 iterations and no exit guard.",
+        "flowsAffected": 12
+      }
+    ],
+    "topRisks": [
+      {
+        "label": "Duplicate flows shipped in production solution",
+        "desc": "Copyof-cf_SingleTaskAllocation, MayankTest, Test and Test2 are present in the solution alongside their originals. Remove or move to a dev/sandbox solution before next release.",
+        "impact": "high",
+        "category": "Maintainability"
+      },
+      {
+        "label": "Plaintext bearer token in HTTP call to SAP",
+        "desc": "cf_4DERSLCreateServiceActivityinSAP initializes the SAP bearer token in a string variable using a hardcoded value. Replace with a Key Vault lookup or a Custom Connector that uses managed authentication.",
+        "impact": "high",
+        "category": "Security",
+        "flow": "cf_4DERSLCreateServiceActivityinSAP",
+        "action": "Get_SAP_Activity_Integration_Audit"
+      },
+      {
+        "label": "Unbounded Do Until in allocation scheduler",
+        "desc": "cf_AllocationScheduler_TotalPoolCapacityForEuropeS uses the default Do Until limits with no explicit success guard. Risk of hitting the 60-iteration / 1-hour ceiling silently in production.",
+        "impact": "high",
+        "category": "Performance",
+        "flow": "cf_AllocationScheduler_TotalPoolCapacityForEuropeS",
+        "action": "Do_until_PoolCapacityReady"
+      },
+      {
+        "label": "Flow too large to be testable",
+        "desc": "cf_MasterDataMigration_Latest is 132 actions with no Scope grouping. Split into child flows by domain (product / user / competency).",
+        "impact": "high",
+        "category": "Complexity",
+        "flow": "cf_MasterDataMigration_Latest"
+      },
+      {
+        "label": "Inconsistent naming prefix",
+        "desc": "Solution mixes Cf_, cf_ and bare prefixes (Bestuser, MayankTest, Test, Test2). Pick one convention and rename before publishing 1.1.0.",
+        "impact": "medium",
+        "category": "Maintainability"
+      }
+    ],
+    "stats": {
+      "flowCount": 75,
+      "totalActions": 4218,
+      "highImpactFlows": 18,
+      "flowsReviewed": 75
+    }
+  },
+  "flows": {
+    "cf_AcknowledgeCaseId": [
+      {
+        "category": "Complexity",
+        "impact": "low",
+        "items": [
+          {
+            "label": "Simple acknowledgement flow",
+            "desc": "12 actions, single condition branch. Within guidelines.",
+            "impact": "low"
+          }
+        ]
+      },
+      {
+        "category": "Maintainability",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "No description on trigger",
+            "desc": "The HTTP trigger has no description string. Add a short summary so the next maintainer understands the contract without reading the body.",
+            "impact": "medium",
+            "action": "manual"
+          }
+        ]
+      },
+      {
+        "category": "Security",
+        "impact": "low",
+        "items": [
+          {
+            "label": "Trigger is authenticated",
+            "desc": "Uses 'When a HTTP request is received' with the 'Only users in my tenant' option. Acceptable for internal use.",
+            "impact": "low"
+          }
+        ]
+      },
+      {
+        "category": "Performance",
+        "impact": "low",
+        "items": [
+          {
+            "label": "Synchronous response",
+            "desc": "Returns immediately after writing the acknowledgement. No retry logic needed at this scale.",
+            "impact": "low"
+          }
+        ]
+      }
+    ],
+    "cf_4DERSLCreateServiceActivityinSAP": [
+      {
+        "category": "Security",
+        "impact": "high",
+        "items": [
+          {
+            "label": "Plaintext SAP bearer token",
+            "desc": "Bearer token is initialized as a string variable using a hardcoded value from solution import. Rotate the token, then move to Key Vault or a Custom Connector with managed auth.",
+            "impact": "high",
+            "action": "Get_SAP_Activity_Integration_Audit"
+          },
+          {
+            "label": "No HTTP retry policy",
+            "desc": "The HTTP action against SAP uses the default retry policy. SAP timeouts will not be retried with exponential backoff.",
+            "impact": "medium",
+            "action": "HTTP_CreateServiceActivity"
+          }
+        ]
+      },
+      {
+        "category": "Complexity",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "62 actions",
+            "desc": "Total action count exceeds the 50-action guideline. Consider extracting the SAP payload-building actions into a child flow.",
+            "impact": "medium"
+          }
+        ]
+      },
+      {
+        "category": "Maintainability",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "Connector reference points at named SAP env",
+            "desc": "Hardcoded reference to 'sap-prod-eu' connection. Use a solution environment variable so the same flow can move between dev/test/prod without rebinding.",
+            "impact": "medium"
+          }
+        ]
+      },
+      {
+        "category": "Performance",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "No request body size guard",
+            "desc": "Activity payload built from the trigger body without a size check. Large case payloads (>1MB) will silently fail the SAP gateway.",
+            "impact": "medium"
+          }
+        ]
+      }
+    ],
+    "cf_AllocationScheduler_TotalPoolCapacityForEuropeS": [
+      {
+        "category": "Performance",
+        "impact": "high",
+        "items": [
+          {
+            "label": "Unbounded Do Until",
+            "desc": "Do_until_PoolCapacityReady uses the default 60-iteration / 1-hour ceiling. Add a 'maxRetries' parameter and an explicit exit condition on a flag in Dataverse.",
+            "impact": "high",
+            "action": "Do_until_PoolCapacityReady"
+          },
+          {
+            "label": "List Rows without filter",
+            "desc": "List_engineers_in_region returns all engineers and then filters with a Filter Array. Push the filter into the FetchXML query — this currently retrieves ~12k rows per run.",
+            "impact": "high",
+            "action": "List_engineers_in_region"
+          }
+        ]
+      },
+      {
+        "category": "Complexity",
+        "impact": "high",
+        "items": [
+          {
+            "label": "Nested Apply To Each (3 deep)",
+            "desc": "Three nested Apply To Each loops over regions × pools × engineers. Refactor into a child flow keyed on region.",
+            "impact": "high"
+          }
+        ]
+      },
+      {
+        "category": "Maintainability",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "Magic numbers in capacity formula",
+            "desc": "Capacity divisor 4.5 and reserve buffer 0.15 are hardcoded inline. Promote to solution parameters.",
+            "impact": "medium"
+          }
+        ]
+      },
+      {
+        "category": "Security",
+        "impact": "low",
+        "items": [
+          {
+            "label": "Service-account connection",
+            "desc": "Runs as a dedicated service account with least-privilege Dataverse roles. Good.",
+            "impact": "low"
+          }
+        ]
+      }
+    ],
+    "cf_MasterDataMigration_Latest": [
+      {
+        "category": "Complexity",
+        "impact": "high",
+        "items": [
+          {
+            "label": "132 actions",
+            "desc": "Largest flow in the solution. No Scope grouping. Split into 3 child flows (Product / User / Competency).",
+            "impact": "high"
+          }
+        ]
+      },
+      {
+        "category": "Maintainability",
+        "impact": "high",
+        "items": [
+          {
+            "label": "Two near-duplicates",
+            "desc": "cf_MasterDataMigration_EWAStage and cf_MasterDataMigration share ~80% of their action graph with this flow. Pick one canonical version and delete the others.",
+            "impact": "high"
+          }
+        ]
+      },
+      {
+        "category": "Performance",
+        "impact": "medium",
+        "items": [
+          {
+            "label": "Sequential bulk inserts",
+            "desc": "Bulk inserts to Dataverse run sequentially inside an Apply To Each. Enable concurrency control (degree 20) or move to a single Bulk Insert action.",
+            "impact": "medium"
+          }
+        ]
+      },
+      {
+        "category": "Security",
+        "impact": "low",
+        "items": [
+          {
+            "label": "Runs under solution-bound service principal",
+            "desc": "Good. No additional changes needed.",
+            "impact": "low"
+          }
+        ]
+      }
+    ]
+  }
+}
+
