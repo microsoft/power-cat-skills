@@ -213,39 +213,41 @@
   .traffic span:nth-child(2) { background: #f5be4f; opacity: 1; }
   .traffic span:nth-child(3) { background: #61c554; opacity: 1; }
 
-  .mock-flow {
-    display: flex; flex-direction: column; gap: 10px;
-    padding: 10px;
-    background: var(--cp-bg-elevated);
+  .hc-shot {
+    display: block; line-height: 0; border-radius: 3px; overflow: hidden;
     border: 1px solid var(--cp-border);
-    border-radius: 3px;
+    background: var(--cp-bg-elevated);
+    transition: border-color 0.15s ease;
   }
-  .mock-node {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px;
+  .hc-shot:hover { border-color: var(--cp-accent); text-decoration: none; }
+  .hc-shot img { width: 100%; height: auto; display: block; }
+
+  /* ========== Screenshot showcase ========== */
+  .shots { display: grid; grid-template-columns: 1fr; gap: 22px; }
+  .shot {
     background: var(--cp-surface);
     border: 1px solid var(--cp-border);
     border-radius: 3px;
-    font-size: 13px;
-    position: relative;
+    overflow: hidden;
   }
-  .mock-node .pill {
-    font-size: 10.5px; padding: 2px 7px; border-radius: 3px;
-    font-weight: 600; letter-spacing: 0.02em;
-    background: var(--cp-surface-soft); color: var(--cp-text);
-    border: 1px solid var(--cp-border);
+  .shot-img {
+    display: block; width: 100%; height: auto;
+    border-bottom: 1px solid var(--cp-border);
   }
-  .mock-node.trigger .pill { background: var(--cp-accent-soft); color: var(--cp-accent); border-color: var(--cp-accent-soft); }
-  .mock-node.flagged { border-color: var(--cp-accent); box-shadow: 0 0 0 3px var(--cp-accent-soft); }
-  .mock-node .name { flex: 1; color: var(--cp-text); font-weight: 500; }
-  .mock-node .badge {
-    font-size: 11px; font-weight: 600;
-    color: var(--cp-accent);
-    display: inline-flex; align-items: center; gap: 4px;
+  .shot-meta {
+    padding: 16px 20px;
+    display: flex; gap: 16px; align-items: flex-start;
   }
-  .connector {
-    width: 1px; height: 12px; background: var(--cp-border-strong);
-    margin-left: 22px;
+  .shot-meta .tag {
+    flex-shrink: 0;
+    background: var(--cp-accent); color: var(--cp-accent-fg);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 4px 8px; border-radius: 3px; text-transform: uppercase;
+  }
+  .shot-meta h4 { margin: 0 0 4px; font-size: 16px; color: var(--cp-text); letter-spacing: -0.01em; }
+  .shot-meta p { margin: 0; color: var(--cp-text-muted); font-size: 14px; }
+  @media (min-width: 900px) {
+    .shots { grid-template-columns: 1fr 1fr; gap: 22px; }
   }
 
   /* ========== Section headings ========== */
@@ -375,19 +377,23 @@
 
   /* ========== Steps ========== */
   .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
-  .steps li {
+  .steps > li {
     position: relative; padding: 4px 0 4px 44px; margin: 18px 0;
     counter-increment: step;
   }
-  .steps li::before {
+  .steps > li::before {
     content: counter(step);
     position: absolute; left: 0; top: 0;
     width: 30px; height: 30px; border-radius: 3px;
     background: var(--cp-accent); color: var(--cp-accent-fg);
     display: grid; place-items: center; font-weight: 700; font-size: 13px;
   }
-  .steps li strong { display: block; margin-bottom: 4px; font-size: 15px; color: var(--cp-text); }
-  .steps li p { margin: 4px 0 8px; }
+  .steps > li strong { display: block; margin-bottom: 4px; font-size: 15px; color: var(--cp-text); }
+  .steps > li p { margin: 4px 0 8px; }
+  .steps ul {
+    list-style: disc; padding-left: 22px; margin: 6px 0 10px;
+  }
+  .steps ul li { margin: 4px 0; padding: 0; }
 
   /* ========== Callout ========== */
   .callout {
@@ -477,6 +483,7 @@
       <span>PowerCAT <span style="color: var(--cp-accent);">OverFlow</span></span>
     </a>
     <nav class="nav-links">
+      <a href="#screenshots">See it in action</a>
       <a href="#what">What it is</a>
       <a href="#features">Features</a>
       <a href="#docs">Documentation</a>
@@ -511,33 +518,53 @@
       </div>
     </div>
 
-    <div class="hero-card" aria-hidden="true">
+    <div class="hero-card">
       <div class="hc-header">
         <div class="traffic"><span></span><span></span><span></span></div>
-        <span>PowerCAT-Overflow.html &#x2014; OnboardingFlow</span>
+        <span>PowerCAT-Overflow.html &#x2014; Stress_028_UntilLoop</span>
       </div>
-      <div class="mock-flow">
-        <div class="mock-node trigger">
-          <span class="pill">TRIGGER</span>
-          <span class="name">When a new employee is created</span>
-        </div>
-        <div class="connector"></div>
-        <div class="mock-node">
-          <span class="pill">CONTROL</span>
-          <span class="name">Apply to each (parallel: off)</span>
-        </div>
-        <div class="connector"></div>
-        <div class="mock-node flagged">
-          <span class="pill">ACTION</span>
-          <span class="name">HTTP &#x2014; POST to internal API</span>
-          <span class="badge">&#x25CF; 2 critical</span>
-        </div>
-        <div class="connector"></div>
-        <div class="mock-node">
-          <span class="pill">ACTION</span>
-          <span class="name">Send email v2</span>
-        </div>
-      </div>
+      <a href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener" class="hc-shot">
+        <img src="screenshot-flow.png" alt="PowerCAT OverFlow viewer showing a flow diagram with Maintainability, Security and Performance findings" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SCREENSHOTS ========== -->
+<section id="screenshots">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span>See it in action</span>
+      <h2>An interactive review &#x2014; not a static report.</h2>
+      <p>Two views you'll use every day: a solution-wide executive summary with category roll-ups and top risks, and a per-flow diagram with findings overlaid on the actions that triggered them.</p>
+    </div>
+
+    <div class="shots">
+      <figure class="shot">
+        <a href="https://microsoft.github.io/power-cat-skills/PowerCAT-OverFlow-Demo.html" target="_blank" rel="noopener">
+          <img class="shot-img" src="screenshot-overview.png" alt="Solution Overview with executive summary, category roll-up, and top risks across flows" />
+        </a>
+        <figcaption class="shot-meta">
+          <span class="tag">Solution Overview</span>
+          <div>
+            <h4>Executive summary, category roll-ups, top risks</h4>
+            <p>Open any reviewed solution and the first screen tells you everything &#x2014; total flows, action counts, the three biggest priorities, and severity-tagged risks per category.</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <a href="https://microsoft.github.io/power-cat-skills/PowerCAT-OverFlow-Demo.html" target="_blank" rel="noopener">
+          <img class="shot-img" src="screenshot-flow.png" alt="Flow detail view with JSON editor, interactive diagram, and Flow Evaluation Report sidebar" />
+        </a>
+        <figcaption class="shot-meta">
+          <span class="tag">Flow Detail</span>
+          <div>
+            <h4>Diagram, JSON, and Flow Evaluation Report side-by-side</h4>
+            <p>Click any flow to see its actions as nodes, the raw JSON live-bound to the diagram, and a Maintainability / Security / Performance report with remediation hints linked to Microsoft Learn.</p>
+          </div>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
