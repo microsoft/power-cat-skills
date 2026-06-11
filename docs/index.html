@@ -111,7 +111,7 @@
     display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap;
   }
   .nav-links a {
-    color: var(--cp-text-muted); padding: 6px 10px; border-radius: 8px;
+    color: var(--cp-text-muted); padding: 6px 10px; border-radius: 3px;
     font-size: 13.5px; font-weight: 500;
   }
   .nav-links a:hover {
@@ -119,14 +119,14 @@
   }
   .nav-cta {
     background: var(--cp-accent); color: var(--cp-accent-fg) !important;
-    padding: 7px 14px !important; border-radius: 8px; font-weight: 600;
+    padding: 7px 14px !important; border-radius: 3px; font-weight: 600;
   }
   .nav-cta:hover { background: var(--cp-accent-hover); }
 
   .theme-toggle {
-    background: transparent; border: 1px solid var(--cp-border);
+    background: transparent; border: 3px solid var(--cp-border);
     color: var(--cp-text-muted); width: 32px; height: 32px;
-    border-radius: 8px; cursor: pointer; display: grid; place-items: center;
+    border-radius: 3px; cursor: pointer; display: grid; place-items: center;
   }
   .theme-toggle:hover { background: var(--cp-surface-soft); color: var(--cp-text); }
 
@@ -150,13 +150,13 @@
   @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 5px 10px; border-radius: 999px;
+    padding: 5px 10px; border-radius: 3px;
     background: var(--cp-accent-soft); color: var(--cp-accent);
     font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase;
   }
   .eyebrow .dot {
-    width: 6px; height: 6px; border-radius: 50%; background: var(--cp-accent);
+    width: 6px; height: 6px; border-radius: 3px; background: var(--cp-accent);
   }
   h1 {
     font-size: clamp(36px, 5vw, 56px);
@@ -170,9 +170,9 @@
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 18px; border-radius: 10px;
+    padding: 11px 18px; border-radius: 3px;
     font-size: 14.5px; font-weight: 600; cursor: pointer;
-    border: 1px solid transparent; transition: all 0.15s ease;
+    border: 3px solid transparent; transition: all 0.15s ease;
     text-decoration: none;
   }
   .btn:hover { text-decoration: none; transform: translateY(-1px); }
@@ -188,8 +188,8 @@
 
   .hero-card {
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 16px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px;
     padding: 22px;
     box-shadow: var(--cp-shadow);
     position: relative;
@@ -206,7 +206,7 @@
   }
   .traffic { display: flex; gap: 6px; }
   .traffic span {
-    width: 11px; height: 11px; border-radius: 50%;
+    width: 11px; height: 11px; border-radius: 3px;
     background: var(--cp-border-strong); opacity: 0.5;
   }
   .traffic span:nth-child(1) { background: #ed6a5e; opacity: 1; }
@@ -217,23 +217,23 @@
     display: flex; flex-direction: column; gap: 10px;
     padding: 10px;
     background: var(--cp-bg-elevated);
-    border: 1px solid var(--cp-border);
-    border-radius: 12px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px;
   }
   .mock-node {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 12px;
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 10px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px;
     font-size: 13px;
     position: relative;
   }
   .mock-node .pill {
-    font-size: 10.5px; padding: 2px 7px; border-radius: 999px;
+    font-size: 10.5px; padding: 2px 7px; border-radius: 3px;
     font-weight: 600; letter-spacing: 0.02em;
     background: var(--cp-surface-soft); color: var(--cp-text);
-    border: 1px solid var(--cp-border);
+    border: 3px solid var(--cp-border);
   }
   .mock-node.trigger .pill { background: var(--cp-accent-soft); color: var(--cp-accent); border-color: var(--cp-accent-soft); }
   .mock-node.flagged { border-color: var(--cp-accent); box-shadow: 0 0 0 3px var(--cp-accent-soft); }
@@ -244,7 +244,7 @@
     display: inline-flex; align-items: center; gap: 4px;
   }
   .connector {
-    width: 1px; height: 12px; background: var(--cp-border-strong);
+    width: 3px; height: 12px; background: var(--cp-text);
     margin-left: 22px;
   }
 
@@ -266,8 +266,8 @@
   @media (max-width: 900px) { .actions { grid-template-columns: 1fr; } }
   .action-card {
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 16px; padding: 24px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px; padding: 24px;
     display: flex; flex-direction: column; gap: 14px;
     transition: transform 0.15s ease, border-color 0.15s ease;
   }
@@ -275,7 +275,7 @@
     transform: translateY(-2px); border-color: var(--cp-accent);
   }
   .action-icon {
-    width: 40px; height: 40px; border-radius: 10px;
+    width: 40px; height: 40px; border-radius: 3px;
     background: var(--cp-accent-soft); color: var(--cp-accent);
     display: grid; place-items: center;
   }
@@ -290,11 +290,11 @@
   @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
   .feature {
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 16px; padding: 22px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px; padding: 22px;
   }
   .feature .ficon {
-    width: 32px; height: 32px; border-radius: 8px;
+    width: 32px; height: 32px; border-radius: 3px;
     background: var(--cp-accent-soft); color: var(--cp-accent);
     display: grid; place-items: center; margin-bottom: 12px;
   }
@@ -314,7 +314,7 @@
   .docs-side ul { list-style: none; padding: 0; margin: 0 0 22px; }
   .docs-side li { margin: 2px 0; }
   .docs-side a {
-    display: block; padding: 6px 10px; border-radius: 8px;
+    display: block; padding: 6px 10px; border-radius: 3px;
     font-size: 13.5px; color: var(--cp-text-muted);
   }
   .docs-side a:hover {
@@ -333,8 +333,8 @@
   .code {
     position: relative;
     background: var(--cp-surface-soft);
-    border: 1px solid var(--cp-border);
-    border-radius: 12px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px;
     padding: 14px 16px;
     font-size: 13.5px; color: var(--cp-text);
     overflow-x: auto;
@@ -345,20 +345,20 @@
   .code .copy {
     position: absolute; top: 8px; right: 8px;
     background: var(--cp-surface); color: var(--cp-text-muted);
-    border: 1px solid var(--cp-border); border-radius: 6px;
+    border: 3px solid var(--cp-border); border-radius: 3px;
     padding: 4px 8px; font-size: 11.5px; cursor: pointer;
     font-family: "Segoe UI", Aptos, Calibri, sans-serif;
   }
   .code .copy:hover { color: var(--cp-text); border-color: var(--cp-border-strong); }
   code.inline {
     background: var(--cp-accent-soft); color: var(--cp-accent);
-    padding: 1.5px 6px; border-radius: 5px; font-size: 0.9em;
+    padding: 1.5px 6px; border-radius: 3px; font-size: 0.9em;
   }
 
   /* ========== Table ========== */
   .tbl {
     width: 100%; border-collapse: collapse; margin: 12px 0 18px;
-    border: 1px solid var(--cp-border); border-radius: 12px; overflow: hidden;
+    border: 3px solid var(--cp-border); border-radius: 3px; overflow: hidden;
   }
   .tbl th, .tbl td {
     text-align: left; padding: 10px 14px; font-size: 14px;
@@ -382,7 +382,7 @@
   .steps li::before {
     content: counter(step);
     position: absolute; left: 0; top: 0;
-    width: 30px; height: 30px; border-radius: 50%;
+    width: 30px; height: 30px; border-radius: 3px;
     background: var(--cp-accent); color: var(--cp-accent-fg);
     display: grid; place-items: center; font-weight: 700; font-size: 13px;
   }
@@ -392,7 +392,7 @@
   /* ========== Callout ========== */
   .callout {
     background: var(--cp-accent-soft); border-left: 3px solid var(--cp-accent);
-    padding: 12px 16px; border-radius: 8px; margin: 14px 0 18px;
+    padding: 12px 16px; border-radius: 3px; margin: 14px 0 18px;
     font-size: 14px; color: var(--cp-text);
   }
   .callout strong { color: var(--cp-accent); }
@@ -400,8 +400,8 @@
   /* ========== Troubleshoot ========== */
   details.tshoot {
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 12px; padding: 0;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px; padding: 0;
     margin-bottom: 10px;
   }
   details.tshoot summary {
@@ -430,13 +430,13 @@
     display: flex; align-items: center; gap: 14px;
     padding: 16px 18px;
     background: var(--cp-surface);
-    border: 1px solid var(--cp-border);
-    border-radius: 12px;
+    border: 3px solid var(--cp-border);
+    border-radius: 3px;
     transition: border-color 0.15s ease;
   }
   .res:hover { border-color: var(--cp-accent); text-decoration: none; }
   .res-icon {
-    width: 40px; height: 40px; border-radius: 10px;
+    width: 40px; height: 40px; border-radius: 3px;
     background: var(--cp-accent-soft); color: var(--cp-accent);
     display: grid; place-items: center; flex-shrink: 0;
   }
@@ -495,7 +495,6 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>Microsoft Power CAT &#x2022; June 2026</span>
       <h1>Review every Power Automate flow in your solution &#x2014; in seconds.</h1>
       <p class="lead">
         PowerCAT OverFlow is an AI-powered plugin and viewer that audits every cloud flow in a Power Platform solution against Microsoft's authoring guidelines, then renders each flow as an interactive diagram with risks, categories and remediation hints.
