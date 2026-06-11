@@ -220,7 +220,7 @@
     transition: border-color 0.15s ease;
   }
   .hc-shot:hover { border-color: var(--cp-accent); text-decoration: none; }
-  .hc-shot img { width: 100%; height: auto; display: block; }
+  .hc-shot img, .hc-shot video { width: 100%; height: auto; display: block; }
 
   /* ========== Screenshot showcase ========== */
   .shots { display: grid; grid-template-columns: 1fr; gap: 22px; }
@@ -524,7 +524,12 @@
         <span>PowerCAT-Overflow.html &#x2014; Stress_028_UntilLoop</span>
       </div>
       <a href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener" class="hc-shot">
-        <img src="screenshot-hero.png" alt="PowerCAT OverFlow viewer showing a flow diagram with Maintainability, Security and Performance findings" />
+        <video
+          src="PowerCAT-OverFlow-Demo.mp4"
+          poster="screenshot-hero.png"
+          autoplay muted loop playsinline preload="metadata"
+          aria-label="PowerCAT OverFlow viewer demo">
+        </video>
       </a>
     </div>
   </div>
