@@ -124,7 +124,7 @@
   .nav-cta:hover { background: var(--cp-accent-hover); }
 
   .theme-toggle {
-    background: transparent; border: 3px solid var(--cp-border);
+    background: transparent; border: 1px solid var(--cp-border);
     color: var(--cp-text-muted); width: 32px; height: 32px;
     border-radius: 3px; cursor: pointer; display: grid; place-items: center;
   }
@@ -172,7 +172,7 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 11px 18px; border-radius: 3px;
     font-size: 14.5px; font-weight: 600; cursor: pointer;
-    border: 3px solid transparent; transition: all 0.15s ease;
+    border: 1px solid transparent; transition: all 0.15s ease;
     text-decoration: none;
   }
   .btn:hover { text-decoration: none; transform: translateY(-1px); }
@@ -188,7 +188,7 @@
 
   .hero-card {
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px;
     padding: 22px;
     box-shadow: var(--cp-shadow);
@@ -217,14 +217,14 @@
     display: flex; flex-direction: column; gap: 10px;
     padding: 10px;
     background: var(--cp-bg-elevated);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px;
   }
   .mock-node {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 12px;
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px;
     font-size: 13px;
     position: relative;
@@ -233,7 +233,7 @@
     font-size: 10.5px; padding: 2px 7px; border-radius: 3px;
     font-weight: 600; letter-spacing: 0.02em;
     background: var(--cp-surface-soft); color: var(--cp-text);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
   }
   .mock-node.trigger .pill { background: var(--cp-accent-soft); color: var(--cp-accent); border-color: var(--cp-accent-soft); }
   .mock-node.flagged { border-color: var(--cp-accent); box-shadow: 0 0 0 3px var(--cp-accent-soft); }
@@ -244,7 +244,7 @@
     display: inline-flex; align-items: center; gap: 4px;
   }
   .connector {
-    width: 3px; height: 12px; background: var(--cp-text);
+    width: 1px; height: 12px; background: var(--cp-border-strong);
     margin-left: 22px;
   }
 
@@ -266,7 +266,7 @@
   @media (max-width: 900px) { .actions { grid-template-columns: 1fr; } }
   .action-card {
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px; padding: 24px;
     display: flex; flex-direction: column; gap: 14px;
     transition: transform 0.15s ease, border-color 0.15s ease;
@@ -290,7 +290,7 @@
   @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
   .feature {
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px; padding: 22px;
   }
   .feature .ficon {
@@ -333,7 +333,7 @@
   .code {
     position: relative;
     background: var(--cp-surface-soft);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px;
     padding: 14px 16px;
     font-size: 13.5px; color: var(--cp-text);
@@ -345,7 +345,7 @@
   .code .copy {
     position: absolute; top: 8px; right: 8px;
     background: var(--cp-surface); color: var(--cp-text-muted);
-    border: 3px solid var(--cp-border); border-radius: 3px;
+    border: 1px solid var(--cp-border); border-radius: 3px;
     padding: 4px 8px; font-size: 11.5px; cursor: pointer;
     font-family: "Segoe UI", Aptos, Calibri, sans-serif;
   }
@@ -358,7 +358,7 @@
   /* ========== Table ========== */
   .tbl {
     width: 100%; border-collapse: collapse; margin: 12px 0 18px;
-    border: 3px solid var(--cp-border); border-radius: 3px; overflow: hidden;
+    border: 1px solid var(--cp-border); border-radius: 3px; overflow: hidden;
   }
   .tbl th, .tbl td {
     text-align: left; padding: 10px 14px; font-size: 14px;
@@ -400,7 +400,7 @@
   /* ========== Troubleshoot ========== */
   details.tshoot {
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px; padding: 0;
     margin-bottom: 10px;
   }
@@ -430,7 +430,7 @@
     display: flex; align-items: center; gap: 14px;
     padding: 16px 18px;
     background: var(--cp-surface);
-    border: 3px solid var(--cp-border);
+    border: 1px solid var(--cp-border);
     border-radius: 3px;
     transition: border-color 0.15s ease;
   }
