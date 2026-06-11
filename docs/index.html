@@ -1,0 +1,865 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PowerCAT OverFlow — AI-powered Power Automate flow review</title>
+<link rel="icon" href="data:image/png;base64,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" />
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --cp-bg: #ffffff;
+    --cp-bg-elevated: #ffffff;
+    --cp-surface: #ffffff;
+    --cp-surface-soft: #f6f6f6;
+    --cp-border: #e6e6e6;
+    --cp-border-strong: #cfcfcf;
+    --cp-text: #000000;
+    --cp-text-muted: #404040;
+    --cp-text-soft: #6b6b6b;
+    --cp-accent: #D85A86;
+    --cp-accent-hover: #c34772;
+    --cp-accent-soft: rgba(216, 90, 134, 0.10);
+    --cp-accent-fg: #ffffff;
+    --cp-success: #16a34a;
+    --cp-danger: #dc2626;
+    --cp-warning: #b45309;
+    --cp-link: #000000;
+    --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+    --cp-overlay: rgba(255, 255, 255, 0.85);
+    --cp-panel: rgba(255, 255, 255, 0.90);
+    --cp-panel-strong: rgba(255, 255, 255, 0.98);
+    --cp-sheen: rgba(255, 255, 255, 0.5);
+    --cp-highlight: rgba(216, 90, 134, 0.12);
+    --logo-filter: none;
+  }
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --cp-bg: #000000;
+    --cp-bg-elevated: #0c0c0c;
+    --cp-surface: #121212;
+    --cp-surface-soft: #181818;
+    --cp-border: #262626;
+    --cp-border-strong: #3d3d3d;
+    --cp-text: #ffffff;
+    --cp-text-muted: #b8b8b8;
+    --cp-text-soft: #8a8a8a;
+    --cp-accent: #D85A86;
+    --cp-accent-hover: #e87aa0;
+    --cp-accent-soft: rgba(216, 90, 134, 0.16);
+    --cp-accent-fg: #ffffff;
+    --cp-success: #4ade80;
+    --cp-danger: #f87171;
+    --cp-warning: #fbbf24;
+    --cp-link: #ffffff;
+    --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+    --cp-overlay: rgba(0, 0, 0, 0.85);
+    --cp-panel: rgba(0, 0, 0, 0.78);
+    --cp-panel-strong: rgba(0, 0, 0, 0.96);
+    --cp-sheen: rgba(255, 255, 255, 0.04);
+    --cp-highlight: rgba(216, 90, 134, 0.14);
+    --logo-filter: invert(1) brightness(1.15);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cp-bg);
+    color: var(--cp-text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  code, pre { font-family: Consolas, "Courier New", Courier, monospace; }
+  a { color: var(--cp-link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .logo-img {
+    width: 100%; height: 100%; object-fit: contain;
+    filter: var(--logo-filter);
+  }
+
+  /* ========== Top nav ========== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--cp-panel-strong);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--cp-border);
+  }
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 15px; color: var(--cp-text);
+    letter-spacing: -0.01em;
+  }
+  .brand-mark {
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+  }
+  .nav-links {
+    display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: var(--cp-text-muted); padding: 6px 10px; border-radius: 8px;
+    font-size: 13.5px; font-weight: 500;
+  }
+  .nav-links a:hover {
+    background: var(--cp-accent-soft); color: var(--cp-accent); text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--cp-accent); color: var(--cp-accent-fg) !important;
+    padding: 7px 14px !important; border-radius: 8px; font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--cp-accent-hover); }
+
+  .theme-toggle {
+    background: transparent; border: 1px solid var(--cp-border);
+    color: var(--cp-text-muted); width: 32px; height: 32px;
+    border-radius: 8px; cursor: pointer; display: grid; place-items: center;
+  }
+  .theme-toggle:hover { background: var(--cp-surface-soft); color: var(--cp-text); }
+
+  /* ========== Layout ========== */
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  section { padding: 72px 0; }
+  section + section { border-top: 1px solid var(--cp-border); }
+
+  /* ========== Hero ========== */
+  .hero {
+    background:
+      radial-gradient(900px 360px at 88% -10%, var(--cp-highlight), transparent 60%),
+      radial-gradient(700px 320px at 0% 0%, var(--cp-accent-soft), transparent 65%);
+    padding: 88px 0 64px;
+    border-top: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 1fr;
+    gap: 56px; align-items: center;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 10px; border-radius: 999px;
+    background: var(--cp-accent-soft); color: var(--cp-accent);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--cp-accent);
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.06; letter-spacing: -0.02em;
+    margin: 18px 0 18px; font-weight: 700; color: var(--cp-text);
+  }
+  .hero p.lead {
+    font-size: 18.5px; color: var(--cp-text-muted);
+    max-width: 560px; margin: 0 0 28px;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 10px;
+    font-size: 14.5px; font-weight: 600; cursor: pointer;
+    border: 1px solid transparent; transition: all 0.15s ease;
+    text-decoration: none;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-primary { background: var(--cp-accent); color: var(--cp-accent-fg); }
+  .btn-primary:hover { background: var(--cp-accent-hover); }
+  .btn-secondary {
+    background: var(--cp-surface); color: var(--cp-text);
+    border-color: var(--cp-border-strong);
+  }
+  .btn-secondary:hover { border-color: var(--cp-text); }
+  .btn-ghost { background: transparent; color: var(--cp-text-muted); }
+  .btn-ghost:hover { color: var(--cp-text); background: var(--cp-surface-soft); }
+
+  .hero-card {
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: var(--cp-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, var(--cp-sheen), transparent 40%);
+    pointer-events: none;
+  }
+  .hc-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    font-size: 13px; color: var(--cp-text-muted); font-weight: 500;
+  }
+  .traffic { display: flex; gap: 6px; }
+  .traffic span {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--cp-border-strong); opacity: 0.5;
+  }
+  .traffic span:nth-child(1) { background: #ed6a5e; opacity: 1; }
+  .traffic span:nth-child(2) { background: #f5be4f; opacity: 1; }
+  .traffic span:nth-child(3) { background: #61c554; opacity: 1; }
+
+  .mock-flow {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 10px;
+    background: var(--cp-bg-elevated);
+    border: 1px solid var(--cp-border);
+    border-radius: 12px;
+  }
+  .mock-node {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 10px;
+    font-size: 13px;
+    position: relative;
+  }
+  .mock-node .pill {
+    font-size: 10.5px; padding: 2px 7px; border-radius: 999px;
+    font-weight: 600; letter-spacing: 0.02em;
+    background: var(--cp-surface-soft); color: var(--cp-text);
+    border: 1px solid var(--cp-border);
+  }
+  .mock-node.trigger .pill { background: var(--cp-accent-soft); color: var(--cp-accent); border-color: var(--cp-accent-soft); }
+  .mock-node.flagged { border-color: var(--cp-accent); box-shadow: 0 0 0 3px var(--cp-accent-soft); }
+  .mock-node .name { flex: 1; color: var(--cp-text); font-weight: 500; }
+  .mock-node .badge {
+    font-size: 11px; font-weight: 600;
+    color: var(--cp-accent);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .connector {
+    width: 1px; height: 12px; background: var(--cp-border-strong);
+    margin-left: 22px;
+  }
+
+  /* ========== Section headings ========== */
+  .section-head { max-width: 720px; margin: 0 0 44px; }
+  .section-head h2 {
+    font-size: clamp(26px, 3.2vw, 34px);
+    letter-spacing: -0.015em; line-height: 1.15;
+    margin: 10px 0 12px; font-weight: 700;
+  }
+  .section-head p {
+    font-size: 16.5px; color: var(--cp-text-muted); margin: 0;
+  }
+
+  /* ========== Quick action cards ========== */
+  .actions {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  @media (max-width: 900px) { .actions { grid-template-columns: 1fr; } }
+  .action-card {
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 16px; padding: 24px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .action-card:hover {
+    transform: translateY(-2px); border-color: var(--cp-accent);
+  }
+  .action-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--cp-accent-soft); color: var(--cp-accent);
+    display: grid; place-items: center;
+  }
+  .action-card h3 { margin: 0; font-size: 17px; letter-spacing: -0.01em; color: var(--cp-text); }
+  .action-card p { margin: 0; color: var(--cp-text-muted); font-size: 14.5px; flex: 1; }
+  .action-card .btn { align-self: flex-start; }
+
+  /* ========== Features grid ========== */
+  .features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
+  .feature {
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 16px; padding: 22px;
+  }
+  .feature .ficon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--cp-accent-soft); color: var(--cp-accent);
+    display: grid; place-items: center; margin-bottom: 12px;
+  }
+  .feature h4 { margin: 0 0 6px; font-size: 15.5px; letter-spacing: -0.01em; color: var(--cp-text); }
+  .feature p { margin: 0; color: var(--cp-text-muted); font-size: 14px; }
+
+  /* ========== Docs ========== */
+  .docs-grid {
+    display: grid; grid-template-columns: 240px 1fr; gap: 36px;
+  }
+  @media (max-width: 900px) { .docs-grid { grid-template-columns: 1fr; } }
+  .docs-side { position: sticky; top: 88px; align-self: start; }
+  .docs-side h5 {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cp-text-soft); margin: 0 0 10px; font-weight: 700;
+  }
+  .docs-side ul { list-style: none; padding: 0; margin: 0 0 22px; }
+  .docs-side li { margin: 2px 0; }
+  .docs-side a {
+    display: block; padding: 6px 10px; border-radius: 8px;
+    font-size: 13.5px; color: var(--cp-text-muted);
+  }
+  .docs-side a:hover {
+    background: var(--cp-accent-soft); color: var(--cp-accent); text-decoration: none;
+  }
+  .docs-main h3 {
+    font-size: 22px; letter-spacing: -0.01em; margin: 0 0 8px;
+    scroll-margin-top: 90px; color: var(--cp-text);
+  }
+  .docs-main h3:not(:first-child) { margin-top: 40px; }
+  .docs-main h4 { font-size: 16px; margin: 22px 0 8px; color: var(--cp-text); }
+  .docs-main p { color: var(--cp-text-muted); }
+  .docs-main ul { color: var(--cp-text-muted); }
+
+  /* ========== Code blocks ========== */
+  .code {
+    position: relative;
+    background: var(--cp-surface-soft);
+    border: 1px solid var(--cp-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13.5px; color: var(--cp-text);
+    overflow-x: auto;
+    margin: 12px 0 18px;
+  }
+  .code pre { margin: 0; white-space: pre; }
+  .code .prompt { color: var(--cp-accent); user-select: none; }
+  .code .copy {
+    position: absolute; top: 8px; right: 8px;
+    background: var(--cp-surface); color: var(--cp-text-muted);
+    border: 1px solid var(--cp-border); border-radius: 6px;
+    padding: 4px 8px; font-size: 11.5px; cursor: pointer;
+    font-family: "Segoe UI", Aptos, Calibri, sans-serif;
+  }
+  .code .copy:hover { color: var(--cp-text); border-color: var(--cp-border-strong); }
+  code.inline {
+    background: var(--cp-accent-soft); color: var(--cp-accent);
+    padding: 1.5px 6px; border-radius: 5px; font-size: 0.9em;
+  }
+
+  /* ========== Table ========== */
+  .tbl {
+    width: 100%; border-collapse: collapse; margin: 12px 0 18px;
+    border: 1px solid var(--cp-border); border-radius: 12px; overflow: hidden;
+  }
+  .tbl th, .tbl td {
+    text-align: left; padding: 10px 14px; font-size: 14px;
+    border-bottom: 1px solid var(--cp-border);
+  }
+  .tbl th {
+    background: var(--cp-surface-soft); color: var(--cp-text);
+    font-weight: 600; font-size: 12.5px; letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl td { color: var(--cp-text-muted); }
+  .tbl td:first-child { color: var(--cp-text); font-weight: 500; }
+
+  /* ========== Steps ========== */
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .steps li {
+    position: relative; padding: 4px 0 4px 44px; margin: 18px 0;
+    counter-increment: step;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--cp-accent); color: var(--cp-accent-fg);
+    display: grid; place-items: center; font-weight: 700; font-size: 13px;
+  }
+  .steps li strong { display: block; margin-bottom: 4px; font-size: 15px; color: var(--cp-text); }
+  .steps li p { margin: 4px 0 8px; }
+
+  /* ========== Callout ========== */
+  .callout {
+    background: var(--cp-accent-soft); border-left: 3px solid var(--cp-accent);
+    padding: 12px 16px; border-radius: 8px; margin: 14px 0 18px;
+    font-size: 14px; color: var(--cp-text);
+  }
+  .callout strong { color: var(--cp-accent); }
+
+  /* ========== Troubleshoot ========== */
+  details.tshoot {
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 12px; padding: 0;
+    margin-bottom: 10px;
+  }
+  details.tshoot summary {
+    cursor: pointer; padding: 14px 18px; font-weight: 600;
+    font-size: 14.5px; list-style: none;
+    display: flex; align-items: center; gap: 10px;
+    color: var(--cp-text);
+  }
+  details.tshoot summary::-webkit-details-marker { display: none; }
+  details.tshoot summary::before {
+    content: "+"; color: var(--cp-accent); font-weight: 700; font-size: 18px;
+    width: 16px; display: inline-block;
+  }
+  details.tshoot[open] summary::before { content: "−"; }
+  details.tshoot .body {
+    padding: 0 18px 16px 44px; color: var(--cp-text-muted); font-size: 14px;
+  }
+  details.tshoot .body code.inline { font-size: 0.92em; }
+
+  /* ========== Resources ========== */
+  .resources {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  @media (max-width: 800px) { .resources { grid-template-columns: 1fr; } }
+  .res {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px;
+    background: var(--cp-surface);
+    border: 1px solid var(--cp-border);
+    border-radius: 12px;
+    transition: border-color 0.15s ease;
+  }
+  .res:hover { border-color: var(--cp-accent); text-decoration: none; }
+  .res-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--cp-accent-soft); color: var(--cp-accent);
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .res-text { flex: 1; min-width: 0; }
+  .res-text .t {
+    color: var(--cp-text); font-weight: 600; font-size: 14.5px;
+    display: block; margin-bottom: 2px;
+  }
+  .res-text .s {
+    color: var(--cp-text-muted); font-size: 13px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    display: block;
+  }
+  .res-arrow { color: var(--cp-text-soft); flex-shrink: 0; }
+
+  /* ========== Footer ========== */
+  footer {
+    background: var(--cp-surface-soft);
+    border-top: 1px solid var(--cp-border);
+    padding: 36px 0;
+  }
+  .foot {
+    max-width: 1180px; margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    font-size: 13px; color: var(--cp-text-muted);
+  }
+  .foot .sep { color: var(--cp-border-strong); }
+  .foot .right { margin-left: auto; }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark"><img class="logo-img" src="data:image/png;base64,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" alt="PowerCAT" /></span>
+      <span>PowerCAT <span style="color: var(--cp-accent);">OverFlow</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#what">What it is</a>
+      <a href="#features">Features</a>
+      <a href="#docs">Documentation</a>
+      <a href="#resources">Resources</a>
+      <a class="nav-cta" href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener">Launch app &#x2197;</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light / dark">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </button>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Microsoft Power CAT &#x2022; June 2026</span>
+      <h1>Review every Power Automate flow in your solution &#x2014; in seconds.</h1>
+      <p class="lead">
+        PowerCAT OverFlow is an AI-powered plugin and viewer that audits every cloud flow in a Power Platform solution against Microsoft's authoring guidelines, then renders each flow as an interactive diagram with risks, categories and remediation hints.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener">
+          Launch the App
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+        </a>
+        <a class="btn btn-secondary" href="https://microsoft.github.io/power-cat-skills/PowerCAT-OverFlow-Demo.html" target="_blank" rel="noopener">
+          Try the Demo
+        </a>
+        <a class="btn btn-ghost" href="#docs">Read the docs &#x2192;</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="hc-header">
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <span>PowerCAT-Overflow.html &#x2014; OnboardingFlow</span>
+      </div>
+      <div class="mock-flow">
+        <div class="mock-node trigger">
+          <span class="pill">TRIGGER</span>
+          <span class="name">When a new employee is created</span>
+        </div>
+        <div class="connector"></div>
+        <div class="mock-node">
+          <span class="pill">CONTROL</span>
+          <span class="name">Apply to each (parallel: off)</span>
+        </div>
+        <div class="connector"></div>
+        <div class="mock-node flagged">
+          <span class="pill">ACTION</span>
+          <span class="name">HTTP &#x2014; POST to internal API</span>
+          <span class="badge">&#x25CF; 2 critical</span>
+        </div>
+        <div class="connector"></div>
+        <div class="mock-node">
+          <span class="pill">ACTION</span>
+          <span class="name">Send email v2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT IT IS ========== -->
+<section id="what">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span>How it works</span>
+      <h2>Two parts that work together.</h2>
+      <p>A Copilot CLI plugin scans your solution and writes a single findings file. The hosted viewer turns that file into an interactive review you can share with anyone.</p>
+    </div>
+
+    <div class="actions">
+      <div class="action-card">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+        </div>
+        <h3>1. The plugin (skill)</h3>
+        <p>A GitHub Copilot CLI skill that scans every flow in a Power Platform solution against Microsoft's authoring guidelines and writes a single <code class="inline">[Solution].findings.json</code> next to your file.</p>
+        <a class="btn btn-secondary" href="https://github.com/microsoft/Power-CAT-Skills" target="_blank" rel="noopener">Get the plugin &#x2197;</a>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+        </div>
+        <h3>2. The viewer (app)</h3>
+        <p>A hosted single-page app that loads a solution and its findings and renders each flow as an interactive diagram &#x2014; with risks, categories, and remediation hints overlaid on every action.</p>
+        <a class="btn btn-primary" href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener">Launch the app &#x2197;</a>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>3. The demo</h3>
+        <p>A pre-configured viewer with a real solution and findings already loaded. Open it, click around, get the feel of OverFlow in 30 seconds &#x2014; no install required.</p>
+        <a class="btn btn-secondary" href="https://microsoft.github.io/power-cat-skills/PowerCAT-OverFlow-Demo.html" target="_blank" rel="noopener">Open the demo &#x2197;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span>What you get</span>
+      <h2>Designed for makers and reviewers alike.</h2>
+      <p>Solution-level roll-ups for the people who need the big picture; flow-level diagrams and remediation hints for the people who write and fix the flows.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 14l4-4 4 4 6-6"></path></svg>
+        </div>
+        <h4>Solution overview</h4>
+        <p>Category roll-ups and top risks across the whole solution, surfaced the moment you open a review.</p>
+      </div>
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="12" cy="18" r="3"></circle><path d="M6 9v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M12 14v1"></path></svg>
+        </div>
+        <h4>Interactive flow diagrams</h4>
+        <p>Every action rendered as a node, with findings overlaid on the actions that triggered them.</p>
+      </div>
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+        </div>
+        <h4>Filter by severity</h4>
+        <p>Slice findings by severity (Critical / Warning / Info / Pass), category, or action type &#x2014; without leaving the page.</p>
+      </div>
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        </div>
+        <h4>Inline code editor</h4>
+        <p>Click any action to view its code. Edit and the diagram updates immediately &#x2014; perfect for walkthroughs.</p>
+      </div>
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-12V5l8-3 8 3v5c0 7.5-8 12-8 12z"></path></svg>
+        </div>
+        <h4>Microsoft-authored guidelines</h4>
+        <p>Findings come from a curated list of Power Automate authoring guidelines, fetched live from the marketplace repo.</p>
+      </div>
+      <div class="feature">
+        <div class="ficon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <h4>Shareable artifacts</h4>
+        <p>The findings JSON pairs with your solution .zip &#x2014; hand both to a colleague and they get the same interactive review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DOCUMENTATION ========== -->
+<section id="docs">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span>Documentation</span>
+      <h2>From zero to first review in under five minutes.</h2>
+      <p>Install the plugin once, drag-and-drop a solution into Copilot CLI, and the viewer opens with findings overlaid &#x2014; automatically.</p>
+    </div>
+
+    <div class="docs-grid">
+      <aside class="docs-side">
+        <h5>On this page</h5>
+        <ul>
+          <li><a href="#prereq">Prerequisites</a></li>
+          <li><a href="#install">Install the plugin</a></li>
+          <li><a href="#review">Review a solution</a></li>
+          <li><a href="#manual">Use the viewer manually</a></li>
+          <li><a href="#troubleshoot">Troubleshooting</a></li>
+        </ul>
+      </aside>
+
+      <div class="docs-main">
+
+        <h3 id="prereq">Prerequisites</h3>
+        <p>Before you install the plugin, make sure the following are in place.</p>
+        <table class="tbl">
+          <thead><tr><th>Requirement</th><th>Why you need it</th></tr></thead>
+          <tbody>
+            <tr><td>GitHub Copilot license</td><td>Required to use Copilot CLI and run skills (Business or Enterprise plan with CLI access).</td></tr>
+            <tr><td>GitHub Copilot CLI</td><td>The command-line host that loads plugins and runs skills. Install per the official Copilot CLI docs.</td></tr>
+            <tr><td>Power Platform solution (.zip)</td><td>An unmanaged or managed export containing a <code class="inline">Workflows/</code> folder with at least one cloud flow.</td></tr>
+            <tr><td>Modern browser</td><td>Microsoft Edge, Chrome, or Firefox to open the hosted PowerCAT OverFlow viewer.</td></tr>
+            <tr><td>Internet access</td><td>The skill fetches the authoritative review source list and opens the GitHub Pages viewer.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <strong>Heads-up on licensing.</strong> Copilot CLI access is gated by your GitHub Copilot subscription. If the <code class="inline">copilot</code> command isn't available or returns an authentication error, confirm with your admin that CLI usage is enabled for your seat.
+        </div>
+
+        <h3 id="install">Install the PowerCAT OverFlow plugin</h3>
+        <p>Run these commands inside an active GitHub Copilot CLI session. The first two only need to be run once; afterwards the plugin auto-updates when the marketplace publishes a new version.</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Open a Copilot CLI session</strong>
+            <p>Open a terminal and start Copilot CLI:</p>
+            <div class="code"><button class="copy">Copy</button><pre><span class="prompt">$</span> copilot</pre></div>
+          </li>
+          <li>
+            <strong>Add the Power CAT Skills marketplace</strong>
+            <p>Register the Power CAT marketplace so Copilot CLI can discover its plugins:</p>
+            <div class="code"><button class="copy">Copy</button><pre>/plugin marketplace add https://github.com/microsoft/Power-CAT-Skills</pre></div>
+          </li>
+          <li>
+            <strong>Install the <code class="inline">powercat-overflow</code> plugin</strong>
+            <p>Install the plugin from the marketplace you just added:</p>
+            <div class="code"><button class="copy">Copy</button><pre>/plugin install powercat-overflow@power-cat-skills</pre></div>
+            <p>Confirm the install when Copilot CLI prompts you. The skill is now available in any Copilot CLI session.</p>
+          </li>
+        </ol>
+
+        <div class="callout">
+          <strong>Verify the install.</strong> Type <code class="inline">/plugin list</code> and confirm <code class="inline">powercat-overflow</code> appears with the status "installed".
+        </div>
+
+        <h3 id="review">Review a solution with the plugin</h3>
+        <p>Once installed, the skill runs end-to-end: it scans every flow, writes a findings JSON next to the uploaded solution, opens the hosted viewer in your browser, and attaches both files for you.</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Export a Power Platform solution</strong>
+            <p>In the Power Apps maker portal, export the solution that contains the flows you want to review. Either Managed or Unmanaged is fine, as long as a <code class="inline">Workflows/</code> folder is present. Save the .zip somewhere reachable from your terminal.</p>
+          </li>
+          <li>
+            <strong>Trigger the skill</strong>
+            <p>Inside an active Copilot CLI session, drag-and-drop or attach the solution .zip, then type a natural prompt:</p>
+            <div class="code"><button class="copy">Copy</button><pre>review my solution</pre></div>
+            <p>Other prompts that trigger the same skill:</p>
+            <div class="code"><pre>powercat overflow
+audit Power Automate solution
+check this solution against guidelines</pre></div>
+          </li>
+          <li>
+            <strong>Let the plugin do its work</strong>
+            <p>The skill will:</p>
+            <ul>
+              <li>Fetch the authoritative review source list from <code class="inline">microsoft/power-cat-skills</code>.</li>
+              <li>Unpack the solution and locate every flow under <code class="inline">Workflows/</code>.</li>
+              <li>Score each flow against the guidelines and classify findings as Critical, Warning, Info, or Pass.</li>
+              <li>Write <code class="inline">[SolutionName].findings.json</code> next to your uploaded solution.</li>
+              <li>Open the hosted viewer and attach both files.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Explore the findings in the viewer</strong>
+            <p>Once the viewer loads, you can browse all flows in the left-hand nav, open the Solution Overview to see category roll-ups and top risks, click any flow to see its actions as a diagram with findings overlaid, filter by severity / category / action type, click on findings to reveal the related action, and click any action to view or edit its code &#x2014; the diagram updates immediately.</p>
+          </li>
+        </ol>
+
+        <div class="callout">
+          <strong>Output location.</strong> The findings JSON is written to the same folder as the solution .zip you attached. Keep them paired &#x2014; the viewer expects both files together.
+        </div>
+
+        <h3 id="manual">Load a solution and findings manually</h3>
+        <p>You can also use the viewer on its own, no Copilot CLI required. This is useful when someone shares a solution and findings pair with you, or you want to re-open a previous review.</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Open the viewer</strong>
+            <p>In any modern browser, open <a href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener">microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html</a>.</p>
+          </li>
+          <li>
+            <strong>Load the solution file</strong>
+            <p>On the welcome window, in the Required step, click <em>Open solution (.zip)</em> and pick your Power Platform solution export. The viewer reads the <code class="inline">Workflows/</code> folder, parses each flow, and renders the Solution Overview.</p>
+          </li>
+          <li>
+            <strong>Load the findings file (optional)</strong>
+            <p>In the Optional step, click <em>Open findings (.json)</em> and pick the matching <code class="inline">[SolutionName].findings.json</code>. The viewer overlays findings on each flow and unlocks the Top Risks and Category Roll-up cards in the Solution Overview.</p>
+          </li>
+          <li>
+            <strong>Swap files at any time</strong>
+            <p>You can re-open the file dialogs from the top bar to swap in a different solution or different findings file without reloading the page. The viewer redraws the navigation and overview automatically.</p>
+          </li>
+        </ol>
+
+        <h3 id="troubleshoot">Troubleshooting</h3>
+
+        <details class="tshoot">
+          <summary>Plugin not found</summary>
+          <div class="body">Re-run <code class="inline">/plugin marketplace add microsoft/power-cat-skills</code>, then <code class="inline">/plugin install powercat-overflow@power-cat-skills</code>.</div>
+        </details>
+        <details class="tshoot">
+          <summary>Skill fails fetching the source list</summary>
+          <div class="body">The skill needs internet access to reach the authoritative guidelines file. Check your network, then retry.</div>
+        </details>
+        <details class="tshoot">
+          <summary>Viewer shows the welcome window after loading</summary>
+          <div class="body">The solution .zip likely has no <code class="inline">Workflows/</code> folder. Export a solution that contains at least one Power Automate cloud flow.</div>
+        </details>
+        <details class="tshoot">
+          <summary>Top Risks card stays empty</summary>
+          <div class="body">Findings JSON is missing or doesn't match the loaded solution. Re-run the skill, or load the matching <code class="inline">[SolutionName].findings.json</code> manually.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESOURCES ========== -->
+<section id="resources">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span>Additional resources</span>
+      <h2>Everything you need to dig deeper.</h2>
+      <p>Source, samples, and demo builds &#x2014; bookmark these for reviews, walkthroughs, and customer demos.</p>
+    </div>
+
+    <div class="resources">
+      <a class="res" href="https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html" target="_blank" rel="noopener">
+        <div class="res-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M10 14L21 3M21 14v7H3V3h7"></path></svg></div>
+        <div class="res-text"><span class="t">Hosted Viewer App</span><span class="s">microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html</span></div>
+        <span class="res-arrow">&#x2192;</span>
+      </a>
+      <a class="res" href="https://microsoft.github.io/power-cat-skills/PowerCAT-OverFlow-Demo.html" target="_blank" rel="noopener">
+        <div class="res-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        <div class="res-text"><span class="t">Demo build (preloaded)</span><span class="s">PowerCAT-OverFlow-Demo.html &#x2014; solution &amp; findings already loaded</span></div>
+        <span class="res-arrow">&#x2192;</span>
+      </a>
+      <a class="res" href="https://github.com/microsoft/Power-CAT-Skills" target="_blank" rel="noopener">
+        <div class="res-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></div>
+        <div class="res-text"><span class="t">Marketplace repository</span><span class="s">github.com/microsoft/Power-CAT-Skills</span></div>
+        <span class="res-arrow">&#x2192;</span>
+      </a>
+      <a class="res" href="https://github.com/microsoft/power-cat-skills/tree/main/Common/PowerCAT%20OverFlow" target="_blank" rel="noopener">
+        <div class="res-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></div>
+        <div class="res-text"><span class="t">Sample solution &amp; findings</span><span class="s">github.com/microsoft/power-cat-skills/tree/main/Common/PowerCAT OverFlow</span></div>
+        <span class="res-arrow">&#x2192;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="foot">
+    <span class="brand">
+      <span class="brand-mark"><img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMMAAADDCAYAAAA/f6WqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAB2nSURBVHhe7V0JmB1Vmc2CzriBoEm6u+pWvW463W/pDowNgoLGBESdGRfUMGBAgoCAuC+4DEtcxnFhEZ1xdPQTCH5qlB1BWdTBsIowiho22ZJACAwkZGELCXPOfX+13S/VnX7vVdWr+/o/33e+95J+Vff+995z/7vfKQqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVDkH9OKQdA5EIbFou/Prfj+mwaM2aPs+727heHL5TdtgXK5/MJKV5eBnQOw782lINgftg8NBkFPb2/v38nPFJMRpUIhRIE4EgXip5UwvHmwULgdn3fh80+VIFhWMuabFWMOeH7KlKnyiLOYHYalsjEfg02/HAiCWyH+u8A75xQKt5WD4Dcl3z8RohiSnysmE8o9PfuiECwth+EKfG5GwXh+mIXC8xDF8xDERvztDhSij6Og7CyPOod+Y95aNOYq2LQGNv3NzsjW6v89Bjuvh8c4BI9Mqz6paHtUPG8eMv46ikAK/fP4vg3t36p8HL85rbejY4a8whnA1nfB1ltpI22Js5OMbMVv74cgjsCjKoh2B5pF+yHDb7AFoKZAjEVbSMLwSXz/RrGr6xXyqtyj6HnvRLPoj1YINTaNRdqKZ1ag73QUXjG9+iZFO8G2+SkE9A9ujCsE26PUqk+iD/EtFwRBj4BCfVs9QojI3yOtVqDSOAavUkG0ESIh7I/CcVNc5k+U0ox4Cs2Ib++ZY0H0B8G7Ec8/xdkwUUYeAjwWr1RBtAGsENB5fCMy9XdxmV4vbS1rzNMl3/9OHj1E2fPejXj+uTbejdB6CGMeAI/Dq3eohqBwEVYInDdAwb05LrMbZSQIvPu78BK72NBygEHPW4CC+5e4ODdKEQQ9xHFzVRBOwgqBE0vIUAph68gMToLDHsKY7+bBQyAeByE+y+PimgRFEGwyqSAcghVCn+e9Bf2E3yMjExdCRAoCHeqn8dnSJlPJ8w6FEG6Pi2OSpCAQzjHqIdxAtWnU2fmmtIUQMRIEvn+7r6/vlTYWGQKF87PgfbXxSosURDEIjkbQ2qnOO9BZPgBCSKVpNBZFEE+hoPxHX2dnZoKACD4D2lnluHilQYYFMawsheH7EAX1EHmFHTWqdpYzE0LEyENAEN/s7e1NfaYatn4aYT0cF5fUyWFXCAKfixCVF1RjpMgNZB4hkeHTRjk8DxEEZ/TMmjVTopY4YOunILzVteFnSbF1Bforhw2pIPKDUlfXfsighmaWk2Y0U40Ce1oKgpiK2vgT8EIPZtk0GosDICqglWXfXzg0NKSCaDXKnjcfTYZcCCGibTKF4SbUnF8f6O6eJVFtDgsWTMf7Po73r8qDECJy5SsEsUIF0WKgwHH1aa6EEJEeAoV2I+L3tWYFMXfu3B0g+I+iJl6RJyFEFA+xAl7rPYyrRFuRFfqry7BvyGPhiJiEIFjbon9AITwgTbBckh4Ctj5gBaGjTNmhPwzfgJroegohz2IgRwqie+bMugTBbZoQwYfx/H15FkJExhF9pRWI80JEX/dDpA0IYZ4rQog4QhBfL8+Y0SGmjAvuSYZH+IgrQohoBcHFfUFwGMxQQaQFJPZ814QQUQSxCd+/FG7/oIGp6JB+EM/c65IQIjJv6CHQzzlch11TABK5DP6Pi0KIaAu2MetQUA6FIP5eTNsGpTD8R/x+uYtCiMi4o+JaRU8Ok9RDJAkk7DchAi6Ki018V8iOJj7/2F8o9Itpo8BmFMRwMQrTltpnXaOI+TJ0qifUNFRMAHN4zk8Q8BiXbRLcRQ7yRApj3lueMuWFYuIw+o1520ChsKpdbAW3whPuJ+YpmgU7Y0jUR9qlgPB4Ftj0ndrTNjh6VESfAnaud90DRmSeFX3/5P5XvOJlYqaiGaDgfBmFY31cYrtIEfWNPMlOTLTo7+9/mT3QLAieqX3GVVoxQPhZruZta0AMP+CK0LjEdpGs9WHP/ZWOjpKYaMHjLGHrFfiN8/2FiBQDvaCKISGg8HwF3BCX2C5SPMPvIIhdxUQLNiVKxpyHvz078vcu04rBmO+5eABbLoFO5SIk7BopRM7TjigZs6R2lIUTbahFT4edG+g94p51jVYMvv/lnp6encRMRTNgcwIJu6JdxGBHk4LgyLiTrweC4J8glrYS/oAxbxTzFM2CoyyoXc5CAXK+YykjSbfxWHgxbxToLWDn5RCD8/0G8YBXwbN3iXmKJMC5BrQ9/+JyjRk1fSCGQ8e7DwEF6G2w9QGXm0o2n4xZC1v3h0k6A500UDj+GQl8l4uFhIUDBfw5eLgTt9d+5rJt2LkIBWmlw7Y+BRuOGU/0iiaBRH47EvkOlwqJeDOOEJ000RP4KAieQAF7eX/ENu/MK0UIG4tBcHxnZ+eLxRxFSpiKtuiBSPDbXRCEFA72dU6u96AxOyPt+0fh2ftHvjOvFNGv54rbObNmvUTMUKSMaf3VI9eX51kQUjh4r8MpjY6zUxB4/v3whrkWhHSW1+L7h8ozZrxUoq/ICNOR8O+GIBI9aDcpsnCgzb8R8VuMWrKpUzLY7mb7O6+CECE8ju8f4pISibYiSyyAIFDYDipylCkmk1pFaRptAD+f1PJl7n/A+47NmyBECP+HuH1EJ9ZaDJ7GQEEgY/6cB0FI4VhPIaAT2SnRTAQURNnzqh6C4cSEnyXF1kcphAns3lNkAZ7GQEGALW0y2cKBDiTi8YWkhRCBgsC7j0YTrKWnZXDyEEJ4pOJ5H3X5JtS2BD0EMmlByfeXt6LWpBAgAts0SnvGlX0ICIKjTC1ZoiJhPgIxfGyiQ8WKjEEPIRf7ZborTvoImyiEtDxCLSgICP99CD/TiTkR/SPop33MhYseJzumF33/QGTcHVkIQoTwJLg4qc7yRGGHXasrejM5clKagSqEhjE09IJioTAXmXYM2rmfQkJ+Gp+frPj+wSk2J6aVCoW3I+PuTLOQWLEZ8zTEd0piZ6rWCR7FAhsPQzweSttW5NtjEP1HtGnUAHjyXblQOAOJeBO4GgnKm/bXogZ9HP/+KxL5fPB41HBpTNJMqxjzVoRzdxqFxL7TGLvEotUbV+wAQhDwKqtUBCHej4vuPszdeBKsYqJAxtB934iCvzFK0JG0CR2Gz+F3vHDjv/bYdVcjjyYK7g9A2/qvSRYSeddz6B+clKPtjNNRYx8CJnpcvfQRnuASC51HaADwCEdIzT+8bHks2r9zf7MxFw7OnDlqg3xSKHneW9CUsfFplmLPVq4+zWG7eRqbn4hbIh5CPMIGCkFPt2gAHOFAAt4Tl7jbIwR0CdxwQV6VKPp8/82oyZsShHi0rbDvc3kdW+esPIRPQTTlIcTWTRDC8VmtNSq+8pWdCHMhwvwEKsePozycQHH75bJ7fRQKAUbcOzJR66Yxl5Z7egJ5ZaJAIr8ZcWyoyWQLhzFWCA60m22TqVFBWI/ABYYQwlAGy7ArXV0G6boY6XsVwufNpY+SiAM77PeCvyqF4ReGXGmmJSIEIYxPTRBIVN4P/Vep+SbEqGmEDrkLQohAQSxEntQ17Cqi57102QghCPZBeJciTzbasCVfGOco3vzk32HPlf2+PyiP5hOIIJtGiQghYpqCsB6CR7VMQBDymy2Ij0tCiDAdBYmnEa6SOYJxGQkBzazj9/b9F8k7UkMxDF+D8K6NCv32KPG7HoLZXV6RLyByi1BQGuojbI8osJegM55KHwL9h1eBP0UYz0S10EiyhoommfCbT7o6pMh5CNhxIGxYBru2RLVvrK3G3AIenoVHgBD2Rtr+1oZfB/l7ePdrwX+QV+UDaQohYpqCKHd2BrxDAHZcCDtWoBnEfbvPgusR7h9RSM5ER3l/13dtsVPd39XVDyF8ALZdBltX45MjeM/CS67D563gp1lBZHEFValQ2AtxuaZeIUSkoPHssmJn56vkla0FEo8b1hMZrhyPtiYIgotrT59LEDvwzNOS5+1V8bw3IKHnof/zerrinp6e1O5ybgXseibPm83mCW1F+vLyl9fh+25ZeAPCCoH3bNAT1eR1PbRCMuYa5B2cXwtBISBCd9VGMA3SaCYc2rEXMSMlCgoHMTshIUQUQfym0t29pwSRLRA4mxV3xkUuLUribUW4F4x1yYci32AfIUkhROT70H/4Vbm7+9USVCaYKu3rO+IilTqrichRHa5nKkucFA7ANsuC4JqkhRCRnX+8+2oKToJMFVYIKIi3x0UmY26BIM9Dsyn2eEZFvgAR7ANyJCsuLxMh321Hw8LwyrQFMbXY1UWPkAchRO1ELvA7L/cTMDXgPdDorLKDfiRsOR78YCkIDmVn1tWh2/GAPNoXnPA8QjNkGPAOW/H9itQEIU2jXB3YJYLYDE/lhCC4WR7t2ncgvt9D3P+ETHtwIAhWk/i+ErYsLwbBNyCMtrn7jCNyA8Zcl2W5GSUIz0tWEMikYSFkadREyPig8GxG/M7jocQS5dyh7Pu9cN9fQ5zvxOeTyCzb6duG1ctYbkXl4/wuMjtsy5nimjzLgpKeHGy5isO4EqXmgJctAu2ZpnkTwijCQ4DnodatSNRzA86SVnyfd7StjQp9rA1g9Hc88xhEfkZfEHTLa5wCbLEX19falyVZXtGH4Fqyq1EZNTfKJEJIdctkUrRxrAriAhSmUXektRKI23zE7XLOao8nglryCBY8twEeYoksOXDmOHfEfz7ygUJgUyXWvqzIciHp/ms01/aQKNYHK4SMJtSSooiWneoLyh0dLR92rRQKuyEuVyFez0rc6qI8sxke4qzdfN+T1+YaiC+FwD5Cri5ZEUFcw6UmEtWJgUJABtxd+0IXaAsQDUcnFYZnclxLHDhLDm/wM/DpRoQQUTLxCdjztfKMGbm+YR/xtELA55ZmbE6LTEvE67fiabcPKgcG/SGPxkyU1ugw3DQQBB9uxUYQnpCBePzENo1i4lcvJRPX4ftJr83pgb6I47xICCPjnjfa/DDm2tkTWf6NHy7BQ5trX+IaWYBgy72zM56el2trv4U4bEqyQhFBPAqBHcdzkiS4XKDo+zwC6FrE04n755gvyKPr+rq754gJ26LXmF1hlBMd5omQt2kWu7uPyuoKJa74LPn+GUjDdWmkoRWEMQ+hCXtkXgTBeQTYugzxc+oiRsmf67lSV0wZDTlwK9EjRlpJigE1wH9nccvkXB4VHwSnQwhPpJl+1uMFwcPoFy1qtSAqvr8n4vNbxKflo0aNUFoPN3CPh5j0N+APn0Hh4WUTsQ+7Rjkh+lJOeImJqYCFEjXkaWkLIaIIYg3COxzBt0QQ7Myjf7kU8djscuXJtCwac+42514xQ1G7cQY09kHXKHct/yLN/Q8LKIQgOA2VyBNxcUiLXJCGMNcg7MPK2QtiB3iFD0AEa9qiFcGBDs97F7fGin22I/QB/JHHc8Q/5BjFM1yelhisEKoeYX1c+GlT3PzDVhAZNpk4ZI3wL0T4PFYzNm5OsVqx/HjUOblwFwcgYZ28cziO7DPAltN2T+EMVNtHMObUVgkhomzgfxgd6/dmJYhyV9fuEEImp5tnyJXFrq4+MRFGhmEHMjjXN2fWQ4phwJiDkt7cbkeNpLMcF27WjAQBHs57oyWaqaEPHefBMLy/XcQg5Z23sY5etQDv8EW7qrLmAddoR5Kq2wsTXafEWyzRNEp91KheiiDWlH3/iFFt3xTQb8weaILe11ZiMOZpOILRizy58QQ/uNJlQ23nMggeQw32jiTnGHj6NDqOFEIq8wjNcrhT7ftHTpk7N7WjXtBnGEJY7eUZjNmE79uuZ+NyV/zhN7a2qXkw72ScYdwmiOEECGFHMalplHfccRcUsjMQxto8CiGiLaBsMhUKRyPaqXgIhFNGGMtrw3aVTDNUIveMOQRf8ry90Fy62iX1UwgD1Vs2F89J8KwjbrKBuKpCcCA9JHNXg8fyxiQxIzEwPbi0HJWCPYUwLg4u0XrUIPjPcTdTybEeV7rgIcQjrK8kfKcab+OhRyjxtiEH0iGijasxD+HzuDROx6t43jsrbdBvoJhRaawt9/TsK6aNDQoCD11Bo/NaC0RCoEdIctn2nFmzZlohoP8RF27eKQV1Fdz/8UkLItxpp5fDO5yJdHfWOzDeTCOWm/JEr1Djpmo8nEtBRE0jeoQkhWCXYUMIsNdJIUQUr56KIAY6O4sV3/8Z3u/k2iSbNsacy7N2xaSJwfYhciYI8Qgbk/YInKTD+60Q8ib+RiiZvpJLKJIWBM+tQvrzQLdcbugZi+I1zxk10VYPZJTJDru22nAbB64pSbiPwAVb7Cy3ixAiwnumJgiIoYJ3X4hwnPAQzFc0f89uepmOFYSMMrWqsIgQnkEnbnGS9y7DNjt8yj5COwkh4rAgjEm8Uz27o6OE9LsI4eRaECw7yOOzkAbJnOY+W+YhWlFgJMzn6BHYwZUoNY2enXfeyQ6fGsM7qrcJt10otq2CncfA7ESHXQe7uvqRhpfUhpkX0vZEhRAB7nZPJGjDF000QV4uuHj33t7EFt9xiQVqNQoh1xNqSZG1Iz4fBI9Oeh6i1NMzG+n4c4giNx6Cecp+E4WAfE5nb0tfd/eeeHlmZ2jyk0JI8gJy2aqZ2yUWaVGamqtLYfi+pBf3cftw0ZjLEU7LBWGFUP1svo+wPfBgJgR6Q20k0iCM+fy4s4R1Iqxu1cxsh1reKB6Cq10XJb1ByN6CZMwv8P6WCcIKgTbyILa0hRBBBHFjbWSSIo1CLZaoEKKtmsiwSSmEiFYQXO2awhZSEcQvEU7mgrBCABH+DxsePm0UXNaLWvamuIg1wzSEEG3VRAFo6cacvFBqT27hTHwL6eyZM1siCJYbhPsjNKmLEpVsQUGg4CYqiLQ8ggphNEUQqWwhnd2aJtOPwW2XZGcJGWW6sZmmhzzLUaPk+wjVppEKIYaRIFABJb6FFO/kmVyXxYWbAn+CPM7HaezcFgjDr29EEHaUg4ftQgiJjhoNDXHUKPNTLFxjJAgw8S2kHNbEey9FOGl6iKW5u9qMw67wEstkxGJCtBkRBM+WwvDzvUnOI/DIxxxu1cwroz4ECm/iW0jZmUUeXBwXbgJcOpjXG5yQmMMz1VLQY0nBSAbwALOTk7yE3G7VrG7en1TzCM2S+QEvuqYYBEclPTHHmeqirGVqOk+kXCGeS3N/lRmXbqBTdhYKo90zy4369tSK6HtVBE/jNzfj83AIaBd5tGkMBsHOeO/pSKxJMbOcNMWrcwvp+5GciQqCa5kgtvORLw0LwjapQQjhJ87c+srl1WgyHYza4Psw4tfoTN2Czz8MBMFN+H45RPBF60USHNZjx9s2jRzboZY3Mu1QaFPZQor3cy/1eY0IIhICnv+xM0KIwFMqeAAwD3mF4fv0e94bUHMPsVOV5IgRYfcjRKtPVQhNU9LwQXwmvtoVIquAdQmC8WHLAhXpj/Dv1g6f5hk8CAAewdmtmnmlCGJVGvshZIPQD/H+LbbZHBN+RHtkaPWqMt4jokIYCwMzZ86CCFQIKVEGQewGISR3ooLgTDG8+b+hkN873K+MiHAHu7vt/8Eb3M01apy3kEcVtWDTCDUMLxRvy405eaEVREo75jh4gjw8EPn3FYTxc5B9y9uQp/9bCsOL8e+vV7q63prk/FPbYU/0OZBobbtDLW9kGqNmrgoi+ZP7duAoIIdJ0TSbVzTmjcjX/RBumWJZMGXKdPmdohZMIHaWkUHaNMqQw1tIUzqXScC7ryMqxgMn1FBrtP1WzbxS0nwVmPg8hKIO8NAnjhpBCDqh1kLKKBPvAUx8ploxAUzWrZp5JQWBPkQqW0gV44CTd2ga6aK7nFE8RCpbSBUxsDvUjDkVVCHkkFYQ3DFnzHuRXSqItGB3qFXvUNP9CDmmzEOksoVUAURbNekR4jLARdKzWbK9Tcq/437rGkUQmd9C2vawWzVzcKtmEowKPb5vhT1P4XMTbHsc39eh4GzEv3nJ3pZIIHzGVUaCYJNJBZEA5syZ8xKOGrnuEUbU/OtRQG4EuZT9g+UwXIS/zevzvPnFMDwY//d+/O1M2LwMNj8cPRu9xzVGggAzuYW0bSG3ajp9wNdwDc+bYaqb4RdymcFs3/c6OztfXFNApnGkjAcpc9FanzFvh7c4B7avjsRU+34XGPUhBjK4hbQtMXyrZhA4O49gC3ChwIJwS9nzjuZWxzqXLUzl/g82M+AlrsU7t7rqJSJBpLGFtK1ht2pWheDEZYJxlJqcm1UuQu2+H/s9Yl7dYHsb79kHgjgf73rG5TTBZ7SFNK21TO2D4a2aXGvkthBYE5474HlzYNbUqnXNgRtg8P6leLe7d6gxT415CMI+Ns17qp0H71rg6lPUfs5u1WQhlSbBufh34ruw0OHeHelzBcJp2WG+zVLylltI01j+7T54NAxqi1MphNrEc4VWCPwOISCjS2Ja4oCHmAvvmck1AGlRBLEKeX5cM03ItgQ6Vkej1lvlcgZHQoBnSPug26k8TAFhXR8XD1fIvc4Qw3I0jV9Dm6qmTXJUuroMmke8C2xzbYK5wqhp1F8o9ItZqQMF6XXgDdEhWq7RVnyMO5rGHDQRsyY3kDALkDD3ueoVRAhLit3d2d4BAPRVR5lucrWPJWl3y255OSS41UA/4ZMQgpPDqHJsyTmZ3QoTAzYzEIebXaxMJM9XVIw5AKbo3uaiMV9Fe3uDa5kZCQFuPp0L8+pA0fP2RqXy+9o45p0ihkeRhkf4vv8iMWfyouj7X4IQ1rskBnt+TxCcjRotN2f32DNtq0erxMY5jxQxrIGQD9NRJQAJcQISZZ0rzSQRwlno9PWICbmB3Itxa1y880htJtUABetd5TC8xwXPYIcD0TTKoxAiVBwShG1qIq5ctyXRn9zgKk24958hcZ6tTaw80Wac7y/JU9NoLCCevBcj130Iqfw2Qwxf3S0MXy5RV3DSDTXu6rx6h2gewQUhRCh53l557lRLmt7FSzElygqC10yhNvsSPMTauIRrFSlOm2lhmN2l2gmCw65I09/F2dZKsq+AiuUhpOshuuknBkPV0/H+HZm3Li4Bs6YVAr/DI7RiQi0pwI59YENTt68mSdtpphCCYKFuBx0HbDtCEF9GYrVUEMwwEcKSLJdYpAXYsS88b0O3ryZJFUKd4C43JBbP6W+JIKwLr2baEjSRWnO7fAoodXS8HjZd1ypB2OZmEDwIqhDqgRVE9eKKTAURCQHt2VSXYbcKsto18+XfIoSV4ELu85boKCaKoZ133qnIiw8zOiLGiqD6mcrGnLyg4nnzKr6/rNb+tCijRvf3h+F7VAhNoHeXXXZEh3oxBZFmbRZ5BITT1kKIUPa8+UjXtD3EVplUuwde/hAVQgLgkTFF3z8JmbfeFtj4hG+Y4g0mjRAEU/uCYD5sTksQW+2ylTC8G03Of9F1RwmiPGPGSyGGf0WzaUNMwjdMiiCLrZo5BXfMzUOtnXSnuiqEILgTeaZCSAMUBArtZ5HAiSz3phDseyanEIbBPdVIg6S2kFoh4PMOCkGXZacIO1NtzGeaFQSFgM/NeM+pLi2xSAsl3+ewa7NbSCMh3M6mkQohA7APIYLY2Igg5JmteP4LyPwOee2kB9LltWiGNrqFNGoa3Y5O80G8WUleq0gbr+7t3REZV3eTKfotL9Xu7eiYIa9TCIph+JpS/VtIR/YRVAitQC8EgcT/HLzEhIZdh4VgzGK9VHtszK5ztSvnEZC2dyNdtWnUSnAeAhlyCgTx5HiCGPG3U3iEpTyuGAPcQoo03e4WUisEY+4egEdQIeQAXTyf1ZjvInOeixPE8P/5/ingLvKYYjvY3o45mVnmQcKH761CyA94EBkK/Q+QSZtHCoLf4fJVCA0CaRbrISgEpOsG8ASuI5OfK/KCwd5eH4X/bGTW37aPGrOlH30EbRo1DvEQw4KQPgKFcGLPrFkz5WeKvKHX83xk3BIKwo55h+H3eeGH/FnRIOy5TMYsl7OiNhWD4CQVggOwggiCS1B7LeWdBvLfiiYxGAQLKAh6WhWCQ0CzqK/c2Rng67Tq/yiaBVedwiO8SpucCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKReswZcr/AzkQh+8ANuX+AAAAAElFTkSuQmCC" alt="PowerCAT" /></span>
+      <span>PowerCAT OverFlow</span>
+    </span>
+    <span class="sep">&#x2022;</span>
+    <span>Microsoft Power CAT</span>
+    <span class="sep">&#x2022;</span>
+    <span>v2026.06</span>
+    <span class="right">Built for the Power Platform community.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("themeToggle").addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  });
+
+  document.querySelectorAll(".code .copy").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pre = btn.parentElement.querySelector("pre");
+      const text = pre.innerText.replace(/^\$ /gm, "");
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = orig), 1400);
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+      const id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    });
+  });
+</script>
+</body>
+</html>
