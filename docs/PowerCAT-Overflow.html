@@ -1448,8 +1448,9 @@ main.layout.editor-collapsed .editor-toggle-btn { transform: rotate(180deg); }
   </nav>
   <section class="editor-pane">
     <div class="editor-header">
-      <span>Workflow Definition (JSON)</span>
+      <span class="editor-title">Workflow Definition (JSON)</span>
       <span class="hint">Auto-updates as you type</span>
+      <button class="editor-toggle-btn" id="editorToggleBtn" title="Collapse code viewer" aria-label="Toggle code viewer">&#x25C0;</button>
     </div>
     <div id="jsonEditor"></div>
     <div class="error-message" id="errorMessage"></div>
