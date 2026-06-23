@@ -3576,6 +3576,7 @@ function initSplitter() {
     return Math.max(MIN, window.innerWidth - MAX_FROM_RIGHT);
   }
   function setWidth(px) {
+    if (layout.classList.contains("editor-collapsed")) return;
     const clamped = Math.max(MIN, Math.min(maxAllowed(), Math.round(px)));
     layout.style.setProperty("--editor-width", clamped + "px");
     if (typeof aceEditor !== "undefined" && aceEditor) aceEditor.resize();
@@ -3613,9 +3614,8 @@ function initSplitter() {
     if (e.key === "ArrowRight") { setWidth(cur + step); e.preventDefault(); }
   });
 
-  // Keep pane within bounds on window resize (skip when editor is collapsed)
+  // Keep pane within bounds on window resize
   window.addEventListener("resize", () => {
-    if (layout.classList.contains("editor-collapsed")) return;
     const cur = parseInt(getComputedStyle(layout).getPropertyValue("--editor-width"), 10) || 480;
     setWidth(cur);
   });
