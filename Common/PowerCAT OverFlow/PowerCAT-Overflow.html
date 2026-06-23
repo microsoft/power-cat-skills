@@ -3576,6 +3576,7 @@ function initSplitter() {
     return Math.max(MIN, window.innerWidth - MAX_FROM_RIGHT);
   }
   function setWidth(px) {
+    if (layout.classList.contains("editor-collapsed")) return;
     const clamped = Math.max(MIN, Math.min(maxAllowed(), Math.round(px)));
     layout.style.setProperty("--editor-width", clamped + "px");
     if (typeof aceEditor !== "undefined" && aceEditor) aceEditor.resize();
