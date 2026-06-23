@@ -824,6 +824,42 @@ body.col-resizing * {
   font-size: 12px;
   color: var(--cp-text-soft);
 }
+.editor-toggle-btn {
+  flex: 0 0 auto;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--cp-text-muted);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 1;
+  margin-left: 6px;
+  transition: transform 0.18s ease;
+}
+.editor-toggle-btn:hover { border-color: var(--cp-border); background: var(--cp-accent-soft); color: var(--cp-text); }
+/* Collapsed editor pane */
+main.layout.editor-collapsed {
+  grid-template-columns: var(--flownav-current) 32px 0 1fr var(--report-width) !important;
+}
+main.layout.editor-collapsed #splitter { display: none; }
+main.layout.editor-collapsed .editor-pane { overflow: hidden; }
+main.layout.editor-collapsed .editor-header {
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 32px;
+  padding: 8px 0;
+  border-bottom: none;
+  border-right: 1px solid var(--cp-border);
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+main.layout.editor-collapsed .editor-title,
+main.layout.editor-collapsed .editor-header .hint,
+main.layout.editor-collapsed #jsonEditor,
+main.layout.editor-collapsed .error-message { display: none; }
+main.layout.editor-collapsed .editor-toggle-btn { transform: rotate(180deg); }
 #jsonEditor {
   flex: 1;
   width: 100%;
@@ -3609,6 +3645,20 @@ function initPan() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+// Editor pane collapse toggle — persisted in localStorage
+document.addEventListener("DOMContentLoaded", function initEditorToggle() {
+  const btn = document.getElementById("editorToggleBtn");
+  const layout = document.querySelector("main.layout");
+  if (!btn || !layout) return;
+  function applyCollapsed(collapsed) {
+    layout.classList.toggle("editor-collapsed", collapsed);
+    btn.title = collapsed ? "Expand code viewer" : "Collapse code viewer";
+    try { if (typeof aceEditor !== "undefined" && aceEditor) aceEditor.resize(); } catch {}
+    try { localStorage.setItem("overflow.editorCollapsed", collapsed ? "1" : "0"); } catch {}
+  }
+  btn.addEventListener("click", () => applyCollapsed(!layout.classList.contains("editor-collapsed")));
+  try { if (localStorage.getItem("overflow.editorCollapsed") === "1") applyCollapsed(true); } catch {}
+});
 </script>
 </body>
 </html>
