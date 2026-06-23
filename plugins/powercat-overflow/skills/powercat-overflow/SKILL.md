@@ -82,11 +82,16 @@ For every flow, walk all actions recursively (`actions`, `else.actions`, `cases.
 
 For each flow, produce 1–4 category objects (Complexity, Maintainability, Security, Performance in that order). Each category's `impact` = the highest impact among its items. 3–10 items per category is ideal; don't pad.
 
+For every finding **item**, always include a `fix` field — a single actionable sentence (≤ 30 words, start with a verb) telling the developer exactly what to change. Examples:
+- `"Enable secure inputs on HTTP action 'Send_Request' via Settings → Secure Inputs."`
+- `"Replace the hardcoded URL in 'Initialize_Variable_Endpoint' with an environment variable."`
+- `"Add concurrency (recommend: 10) to the Apply-to-each in its Settings panel."`
+
 ## Step 4 — Build the solution-level roll-up
 
 Collect across all flows:
 - **Per-category roll-up** (1–4 entries): for each category that has at least one finding anywhere in the solution, compute the highest impact seen, write a 1–2 sentence `summary`, and set `flowsAffected` = how many flows had at least one item in that category.
-- **topRisks**: 3–8 cross-flow high-priority items (mostly `impact: high`, a few `medium` if they affect the executive verdict). Each risk has `label`, `desc`, `impact`, optional `category`, and — when applicable — `flow` (friendly name) and `action` (so the viewer can deep-link).
+- **topRisks**: 3–8 cross-flow high-priority items (mostly `impact: high`, a few `medium` if they affect the executive verdict). Each risk has `label`, `desc`, `impact`, optional `category`, optional `fix` (same single-sentence remediation convention as per-flow items), and — when applicable — `flow` (friendly name) and `action` (so the viewer can deep-link).
 - **stats**: `flowCount`, `totalActions` (sum of action counts across flows), `highImpactFlows` (flows where any category rolled up to `high`), `flowsReviewed` (= `flowCount` unless one failed to parse).
 - **summary**: a narrative paragraph (markdown OK) giving the overall verdict, the top 1–3 priorities, and any patterns (duplicate flows, naming drift, security posture).
 
@@ -105,12 +110,12 @@ Shape:
     "version": "...",
     "summary": "...",
     "categories": [ { "category": "...", "impact": "...", "summary": "...", "flowsAffected": 0 } ],
-    "topRisks":   [ { "label": "...", "desc": "...", "impact": "...", "category": "...", "flow": "...", "action": "..." } ],
+    "topRisks":   [ { "label": "...", "desc": "...", "fix": "...", "impact": "...", "category": "...", "flow": "...", "action": "..." } ],
     "stats":      { "flowCount": 0, "totalActions": 0, "highImpactFlows": 0, "flowsReviewed": 0 }
   },
   "flows": {
     "<FriendlyFlowName>": [
-      { "category": "Complexity",      "impact": "low|medium|high", "items": [ { "label": "...", "desc": "...", "impact": "...", "action": "..." } ] },
+      { "category": "Complexity",      "impact": "low|medium|high", "items": [ { "label": "...", "desc": "...", "fix": "...", "impact": "...", "action": "..." } ] },
       { "category": "Maintainability", "impact": "...", "items": [ ... ] },
       { "category": "Security",        "impact": "...", "items": [ ... ] },
       { "category": "Performance",     "impact": "...", "items": [ ... ] }

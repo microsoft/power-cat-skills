@@ -1,6 +1,6 @@
 {
   "name": "powercat-overflow",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploaded solution, then opens the hosted PowerCAT-Overflow viewer at https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html and uploads both files so the user can explore the results.",
   "author": {
     "name": "Power CAT",
