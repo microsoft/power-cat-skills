@@ -130,7 +130,7 @@
       "skills": [
         "./plugins/powercat-overflow/skills/powercat-overflow"
       ],
-      "version": "0.2.0",
+      "version": "0.2.2",
       "repository": "https://github.com/microsoft/power-cat-skills",
       "license": "MIT",
       "category": "development",
