@@ -749,6 +749,15 @@ main.layout.solution-overview-mode.no-solution-loaded .canvas-pane {
   font-size: 12px;
   margin-top: 2px;
 }
+.finding .text .fix {
+  display: block;
+  color: var(--cp-accent);
+  font-size: 12px;
+  margin-top: 5px;
+}
+.finding .text .fix-label {
+  font-weight: 700;
+}
 .report-score {
   display: flex;
   gap: 8px;
@@ -1695,7 +1704,9 @@ function renderReport() {
       const arrow = item.action ? '<span class="jump-arrow" title="Jump to ' + escapeHtml(item.action) + '">\u2197</span>' : '';
       f.innerHTML = '<span class="dot ' + item.impact + '" title="' + item.impact + '"></span>' +
         '<div class="text"><span class="label">' + escapeHtml(item.label) + arrow + '</span>' +
-        '<span class="desc">' + escapeHtml(item.desc) + '</span></div>';
+        '<span class="desc">' + escapeHtml(item.desc) + '</span>' +
+        (item.fix ? '<span class="fix"><span class="fix-label">Fix</span> · ' + escapeHtml(item.fix) + '</span>' : '') +
+        '</div>';
       if (item.action) {
         f.dataset.target = item.action;
         f.addEventListener("click", () => jumpToAction(item.action));
@@ -3443,7 +3454,9 @@ function renderSolutionOverviewCanvas() {
             '</div>' +
             '<span class="impact-pill ' + r.impact + '">' + impactLabel + '</span>' +
           '</div>' +
-          '<div class="action-body">' + escapeHtml(r.desc) + jump + '</div>' +
+          '<div class="action-body">' + escapeHtml(r.desc) +
+          (r.fix ? '<div class="fix" style="margin-top:5px;"><span class="fix-label">Fix</span> · ' + escapeHtml(r.fix) + '</div>' : '') +
+          jump + '</div>' +
         '</div>';
     }
     risksContainer =

@@ -78,6 +78,10 @@
               "action": {
                 "type": "string",
                 "description": "Optional action name inside the referenced flow that the risk points at. Used to deep-link to the action card in the diagram."
+              },
+              "fix": {
+                "type": "string",
+                "description": "Single-sentence actionable remediation step for this top-risk item."
               }
             }
           }
@@ -124,6 +128,10 @@
                   "action": {
                     "type": "string",
                     "description": "Optional name of the action inside the flow that the finding points to."
+                  },
+                  "fix": {
+                    "type": "string",
+                    "description": "Single-sentence actionable remediation step."
                   }
                 }
               }
