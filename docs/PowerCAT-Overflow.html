@@ -849,26 +849,32 @@ body.col-resizing * {
 .editor-toggle-btn:hover { border-color: var(--cp-border); background: var(--cp-accent-soft); color: var(--cp-text); }
 /* Collapsed editor pane */
 main.layout.editor-collapsed {
-  grid-template-columns: var(--flownav-current) 32px 0 1fr var(--report-width) !important;
+  grid-template-columns: var(--flownav-current) 0 0 1fr var(--report-width) !important;
 }
-main.layout.editor-collapsed #splitter { display: none; }
-main.layout.editor-collapsed .editor-pane { overflow: hidden; }
-main.layout.editor-collapsed .editor-header {
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 32px;
-  padding: 8px 0;
-  border-bottom: none;
-  border-right: 1px solid var(--cp-border);
-  justify-content: flex-start;
-  box-sizing: border-box;
+main.layout.editor-collapsed .editor-pane,
+main.layout.editor-collapsed #splitter { display: none !important; }
+/* Floating expand tab on the left edge of the canvas when editor is collapsed */
+.editor-expand-tab {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: var(--cp-bg-elevated);
+  border: 1px solid var(--cp-border);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 5px;
+  cursor: pointer;
+  color: var(--cp-text-muted);
+  font-size: 11px;
+  line-height: 1;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.08);
 }
-main.layout.editor-collapsed .editor-title,
-main.layout.editor-collapsed .editor-header .hint,
-main.layout.editor-collapsed #jsonEditor,
-main.layout.editor-collapsed .error-message { display: none; }
-main.layout.editor-collapsed .editor-toggle-btn { transform: rotate(180deg); }
+.editor-expand-tab:hover { background: var(--cp-accent-soft); color: var(--cp-text); }
+main.layout.editor-collapsed ~ * .editor-expand-tab,
+main.layout.editor-collapsed .canvas-pane .editor-expand-tab { display: block; }
 #jsonEditor {
   flex: 1;
   width: 100%;
@@ -3670,7 +3676,9 @@ document.addEventListener("DOMContentLoaded", function initEditorToggle() {
     try { if (typeof aceEditor !== "undefined" && aceEditor) aceEditor.resize(); } catch {}
     try { localStorage.setItem("overflow.editorCollapsed", collapsed ? "1" : "0"); } catch {}
   }
+  const expandTab = document.getElementById("editorExpandTab");
   btn.addEventListener("click", () => applyCollapsed(!layout.classList.contains("editor-collapsed")));
+  if (expandTab) expandTab.addEventListener("click", () => applyCollapsed(false));
   try { if (localStorage.getItem("overflow.editorCollapsed") === "1") applyCollapsed(true); } catch {}
 });
 </script>
