@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://microsoft.github.io/power-cat-skills/schemas/overpage.findings.schema.json",
+  "title": "PowerCAT OverPage findings (v2)",
+  "description": "Solution-level review findings for one or more Power Pages sites packaged in a solution, consumed by the PowerCAT OverPage viewer to overlay issues on a live preview, on the code, and on HAR network data. Produced by the powercat-overpage skill (AI-authored).",
+  "type": "object",
+  "required": ["solution", "sites"],
+  "additionalProperties": false,
+  "properties": {
+    "solution": {
+      "type": "object",
+      "required": ["name", "summary", "categories"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": ["string", "null"] },
+        "summary": { "type": "string", "minLength": 1, "description": "Narrative verdict across all sites (markdown allowed)." },
+        "categories": { "type": "array", "items": { "$ref": "#/definitions/categoryRollup" } },
+        "findings": {
+          "type": "array",
+          "description": "Solution-wide findings (scope = solution) that span sites or apply to the solution as a whole.",
+          "items": { "$ref": "#/definitions/categoryGroup" }
+        }
+      }
+    },
+    "sites": {
+      "type": "array",
+      "description": "One entry per Power Pages site in the solution.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "description": "Site id; matches the powerpagesiteid (or 'site' for a single-site export)." },
+          "name": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string", "description": "Narrative verdict for this site." },
+          "categories": { "type": "array", "items": { "$ref": "#/definitions/categoryRollup" } },
+          "findings": {
+            "type": "array",
+            "description": "Site-level findings (scope = site) not tied to one component/page.",
+            "items": { "$ref": "#/definitions/categoryGroup" }
+          },
+          "components": {
+            "type": "object",
+            "description": "Findings keyed by component id '<type>:<name>' (e.g. 'webpage:Home', 'tablepermission:Restrict Read on Machine Orders', 'webtemplate:Breadcrumbs').",
+            "propertyNames": { "pattern": "^(webpage|webtemplate|pagetemplate|contentsnippet|sitesetting|weblinkset|webfile|basicform|advancedform|list|tablepermission|webrole|website):.+$" },
+            "additionalProperties": { "type": "array", "items": { "$ref": "#/definitions/categoryGroup" } }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "impact": { "type": "string", "enum": ["high", "medium", "low"] },
+    "category": { "type": "string", "enum": ["Security", "Performance", "Accessibility", "Maintainability", "Architecture", "Reliability", "SEO"] },
+    "scope": { "type": "string", "enum": ["solution", "site", "page", "component"] },
+    "categoryRollup": {
+      "type": "object",
+      "required": ["category", "impact", "summary"],
+      "additionalProperties": false,
+      "properties": {
+        "category": { "$ref": "#/definitions/category" },
+        "impact": { "$ref": "#/definitions/impact" },
+        "componentsAffected": { "type": "integer", "minimum": 0 },
+        "summary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "categoryGroup": {
+      "type": "object",
+      "required": ["category", "impact", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "category": { "$ref": "#/definitions/category" },
+        "impact": { "$ref": "#/definitions/impact", "description": "Highest impact among this group's items." },
+        "items": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/finding" } }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["label", "desc", "impact"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1, "description": "Short title of the issue." },
+        "desc": { "type": "string", "minLength": 1, "description": "What is wrong and why it matters." },
+        "fix": { "type": "string", "description": "Recommended remediation." },
+        "impact": { "$ref": "#/definitions/impact" },
+        "scope": { "$ref": "#/definitions/scope" },
+        "rule": { "type": "string", "pattern": "^PP-[A-Z0-9]+-[0-9]{3}$", "description": "Optional stable rule id, e.g. 'PP-SEC-001'." },
+        "source": { "type": "string", "format": "uri", "description": "Optional citation URL (should come from sources.md)." },
+        "anchor": { "$ref": "#/definitions/anchor" },
+        "har": { "$ref": "#/definitions/harRef" },
+        "code": { "$ref": "#/definitions/codeRef" }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "description": "Where the viewer surfaces the finding on the rendered preview. 'component' = non-visual (tree/inventory dot); 'selector' = CSS selector (outline + pin); 'match' = literal visible text (inline highlight).",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "enum": ["component", "selector", "match"] },
+        "value": { "type": "string" }
+      },
+      "allOf": [
+        { "if": { "properties": { "kind": { "enum": ["selector", "match"] } } }, "then": { "required": ["value"] } }
+      ]
+    },
+    "codeRef": {
+      "type": "object",
+      "description": "Points the finding at a code asset (Liquid/JS/CSS) in the viewer's code panel.",
+      "required": ["assetPath"],
+      "additionalProperties": false,
+      "properties": {
+        "assetPath": { "type": "string", "minLength": 1, "description": "Asset path as exposed by the viewer, e.g. 'web-templates/Breadcrumbs.liquid' or 'web-pages/Home/copy.html'." },
+        "line": { "type": "integer", "minimum": 1 },
+        "match": { "type": "string", "description": "Literal substring to locate/highlight within the asset." }
+      }
+    },
+    "harRef": {
+      "type": "object",
+      "description": "Links a (usually Performance) finding to HAR network data so the viewer can jump to the offending request.",
+      "additionalProperties": false,
+      "properties": {
+        "requestUrl": { "type": "string", "description": "Exact or prefix URL of the request in the HAR." },
+        "pageUrl": { "type": "string", "description": "HAR page (title/url) the request belongs to." },
+        "kind": { "type": "string", "enum": ["slow-page-load", "large-script", "large-image", "large-stylesheet", "slow-request", "failed-request", "render-blocking-3p-script", "duplicate-requests", "other"] },
+        "thirdParty": { "type": "boolean", "description": "True when the request is an external/CDN resource not in the solution." }
+      }
+    }
+  }
+}

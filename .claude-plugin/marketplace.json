@@ -139,6 +139,23 @@
         "powercat-overflow", "cloud-flow", "logic-apps",
         "solution-review", "code-review", "microsoft"
       ]
+    },
+    {
+      "name": "powercat-overpage",
+      "description": "Reviews the Power Pages site(s) inside a Power Platform solution (.zip) against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliability, optionally using a browser HAR capture to investigate real performance bottlenecks. Produces a [SolutionName].findings.json with solution, per-site and per-component findings (descriptions, fixes, code/HAR anchors), then opens the hosted PowerCAT OverPage viewer at https://microsoft.github.io/power-cat-skills/PowerCAT-OverPage.html so the user can explore findings overlaid on a live page preview, on the actual code, and on the network waterfall.",
+      "source": "./plugins/powercat-overpage",
+      "skills": [
+        "./plugins/powercat-overpage/skills/powercat-overpage"
+      ],
+      "version": "0.2.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "power-platform", "power-pages", "powercat",
+        "powercat-overpage", "portal", "site-review",
+        "performance", "har", "accessibility", "code-review", "microsoft"
+      ]
     }
   ]
 }

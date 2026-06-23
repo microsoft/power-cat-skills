@@ -1,0 +1,24 @@
+{
+  "name": "powercat-overpage",
+  "version": "0.2.0",
+  "description": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliability, by reading the pages/templates/custom code/settings/permissions and reasoning about them (AI-authored, no analyzer). Optionally ingests a browser HAR capture to investigate real performance bottlenecks and map them to code. Produces a [SolutionName].findings.json (solution + per-site + per-component findings with descriptions, fixes and code/HAR anchors), then opens the PowerCAT OverPage viewer with the solution, findings and HAR loaded so the user can explore findings overlaid on a live page preview, on the actual code, and on the network waterfall.",
+  "author": {
+    "name": "Power CAT",
+    "url": "https://aka.ms/powercat"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "power-platform",
+    "power-pages",
+    "powercat",
+    "powercat-overpage",
+    "portal",
+    "site-review",
+    "performance",
+    "har",
+    "accessibility",
+    "code-review"
+  ]
+}

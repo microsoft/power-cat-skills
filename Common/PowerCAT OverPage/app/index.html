@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerCAT OverPage — Power Pages solution review</title>
+    <link rel="icon" id="favicon" />
+    <script>
+      (() => {
+        const param = new URLSearchParams(window.location.search).get('scoutTheme');
+        const theme = param || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"><img alt="Power CAT" class="logo-img js-logo" /></span>
+          <div>
+            <div class="brand-title">PowerCAT OverPage</div>
+            <div class="brand-sub" id="siteName">No solution loaded</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <select id="siteSelect" class="select hidden" title="Site"></select>
+          <div class="view-tabs" id="viewTabs">
+            <button data-view="overview" class="active">Overview</button>
+            <button data-view="preview">Preview</button>
+            <button data-view="code">Code</button>
+            <button data-view="network">Network</button>
+          </div>
+          <button id="themeBtn" class="btn icon-btn" title="Toggle light / dark">◐</button>
+          <label class="btn" title="Open a .findings.json from the powercat-overpage skill">
+            Findings<input id="findingsInput" type="file" accept=".json" hidden />
+          </label>
+          <label class="btn" title="Open a .har capture (optional, recommended)">
+            HAR<input id="harInput" type="file" accept=".har,.json" hidden />
+          </label>
+          <label class="btn primary" title="Open a Power Pages solution / site .zip">
+            Open .zip<input id="fileInput" type="file" accept=".zip" hidden />
+          </label>
+        </div>
+      </header>
+
+      <main class="layout" id="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-section" id="navSection">
+            <div class="sidebar-head" id="navHead">Pages</div>
+            <ul class="nav-list" id="navList">
+              <li class="empty">Drop a Power Pages solution / site .zip anywhere</li>
+            </ul>
+          </div>
+          <div class="sidebar-section" id="inventory"></div>
+        </aside>
+
+        <section class="stage" id="stage">
+          <!-- dropzone -->
+          <div class="dropzone" id="dropzone">
+            <div class="dropzone-inner">
+              <img alt="Power CAT" class="dz-logo js-logo" />
+              <h2>Drop a Power Pages solution here</h2>
+              <p>A solution <code>.zip</code> (powerpagecomponent) or a <code>pac powerpages download</code> export, zipped.</p>
+              <p class="muted">No file leaves your machine — everything is parsed in the browser.</p>
+              <p class="muted">Add a <b>.findings.json</b> (powercat-overpage skill) and optionally a <b>.har</b> capture to overlay a review.</p>
+            </div>
+          </div>
+
+          <!-- overview -->
+          <div class="overview hidden" id="overview"></div>
+
+          <!-- preview -->
+          <div class="preview-wrap hidden" id="previewWrap">
+            <div class="preview-toolbar">
+              <span id="previewPath" class="preview-path"></span>
+              <span class="spacer"></span>
+              <span id="previewMeta" class="preview-meta"></span>
+            </div>
+            <div class="preview-frame-host" id="frameHost">
+              <iframe id="previewFrame" title="Site preview" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+          </div>
+
+          <!-- code viewer -->
+          <div class="code-wrap hidden" id="codeWrap">
+            <div class="code-toolbar">
+              <span id="codePath" class="preview-path"></span>
+              <span class="code-lang" id="codeLang"></span>
+              <span class="spacer"></span>
+              <span class="preview-meta" id="codeMeta"></span>
+            </div>
+            <div class="code-host"><pre class="code-pre" id="codePre"></pre></div>
+          </div>
+
+          <!-- network / HAR -->
+          <div class="network-wrap hidden" id="networkWrap"></div>
+        </section>
+
+        <aside class="drawer hidden" id="drawer">
+          <div class="drawer-head">
+            <span>Findings <b id="findingCount">0</b></span>
+            <div class="drawer-filters" id="drawerFilters">
+              <button data-impact="all" class="active">All</button>
+              <button data-impact="high">High</button>
+              <button data-impact="medium">Med</button>
+              <button data-impact="low">Low</button>
+            </div>
+          </div>
+          <div class="drawer-scope" id="drawerScope"></div>
+          <div class="drawer-list" id="drawerList"></div>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

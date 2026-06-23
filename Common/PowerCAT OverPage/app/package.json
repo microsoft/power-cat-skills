@@ -1,0 +1,21 @@
+{
+  "name": "powerpages-previewer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "package": "vite build && node scripts/package-singlefile.js",
+    "preview": "vite preview",
+    "gen-sample": "node scripts/generate-sample.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}
