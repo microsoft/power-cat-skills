@@ -849,7 +849,7 @@ body.col-resizing * {
 .editor-toggle-btn:hover { border-color: var(--cp-border); background: var(--cp-accent-soft); color: var(--cp-text); }
 /* Collapsed editor pane */
 main.layout.editor-collapsed {
-  grid-template-columns: var(--flownav-current) 0 0 1fr var(--report-width) !important;
+  grid-template-columns: var(--flownav-current) var(--editor-width) 0 1fr var(--report-width);
 }
 main.layout.editor-collapsed .editor-pane,
 main.layout.editor-collapsed #splitter { display: none !important; }
@@ -3613,8 +3613,9 @@ function initSplitter() {
     if (e.key === "ArrowRight") { setWidth(cur + step); e.preventDefault(); }
   });
 
-  // Keep pane within bounds on window resize
+  // Keep pane within bounds on window resize (skip when editor is collapsed)
   window.addEventListener("resize", () => {
+    if (layout.classList.contains("editor-collapsed")) return;
     const cur = parseInt(getComputedStyle(layout).getPropertyValue("--editor-width"), 10) || 480;
     setWidth(cur);
   });
@@ -3671,6 +3672,14 @@ document.addEventListener("DOMContentLoaded", function initEditorToggle() {
   const layout = document.querySelector("main.layout");
   if (!btn || !layout) return;
   function applyCollapsed(collapsed) {
+    if (collapsed) {
+      const cur = getComputedStyle(layout).getPropertyValue("--editor-width").trim();
+      if (cur && cur !== "0px") layout.dataset.savedEditorWidth = cur;
+      layout.style.setProperty("--editor-width", "0px");
+    } else {
+      const saved = layout.dataset.savedEditorWidth || "380px";
+      layout.style.setProperty("--editor-width", saved);
+    }
     layout.classList.toggle("editor-collapsed", collapsed);
     btn.title = collapsed ? "Expand code viewer" : "Collapse code viewer";
     try { if (typeof aceEditor !== "undefined" && aceEditor) aceEditor.resize(); } catch {}
