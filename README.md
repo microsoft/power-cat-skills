@@ -6,6 +6,12 @@ A plugin marketplace for **Claude Code** and **GitHub Copilot** that provides sp
 
 ## Plugins & Skills
 
+### `powercat-adoption` — Adoption
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-storytelling** | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
+
 ### `powercat-canvas-apps` — Canvas Apps
 
 | Skill | Description |
@@ -14,11 +20,18 @@ A plugin marketplace for **Claude Code** and **GitHub Copilot** that provides sp
 | **infopath-to-canvas** | Migrate InfoPath forms (.xsn) to modern Canvas Apps |
 | **migrate-to-dataverse** | Replace SharePoint list data sources with Dataverse table equivalents |
 
+### `powercat-code-apps` — Code Apps
+
+| Skill | Description |
+|-------|-------------|
+| **design-guide** | Generate a brand-aligned design guide that establishes brand tokens before building a code app, then delegates app creation to `/create-code-app` |
+
 ### `powercat-dataverse` — Dataverse
 
 | Skill | Description |
 |-------|-------------|
 | **dataverse-webapi-query** | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting (Generative Pages, Code Apps, Xrm.WebApi, Canvas, Power Automate), and error diagnosis |
+| **powercat-storytelling** | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
 
 ### `powercat-governance` — Governance
 
@@ -26,11 +39,30 @@ A plugin marketplace for **Claude Code** and **GitHub Copilot** that provides sp
 |-------|-------------|
 | **create-pp-dev-env** | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user — no admin center required |
 
-### `powercat-adoption` — Adoption
+### `powercat-procode-eval` — Pro-Code Eval
 
 | Skill | Description |
 |-------|-------------|
-| **powercat-storytelling** | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
+| **eval-generator-code-app** | Generate a two-layer eval suite (feature-presence checks + static security analysis) plus an HTML dashboard for a Power Apps Code App |
+| **eval-generator-gen-pages** | Generate a three-layer eval suite (presence checks + unit tests + security analysis) plus an HTML dashboard for Power Apps Generative Pages |
+
+### `powercat-admin-digest` — Admin Digest
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-admin-digest** | Produce a Power Platform admin digest — Message Center notices, Service Health incidents, Known Issues, and deprecations — with shareability tiering so customer-facing summaries never leak NDA content |
+
+### `powercat-overflow` — Overflow
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-overflow** | Review every Power Automate cloud flow in a solution (.zip) against Microsoft's coding guidelines, write a `[SolutionName].findings.json`, and explore the results in the hosted PowerCAT-Overflow viewer |
+
+### `powercat-overpage` — OverPage
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-overpage** | Review Power Pages site(s) in a solution (.zip) across Security, Performance, Accessibility, Maintainability, Architecture and Reliability — optionally with a browser HAR capture — and explore findings in the hosted PowerCAT OverPage viewer |
 
 ## Prerequisites
 
@@ -64,10 +96,15 @@ Run these commands inside a Claude Code or GitHub Copilot CLI session:
 4. Install the desired plugin — choose one or more:
 
     ```bash
+    /plugin install powercat-adoption@power-cat-skills
     /plugin install powercat-canvas-apps@power-cat-skills
+    /plugin install powercat-code-apps@power-cat-skills
     /plugin install powercat-dataverse@power-cat-skills
     /plugin install powercat-governance@power-cat-skills
-    /plugin install powercat-adoption@power-cat-skills
+    /plugin install powercat-procode-eval@power-cat-skills
+    /plugin install powercat-admin-digest@power-cat-skills
+    /plugin install powercat-overflow@power-cat-skills
+    /plugin install powercat-overpage@power-cat-skills
     ```
 
 ### Configure the MCP Server
