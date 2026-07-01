@@ -84,6 +84,98 @@ Assign a `scope`: `solution` (spans sites), `site`, `page`, or `component`. Guid
 Per site, produce: a `categories` rollup, an optional site `summary`, optional site-level `findings`,
 and `components` (findings keyed by `<type>:<name>`). 1–8 items per group; don't pad.
 
+
+## Step 3 - Review each site with combined guidance
+
+Raise findings across categories:
+
+- Security
+- Performance
+- Accessibility
+- Maintainability
+- Architecture
+- Reliability
+- SEO (optional)
+
+Each finding needs category, impact (high/medium/low), description, and suggested fix.
+
+### 3A - Security deep checks (Power CAT)
+
+1. Web role defaults:
+- Verify only one default anonymous role and one default authenticated role.
+- Raise high risk if multiple default roles exist for anonymous or authenticated users.
+- Explain runtime implication: authenticated default role applies to every signed-in user.
+
+2. Table permission scope:
+- Flag Global scope permissions unless explicitly justified (for example super-admin-only design).
+- Highlight sensitive tables exposed globally.
+- Prefer parent-child permission chains to derive natural row-level access.
+
+3. Data trimming anti-patterns in code:
+- Flag filters by user id, email, account id, account number as design-risk indicators.
+- Escalate if security trimming happens in client-side JavaScript.
+- Escalate if trimming is done in Liquid while table permissions are broad.
+- Note: allow user to confirm benign lookup tables (for example states/cities) before final severity.
+
+4. Identity posture:
+- Detect local login usage in site settings.
+- Recommend Entra ID for workforce or known guests, Entra External ID for external audience.
+- Call out password reset, email verification, mailbox workflow dependency, and MFA operational burden for local login.
+
+5. Web API field scope:
+- Flag wildcard field scope all (*) as security and performance risk.
+- Recommend explicit field projection and Column Permissions per web role and CRUD.
+- Explain forward-risk: future sensitive columns may be exposed unintentionally.
+
+6. Public forms:
+- For anonymous forms, verify CAPTCHA is enabled.
+- Recommend WAF (Power Pages WAF or customer-managed WAF) for abuse mitigation.
+
+7. Open registration:
+- Mention implication clearly: users can sign up and access app without invite if not controlled by other gates.
+
+8. Deprecated false-positive handling:
+- Do not treat Enable Table Permissions toggle behavior as reliable signal on new sites.
+- Use deprecation guidance from Microsoft Learn.
+
+### 3B - Performance deep checks (Power CAT)
+
+1. Header and footer templates:
+- Identify effective header and footer templates actually used by active page templates.
+- Verify header and footer caching site settings are enabled.
+- Inspect substitution tag usage and call out overuse that defeats caching goals.
+- Flag expensive data queries in shared header/footer paths.
+
+2. Custom API pages and web templates:
+- Review custom JSON endpoints built via page/template combinations.
+- Flag dynamic FetchXML assembly from user parameters without robust controls.
+- Flag loops and transforms that create avoidable server bottlenecks.
+- Compare rationale against native Power Pages Web API capability.
+
+3. FetchXML and Web API design:
+- Flag missing paging in queries and APIs returning large datasets.
+- Flag excessive joins/subqueries that can degrade runtime with permission folding.
+- Recommend UX-compatible paging patterns (paged list, load-more, infinite scroll with bounded page size).
+
+4. JavaScript execution patterns:
+- Flag blocking API chains and late-lifecycle data calls.
+- Flag large custom JS blocks in page copy or snippets when web files/modules are more suitable.
+
+### 3C - Configuration and maintainability checks (Power CAT)
+
+1. Site settings vs content snippets:
+- Flag oversized snippets containing logic-heavy JS or Liquid.
+- Recommend web templates for reusable logic and snippets for localized string content.
+
+2. Code organization:
+- Detect duplicated templates/snippets across languages where localization model appears misunderstood.
+- Detect unnecessary one-template-per-page patterns unless justified by multi-language architecture.
+
+3. Large JavaScript payloads:
+- Flag very large scripts and duplicated script loads.
+- Suggest splitting by route/feature and deferring non-critical bundles.
+
+
 ## Step 4 — When a HAR is present, investigate performance
 
 Parse the HAR (`log.pages` for per-page `onLoad`/`onContentLoad`; `log.entries` for requests with
