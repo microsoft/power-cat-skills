@@ -98,7 +98,7 @@
     .catalog-line span:nth-child(3) { color: #ed9846; }
     .catalog-line span:nth-child(4) { color: #d648b3; }
     .hero h2 { margin: 0; color: var(--cp-text); font-size: clamp(18px, 1.45vw, 24px); line-height: 1.28; }
-    .eyebrow { margin: 0 0 12px; color: var(--cp-accent); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
+    .eyebrow { margin: 0 0 12px; color: var(--cp-accent); font-size: 15px; font-weight: 750; text-transform: uppercase; letter-spacing: 0; }
     .hero-copy { max-width: 760px; margin: 18px 0 0; color: var(--cp-text-muted); font-size: clamp(17px, 1.35vw, 21px); line-height: 1.48; }
     .primary-action, .secondary-action { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 0.625rem; text-decoration: none; font-weight: 650; }
     .primary-action { background: var(--cp-accent); color: var(--cp-accent-fg); border: 1px solid var(--cp-accent); }
@@ -113,9 +113,11 @@
     .section-heading-copy { display: flex; align-items: center; gap: 20px; max-width: 620px; }
     .section-heading-copy p { max-width: 430px; margin: 0; color: var(--cp-text-muted); line-height: 1.6; }
     .section-heading-copy .primary-action { flex: 0 0 auto; }
-    .needs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .needs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
     .need-card { min-height: 190px; padding: 22px; text-align: left; text-decoration: none; background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; box-shadow: 0 8px 24px rgba(42, 68, 111, 0.06); transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+    button.need-card { width: 100%; font: inherit; cursor: pointer; }
     .need-card:hover { transform: translateY(-3px); border-color: var(--cp-accent); box-shadow: var(--cp-shadow); }
+    .need-card:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 3px; }
     .need-card strong { display: block; max-width: 260px; font-size: 20px; line-height: 1.25; }
     .need-card span { display: block; margin-top: 12px; color: var(--cp-text-muted); line-height: 1.45; }
     .need-card small { display: block; margin-top: 24px; color: var(--cp-accent); font-weight: 700; }
@@ -125,17 +127,21 @@
     .guidance-card:hover { border-color: var(--cp-accent); }
     html[data-theme="dark"] .guidance-card { border-color: #55b7ff; border-top-color: #55b7ff; background: #d7e6ff; color: #14294a; }
     html[data-theme="dark"] .guidance-card span, html[data-theme="dark"] .guidance-card small { color: #2a446f; }
-    .catalog-section { max-width: none; background: var(--cp-bg-elevated); border-top: 1px solid var(--cp-border); }
-    .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .lab-card { min-height: 250px; display: flex; flex-direction: column; padding: 18px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 0.625rem; box-shadow: 0 0 2px var(--cp-shadow); }
+    .catalog-section { max-width: none; background: var(--cp-bg); border-top: 1px solid var(--cp-border); }
+    .market-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -6px auto 24px; }
+    .market-tab { min-height: 38px; padding: 0 14px; border: 1px solid var(--cp-border); border-radius: 0.625rem; background: var(--cp-surface); color: var(--cp-text-muted); font-size: 13px; font-weight: 650; }
+    .market-tab:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .market-tab[aria-pressed="true"] { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+    .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .lab-card { min-height: 190px; display: flex; flex-direction: column; padding: 22px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; box-shadow: 0 8px 24px rgba(42, 68, 111, 0.06); transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
     button.lab-card { width: 100%; color: var(--cp-text); cursor: pointer; text-align: left; }
     button.lab-card:hover { border-color: var(--cp-accent); box-shadow: var(--cp-shadow); transform: translateY(-2px); }
     button.lab-card:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 3px; }
-    .lab-meta, .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .lab-meta, .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .pill { display: inline-flex; align-items: center; min-height: 22px; padding: 2px 7px; border-radius: 0.625rem; background: var(--cp-surface-soft); color: var(--cp-text-muted); font-size: 10px; font-weight: 650; }
     .pill-accent { background: var(--cp-accent-soft); color: var(--cp-accent); }
-    .lab-card h3 { margin: 14px 0 8px; font-size: 17px; line-height: 1.3; letter-spacing: 0; }
-    .lab-card p { flex: 1; margin: 0 0 14px; color: var(--cp-text-muted); font-size: 14px; line-height: 1.48; }
+    .lab-card h3 { margin: 14px 0 8px; font-size: 20px; line-height: 1.25; letter-spacing: 0; }
+    .lab-card p { flex: 1; margin: 0 0 14px; color: var(--cp-text-muted); font-size: 14px; line-height: 1.45; }
     .tags { margin-bottom: 14px; }
     .lab-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--cp-border); }
     .lab-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-left: auto; }
@@ -158,7 +164,7 @@
     .modal-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
     footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; border-top: 1px solid var(--cp-border); background: var(--cp-bg); color: var(--cp-text-muted); }
     .footer-platform-logo, .footer-power-cat-logo { font-weight: 700; }
-    @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
     @media (max-width: 780px) { .modal-body { grid-template-columns: 1fr; } }
     @media (max-width: 640px) { .site-header { grid-template-columns: 1fr auto; } nav a, .power-cat-lockup { display: none; } .hero { min-height: 430px; padding-top: 56px; padding-bottom: 64px; } .hero h1 { gap: 14px; font-size: 42px; } .series-mark { flex-basis: 32px; width: 32px; height: 32px; } .series-mark i { width: 19px; height: 19px; border-radius: 5px; } .catalog-line { margin-top: 38px; } .section-heading, .catalog-heading { align-items: start; flex-direction: column; gap: 12px; } .needs-grid, .lab-grid { grid-template-columns: 1fr; } footer { align-items: start; flex-direction: column; justify-content: center; gap: 4px; } }
   </style>
@@ -211,11 +217,16 @@
           <span>Coming soon: map Airtable bases, views, interfaces, automations, and data into Dataverse, Power Apps, and Power Automate patterns.</span>
           <small>Coming soon</small>
         </a>
-        <a class="need-card" href="#skills" aria-label="Browse all available skills">
-          <strong>Browse the marketplace</strong>
-          <span>Choose from governance, quality review, Dataverse, Code Apps, Power Pages, Power Automate, and storytelling skills.</span>
-          <small>See skills →</small>
-        </a>
+        <button class="need-card" type="button" data-skill="infopath-to-canvas" aria-label="InfoPath to Canvas migration skill">
+          <strong>infopath-to-canvas</strong>
+          <span>Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.</span>
+          <small>Forms migration skill →</small>
+        </button>
+        <button class="need-card" type="button" data-skill="migrate-to-dataverse" aria-label="Migrate to Dataverse skill">
+          <strong>migrate-to-dataverse</strong>
+          <span>Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.</span>
+          <small>Dataverse migration skill →</small>
+        </button>
       </div>
     </section>
 
@@ -225,21 +236,31 @@
           <p class="eyebrow">Marketplace catalog</p>
           <h1 id="skills-title">Available Power CAT skills</h1>
         </div>
-        <p class="result-count">12 public skills</p>
+        <p class="result-count">10 public skills</p>
+      </div>
+      <div class="market-tabs" aria-label="Filter skills by marketplace folder">
+        <button class="market-tab" type="button" data-plugin-filter="all" aria-pressed="true">All</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-adoption" aria-pressed="false">Adoption</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-canvas-apps" aria-pressed="false">Canvas Apps</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-code-apps" aria-pressed="false">Code Apps</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-dataverse" aria-pressed="false">Dataverse</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-governance" aria-pressed="false">Governance</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-procode-eval" aria-pressed="false">Pro-Code Eval</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-admin-digest" aria-pressed="false">Admin Digest</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-overflow" aria-pressed="false">OverFlow</button>
+        <button class="market-tab" type="button" data-plugin-filter="powercat-overpage" aria-pressed="false">OverPage</button>
       </div>
       <div class="lab-grid">
-        <button class="lab-card" type="button" data-skill="powercat-admin-digest"><div class="lab-meta"><span class="pill">Admin</span><span class="pill pill-accent">Operations</span></div><h3>powercat-admin-digest</h3><p>Produce an operations-ready Power Platform admin digest across Message Center notices, Service Health incidents, Known Issues, and deprecations.</p><div class="tags"><span class="pill">Power Platform</span><span class="pill">Admin</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="powercat-storytelling"><div class="lab-meta"><span class="pill">Adoption</span><span class="pill pill-accent">Storytelling</span></div><h3>powercat-storytelling</h3><p>Generate polished, brand-matched customer story presentation content from structured engagement inputs.</p><div class="tags"><span class="pill">Customer stories</span><span class="pill">Presentation</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="analyze-canvas-performance"><div class="lab-meta"><span class="pill">Canvas Apps</span><span class="pill pill-accent">Quality</span></div><h3>analyze-canvas-performance</h3><p>Review Canvas Apps for performance, delegation, reliability, and maintainability risks.</p><div class="tags"><span class="pill">Power Apps</span><span class="pill">Review</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="infopath-to-canvas"><div class="lab-meta"><span class="pill">Migration</span><span class="pill pill-accent">InfoPath</span></div><h3>infopath-to-canvas</h3><p>Guide migration from InfoPath forms to modern Canvas Apps.</p><div class="tags"><span class="pill">Legacy forms</span><span class="pill">Canvas Apps</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="migrate-to-dataverse"><div class="lab-meta"><span class="pill">Migration</span><span class="pill pill-accent">Dataverse</span></div><h3>migrate-to-dataverse</h3><p>Replace SharePoint list-backed app data sources with Dataverse table equivalents.</p><div class="tags"><span class="pill">SharePoint lists</span><span class="pill">Dataverse</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="design-guide"><div class="lab-meta"><span class="pill">Code Apps</span><span class="pill pill-accent">Design</span></div><h3>design-guide</h3><p>Create a brand-aligned design guide before building a Power Apps Code App.</p><div class="tags"><span class="pill">Brand</span><span class="pill">UX</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="dataverse-webapi-query"><div class="lab-meta"><span class="pill">Dataverse</span><span class="pill pill-accent">Web API</span></div><h3>dataverse-webapi-query</h3><p>Author and troubleshoot Dataverse Web API queries from natural-language intent.</p><div class="tags"><span class="pill">OData</span><span class="pill">FetchXML</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="create-pp-dev-env"><div class="lab-meta"><span class="pill">Governance</span><span class="pill pill-accent">Environments</span></div><h3>create-pp-dev-env</h3><p>Provision Power Platform Developer environments with standard governance defaults.</p><div class="tags"><span class="pill">Developer environment</span><span class="pill">Managed Environment</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="powercat-overflow"><div class="lab-meta"><span class="pill">Power Automate</span><span class="pill pill-accent">Review</span></div><h3>powercat-overflow</h3><p>Review Power Automate cloud flows in a solution package and explore findings in the hosted viewer.</p><div class="tags"><span class="pill">Cloud flows</span><span class="pill">Solution review</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="powercat-overpage"><div class="lab-meta"><span class="pill">Power Pages</span><span class="pill pill-accent">Review</span></div><h3>powercat-overpage</h3><p>Review Power Pages sites in solution packages across security, performance, accessibility, maintainability, architecture, and reliability.</p><div class="tags"><span class="pill">Power Pages</span><span class="pill">HAR optional</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="eval-generator-code-app"><div class="lab-meta"><span class="pill">Code Apps</span><span class="pill pill-accent">Evals</span></div><h3>eval-generator-code-app</h3><p>Generate eval suites and dashboards for Power Apps Code Apps.</p><div class="tags"><span class="pill">Testing</span><span class="pill">Security analysis</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
-        <button class="lab-card" type="button" data-skill="eval-generator-gen-pages"><div class="lab-meta"><span class="pill">Generative Pages</span><span class="pill pill-accent">Evals</span></div><h3>eval-generator-gen-pages</h3><p>Generate eval suites and dashboards for Power Apps Generative Pages.</p><div class="tags"><span class="pill">Presence checks</span><span class="pill">Unit tests</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-admin-digest" data-skill="powercat-admin-digest"><div class="lab-meta"><span class="pill">Admin</span><span class="pill pill-accent">Operations</span></div><h3>powercat-admin-digest</h3><p>Produce an operations-ready Power Platform admin digest across Message Center notices, Service Health incidents, Known Issues, and deprecations.</p><div class="tags"><span class="pill">Power Platform</span><span class="pill">Admin</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-adoption" data-skill="powercat-storytelling"><div class="lab-meta"><span class="pill">Adoption</span><span class="pill pill-accent">Storytelling</span></div><h3>powercat-storytelling</h3><p>Generate polished, brand-matched customer story presentation content from structured engagement inputs.</p><div class="tags"><span class="pill">Customer stories</span><span class="pill">Presentation</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-canvas-apps" data-skill="analyze-canvas-performance"><div class="lab-meta"><span class="pill">Canvas Apps</span><span class="pill pill-accent">Quality</span></div><h3>analyze-canvas-performance</h3><p>Review Canvas Apps for performance, delegation, reliability, and maintainability risks.</p><div class="tags"><span class="pill">Power Apps</span><span class="pill">Review</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-code-apps" data-skill="design-guide"><div class="lab-meta"><span class="pill">Code Apps</span><span class="pill pill-accent">Design</span></div><h3>design-guide</h3><p>Create a brand-aligned design guide before building a Power Apps Code App.</p><div class="tags"><span class="pill">Brand</span><span class="pill">UX</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-dataverse" data-skill="dataverse-webapi-query"><div class="lab-meta"><span class="pill">Dataverse</span><span class="pill pill-accent">Web API</span></div><h3>dataverse-webapi-query</h3><p>Author and troubleshoot Dataverse Web API queries from natural-language intent.</p><div class="tags"><span class="pill">OData</span><span class="pill">FetchXML</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-governance" data-skill="create-pp-dev-env"><div class="lab-meta"><span class="pill">Governance</span><span class="pill pill-accent">Environments</span></div><h3>create-pp-dev-env</h3><p>Provision Power Platform Developer environments with standard governance defaults.</p><div class="tags"><span class="pill">Developer environment</span><span class="pill">Managed Environment</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-overflow" data-skill="powercat-overflow"><div class="lab-meta"><span class="pill">Power Automate</span><span class="pill pill-accent">Review</span></div><h3>powercat-overflow</h3><p>Review Power Automate cloud flows in a solution package and explore findings in the hosted viewer.</p><div class="tags"><span class="pill">Cloud flows</span><span class="pill">Solution review</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-overpage" data-skill="powercat-overpage"><div class="lab-meta"><span class="pill">Power Pages</span><span class="pill pill-accent">Review</span></div><h3>powercat-overpage</h3><p>Review Power Pages sites in solution packages across security, performance, accessibility, maintainability, architecture, and reliability.</p><div class="tags"><span class="pill">Power Pages</span><span class="pill">HAR optional</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-procode-eval" data-skill="eval-generator-code-app"><div class="lab-meta"><span class="pill">Code Apps</span><span class="pill pill-accent">Evals</span></div><h3>eval-generator-code-app</h3><p>Generate eval suites and dashboards for Power Apps Code Apps.</p><div class="tags"><span class="pill">Testing</span><span class="pill">Security analysis</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
+        <button class="lab-card" type="button" data-plugin="powercat-procode-eval" data-skill="eval-generator-gen-pages"><div class="lab-meta"><span class="pill">Generative Pages</span><span class="pill pill-accent">Evals</span></div><h3>eval-generator-gen-pages</h3><p>Generate eval suites and dashboards for Power Apps Generative Pages.</p><div class="tags"><span class="pill">Presence checks</span><span class="pill">Unit tests</span></div><div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div></button>
       </div>
     </section>
 
@@ -423,8 +444,38 @@
     const source = document.getElementById("modal-source");
     const closeModal = () => modal.dataset.open = "false";
     const listItems = (items) => items.map((item) => `<li>${item}</li>`).join("");
+    const catalogSkillCards = Array.from(document.querySelectorAll(".lab-grid [data-skill]"));
+    const detailCards = Array.from(document.querySelectorAll("[data-skill]"));
+    const resultCount = document.querySelector(".result-count");
+    const pluginLabels = {
+      all: "public skills",
+      "powercat-adoption": "Adoption skills",
+      "powercat-canvas-apps": "Canvas Apps skills",
+      "powercat-code-apps": "Code Apps skills",
+      "powercat-dataverse": "Dataverse skills",
+      "powercat-governance": "Governance skills",
+      "powercat-procode-eval": "Pro-Code Eval skills",
+      "powercat-admin-digest": "Admin Digest skills",
+      "powercat-overflow": "OverFlow skills",
+      "powercat-overpage": "OverPage skills"
+    };
 
-    document.querySelectorAll("[data-skill]").forEach((card) => {
+    document.querySelectorAll("[data-plugin-filter]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const selected = tab.dataset.pluginFilter;
+        document.querySelectorAll("[data-plugin-filter]").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === tab));
+        });
+        const visibleCards = catalogSkillCards.filter((card) => {
+          const visible = selected === "all" || card.dataset.plugin === selected;
+          card.hidden = !visible;
+          return visible;
+        });
+        resultCount.textContent = `${visibleCards.length} ${pluginLabels[selected] || "skills"}`;
+      });
+    });
+
+    detailCards.forEach((card) => {
       card.addEventListener("click", () => {
         const skill = SKILLS[card.dataset.skill];
         if (!skill) return;
