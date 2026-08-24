@@ -1,0 +1,772 @@
+{
+  "pageTitle": "Power Platform Skills Marketplace & Migration Factory",
+  "plugins": [
+    {
+      "id": "powercat-adoption",
+      "label": "Adoption",
+      "description": "Skills for Power Platform adoption storytelling — turn customer stories into polished, brand-matched HTML presentation decks."
+    },
+    {
+      "id": "powercat-canvas-apps",
+      "label": "Canvas Apps",
+      "description": "Skills to analyze Canvas App performance and quality."
+    },
+    {
+      "id": "powercat-code-apps",
+      "label": "Code Apps",
+      "description": "Skills to generate brand-aligned design guides for code apps built on the Power Platform."
+    },
+    {
+      "id": "powercat-dataverse",
+      "label": "Dataverse",
+      "description": "Skills for authoring and troubleshooting Microsoft Dataverse Web API queries — natural language to OData, FetchXML conversion, multi-surface targeting, and error diagnosis."
+    },
+    {
+      "id": "powercat-governance",
+      "label": "Governance",
+      "description": "Skills for Power Platform governance and administration — provision developer environments with standard governance defaults and automate admin center workflows."
+    },
+    {
+      "id": "powercat-procode-eval",
+      "label": "Pro-Code Eval",
+      "description": "Automated eval generation for Power Apps Code Apps and Generative Pages — feature presence checks, unit tests, static security analysis, and an HTML dashboard."
+    },
+    {
+      "id": "powercat-admin-digest",
+      "label": "Admin Digest",
+      "description": "Power Platform admin digest — Message Center notices, Service Health incidents, Known Issues, and deprecations that can affect production operations, with shareability tiering so customer-facing summaries never leak NDA content."
+    },
+    {
+      "id": "powercat-overflow",
+      "label": "OverFlow",
+      "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines, produces a [SolutionName].findings.json next to the uploaded solution, then opens the hosted PowerCAT-Overflow viewer at https://microsoft.github.io/power-cat-skills/PowerCAT-Overflow.html and uploads both files so the user can explore the results."
+    },
+    {
+      "id": "powercat-overpage",
+      "label": "OverPage",
+      "description": "Reviews the Power Pages site(s) inside a Power Platform solution (.zip) against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliability, optionally using a browser HAR capture to investigate real performance bottlenecks. Produces a [SolutionName].findings.json with solution, per-site and per-component findings (descriptions, fixes, code/HAR anchors), then opens the hosted PowerCAT OverPage viewer at https://microsoft.github.io/power-cat-skills/PowerCAT-OverPage.html so the user can explore findings overlaid on a live page preview, on the actual code, and on the network waterfall."
+    }
+  ],
+  "skills": [
+    {
+      "id": "powercat-storytelling",
+      "detailId": "powercat-adoption__powercat-storytelling",
+      "title": "powercat-storytelling",
+      "category": "Adoption",
+      "plugin": "powercat-adoption",
+      "pluginLabel": "Adoption",
+      "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "tags": [
+        "Adoption",
+        "storytelling",
+        "power platform"
+      ],
+      "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "when": [
+        "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
+        "Use it when the work belongs in the Adoption area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-adoption@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-adoption/skills/powercat-storytelling",
+      "heading": "Storytelling: Generate Slides Skill"
+    },
+    {
+      "id": "analyze-canvas-performance",
+      "detailId": "powercat-canvas-apps__analyze-canvas-performance",
+      "title": "analyze-canvas-performance",
+      "category": "Canvas Apps",
+      "plugin": "powercat-canvas-apps",
+      "pluginLabel": "Canvas Apps",
+      "description": "Analyze and audit a Power Apps canvas app.",
+      "tags": [
+        "Canvas Apps",
+        "power platform",
+        "power apps"
+      ],
+      "what": "Analyze and audit a Power Apps canvas app.",
+      "when": [
+        "Use this when you need analyze and audit a Power Apps canvas app.",
+        "Use it when the work belongs in the Canvas Apps area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-canvas-apps@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-canvas-apps/skills/analyze-canvas-performance",
+      "heading": "Analyze Canvas App Performance & Quality"
+    },
+    {
+      "id": "design-guide",
+      "detailId": "powercat-code-apps__design-guide",
+      "title": "design-guide",
+      "category": "Code Apps",
+      "plugin": "powercat-code-apps",
+      "pluginLabel": "Code Apps",
+      "description": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+      "tags": [
+        "Code Apps",
+        "power platform",
+        "power apps"
+      ],
+      "what": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+      "when": [
+        "Use this when you need generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+        "Use it when the work belongs in the Code Apps area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-code-apps@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-code-apps/skills/design-guide",
+      "heading": "Design Guide Generator"
+    },
+    {
+      "id": "dataverse-webapi-query",
+      "detailId": "powercat-dataverse__dataverse-webapi-query",
+      "title": "dataverse-webapi-query",
+      "category": "Dataverse",
+      "plugin": "powercat-dataverse",
+      "pluginLabel": "Dataverse",
+      "description": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+      "tags": [
+        "Dataverse",
+        "web api",
+        "odata"
+      ],
+      "what": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+      "when": [
+        "Use this when you need generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-dataverse@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-dataverse/skills/dataverse-webapi-query",
+      "heading": ""
+    },
+    {
+      "id": "powercat-storytelling",
+      "detailId": "powercat-dataverse__powercat-storytelling",
+      "title": "powercat-storytelling",
+      "category": "Dataverse",
+      "plugin": "powercat-dataverse",
+      "pluginLabel": "Dataverse",
+      "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "tags": [
+        "Dataverse",
+        "web api",
+        "odata"
+      ],
+      "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "when": [
+        "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
+        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-dataverse@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-dataverse/skills/powercat-storytelling",
+      "heading": "Storytelling: Generate Slides Skill"
+    },
+    {
+      "id": "create-pp-dev-env",
+      "detailId": "powercat-governance__create-pp-dev-env",
+      "title": "create-pp-dev-env",
+      "category": "Governance",
+      "plugin": "powercat-governance",
+      "pluginLabel": "Governance",
+      "description": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+      "tags": [
+        "Governance",
+        "power platform",
+        "admin"
+      ],
+      "what": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+      "when": [
+        "Use this when you need provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+        "Use it when the work belongs in the Governance area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-governance@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-governance/skills/create-pp-dev-env",
+      "heading": "Create Power Platform Developer Environment"
+    },
+    {
+      "id": "eval-generator-code-app",
+      "detailId": "powercat-procode-eval__eval-generator-code-app",
+      "title": "eval-generator-code-app",
+      "category": "Pro-Code Eval",
+      "plugin": "powercat-procode-eval",
+      "pluginLabel": "Pro-Code Eval",
+      "description": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+      "tags": [
+        "Pro-Code Eval",
+        "eval",
+        "testing"
+      ],
+      "what": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+      "when": [
+        "Use this when you need generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-procode-eval@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-procode-eval/skills/eval-generator-code-app",
+      "heading": "Eval Generator — Power Apps Code App"
+    },
+    {
+      "id": "eval-generator-gen-pages",
+      "detailId": "powercat-procode-eval__eval-generator-gen-pages",
+      "title": "eval-generator-gen-pages",
+      "category": "Pro-Code Eval",
+      "plugin": "powercat-procode-eval",
+      "pluginLabel": "Pro-Code Eval",
+      "description": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+      "tags": [
+        "Pro-Code Eval",
+        "eval",
+        "testing"
+      ],
+      "what": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+      "when": [
+        "Use this when you need generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-procode-eval@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-procode-eval/skills/eval-generator-gen-pages",
+      "heading": "Eval Generator — Power Apps Generative Pages"
+    },
+    {
+      "id": "powercat-admin-digest",
+      "detailId": "powercat-admin-digest__powercat-admin-digest",
+      "title": "powercat-admin-digest",
+      "category": "Admin Digest",
+      "plugin": "powercat-admin-digest",
+      "pluginLabel": "Admin Digest",
+      "description": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+      "tags": [
+        "Admin Digest",
+        "admin",
+        "message center"
+      ],
+      "what": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+      "when": [
+        "Use this when you need produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+        "Use it when the work belongs in the Admin Digest area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-admin-digest@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-admin-digest/skills/powercat-admin-digest",
+      "heading": "powercat-admin-digest"
+    },
+    {
+      "id": "powercat-overflow",
+      "detailId": "powercat-overflow__powercat-overflow",
+      "title": "powercat-overflow",
+      "category": "OverFlow",
+      "plugin": "powercat-overflow",
+      "pluginLabel": "OverFlow",
+      "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+      "tags": [
+        "OverFlow",
+        "power-platform",
+        "power-automate"
+      ],
+      "what": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+      "when": [
+        "Use this when you need reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+        "Use it when the work belongs in the OverFlow area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-overflow@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overflow/skills/powercat-overflow",
+      "heading": "PowerCAT-Overflow"
+    },
+    {
+      "id": "powercat-overpage",
+      "detailId": "powercat-overpage__powercat-overpage",
+      "title": "powercat-overpage",
+      "category": "OverPage",
+      "plugin": "powercat-overpage",
+      "pluginLabel": "OverPage",
+      "description": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+      "tags": [
+        "OverPage",
+        "power-platform",
+        "power-pages"
+      ],
+      "what": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+      "when": [
+        "Use this when you need reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+        "Use it when the work belongs in the OverPage area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-overpage@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overpage/skills/powercat-overpage",
+      "heading": "PowerCAT OverPage"
+    }
+  ],
+  "migrationTracks": [
+    {
+      "id": "Access to Dataverse Migration",
+      "title": "Access to Dataverse Migration",
+      "description": "This folder is reserved for the Access to Dataverse migration track in the Power Platform Migration Factory.",
+      "status": "Coming soon",
+      "cta": "Coming soon",
+      "kind": "track",
+      "skillId": null,
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration"
+    },
+    {
+      "id": "Airtable to Power Platform Migration",
+      "title": "Airtable to Power Platform Migration",
+      "description": "This folder is reserved for the Airtable to Power Platform migration track in the Power Platform Migration Factory.",
+      "status": "Coming soon",
+      "cta": "Coming soon",
+      "kind": "track",
+      "skillId": null,
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration"
+    },
+    {
+      "id": "infopath-to-canvas",
+      "title": "infopath-to-canvas",
+      "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
+      "status": "Available skill",
+      "cta": "Forms migration skill",
+      "kind": "skill",
+      "skillId": "infopath-to-canvas",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/infopath-to-canvas",
+      "detailId": "powercat-migration-factory__infopath-to-canvas"
+    },
+    {
+      "id": "migrate-to-dataverse",
+      "title": "migrate-to-dataverse",
+      "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
+      "status": "Available skill",
+      "cta": "Dataverse migration skill",
+      "kind": "skill",
+      "skillId": "migrate-to-dataverse",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse",
+      "detailId": "powercat-migration-factory__migrate-to-dataverse"
+    }
+  ],
+  "details": {
+    "powercat-adoption__powercat-storytelling": {
+      "id": "powercat-storytelling",
+      "detailId": "powercat-adoption__powercat-storytelling",
+      "title": "powercat-storytelling",
+      "category": "Adoption",
+      "plugin": "powercat-adoption",
+      "pluginLabel": "Adoption",
+      "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "tags": [
+        "Adoption",
+        "storytelling",
+        "power platform"
+      ],
+      "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "when": [
+        "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
+        "Use it when the work belongs in the Adoption area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-adoption@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-adoption/skills/powercat-storytelling",
+      "heading": "Storytelling: Generate Slides Skill"
+    },
+    "powercat-canvas-apps__analyze-canvas-performance": {
+      "id": "analyze-canvas-performance",
+      "detailId": "powercat-canvas-apps__analyze-canvas-performance",
+      "title": "analyze-canvas-performance",
+      "category": "Canvas Apps",
+      "plugin": "powercat-canvas-apps",
+      "pluginLabel": "Canvas Apps",
+      "description": "Analyze and audit a Power Apps canvas app.",
+      "tags": [
+        "Canvas Apps",
+        "power platform",
+        "power apps"
+      ],
+      "what": "Analyze and audit a Power Apps canvas app.",
+      "when": [
+        "Use this when you need analyze and audit a Power Apps canvas app.",
+        "Use it when the work belongs in the Canvas Apps area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-canvas-apps@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-canvas-apps/skills/analyze-canvas-performance",
+      "heading": "Analyze Canvas App Performance & Quality"
+    },
+    "powercat-code-apps__design-guide": {
+      "id": "design-guide",
+      "detailId": "powercat-code-apps__design-guide",
+      "title": "design-guide",
+      "category": "Code Apps",
+      "plugin": "powercat-code-apps",
+      "pluginLabel": "Code Apps",
+      "description": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+      "tags": [
+        "Code Apps",
+        "power platform",
+        "power apps"
+      ],
+      "what": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+      "when": [
+        "Use this when you need generate a brand-aligned design guide for a new code app instead of using the default template styling.",
+        "Use it when the work belongs in the Code Apps area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-code-apps@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-code-apps/skills/design-guide",
+      "heading": "Design Guide Generator"
+    },
+    "powercat-dataverse__dataverse-webapi-query": {
+      "id": "dataverse-webapi-query",
+      "detailId": "powercat-dataverse__dataverse-webapi-query",
+      "title": "dataverse-webapi-query",
+      "category": "Dataverse",
+      "plugin": "powercat-dataverse",
+      "pluginLabel": "Dataverse",
+      "description": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+      "tags": [
+        "Dataverse",
+        "web api",
+        "odata"
+      ],
+      "what": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+      "when": [
+        "Use this when you need generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
+        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-dataverse@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-dataverse/skills/dataverse-webapi-query",
+      "heading": ""
+    },
+    "powercat-dataverse__powercat-storytelling": {
+      "id": "powercat-storytelling",
+      "detailId": "powercat-dataverse__powercat-storytelling",
+      "title": "powercat-storytelling",
+      "category": "Dataverse",
+      "plugin": "powercat-dataverse",
+      "pluginLabel": "Dataverse",
+      "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "tags": [
+        "Dataverse",
+        "web api",
+        "odata"
+      ],
+      "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
+      "when": [
+        "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
+        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-dataverse@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-dataverse/skills/powercat-storytelling",
+      "heading": "Storytelling: Generate Slides Skill"
+    },
+    "powercat-governance__create-pp-dev-env": {
+      "id": "create-pp-dev-env",
+      "detailId": "powercat-governance__create-pp-dev-env",
+      "title": "create-pp-dev-env",
+      "category": "Governance",
+      "plugin": "powercat-governance",
+      "pluginLabel": "Governance",
+      "description": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+      "tags": [
+        "Governance",
+        "power platform",
+        "admin"
+      ],
+      "what": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+      "when": [
+        "Use this when you need provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
+        "Use it when the work belongs in the Governance area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-governance@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-governance/skills/create-pp-dev-env",
+      "heading": "Create Power Platform Developer Environment"
+    },
+    "powercat-procode-eval__eval-generator-code-app": {
+      "id": "eval-generator-code-app",
+      "detailId": "powercat-procode-eval__eval-generator-code-app",
+      "title": "eval-generator-code-app",
+      "category": "Pro-Code Eval",
+      "plugin": "powercat-procode-eval",
+      "pluginLabel": "Pro-Code Eval",
+      "description": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+      "tags": [
+        "Pro-Code Eval",
+        "eval",
+        "testing"
+      ],
+      "what": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+      "when": [
+        "Use this when you need generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
+        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-procode-eval@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-procode-eval/skills/eval-generator-code-app",
+      "heading": "Eval Generator — Power Apps Code App"
+    },
+    "powercat-procode-eval__eval-generator-gen-pages": {
+      "id": "eval-generator-gen-pages",
+      "detailId": "powercat-procode-eval__eval-generator-gen-pages",
+      "title": "eval-generator-gen-pages",
+      "category": "Pro-Code Eval",
+      "plugin": "powercat-procode-eval",
+      "pluginLabel": "Pro-Code Eval",
+      "description": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+      "tags": [
+        "Pro-Code Eval",
+        "eval",
+        "testing"
+      ],
+      "what": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+      "when": [
+        "Use this when you need generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
+        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-procode-eval@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-procode-eval/skills/eval-generator-gen-pages",
+      "heading": "Eval Generator — Power Apps Generative Pages"
+    },
+    "powercat-admin-digest__powercat-admin-digest": {
+      "id": "powercat-admin-digest",
+      "detailId": "powercat-admin-digest__powercat-admin-digest",
+      "title": "powercat-admin-digest",
+      "category": "Admin Digest",
+      "plugin": "powercat-admin-digest",
+      "pluginLabel": "Admin Digest",
+      "description": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+      "tags": [
+        "Admin Digest",
+        "admin",
+        "message center"
+      ],
+      "what": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+      "when": [
+        "Use this when you need produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
+        "Use it when the work belongs in the Admin Digest area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-admin-digest@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-admin-digest/skills/powercat-admin-digest",
+      "heading": "powercat-admin-digest"
+    },
+    "powercat-overflow__powercat-overflow": {
+      "id": "powercat-overflow",
+      "detailId": "powercat-overflow__powercat-overflow",
+      "title": "powercat-overflow",
+      "category": "OverFlow",
+      "plugin": "powercat-overflow",
+      "pluginLabel": "OverFlow",
+      "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+      "tags": [
+        "OverFlow",
+        "power-platform",
+        "power-automate"
+      ],
+      "what": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+      "when": [
+        "Use this when you need reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
+        "Use it when the work belongs in the OverFlow area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-overflow@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overflow/skills/powercat-overflow",
+      "heading": "PowerCAT-Overflow"
+    },
+    "powercat-overpage__powercat-overpage": {
+      "id": "powercat-overpage",
+      "detailId": "powercat-overpage__powercat-overpage",
+      "title": "powercat-overpage",
+      "category": "OverPage",
+      "plugin": "powercat-overpage",
+      "pluginLabel": "OverPage",
+      "description": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+      "tags": [
+        "OverPage",
+        "power-platform",
+        "power-pages"
+      ],
+      "what": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+      "when": [
+        "Use this when you need reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
+        "Use it when the work belongs in the OverPage area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-overpage@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overpage/skills/powercat-overpage",
+      "heading": "PowerCAT OverPage"
+    },
+    "powercat-migration-factory__infopath-to-canvas": {
+      "id": "infopath-to-canvas",
+      "detailId": "powercat-migration-factory__infopath-to-canvas",
+      "title": "infopath-to-canvas",
+      "category": "migration factory",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "what": "Guides modernization from InfoPath forms to Canvas Apps by assessing the legacy form, identifying data and logic patterns, and shaping a Power Apps target experience.",
+      "when": [
+        "You need to retire or replace InfoPath forms.",
+        "You want to understand migration complexity before rebuilding.",
+        "You need a structured plan for modern forms, data, and workflow."
+      ],
+      "how": [
+        "Breaks down fields, rules, views, and submit behavior.",
+        "Maps legacy form intent to Canvas App patterns.",
+        "Surfaces migration risks and implementation decisions early."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/infopath-to-canvas",
+      "heading": "Migrate an InfoPath Form to a Canvas App",
+      "cardCta": "Forms migration skill"
+    },
+    "powercat-migration-factory__migrate-to-dataverse": {
+      "id": "migrate-to-dataverse",
+      "detailId": "powercat-migration-factory__migrate-to-dataverse",
+      "title": "migrate-to-dataverse",
+      "category": "migration factory",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "what": "Helps replace SharePoint list-backed app data sources with Dataverse tables, relationships, and implementation guidance that better support scale, security, and app lifecycle needs.",
+      "when": [
+        "A Canvas App has outgrown SharePoint lists.",
+        "You need Dataverse security, relationships, ALM, or stronger data modeling.",
+        "You are planning a low-risk move from list data to managed tables."
+      ],
+      "how": [
+        "Analyzes list structures and app usage patterns.",
+        "Suggests Dataverse table and column mappings.",
+        "Documents migration steps and app update considerations."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse",
+      "heading": "Migrate Canvas App Data Sources to Dataverse",
+      "cardCta": "Dataverse migration skill"
+    }
+  }
+}
