@@ -247,7 +247,7 @@ function buildCatalog() {
   }
 
   return {
-    pageTitle: "Power Platform Accelerators Marketplace",
+    pageTitle: "Power Platform Skills Marketplace & Migration Factory",
     plugins,
     skills,
     migrationTracks,
