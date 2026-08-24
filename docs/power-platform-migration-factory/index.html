@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Power CAT Skills Marketplace and Power Platform Migration Factory landing page.">
+  <title>Power CAT Skills Marketplace | Power Platform Migration Factory</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, var(--cp-highlight), transparent 34rem),
+        radial-gradient(circle at left 18rem, var(--cp-accent-soft), transparent 30rem),
+        var(--cp-bg);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", Courier, monospace;
+    }
+
+    a {
+      color: var(--cp-link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      align-items: center;
+      background: var(--cp-panel-strong);
+      border-bottom: 1px solid var(--cp-border);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      padding: 1rem clamp(1rem, 4vw, 3rem);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      color: var(--cp-text);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand strong {
+      color: var(--cp-accent);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      justify-content: flex-end;
+    }
+
+    nav a,
+    .theme-button {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 0.625rem;
+      color: var(--cp-text-muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.92rem;
+      padding: 0.45rem 0.7rem;
+    }
+
+    nav a:hover,
+    .theme-button:hover {
+      background: var(--cp-accent-soft);
+      color: var(--cp-accent);
+      text-decoration: none;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1180px;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.25rem);
+      letter-spacing: -0.07em;
+      line-height: 0.92;
+      margin: 1rem auto;
+      max-width: 11ch;
+    }
+
+    .eyebrow {
+      background: var(--cp-accent-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 999px;
+      color: var(--cp-accent);
+      display: inline-flex;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.45rem 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .catalog-line {
+      color: var(--cp-accent);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      font-weight: 700;
+      gap: 0.85rem;
+      justify-content: center;
+      margin: 0 0 1rem;
+    }
+
+    .lead {
+      color: var(--cp-text-muted);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      margin: 0 auto 2rem;
+      max-width: 760px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .button {
+      align-items: center;
+      border: 1px solid var(--cp-border-strong);
+      border-radius: 0.625rem;
+      display: inline-flex;
+      font-weight: 700;
+      gap: 0.5rem;
+      padding: 0.78rem 1rem;
+    }
+
+    .button.primary {
+      background: var(--cp-accent);
+      border-color: var(--cp-accent);
+      color: var(--cp-accent-fg);
+    }
+
+    .button.secondary {
+      background: var(--cp-surface);
+      color: var(--cp-text);
+    }
+
+    .story-band {
+      background: var(--cp-surface);
+      border-block: 1px solid var(--cp-border);
+    }
+
+    .story-grid {
+      align-items: center;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    }
+
+    .story-grid h2,
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.045em;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .story-grid p,
+    .section-heading p {
+      color: var(--cp-text-muted);
+      font-size: 1.05rem;
+      margin: 1rem 0 0;
+    }
+
+    .toolbox {
+      background:
+        linear-gradient(135deg, var(--cp-surface), var(--cp-surface-soft));
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: var(--cp-shadow);
+      display: grid;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
+    .tool-row {
+      align-items: center;
+      background: var(--cp-panel);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: auto 1fr;
+      padding: 0.9rem;
+    }
+
+    .tool-icon {
+      background: var(--cp-accent-soft);
+      border-radius: 0.625rem;
+      color: var(--cp-accent);
+      display: grid;
+      font-weight: 800;
+      height: 2.4rem;
+      place-items: center;
+      width: 2.4rem;
+    }
+
+    .section-heading {
+      align-items: end;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: var(--cp-shadow);
+      padding: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 0.5rem;
+    }
+
+    .card p {
+      color: var(--cp-text-muted);
+      margin: 0.5rem 0 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: var(--cp-accent-soft);
+      border-radius: 999px;
+      color: var(--cp-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.55rem;
+    }
+
+    .command {
+      background: var(--cp-bg-elevated);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      color: var(--cp-text);
+      display: block;
+      margin-top: 1rem;
+      overflow-x: auto;
+      padding: 0.85rem;
+      white-space: nowrap;
+    }
+
+    footer {
+      border-top: 1px solid var(--cp-border);
+      color: var(--cp-text-muted);
+      padding: 2rem clamp(1rem, 4vw, 3rem);
+      text-align: center;
+    }
+
+    @media (max-width: 780px) {
+      .site-header,
+      .section-heading,
+      .story-grid {
+        align-items: start;
+        grid-template-columns: 1fr;
+      }
+
+      .site-header,
+      .section-heading {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Power CAT Skills home">Power CAT <strong>Skills Marketplace</strong></a>
+    <nav aria-label="Primary navigation">
+      <a href="#factory">Migration Factory</a>
+      <a href="#skills">Skills</a>
+      <a href="#install">Install</a>
+      <button class="theme-button" id="theme-button" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <span class="eyebrow">Power Platform Migration Factory</span>
+        <h1 id="hero-title">One marketplace. The right skill, every time.</h1>
+        <p class="catalog-line"><span>Assess.</span><span>Modernize.</span><span>Validate.</span><span>Scale.</span></p>
+        <p class="lead">Power CAT skills package repeatable Power Platform expertise into guided agent workflows. Use the marketplace to find the right accelerator for migration, governance, quality review, app design, Dataverse development, and customer storytelling.</p>
+        <div class="actions">
+          <a class="button primary" href="#skills">Explore skills</a>
+          <a class="button secondary" href="https://github.com/microsoft/power-cat-skills" rel="noopener">View repository</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-band" aria-labelledby="why-title">
+      <div class="container story-grid">
+        <div>
+          <span class="eyebrow">Why a skill marketplace</span>
+          <h2 id="why-title">Reusable field patterns, available where makers and engineers work.</h2>
+          <p>A skill marketplace turns proven delivery motions into repeatable, discoverable workflows. Instead of starting every engagement from a blank prompt, teams can install curated skills that know the domain, ask the right questions, produce consistent artifacts, and keep implementation aligned to Power Platform best practices.</p>
+        </div>
+        <div class="toolbox" aria-label="Marketplace value props">
+          <div class="tool-row"><span class="tool-icon">1</span><div><strong>Discoverable</strong><br><span>Browse by business outcome, plugin, and skill.</span></div></div>
+          <div class="tool-row"><span class="tool-icon">2</span><div><strong>Repeatable</strong><br><span>Use standard workflows for assessment, build, review, and handoff.</span></div></div>
+          <div class="tool-row"><span class="tool-icon">3</span><div><strong>Composable</strong><br><span>Combine migration, governance, Dataverse, and eval skills as work evolves.</span></div></div>
+          <div class="tool-row"><span class="tool-icon">4</span><div><strong>Quality-focused</strong><br><span>Move faster while preserving review gates, validation, and implementation discipline.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="factory" aria-labelledby="factory-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Migration Factory</span>
+            <h2 id="factory-title">Migration tracks for legacy-to-Power Platform modernization.</h2>
+          </div>
+          <p>Start with source discovery, move through target Dataverse design, and finish with migration-ready implementation assets.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Access to Dataverse Migration</h3>
+            <p>Modernize Access databases by inventorying schema, queries, forms, reports, macros, and VBA dependencies; then shape a Dataverse-backed Power Platform target architecture.</p>
+            <div class="tag-row"><span class="tag">Access</span><span class="tag">Dataverse</span><span class="tag">Model-driven apps</span></div>
+          </article>
+          <article class="card">
+            <h3>Airtable to Power Platform Migration</h3>
+            <p>Translate Airtable bases, views, interfaces, automations, and data into Dataverse tables, Power Apps experiences, and Power Automate workflows.</p>
+            <div class="tag-row"><span class="tag">Airtable</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Marketplace catalog</span>
+            <h2 id="skills-title">Available Power CAT skills</h2>
+          </div>
+          <p>These are the public skills currently surfaced by the repository's plugin metadata and skill folders.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>powercat-admin-digest</h3>
+            <p>Produce an operations-ready Power Platform admin digest across Message Center notices, Service Health incidents, Known Issues, and deprecations.</p>
+            <div class="tag-row"><span class="tag">Admin</span><span class="tag">Operations</span></div>
+          </article>
+          <article class="card">
+            <h3>powercat-storytelling</h3>
+            <p>Generate polished, brand-matched customer story presentation content from structured engagement inputs.</p>
+            <div class="tag-row"><span class="tag">Adoption</span><span class="tag">Storytelling</span></div>
+          </article>
+          <article class="card">
+            <h3>analyze-canvas-performance</h3>
+            <p>Review Canvas Apps for performance, delegation, reliability, and maintainability risks.</p>
+            <div class="tag-row"><span class="tag">Canvas Apps</span><span class="tag">Quality</span></div>
+          </article>
+          <article class="card">
+            <h3>infopath-to-canvas</h3>
+            <p>Guide migration from InfoPath forms to modern Canvas Apps.</p>
+            <div class="tag-row"><span class="tag">Migration</span><span class="tag">InfoPath</span></div>
+          </article>
+          <article class="card">
+            <h3>migrate-to-dataverse</h3>
+            <p>Replace SharePoint list-backed app data sources with Dataverse table equivalents.</p>
+            <div class="tag-row"><span class="tag">Migration</span><span class="tag">Dataverse</span></div>
+          </article>
+          <article class="card">
+            <h3>design-guide</h3>
+            <p>Create a brand-aligned design guide before building a Power Apps Code App.</p>
+            <div class="tag-row"><span class="tag">Code Apps</span><span class="tag">Design</span></div>
+          </article>
+          <article class="card">
+            <h3>dataverse-webapi-query</h3>
+            <p>Author and troubleshoot Dataverse Web API queries from natural-language intent.</p>
+            <div class="tag-row"><span class="tag">Dataverse</span><span class="tag">Web API</span></div>
+          </article>
+          <article class="card">
+            <h3>create-pp-dev-env</h3>
+            <p>Provision Power Platform Developer environments with standard governance defaults.</p>
+            <div class="tag-row"><span class="tag">Governance</span><span class="tag">Environments</span></div>
+          </article>
+          <article class="card">
+            <h3>powercat-overflow</h3>
+            <p>Review Power Automate cloud flows in a solution package and explore findings in the hosted viewer.</p>
+            <div class="tag-row"><span class="tag">Power Automate</span><span class="tag">Review</span></div>
+          </article>
+          <article class="card">
+            <h3>powercat-overpage</h3>
+            <p>Review Power Pages sites in solution packages across security, performance, accessibility, maintainability, architecture, and reliability.</p>
+            <div class="tag-row"><span class="tag">Power Pages</span><span class="tag">Review</span></div>
+          </article>
+          <article class="card">
+            <h3>eval-generator-code-app</h3>
+            <p>Generate eval suites and dashboards for Power Apps Code Apps.</p>
+            <div class="tag-row"><span class="tag">Code Apps</span><span class="tag">Evals</span></div>
+          </article>
+          <article class="card">
+            <h3>eval-generator-gen-pages</h3>
+            <p>Generate eval suites and dashboards for Power Apps Generative Pages.</p>
+            <div class="tag-row"><span class="tag">Generative Pages</span><span class="tag">Evals</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" aria-labelledby="install-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Get started</span>
+            <h2 id="install-title">Install the marketplace, then install the plugins you need.</h2>
+          </div>
+          <p>Use Microsoft Scout or GitHub Copilot CLI to register the marketplace and add the Power CAT plugins for your workflow.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Register the marketplace</h3>
+            <code class="command">copilot plugin marketplace add microsoft/power-cat-skills</code>
+          </article>
+          <article class="card">
+            <h3>Install a plugin</h3>
+            <code class="command">copilot plugin install powercat-canvas-apps@power-cat-skills</code>
+          </article>
+          <article class="card">
+            <h3>Use a skill</h3>
+            <code class="command">Analyze my Canvas App for performance issues</code>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Power CAT Skills Marketplace - public preview content for Power Platform migration, governance, quality, and development accelerators.
+  </footer>
+
+  <script>
+    document.getElementById("theme-button").addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
