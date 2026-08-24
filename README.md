@@ -17,6 +17,11 @@ A plugin marketplace for **Microsoft Scout** and **GitHub Copilot CLI** that pro
 | Skill | Description |
 |-------|-------------|
 | **analyze-canvas-performance** | Audit Power Apps for performance, delegation, and best-practice issues |
+
+### `powercat-migration-factory` — Power Platform Migration Factory
+
+| Skill | Description |
+|-------|-------------|
 | **infopath-to-canvas** | Migrate InfoPath forms (.xsn) to modern Canvas Apps |
 | **migrate-to-dataverse** | Replace SharePoint list data sources with Dataverse table equivalents |
 
@@ -128,6 +133,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 |------------------|-----------------------------|
 | `powercat-adoption` | — |
 | `powercat-canvas-apps` | `canvas-apps@power-platform-skills` |
+| `powercat-migration-factory` | `canvas-apps@power-platform-skills` |
 | `powercat-code-apps` | `code-apps-preview@power-platform-skills` |
 | `powercat-dataverse` | — |
 | `powercat-governance` | — |
@@ -139,6 +145,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
 copilot plugin install powercat-canvas-apps@power-cat-skills
+copilot plugin install powercat-migration-factory@power-cat-skills
 copilot plugin install powercat-code-apps@power-cat-skills
 copilot plugin install powercat-dataverse@power-cat-skills
 copilot plugin install powercat-governance@power-cat-skills

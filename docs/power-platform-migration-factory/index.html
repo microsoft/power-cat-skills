@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Power Platform Skills Marketplace and Migration Factory landing page.">
+  <title>Power Platform Skills Marketplace & Migration Factory</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #ffffff;
+      --cp-bg-elevated: #f4f3f5;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #edf6fc;
+      --cp-border: #d8e2ec;
+      --cp-border-strong: #8295ad;
+      --cp-text: #2a446f;
+      --cp-text-muted: #526984;
+      --cp-text-soft: #647995;
+      --cp-accent: #0078d4;
+      --cp-accent-hover: #006cbe;
+      --cp-accent-soft: rgba(0, 120, 212, 0.09);
+      --cp-dark-blue: #2a446f;
+      --cp-dark-blue-soft: rgba(42, 68, 111, 0.09);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 16px 42px rgba(42, 68, 111, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(0, 120, 212, 0.1);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #0c1430;
+      --cp-bg-elevated: #111b3d;
+      --cp-surface: #162245;
+      --cp-surface-soft: #1e2c54;
+      --cp-border: #2f4069;
+      --cp-border-strong: #6175a5;
+      --cp-text: #f5f7ff;
+      --cp-text-muted: #aebbd7;
+      --cp-text-soft: #c9d2e7;
+      --cp-accent: #55b7ff;
+      --cp-accent-hover: #7ac6ff;
+      --cp-accent-soft: rgba(85, 183, 255, 0.14);
+      --cp-dark-blue: #d7e6ff;
+      --cp-dark-blue-soft: rgba(215, 230, 255, 0.12);
+      --cp-accent-fg: #08112b;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #7ac6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(12, 20, 48, 0.88);
+      --cp-panel: rgba(12, 20, 48, 0.78);
+      --cp-panel-strong: rgba(12, 20, 48, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(85, 183, 255, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button, select { cursor: pointer; }
+    .site-header { position: sticky; top: 0; z-index: 10; min-height: 72px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px; padding: 0 5vw; background: var(--cp-panel-strong); border-bottom: 1px solid var(--cp-border); box-shadow: 0 4px 18px rgba(42, 68, 111, 0.06); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; width: fit-content; text-decoration: none; }
+    .brand-name { color: var(--cp-text); font-size: 17px; font-weight: 600; }
+    .brand-name strong { color: var(--cp-accent); font-weight: 750; }
+    nav { justify-self: end; display: flex; align-items: center; gap: 24px; }
+    nav a { font-size: 14px; text-decoration: none; color: var(--cp-text-muted); }
+    nav a:hover { color: var(--cp-text); }
+    .theme-button { width: 36px; height: 36px; border: 1px solid var(--cp-border); border-radius: 0.625rem; background: var(--cp-surface); color: var(--cp-text); }
+    .power-cat-lockup { justify-self: end; display: block; width: 118px; height: 46px; }
+    .power-cat-lockup img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: right center; }
+    html[data-theme="dark"] .power-cat-lockup img { filter: invert(1) brightness(1.2); }
+    main { overflow: hidden; }
+    .hero { min-height: 520px; padding: 64px max(5vw, calc((100vw - 1220px) / 2)) 76px; background: var(--cp-bg); border-bottom: 8px solid transparent; border-image: linear-gradient(90deg, #0878d1, #8746d8 48%, #e248a5 72%, #f3a14b) 1; }
+    .hero h1 { display: flex; align-items: center; gap: 22px; max-width: none; color: var(--cp-text); font-size: clamp(46px, 5vw, 68px); line-height: 1; font-weight: 700; margin: 0; letter-spacing: 0; }
+    .series-mark { position: relative; flex: 0 0 40px; width: 40px; height: 40px; transform: rotate(45deg); }
+    .series-mark i { position: absolute; width: 24px; height: 24px; border-radius: 7px; }
+    .series-mark i:nth-child(1) { top: 0; left: 0; background: #8a3fd1; }
+    .series-mark i:nth-child(2) { top: 0; right: 0; background: #d648b3; }
+    .series-mark i:nth-child(3) { right: 0; bottom: 0; background: #0878d1; }
+    .catalog-line { margin: 36px 0 14px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.18; font-weight: 600; }
+    .catalog-line span:nth-child(1) { color: #0878d1; }
+    .catalog-line span:nth-child(2) { color: #8746d8; }
+    .catalog-line span:nth-child(3) { color: #ed9846; }
+    .catalog-line span:nth-child(4) { color: #d648b3; }
+    .hero h2 { margin: 0; color: var(--cp-text); font-size: clamp(18px, 1.45vw, 24px); line-height: 1.28; }
+    .eyebrow { margin: 0 0 12px; color: var(--cp-accent); font-size: 15px; font-weight: 750; text-transform: uppercase; letter-spacing: 0; }
+    .hero-copy { max-width: 760px; margin: 18px 0 0; color: var(--cp-text-muted); font-size: clamp(17px, 1.35vw, 21px); line-height: 1.48; }
+    .primary-action, .secondary-action { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 0.625rem; text-decoration: none; font-weight: 650; }
+    .primary-action { background: var(--cp-accent); color: var(--cp-accent-fg); border: 1px solid var(--cp-accent); }
+    .primary-action:hover { background: var(--cp-accent-hover); }
+    .secondary-action { background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); }
+    .secondary-action:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .needs-section, .catalog-section { max-width: none; margin: auto; padding: 88px 5vw; }
+    .needs-section > *, .catalog-section > * { max-width: 1180px; margin-left: auto; margin-right: auto; }
+    .section-heading, .catalog-heading { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 28px; }
+    .section-heading h2, .catalog-heading h1 { margin: 0; font-size: 38px; line-height: 1.15; letter-spacing: 0; }
+    .section-heading-copy { display: flex; align-items: center; gap: 20px; max-width: 620px; }
+    .section-heading-copy p { max-width: 430px; margin: 0; color: var(--cp-text-muted); line-height: 1.6; }
+    .section-heading-copy .primary-action { flex: 0 0 auto; }
+    .needs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .need-card { min-height: 190px; padding: 22px; text-align: left; text-decoration: none; background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; box-shadow: 0 8px 24px rgba(42, 68, 111, 0.06); transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+    button.need-card { width: 100%; font: inherit; cursor: pointer; }
+    .need-card:hover { transform: translateY(-3px); border-color: var(--cp-accent); box-shadow: var(--cp-shadow); }
+    .need-card:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 3px; }
+    .need-card strong { display: block; max-width: 260px; font-size: 20px; line-height: 1.25; }
+    .need-card span { display: block; margin-top: 12px; color: var(--cp-text-muted); line-height: 1.45; }
+    .need-card small { display: block; margin-top: 24px; color: var(--cp-accent); font-weight: 700; }
+    .guidance-card { border-color: #2a446f; border-top-color: #0078d4; background: #2a446f; color: #ffffff; }
+    .guidance-card span { color: #ffffff; }
+    .guidance-card small { color: #ffffff; }
+    .guidance-card:hover { border-color: var(--cp-accent); }
+    html[data-theme="dark"] .guidance-card { border-color: #55b7ff; border-top-color: #55b7ff; background: #d7e6ff; color: #14294a; }
+    html[data-theme="dark"] .guidance-card span, html[data-theme="dark"] .guidance-card small { color: #2a446f; }
+    .catalog-section { max-width: none; background: var(--cp-bg); border-top: 1px solid var(--cp-border); }
+    .market-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -6px auto 24px; }
+    .market-tab { min-height: 38px; padding: 0 14px; border: 1px solid var(--cp-border); border-radius: 0.625rem; background: var(--cp-surface); color: var(--cp-text-muted); font-size: 13px; font-weight: 650; }
+    .market-tab:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+    .market-tab[aria-pressed="true"] { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+    .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .lab-card { min-height: 190px; display: flex; flex-direction: column; padding: 22px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; box-shadow: 0 8px 24px rgba(42, 68, 111, 0.06); transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+    button.lab-card { width: 100%; color: var(--cp-text); cursor: pointer; text-align: left; }
+    button.lab-card:hover { border-color: var(--cp-accent); box-shadow: var(--cp-shadow); transform: translateY(-2px); }
+    button.lab-card:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 3px; }
+    .lab-meta, .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill { display: inline-flex; align-items: center; min-height: 22px; padding: 2px 7px; border-radius: 0.625rem; background: var(--cp-surface-soft); color: var(--cp-text-muted); font-size: 10px; font-weight: 650; }
+    .pill-accent { background: var(--cp-accent-soft); color: var(--cp-accent); }
+    .lab-card h3 { margin: 14px 0 8px; font-size: 20px; line-height: 1.25; letter-spacing: 0; }
+    .lab-card p { flex: 1; margin: 0 0 14px; color: var(--cp-text-muted); font-size: 14px; line-height: 1.45; }
+    .tags { margin-bottom: 14px; }
+    .lab-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--cp-border); }
+    .lab-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-left: auto; }
+    .lab-link { color: var(--cp-link); font-size: 13px; font-weight: 650; text-decoration: none; }
+    .lab-link:hover { text-decoration: underline; }
+    .coming-soon { color: var(--cp-text-muted); font-size: 12px; font-weight: 650; }
+    .modal { position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center; padding: 28px; background: var(--cp-overlay); }
+    .modal[data-open="true"] { display: flex; }
+    .modal-panel { width: min(920px, 100%); max-height: min(760px, calc(100vh - 56px)); overflow: auto; background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); border-radius: 0.625rem; box-shadow: var(--cp-shadow); }
+    .modal-header { display: flex; align-items: start; justify-content: space-between; gap: 20px; padding: 26px 28px 20px; border-bottom: 1px solid var(--cp-border); }
+    .modal-title { margin: 10px 0 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.05; }
+    .modal-close { flex: 0 0 auto; width: 40px; height: 40px; border: 1px solid var(--cp-border); border-radius: 0.625rem; background: var(--cp-surface-soft); color: var(--cp-text); font-size: 22px; }
+    .modal-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr); gap: 24px; padding: 24px 28px 28px; }
+    .modal-body h3 { margin: 0 0 8px; font-size: 17px; }
+    .modal-body p, .modal-body li { color: var(--cp-text-muted); line-height: 1.55; }
+    .modal-body ul { margin: 0; padding-left: 20px; }
+    .modal-section + .modal-section { margin-top: 22px; }
+    .install-box { background: var(--cp-bg-elevated); border: 1px solid var(--cp-border); border-radius: 0.625rem; padding: 16px; }
+    .install-box code { display: block; white-space: normal; overflow-wrap: anywhere; color: var(--cp-text); }
+    .modal-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; border-top: 1px solid var(--cp-border); background: var(--cp-bg); color: var(--cp-text-muted); }
+    .footer-platform-logo, .footer-power-cat-logo { font-weight: 700; }
+    @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+    @media (max-width: 780px) { .modal-body { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .site-header { grid-template-columns: 1fr auto; } nav a, .power-cat-lockup { display: none; } .hero { min-height: 430px; padding-top: 56px; padding-bottom: 64px; } .hero h1 { gap: 14px; font-size: 42px; } .series-mark { flex-basis: 32px; width: 32px; height: 32px; } .series-mark i { width: 19px; height: 19px; border-radius: 5px; } .catalog-line { margin-top: 38px; } .section-heading, .catalog-heading { align-items: start; flex-direction: column; gap: 12px; } .needs-grid, .lab-grid { grid-template-columns: 1fr; } footer { align-items: start; flex-direction: column; justify-content: center; gap: 4px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Power Platform Skills Marketplace and Migration Factory home">
+      <span class="brand-name">Power Platform <strong>Skills</strong></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#tracks">Migration Tracks</a>
+      <a href="#skills">Skills</a>
+      <a href="#install">Install</a>
+      <button class="theme-button" id="theme-button" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
+    </nav>
+    <div class="power-cat-lockup">
+      <img src="assets/power-cat-logo.png" alt="Power CAT">
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title"><span class="series-mark" aria-hidden="true"><i></i><i></i><i></i></span>Power Platform Skills Marketplace & Migration Factory</h1>
+      <p class="catalog-line"><span>Find Faster.</span> <span>Build Smarter.</span> <span>Ship with Confidence.</span></p>
+      <h2>From Power CAT field patterns to ready-to-run accelerators.</h2>
+      <p class="hero-copy">Start with the job to be done, then choose the guided workflow that helps you assess, design, review, migrate, or document a Power Platform solution.</p>
+      <div class="hero-actions">
+        <a class="primary-action" href="#skills">Explore skills <span aria-hidden="true">↓</span></a>
+        <a class="secondary-action" href="https://github.com/microsoft/power-cat-skills" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="needs-section" id="tracks" aria-labelledby="tracks-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Start with the migration path</p>
+          <h2 id="tracks-title">Which modernization track are you exploring?</h2>
+        </div>
+        <div class="section-heading-copy">
+          <p>Migration Factory tracks help teams assess legacy assets, design the Dataverse target state, and build migration-ready Power Platform assets.</p>
+          <a class="primary-action" href="#install">Get started <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="needs-grid" id="migration-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="catalog-section" id="skills" aria-labelledby="skills-title">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">Marketplace catalog</p>
+          <h1 id="skills-title">Available Power CAT skills</h1>
+        </div>
+        <p class="result-count">Loading skills...</p>
+      </div>
+      <div class="market-tabs" id="market-tabs" aria-label="Filter skills by marketplace folder"></div>
+      <div class="lab-grid" id="skill-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="needs-section" id="install" aria-labelledby="install-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Get started</p>
+          <h2 id="install-title">Install the marketplace, then install the plugins you need.</h2>
+        </div>
+        <div class="section-heading-copy">
+          <p>Use Microsoft Scout or GitHub Copilot CLI to register the marketplace and add Power CAT plugins for your workflow.</p>
+        </div>
+      </div>
+      <div class="needs-grid">
+        <div class="need-card"><strong>Register the marketplace</strong><span><code>copilot plugin marketplace add microsoft/power-cat-skills</code></span><small>Step 1</small></div>
+        <div class="need-card"><strong>Install a plugin</strong><span><code>copilot plugin install powercat-canvas-apps@power-cat-skills</code></span><small>Step 2</small></div>
+        <div class="need-card guidance-card"><strong>Invoke a skill</strong><span>Describe the work, such as "Analyze my Canvas App for performance issues."</span><small>Step 3</small></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="skill-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow" id="modal-eyebrow">Skill details</p>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close skill details">×</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="modal-section">
+            <h3>What it does</h3>
+            <p id="modal-what"></p>
+          </div>
+          <div class="modal-section">
+            <h3>When to use it</h3>
+            <ul id="modal-when"></ul>
+          </div>
+          <div class="modal-section">
+            <h3>How it helps</h3>
+            <ul id="modal-how"></ul>
+          </div>
+        </div>
+        <aside class="install-box">
+          <h3>Install / download</h3>
+          <p>Install the plugin from the Power CAT Skills marketplace, then start a new Scout or Copilot CLI session so the skill is discovered.</p>
+          <code id="modal-install"></code>
+          <div class="modal-actions">
+            <a class="primary-action" id="modal-source" href="#" target="_blank" rel="noopener">Open skill source ↗</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-platform-logo">Microsoft Power Platform</span>
+    <span class="footer-power-cat-logo">Power CAT</span>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>
+

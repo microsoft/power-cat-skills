@@ -1,0 +1,35 @@
+name: Update Pages catalog
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-catalog:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build Pages catalog
+        run: node scripts/build-pages-catalog.js
+      - name: Commit catalog updates
+        run: |
+          if git diff --quiet -- docs/power-platform-migration-factory/data/catalog.json; then
+            echo "Catalog is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/power-platform-migration-factory/data/catalog.json
+          git commit -m "Update generated Pages catalog"
+          git push
