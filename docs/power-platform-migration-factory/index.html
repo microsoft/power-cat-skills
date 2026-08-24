@@ -106,18 +106,6 @@
     .secondary-action { background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); }
     .secondary-action:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .toolbox-story { position: relative; width: 100%; max-width: 1280px; min-height: 440px; margin: auto; overflow: hidden; background: #ffffff; border-bottom: 1px solid var(--cp-border); }
-    .toolbox-story-inner { position: relative; z-index: 1; max-width: 1280px; min-height: 440px; margin: auto; padding: 36px 5vw; display: flex; align-items: center; justify-content: flex-end; }
-    .toolbox-story-copy { width: 48%; max-width: 560px; color: #2a446f; }
-    .toolbox-story-copy h2 { margin: 0; font-size: 38px; line-height: 1.12; letter-spacing: 0; }
-    .toolbox-story-copy > p { max-width: 500px; margin: 20px 0 0; color: #526984; font-size: 17px; line-height: 1.5; }
-    .toolbox-visual { position: absolute; top: 0; left: 0; width: 58%; height: 100%; padding: 52px 5vw; display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)); gap: 12px; align-content: center; background: linear-gradient(135deg, var(--cp-surface-soft), var(--cp-bg)); }
-    .tool-tile { min-height: 118px; padding: 18px; border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; background: var(--cp-surface); box-shadow: 0 8px 24px rgba(42, 68, 111, 0.06); }
-    .tool-tile strong { display: block; color: var(--cp-text); font-size: 18px; }
-    .tool-tile span { display: block; margin-top: 8px; color: var(--cp-text-muted); font-size: 14px; line-height: 1.35; }
-    html[data-theme="dark"] .toolbox-story { background: #0c1430; }
-    html[data-theme="dark"] .toolbox-story-copy { color: #f5f7ff; }
-    html[data-theme="dark"] .toolbox-story-copy > p { color: #aebbd7; }
     .needs-section, .catalog-section { max-width: 1280px; margin: auto; padding: 88px 5vw; }
     .section-heading, .catalog-heading { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 28px; }
     .section-heading h2, .catalog-heading h1 { margin: 0; font-size: 38px; line-height: 1.15; letter-spacing: 0; }
@@ -153,8 +141,8 @@
     .coming-soon { color: var(--cp-text-muted); font-size: 12px; font-weight: 650; }
     footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; border-top: 1px solid var(--cp-border); background: var(--cp-bg); color: var(--cp-text-muted); }
     .footer-platform-logo, .footer-power-cat-logo { font-weight: 700; }
-    @media (max-width: 980px) { .toolbox-story-copy { width: 43%; max-width: 420px; } .toolbox-story-copy h2 { font-size: 40px; } .needs-grid, .lab-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .site-header { grid-template-columns: 1fr auto; } nav a, .power-cat-lockup { display: none; } .hero { min-height: 430px; padding-top: 56px; padding-bottom: 64px; } .hero h1 { gap: 14px; font-size: 42px; } .series-mark { flex-basis: 32px; width: 32px; height: 32px; } .series-mark i { width: 19px; height: 19px; border-radius: 5px; } .catalog-line { margin-top: 38px; } .toolbox-story { min-height: 820px; } .toolbox-story-inner { min-height: auto; padding-top: 56px; padding-bottom: 470px; align-items: flex-start; justify-content: flex-start; } .toolbox-story-copy { width: 100%; } .toolbox-story-copy h2 { font-size: 34px; } .toolbox-story-copy > p { font-size: 17px; } .toolbox-visual { top: 330px; left: 0; width: 100%; height: 490px; padding: 28px 5vw; } .section-heading, .catalog-heading { align-items: start; flex-direction: column; gap: 12px; } .needs-grid, .lab-grid { grid-template-columns: 1fr; } footer { align-items: start; flex-direction: column; justify-content: center; gap: 4px; } }
+    @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .site-header { grid-template-columns: 1fr auto; } nav a, .power-cat-lockup { display: none; } .hero { min-height: 430px; padding-top: 56px; padding-bottom: 64px; } .hero h1 { gap: 14px; font-size: 42px; } .series-mark { flex-basis: 32px; width: 32px; height: 32px; } .series-mark i { width: 19px; height: 19px; border-radius: 5px; } .catalog-line { margin-top: 38px; } .section-heading, .catalog-heading { align-items: start; flex-direction: column; gap: 12px; } .needs-grid, .lab-grid { grid-template-columns: 1fr; } footer { align-items: start; flex-direction: column; justify-content: center; gap: 4px; } }
   </style>
 </head>
 <body>
@@ -180,21 +168,6 @@
       <div class="hero-actions">
         <a class="primary-action" href="#skills">Explore skills <span aria-hidden="true">↓</span></a>
         <a class="secondary-action" href="https://github.com/microsoft/power-cat-skills" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-
-    <section class="toolbox-story" aria-labelledby="toolbox-story-title">
-      <div class="toolbox-visual" aria-hidden="true">
-        <div class="tool-tile"><strong>Assess</strong><span>Start from the source system, risk profile, and business outcome.</span></div>
-        <div class="tool-tile"><strong>Design</strong><span>Shape Dataverse, app, automation, and governance recommendations.</span></div>
-        <div class="tool-tile"><strong>Review</strong><span>Surface quality, security, performance, and maintainability issues.</span></div>
-        <div class="tool-tile"><strong>Handoff</strong><span>Produce implementation-ready artifacts your team can act on.</span></div>
-      </div>
-      <div class="toolbox-story-inner">
-        <div class="toolbox-story-copy">
-          <h2 id="toolbox-story-title">A guided path from idea to implementation.</h2>
-          <p>Each skill captures a proven Power CAT delivery motion: the questions to ask, the assets to inspect, the decisions to document, and the outputs needed for the next step. Use them as accelerators for focused work, not generic prompt templates.</p>
-        </div>
       </div>
     </section>
 
