@@ -9,6 +9,13 @@ Power Platform Migration Factory is the public home for migration-focused Power 
 | [Access to Dataverse Migration](Access to Dataverse Migration/README.md) | Modernize Microsoft Access applications into Dataverse-backed Power Platform solutions. |
 | [Airtable to Power Platform Migration](Airtable to Power Platform Migration/README.md) | Move Airtable bases, interfaces, and workflows into Dataverse and Power Platform. |
 
+## Included skills
+
+| Skill | Purpose |
+| --- | --- |
+| [infopath-to-canvas](infopath-to-canvas/SKILL.md) | Migrate Microsoft InfoPath forms into modern Power Apps Canvas Apps. |
+| [migrate-to-dataverse](migrate-to-dataverse/SKILL.md) | Replace SharePoint list data sources with Dataverse table equivalents. |
+
 ## Public landing page
 
 The GitHub Pages draft is available at:

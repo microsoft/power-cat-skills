@@ -16,11 +16,9 @@ power-cat-skills/
 │   ├── powercat-adoption/    # Adoption storytelling plugin
 │   │   └── skills/
 │   │       └── powercat-storytelling/        # Generate a 5-slide HTML customer story deck
-│   ├── powercat-canvas-apps/ # Canvas Apps authoring & migration plugin
+│   ├── powercat-canvas-apps/ # Canvas Apps quality plugin
 │   │   └── skills/
-│   │       ├── analyze-canvas-performance/   # Code review & performance audit of pa.yaml files
-│   │       ├── infopath-to-canvas/           # Migrate InfoPath .xsn forms to Canvas Apps
-│   │       └── migrate-to-dataverse/         # Replace SharePoint lists with Dataverse tables
+│   │       └── analyze-canvas-performance/   # Code review & performance audit of pa.yaml files
 │   ├── powercat-dataverse/   # Dataverse query authoring plugin
 │   │   └── skills/
 │   │       ├── dataverse-webapi-query/       # Author & ship Dataverse Web API queries
@@ -28,6 +26,9 @@ power-cat-skills/
 │   └── powercat-governance/  # Power Platform governance & admin plugin
 │       └── skills/
 │           └── create-pp-dev-env/            # Provision a Developer environment via BAP API
+├── Power Platform Migration Factory/         # Legacy-to-Power Platform migration plugin
+│   ├── infopath-to-canvas/                   # Migrate InfoPath .xsn forms to Canvas Apps
+│   └── migrate-to-dataverse/                 # Replace SharePoint lists with Dataverse tables
 ├── shared/                   # Cross-plugin shared resources
 │   └── skills/               # Shared skill definitions
 │       └── <skill-name>/     # SKILL.template.md + workflow .md files
@@ -42,8 +43,8 @@ power-cat-skills/
 |--------|-------|-------------|
 | `powercat-adoption` | `/powercat-storytelling` | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
 | `powercat-canvas-apps` | `/analyze-canvas-performance` | Code review and performance audit of Canvas App pa.yaml files |
-| `powercat-canvas-apps` | `/infopath-to-canvas` | Migrate InfoPath .xsn forms to Power Apps Canvas Apps |
-| `powercat-canvas-apps` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
+| `powercat-migration-factory` | `/infopath-to-canvas` | Migrate InfoPath .xsn forms to Power Apps Canvas Apps |
+| `powercat-migration-factory` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
 | `powercat-dataverse` | `/dataverse-webapi-query` | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting, error diagnosis |
 | `powercat-governance` | `/create-pp-dev-env` | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user |
 

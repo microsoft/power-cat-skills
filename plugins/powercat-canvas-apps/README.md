@@ -1,6 +1,6 @@
 # Power CAT Canvas Apps Plugin
 
-This plugin provides open‑source skills based on years of Power CAT experience working with large and complex enterprise customers on Microsoft Power Platform. The skills capture practical patterns, architectural insights, and modernization guidance, and are designed to complement and integrate with the power-platform-skills plugin from the official Microsoft marketplace. For best experience you should pre install the canvas-apps plug in from marketplace "microsoft/power-platform-skills" 
+This plugin provides open-source skills based on years of Power CAT experience working with large and complex enterprise customers on Microsoft Power Platform. The skills capture practical patterns and app quality guidance, and are designed to complement and integrate with the power-platform-skills plugin from the official Microsoft marketplace. For best experience you should pre install the canvas-apps plug in from marketplace "microsoft/power-platform-skills" 
 
 > **Preview:** This plugin is currently in [preview](https://www.microsoft.com/en-us/business-applications/legal/supp-powerplatform-preview/). These features are available before official release for customers to provide feedback.
 
@@ -34,15 +34,6 @@ Analyze and audit a Power Apps canvas app. USE WHEN the user wants to analyze, p
 - `Do a code review`
 - `Check for performance issues`
 - `Generate a code review report`
-
-### `/infopath-to-canvas`
-
-Migrate a Microsoft InfoPath form (.xsn) to a Power Apps Canvas app. USE WHEN the user wants to convert, port, or migrate an InfoPath form/template to Canvas Apps, or asks for help moving off of InfoPath.
-
-**Usage:** Invoke directly with `/infopath-to-canvas`, or use any of the keywords below to trigger the skill automatically:
-
-- `Convert my .xsn file to Canvas`
-- `Convert my InfoPath to Power Apps`
 
 ## Security
 
