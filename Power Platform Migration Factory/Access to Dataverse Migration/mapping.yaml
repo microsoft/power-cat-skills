@@ -1,0 +1,76 @@
+# Mapping for the powercat-accessmigration workload (the named Access-to-Dataverse entry point).
+#
+# SYNTHETIC sample (a generic field-service domain). Copy and adapt to your Access database; this
+# mapping is the source of truth for the target Dataverse schema. Switch source.type to csv to use an
+# exported folder of <Table>.csv instead of a live .mdb.
+#
+# Preview safely (no writes to Dataverse):
+#   python -m factory run powercat-accessmigration --mapping skills/powercat-accessmigration/mapping.yaml \
+#     --env config/environment.yaml --dry-run
+
+solution:
+  unique_name: AccessMigration
+  friendly_name: "Access Migration"
+  publisher:
+    unique_name: accessmigrationpublisher
+    prefix: amig                  # 2-8 lowercase chars; becomes the column/table prefix
+
+source:
+  type: access                    # uses the Access (ODBC) connector; or csv for an exported folder
+  path: runs/powercat-accessmigration/Source.mdb   # runtime path (git-ignored)
+
+app:
+  name: "Access Migration App"    # builds a model-driven app + adds every table to its navigation
+
+tables:
+  - source: Customers
+    display: Customer
+    plural: Customers
+    primary: { source: CompanyName, display: "Company Name", max_length: 100 }
+    columns:
+      - { source: ContactName, display: "Contact Name", type: text, max_length: 150 }
+      - { source: Email,       display: Email,          type: email }
+      - { source: Phone,       display: Phone,          type: phone }
+      - { source: City,        display: City,           type: text, max_length: 100 }
+      - { source: Country,     display: Country,        type: text, max_length: 100 }
+
+  - source: Technicians
+    display: Technician
+    plural: Technicians
+    primary: { source: FullName, display: "Full Name", max_length: 200 }
+    columns:
+      - { source: BillingRate, display: "Billing Rate", type: decimal, precision: 2 }
+      - { source: Department,  display: Department,      type: text, max_length: 150 }
+
+  - source: Parts
+    display: Part
+    plural: Parts
+    primary: { source: PartNo, display: "Part No", max_length: 50 }
+    columns:
+      - { source: PartName,    display: "Part Name",  type: text, max_length: 100 }
+      - { source: UnitPrice,   display: "Unit Price", type: decimal, precision: 2 }
+      - { source: Unavailable, display: Unavailable,  type: boolean }
+
+  - source: WorkOrders
+    display: Work Order
+    plural: Work Orders
+    primary: { source: WorkOrderName, display: "Work Order", max_length: 100 }
+    columns:
+      - { source: ProblemDescription, display: "Problem Description", type: multiline }
+      - { source: DateReceived,       display: "Date Received",       type: date_only }
+      - { source: DateFinished,       display: "Date Finished",       type: date_only }
+      - { source: SalesTaxRate,       display: "Sales Tax Rate",      type: decimal, precision: 2 }
+
+  - source: WorkOrderParts
+    display: Work Order Part
+    plural: Work Order Parts
+    primary: { source: LineName, display: "Name", max_length: 200 }
+    columns:
+      - { source: Quantity,  display: Quantity,     type: decimal, precision: 2 }
+      - { source: UnitPrice, display: "Unit Price", type: decimal, precision: 2 }
+
+relationships:
+  - { parent: Customers,   child: WorkOrders,     child_column: CustomerID,   lookup_display: Customer }
+  - { parent: Technicians, child: WorkOrders,     child_column: TechnicianID, lookup_display: Technician }
+  - { parent: WorkOrders,  child: WorkOrderParts, child_column: WorkOrderID,  lookup_display: "Work Order" }
+  - { parent: Parts,       child: WorkOrderParts, child_column: PartID,       lookup_display: Part }

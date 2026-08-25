@@ -1,0 +1,23 @@
+name: powercat-accessmigration
+title: "PowerCAT Access Migration"
+description: >
+  Migrate a Microsoft Access database (.mdb/.accdb) into a Microsoft Dataverse solution with an
+  optional model-driven app. This is the named Access-to-Dataverse entry point of the migration
+  factory; it reuses the same platform pipeline as the access-to-dataverse reference skill.
+version: "0.1.0"
+connector: access
+default_mapping: mapping.yaml
+authors:
+  - "PowerCAT Power Platform Migration Factory"
+tags: [access, dataverse, accessmigration]
+
+inherits:
+  - solution-and-publisher
+  - schema-provisioning
+  - relationship-provisioning
+  - data-loading
+  - evaluation
+  - documentation
+
+build_steps:
+  - create-model-driven-app   # optional; requires pac CLI (set app.name in the mapping)
