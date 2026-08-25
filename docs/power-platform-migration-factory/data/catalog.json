@@ -361,7 +361,7 @@
     {
       "id": "Access to Dataverse Migration",
       "title": "Access to Dataverse Migration",
-      "description": "This folder is reserved for the Access to Dataverse migration track in the Power Platform Migration Factory.",
+      "description": "The **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
       "status": "Coming soon",
       "cta": "Coming soon",
       "kind": "track",
