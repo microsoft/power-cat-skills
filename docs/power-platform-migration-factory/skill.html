@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Power Platform skill detail page.">
+  <title>Skill details | Power Platform Skills Marketplace & Migration Factory</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const stored = localStorage.getItem("ppSkillTheme");
+      const allowed = ["light", "dark", "portal"];
+      const requested = param || stored;
+      const theme = allowed.includes(requested)
+        ? requested
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Power Platform Skills Marketplace and Migration Factory home">
+      <span class="brand-name">Power Platform <strong>Skills</strong></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html#tracks">Migration Tracks</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#install">Install</a>
+      <div class="theme-switch" aria-label="Theme">
+        <button class="theme-choice" type="button" data-theme-choice="light" aria-pressed="false">Current</button>
+        <button class="theme-choice" type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        <button class="theme-choice" type="button" data-theme-choice="portal" aria-pressed="false">Portal</button>
+      </div>
+    </nav>
+    <div class="power-cat-lockup">
+      <img src="assets/power-cat-logo.png" alt="Power CAT">
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-hero">
+      <div>
+        <p class="eyebrow" id="detail-eyebrow">Skill details</p>
+        <h1 id="detail-title">Loading skill...</h1>
+        <p class="detail-summary" id="detail-summary"></p>
+        <div class="product-icons" id="detail-products" aria-label="Related products"></div>
+      </div>
+      <aside class="install-box detail-install">
+        <h2>Install / download</h2>
+        <p>Install the plugin from the marketplace, then start a new Scout or Copilot CLI session so the skill is discovered.</p>
+        <code id="detail-install"></code>
+        <div class="modal-actions">
+          <a class="primary-action" id="detail-source" href="#" target="_blank" rel="noopener">Open skill source ↗</a>
+          <a class="secondary-action" href="index.html">Back to marketplace</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-copy">
+        <div class="modal-section">
+          <h2>What it does</h2>
+          <p id="detail-what"></p>
+        </div>
+        <div class="modal-section">
+          <h2>When to use it</h2>
+          <ul id="detail-when"></ul>
+        </div>
+        <div class="modal-section">
+          <h2>How it helps</h2>
+          <ul id="detail-how"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-visual-section">
+      <div class="detail-section-heading">
+        <p class="eyebrow">Generated artifact preview</p>
+        <h2>What this skill can produce</h2>
+      </div>
+      <div class="detail-visuals" id="detail-visuals" aria-label="Skill generated artifacts"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-platform-logo">Microsoft Power Platform</span>
+    <span class="footer-power-cat-logo">Power CAT</span>
+  </footer>
+  <script src="skill.js"></script>
+</body>
+</html>
