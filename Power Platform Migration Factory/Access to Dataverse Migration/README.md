@@ -7,13 +7,9 @@ the `access-to-dataverse` reference skill — one source of truth, a friendlier 
 
 ## One-time setup
 
-From the skill root (the folder that contains `requirements.txt`), run once to install Python
-dependencies and confirm `pac` / Node are present:
-
-```bash
-pip install -r requirements.txt
-python scripts/doctor.py
-```
+Install the Power Platform CLI (`pac`) and confirm Python 3.10+ is available. For live `.mdb`/`.accdb`
+reads, install `pyodbc` and the Microsoft Access Database Engine ODBC driver. If the driver is not
+available, export each Access table to `<Table>.csv` and set `source.type: csv` in `mapping.yaml`.
 
 ## How to call it
 
@@ -25,20 +21,14 @@ python scripts/doctor.py
 
 **Direct CLI (what the skill runs under the hood):**
 ```bash
-# 1) Configure target + branding (never commit these):
-cp config/environment.example.yaml config/environment.yaml
-cp config/branding.example.yaml   config/branding.yaml
+# 1) Sign in to the target Dataverse environment:
 pac auth create --environment https://YOUR-ORG.crm.dynamics.com
 
-# 2) Point the mapping at your database (edit skills/powercat-accessmigration/mapping.yaml:
-#    set source.path to your .mdb and adjust tables/columns/relationships), then:
-python -m factory run      powercat-accessmigration --mapping skills/powercat-accessmigration/mapping.yaml --env config/environment.yaml --dry-run   # preview, no writes
-python -m factory run      powercat-accessmigration --mapping skills/powercat-accessmigration/mapping.yaml --env config/environment.yaml             # execute
-python -m factory evaluate powercat-accessmigration
-python -m factory document powercat-accessmigration --branding config/branding.yaml
+# 2) Point the included mapping at your database:
+#    edit "Access to Dataverse Migration/mapping.yaml"
+#    set source.path to your .mdb/.accdb or CSV export folder
+#    adjust tables, columns, and relationships for your source schema
 ```
-
-`python -m factory list` shows this workload alongside `access-to-dataverse`.
 
 ## Prerequisites
 
