@@ -1,5 +1,31 @@
 {
   "pageTitle": "Power Platform Skills Marketplace & Migration Factory",
+  "categories": [
+    {
+      "id": "performance-quality",
+      "label": "Performance & Quality Review"
+    },
+    {
+      "id": "testing-release",
+      "label": "Testing & Release Readiness"
+    },
+    {
+      "id": "dataverse-development",
+      "label": "Dataverse Development"
+    },
+    {
+      "id": "app-design-ux",
+      "label": "App Design & UX"
+    },
+    {
+      "id": "governance-admin",
+      "label": "Governance & Admin Operations"
+    },
+    {
+      "id": "adoption-storytelling",
+      "label": "Adoption & Storytelling"
+    }
+  ],
   "plugins": [
     {
       "id": "powercat-adoption",
@@ -52,7 +78,9 @@
       "id": "powercat-storytelling",
       "detailId": "powercat-adoption__powercat-storytelling",
       "title": "powercat-storytelling",
-      "category": "Adoption",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-adoption",
       "pluginLabel": "Adoption",
       "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
@@ -61,10 +89,17 @@
         "storytelling",
         "power platform"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
       "when": [
         "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
-        "Use it when the work belongs in the Adoption area of the Power CAT marketplace.",
+        "Use it when the work belongs in Adoption & Storytelling.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -80,7 +115,9 @@
       "id": "analyze-canvas-performance",
       "detailId": "powercat-canvas-apps__analyze-canvas-performance",
       "title": "analyze-canvas-performance",
-      "category": "Canvas Apps",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-canvas-apps",
       "pluginLabel": "Canvas Apps",
       "description": "Analyze and audit a Power Apps canvas app.",
@@ -89,10 +126,17 @@
         "power platform",
         "power apps"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Analyze and audit a Power Apps canvas app.",
       "when": [
         "Use this when you need analyze and audit a Power Apps canvas app.",
-        "Use it when the work belongs in the Canvas Apps area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -108,7 +152,9 @@
       "id": "design-guide",
       "detailId": "powercat-code-apps__design-guide",
       "title": "design-guide",
-      "category": "Code Apps",
+      "category": "App Design & UX",
+      "categoryId": "app-design-ux",
+      "categoryLabel": "App Design & UX",
       "plugin": "powercat-code-apps",
       "pluginLabel": "Code Apps",
       "description": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
@@ -117,10 +163,17 @@
         "power platform",
         "power apps"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
       "when": [
         "Use this when you need generate a brand-aligned design guide for a new code app instead of using the default template styling.",
-        "Use it when the work belongs in the Code Apps area of the Power CAT marketplace.",
+        "Use it when the work belongs in App Design & UX.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -136,7 +189,9 @@
       "id": "dataverse-webapi-query",
       "detailId": "powercat-dataverse__dataverse-webapi-query",
       "title": "dataverse-webapi-query",
-      "category": "Dataverse",
+      "category": "Dataverse Development",
+      "categoryId": "dataverse-development",
+      "categoryLabel": "Dataverse Development",
       "plugin": "powercat-dataverse",
       "pluginLabel": "Dataverse",
       "description": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
@@ -145,10 +200,17 @@
         "web api",
         "odata"
       ],
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        }
+      ],
+      "images": [],
       "what": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
       "when": [
         "Use this when you need generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
-        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when the work belongs in Dataverse Development.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -164,7 +226,9 @@
       "id": "powercat-storytelling",
       "detailId": "powercat-dataverse__powercat-storytelling",
       "title": "powercat-storytelling",
-      "category": "Dataverse",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-dataverse",
       "pluginLabel": "Dataverse",
       "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
@@ -173,10 +237,17 @@
         "web api",
         "odata"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
       "when": [
         "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
-        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when the work belongs in Adoption & Storytelling.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -192,7 +263,9 @@
       "id": "create-pp-dev-env",
       "detailId": "powercat-governance__create-pp-dev-env",
       "title": "create-pp-dev-env",
-      "category": "Governance",
+      "category": "Governance & Admin Operations",
+      "categoryId": "governance-admin",
+      "categoryLabel": "Governance & Admin Operations",
       "plugin": "powercat-governance",
       "pluginLabel": "Governance",
       "description": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
@@ -201,10 +274,17 @@
         "power platform",
         "admin"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
       "when": [
         "Use this when you need provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
-        "Use it when the work belongs in the Governance area of the Power CAT marketplace.",
+        "Use it when the work belongs in Governance & Admin Operations.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -220,7 +300,9 @@
       "id": "eval-generator-code-app",
       "detailId": "powercat-procode-eval__eval-generator-code-app",
       "title": "eval-generator-code-app",
-      "category": "Pro-Code Eval",
+      "category": "Testing & Release Readiness",
+      "categoryId": "testing-release",
+      "categoryLabel": "Testing & Release Readiness",
       "plugin": "powercat-procode-eval",
       "pluginLabel": "Pro-Code Eval",
       "description": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
@@ -229,10 +311,28 @@
         "eval",
         "testing"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-code-app-1.png",
+          "alt": "Eval Dashboard — Current Run",
+          "caption": "Eval Dashboard — Current Run"
+        },
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-code-app-2.png",
+          "alt": "Eval Dashboard — Security Analysis",
+          "caption": "Eval Dashboard — Security Analysis"
+        }
+      ],
       "what": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
       "when": [
         "Use this when you need generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
-        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when the work belongs in Testing & Release Readiness.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -248,7 +348,9 @@
       "id": "eval-generator-gen-pages",
       "detailId": "powercat-procode-eval__eval-generator-gen-pages",
       "title": "eval-generator-gen-pages",
-      "category": "Pro-Code Eval",
+      "category": "Testing & Release Readiness",
+      "categoryId": "testing-release",
+      "categoryLabel": "Testing & Release Readiness",
       "plugin": "powercat-procode-eval",
       "pluginLabel": "Pro-Code Eval",
       "description": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
@@ -257,10 +359,28 @@
         "eval",
         "testing"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-gen-pages-1.png",
+          "alt": "Eval Dashboard — Current Run",
+          "caption": "Eval Dashboard — Current Run"
+        },
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-gen-pages-2.png",
+          "alt": "Eval Dashboard — Security Analysis",
+          "caption": "Eval Dashboard — Security Analysis"
+        }
+      ],
       "what": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
       "when": [
         "Use this when you need generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
-        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when the work belongs in Testing & Release Readiness.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -276,7 +396,9 @@
       "id": "powercat-admin-digest",
       "detailId": "powercat-admin-digest__powercat-admin-digest",
       "title": "powercat-admin-digest",
-      "category": "Admin Digest",
+      "category": "Governance & Admin Operations",
+      "categoryId": "governance-admin",
+      "categoryLabel": "Governance & Admin Operations",
       "plugin": "powercat-admin-digest",
       "pluginLabel": "Admin Digest",
       "description": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
@@ -285,10 +407,17 @@
         "admin",
         "message center"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
       "when": [
         "Use this when you need produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
-        "Use it when the work belongs in the Admin Digest area of the Power CAT marketplace.",
+        "Use it when the work belongs in Governance & Admin Operations.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -304,7 +433,9 @@
       "id": "powercat-overflow",
       "detailId": "powercat-overflow__powercat-overflow",
       "title": "powercat-overflow",
-      "category": "OverFlow",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-overflow",
       "pluginLabel": "OverFlow",
       "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
@@ -313,10 +444,28 @@
         "power-platform",
         "power-automate"
       ],
+      "products": [
+        {
+          "label": "Power Automate",
+          "icon": "assets/product-icons/power-automate.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "../screenshot-flow.png",
+          "alt": "PowerCAT OverFlow viewer showing flow review findings",
+          "caption": "Example findings view generated by the PowerCAT OverFlow review workflow."
+        },
+        {
+          "src": "../screenshot-overview.png",
+          "alt": "PowerCAT OverFlow overview dashboard",
+          "caption": "Overview dashboard for reviewing solution findings."
+        }
+      ],
       "what": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
       "when": [
         "Use this when you need reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
-        "Use it when the work belongs in the OverFlow area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -332,7 +481,9 @@
       "id": "powercat-overpage",
       "detailId": "powercat-overpage__powercat-overpage",
       "title": "powercat-overpage",
-      "category": "OverPage",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-overpage",
       "pluginLabel": "OverPage",
       "description": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
@@ -341,10 +492,17 @@
         "power-platform",
         "power-pages"
       ],
+      "products": [
+        {
+          "label": "Power Pages",
+          "icon": "assets/product-icons/power-pages.svg"
+        }
+      ],
+      "images": [],
       "what": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
       "when": [
         "Use this when you need reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
-        "Use it when the work belongs in the OverPage area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -362,6 +520,21 @@
       "id": "Airtable to Power Platform Migration",
       "title": "Airtable to Power Platform Migration",
       "description": "This folder is reserved for the Airtable to Power Platform migration track in the Power Platform Migration Factory.",
+      "products": [
+        {
+          "label": "Airtable",
+          "icon": "assets/product-icons/airtable.png"
+        },
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        },
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "status": "Coming soon",
       "cta": "Coming soon",
       "kind": "track",
@@ -369,9 +542,34 @@
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration"
     },
     {
+      "id": "Access to Dataverse Migration",
+      "title": "Access to Dataverse Migration",
+      "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        }
+      ],
+      "images": [],
+      "status": "Available skill",
+      "cta": "Available skill",
+      "kind": "skill",
+      "skillId": "Access to Dataverse Migration",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
+      "detailId": "powercat-migration-factory__Access to Dataverse Migration"
+    },
+    {
       "id": "infopath-to-canvas",
       "title": "infopath-to-canvas",
       "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "status": "Available skill",
       "cta": "Forms migration skill",
       "kind": "skill",
@@ -383,23 +581,23 @@
       "id": "migrate-to-dataverse",
       "title": "migrate-to-dataverse",
       "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        },
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "status": "Available skill",
       "cta": "Dataverse migration skill",
       "kind": "skill",
       "skillId": "migrate-to-dataverse",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse",
       "detailId": "powercat-migration-factory__migrate-to-dataverse"
-    },
-    {
-      "id": "powercat-accessmigration",
-      "title": "powercat-accessmigration",
-      "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
-      "status": "Available skill",
-      "cta": "Available skill",
-      "kind": "skill",
-      "skillId": "powercat-accessmigration",
-      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
-      "detailId": null
     }
   ],
   "details": {
@@ -407,7 +605,9 @@
       "id": "powercat-storytelling",
       "detailId": "powercat-adoption__powercat-storytelling",
       "title": "powercat-storytelling",
-      "category": "Adoption",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-adoption",
       "pluginLabel": "Adoption",
       "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
@@ -416,10 +616,17 @@
         "storytelling",
         "power platform"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
       "when": [
         "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
-        "Use it when the work belongs in the Adoption area of the Power CAT marketplace.",
+        "Use it when the work belongs in Adoption & Storytelling.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -435,7 +642,9 @@
       "id": "analyze-canvas-performance",
       "detailId": "powercat-canvas-apps__analyze-canvas-performance",
       "title": "analyze-canvas-performance",
-      "category": "Canvas Apps",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-canvas-apps",
       "pluginLabel": "Canvas Apps",
       "description": "Analyze and audit a Power Apps canvas app.",
@@ -444,10 +653,17 @@
         "power platform",
         "power apps"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Analyze and audit a Power Apps canvas app.",
       "when": [
         "Use this when you need analyze and audit a Power Apps canvas app.",
-        "Use it when the work belongs in the Canvas Apps area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -463,7 +679,9 @@
       "id": "design-guide",
       "detailId": "powercat-code-apps__design-guide",
       "title": "design-guide",
-      "category": "Code Apps",
+      "category": "App Design & UX",
+      "categoryId": "app-design-ux",
+      "categoryLabel": "App Design & UX",
       "plugin": "powercat-code-apps",
       "pluginLabel": "Code Apps",
       "description": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
@@ -472,10 +690,17 @@
         "power platform",
         "power apps"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Generate a brand-aligned design guide for a new code app instead of using the default template styling.",
       "when": [
         "Use this when you need generate a brand-aligned design guide for a new code app instead of using the default template styling.",
-        "Use it when the work belongs in the Code Apps area of the Power CAT marketplace.",
+        "Use it when the work belongs in App Design & UX.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -491,7 +716,9 @@
       "id": "dataverse-webapi-query",
       "detailId": "powercat-dataverse__dataverse-webapi-query",
       "title": "dataverse-webapi-query",
-      "category": "Dataverse",
+      "category": "Dataverse Development",
+      "categoryId": "dataverse-development",
+      "categoryLabel": "Dataverse Development",
       "plugin": "powercat-dataverse",
       "pluginLabel": "Dataverse",
       "description": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
@@ -500,10 +727,17 @@
         "web api",
         "odata"
       ],
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        }
+      ],
+      "images": [],
       "what": "Generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
       "when": [
         "Use this when you need generate, translate, optimize, explain, and help test Microsoft Dataverse Web API (OData v4) queries — including walking the user through acquiring a bearer token (az cli, device…",
-        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when the work belongs in Dataverse Development.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -519,7 +753,9 @@
       "id": "powercat-storytelling",
       "detailId": "powercat-dataverse__powercat-storytelling",
       "title": "powercat-storytelling",
-      "category": "Dataverse",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-dataverse",
       "pluginLabel": "Dataverse",
       "description": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
@@ -528,10 +764,17 @@
         "web api",
         "odata"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Generates a compelling 5-slide interactive HTML presentation for a customer story.",
       "when": [
         "Use this when you need generates a compelling 5-slide interactive HTML presentation for a customer story.",
-        "Use it when the work belongs in the Dataverse area of the Power CAT marketplace.",
+        "Use it when the work belongs in Adoption & Storytelling.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -547,7 +790,9 @@
       "id": "create-pp-dev-env",
       "detailId": "powercat-governance__create-pp-dev-env",
       "title": "create-pp-dev-env",
-      "category": "Governance",
+      "category": "Governance & Admin Operations",
+      "categoryId": "governance-admin",
+      "categoryLabel": "Governance & Admin Operations",
       "plugin": "powercat-governance",
       "pluginLabel": "Governance",
       "description": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
@@ -556,10 +801,17 @@
         "power platform",
         "admin"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
       "when": [
         "Use this when you need provision a Microsoft Power Platform Developer environment with Managed Environment = Yes, Get new features early = Yes, and Create on behalf of a specified Owner.",
-        "Use it when the work belongs in the Governance area of the Power CAT marketplace.",
+        "Use it when the work belongs in Governance & Admin Operations.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -575,7 +827,9 @@
       "id": "eval-generator-code-app",
       "detailId": "powercat-procode-eval__eval-generator-code-app",
       "title": "eval-generator-code-app",
-      "category": "Pro-Code Eval",
+      "category": "Testing & Release Readiness",
+      "categoryId": "testing-release",
+      "categoryLabel": "Testing & Release Readiness",
       "plugin": "powercat-procode-eval",
       "pluginLabel": "Pro-Code Eval",
       "description": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
@@ -584,10 +838,28 @@
         "eval",
         "testing"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-code-app-1.png",
+          "alt": "Eval Dashboard — Current Run",
+          "caption": "Eval Dashboard — Current Run"
+        },
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-code-app-2.png",
+          "alt": "Eval Dashboard — Security Analysis",
+          "caption": "Eval Dashboard — Security Analysis"
+        }
+      ],
       "what": "Generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
       "when": [
         "Use this when you need generate a two-layer eval suite (presence checks + static security analysis) for a Power Apps Code App. Code Apps use @microsoft/power-apps SDK with generated service classes in s…",
-        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when the work belongs in Testing & Release Readiness.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -603,7 +875,9 @@
       "id": "eval-generator-gen-pages",
       "detailId": "powercat-procode-eval__eval-generator-gen-pages",
       "title": "eval-generator-gen-pages",
-      "category": "Pro-Code Eval",
+      "category": "Testing & Release Readiness",
+      "categoryId": "testing-release",
+      "categoryLabel": "Testing & Release Readiness",
       "plugin": "powercat-procode-eval",
       "pluginLabel": "Pro-Code Eval",
       "description": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
@@ -612,10 +886,28 @@
         "eval",
         "testing"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-gen-pages-1.png",
+          "alt": "Eval Dashboard — Current Run",
+          "caption": "Eval Dashboard — Current Run"
+        },
+        {
+          "src": "generated-assets/powercat-procode-eval-eval-generator-gen-pages-2.png",
+          "alt": "Eval Dashboard — Security Analysis",
+          "caption": "Eval Dashboard — Security Analysis"
+        }
+      ],
       "what": "Generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
       "when": [
         "Use this when you need generate a three-layer eval suite (presence checks + unit tests + security analysis) for Power Apps Generative Pages in Model-Driven Apps. Generative pages are single-file React/T…",
-        "Use it when the work belongs in the Pro-Code Eval area of the Power CAT marketplace.",
+        "Use it when the work belongs in Testing & Release Readiness.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -631,7 +923,9 @@
       "id": "powercat-admin-digest",
       "detailId": "powercat-admin-digest__powercat-admin-digest",
       "title": "powercat-admin-digest",
-      "category": "Admin Digest",
+      "category": "Governance & Admin Operations",
+      "categoryId": "governance-admin",
+      "categoryLabel": "Governance & Admin Operations",
       "plugin": "powercat-admin-digest",
       "pluginLabel": "Admin Digest",
       "description": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
@@ -640,10 +934,17 @@
         "admin",
         "message center"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
       "when": [
         "Use this when you need produce a Power Platform admin digest of items that can affect production operations — Message Center notices, Service Health incidents, Known Issues, and deprecations — synthesiz…",
-        "Use it when the work belongs in the Admin Digest area of the Power CAT marketplace.",
+        "Use it when the work belongs in Governance & Admin Operations.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -659,7 +960,9 @@
       "id": "powercat-overflow",
       "detailId": "powercat-overflow__powercat-overflow",
       "title": "powercat-overflow",
-      "category": "OverFlow",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-overflow",
       "pluginLabel": "OverFlow",
       "description": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
@@ -668,10 +971,28 @@
         "power-platform",
         "power-automate"
       ],
+      "products": [
+        {
+          "label": "Power Automate",
+          "icon": "assets/product-icons/power-automate.svg"
+        }
+      ],
+      "images": [
+        {
+          "src": "../screenshot-flow.png",
+          "alt": "PowerCAT OverFlow viewer showing flow review findings",
+          "caption": "Example findings view generated by the PowerCAT OverFlow review workflow."
+        },
+        {
+          "src": "../screenshot-overview.png",
+          "alt": "PowerCAT OverFlow overview dashboard",
+          "caption": "Overview dashboard for reviewing solution findings."
+        }
+      ],
       "what": "Reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
       "when": [
         "Use this when you need reviews every Power Automate cloud flow inside a Power Platform solution (.zip) against Microsoft's coding guidelines and produces a [SolutionName].findings.json next to the uploa…",
-        "Use it when the work belongs in the OverFlow area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -687,7 +1008,9 @@
       "id": "powercat-overpage",
       "detailId": "powercat-overpage__powercat-overpage",
       "title": "powercat-overpage",
-      "category": "OverPage",
+      "category": "Performance & Quality Review",
+      "categoryId": "performance-quality",
+      "categoryLabel": "Performance & Quality Review",
       "plugin": "powercat-overpage",
       "pluginLabel": "OverPage",
       "description": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
@@ -696,10 +1019,17 @@
         "power-platform",
         "power-pages"
       ],
+      "products": [
+        {
+          "label": "Power Pages",
+          "icon": "assets/product-icons/power-pages.svg"
+        }
+      ],
+      "images": [],
       "what": "Reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
       "when": [
         "Use this when you need reviews the Power Pages site(s) inside a Power Platform solution .zip against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliabi…",
-        "Use it when the work belongs in the OverPage area of the Power CAT marketplace.",
+        "Use it when the work belongs in Performance & Quality Review.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -715,7 +1045,9 @@
       "id": "Access to Dataverse Migration",
       "detailId": "powercat-migration-factory__Access to Dataverse Migration",
       "title": "Access to Dataverse Migration",
-      "category": "migration factory",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
@@ -724,10 +1056,17 @@
         "migration",
         "power platform"
       ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
       "what": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
       "when": [
         "Use this when you need migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
-        "Use it when the work belongs in the migration factory area of the Power CAT marketplace.",
+        "Use it when the work belongs in Adoption & Storytelling.",
         "Use it when you want a guided workflow instead of starting from a blank prompt."
       ],
       "how": [
@@ -743,7 +1082,9 @@
       "id": "infopath-to-canvas",
       "detailId": "powercat-migration-factory__infopath-to-canvas",
       "title": "infopath-to-canvas",
-      "category": "migration factory",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
@@ -752,6 +1093,13 @@
         "migration",
         "power platform"
       ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Guides modernization from InfoPath forms to Canvas Apps by assessing the legacy form, identifying data and logic patterns, and shaping a Power Apps target experience.",
       "when": [
         "You need to retire or replace InfoPath forms.",
@@ -772,7 +1120,9 @@
       "id": "migrate-to-dataverse",
       "detailId": "powercat-migration-factory__migrate-to-dataverse",
       "title": "migrate-to-dataverse",
-      "category": "migration factory",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
@@ -781,6 +1131,17 @@
         "migration",
         "power platform"
       ],
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        },
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
       "what": "Helps replace SharePoint list-backed app data sources with Dataverse tables, relationships, and implementation guidance that better support scale, security, and app lifecycle needs.",
       "when": [
         "A Canvas App has outgrown SharePoint lists.",
