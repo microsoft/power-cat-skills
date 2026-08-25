@@ -1,6 +1,6 @@
 {
   "name": "powercat-migration-factory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Power Platform Migration Factory skills for modernizing legacy forms and app data sources into Power Apps and Dataverse.",
   "author": {
     "name": "Microsoft",
@@ -9,6 +9,11 @@
   "homepage": "https://github.com/microsoft/power-cat-skills/",
   "repository": "https://github.com/microsoft/power-cat-skills/",
   "license": "MIT",
+  "skills": [
+    "Access to Dataverse Migration",
+    "infopath-to-canvas",
+    "migrate-to-dataverse"
+  ],
   "keywords": [
     "migration",
     "power-platform",

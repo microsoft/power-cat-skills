@@ -359,16 +359,6 @@
   ],
   "migrationTracks": [
     {
-      "id": "Access to Dataverse Migration",
-      "title": "Access to Dataverse Migration",
-      "description": "The **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
-      "status": "Coming soon",
-      "cta": "Coming soon",
-      "kind": "track",
-      "skillId": null,
-      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration"
-    },
-    {
       "id": "Airtable to Power Platform Migration",
       "title": "Airtable to Power Platform Migration",
       "description": "This folder is reserved for the Airtable to Power Platform migration track in the Power Platform Migration Factory.",
@@ -399,6 +389,17 @@
       "skillId": "migrate-to-dataverse",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse",
       "detailId": "powercat-migration-factory__migrate-to-dataverse"
+    },
+    {
+      "id": "powercat-accessmigration",
+      "title": "powercat-accessmigration",
+      "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
+      "status": "Available skill",
+      "cta": "Available skill",
+      "kind": "skill",
+      "skillId": "powercat-accessmigration",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
+      "detailId": null
     }
   ],
   "details": {
@@ -709,6 +710,34 @@
       "install": "copilot plugin install powercat-overpage@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overpage/skills/powercat-overpage",
       "heading": "PowerCAT OverPage"
+    },
+    "powercat-migration-factory__Access to Dataverse Migration": {
+      "id": "Access to Dataverse Migration",
+      "detailId": "powercat-migration-factory__Access to Dataverse Migration",
+      "title": "Access to Dataverse Migration",
+      "category": "migration factory",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "what": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
+      "when": [
+        "Use this when you need migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
+        "Use it when the work belongs in the migration factory area of the Power CAT marketplace.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
+      "heading": "PowerCAT Access Migration"
     },
     "powercat-migration-factory__infopath-to-canvas": {
       "id": "infopath-to-canvas",
