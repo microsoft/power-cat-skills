@@ -71,6 +71,11 @@
       "id": "powercat-overpage",
       "label": "OverPage",
       "description": "Reviews the Power Pages site(s) inside a Power Platform solution (.zip) against best practices across Security, Performance, Accessibility, Maintainability, Architecture and Reliability, optionally using a browser HAR capture to investigate real performance bottlenecks. Produces a [SolutionName].findings.json with solution, per-site and per-component findings (descriptions, fixes, code/HAR anchors), then opens the hosted PowerCAT OverPage viewer at https://microsoft.github.io/power-cat-skills/PowerCAT-OverPage.html so the user can explore findings overlaid on a live page preview, on the actual code, and on the network waterfall."
+    },
+    {
+      "id": "powercat-architecture-advisor",
+      "label": "powercat-architecture-advisor",
+      "description": "Power CAT style architecture advisor for Power Platform scenarios with structured discovery and comprehensive implementation recommendations."
     }
   ],
   "skills": [
@@ -513,6 +518,43 @@
       "install": "copilot plugin install powercat-overpage@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overpage/skills/powercat-overpage",
       "heading": "PowerCAT OverPage"
+    },
+    {
+      "id": "powercat-pp-architecture-advisor",
+      "detailId": "powercat-architecture-advisor__powercat-pp-architecture-advisor",
+      "title": "powercat-pp-architecture-advisor",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-architecture-advisor",
+      "pluginLabel": "architecture advisor",
+      "description": ">",
+      "tags": [
+        "architecture advisor",
+        "power platform",
+        "architecture"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "what": ">",
+      "when": [
+        "Use this when you need >",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-architecture-advisor@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor",
+      "heading": "Power CAT Power Platform Architecture Advisor"
     }
   ],
   "migrationTracks": [
@@ -1040,6 +1082,43 @@
       "install": "copilot plugin install powercat-overpage@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-overpage/skills/powercat-overpage",
       "heading": "PowerCAT OverPage"
+    },
+    "powercat-architecture-advisor__powercat-pp-architecture-advisor": {
+      "id": "powercat-pp-architecture-advisor",
+      "detailId": "powercat-architecture-advisor__powercat-pp-architecture-advisor",
+      "title": "powercat-pp-architecture-advisor",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-architecture-advisor",
+      "pluginLabel": "architecture advisor",
+      "description": ">",
+      "tags": [
+        "architecture advisor",
+        "power platform",
+        "architecture"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "what": ">",
+      "when": [
+        "Use this when you need >",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-architecture-advisor@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor",
+      "heading": "Power CAT Power Platform Architecture Advisor"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",
