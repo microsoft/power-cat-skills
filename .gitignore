@@ -1,6 +1,9 @@
 
 *-workspace/
 
+# Generated skill outputs — written at runtime, not committed
+outputs/
+
 # Python
 __pycache__/
 *.py[cod]

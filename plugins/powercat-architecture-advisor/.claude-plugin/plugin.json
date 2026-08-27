@@ -1,0 +1,22 @@
+{
+  "name": "powercat-architecture-advisor",
+  "version": "0.1.0",
+  "description": "Power CAT architecture advisor for Power Platform scenarios. It runs adaptive discovery and produces a traced delivery pack with requirements, architecture, implementation guidance, roadmap, and risk controls.",
+  "author": {
+    "name": "Microsoft Power CAT",
+    "url": "https://github.com/microsoft/power-cat-skills"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills",
+  "repository": "https://github.com/microsoft/power-cat-skills",
+  "license": "MIT",
+  "keywords": [
+    "power-platform",
+    "architecture",
+    "solution-design",
+    "dataverse",
+    "power-apps",
+    "power-automate",
+    "governance",
+    "security"
+  ]
+}
