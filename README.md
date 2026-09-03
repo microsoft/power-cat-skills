@@ -22,6 +22,7 @@ A plugin marketplace for **Microsoft Scout** and **GitHub Copilot CLI** that pro
 
 | Skill | Description |
 |-------|-------------|
+| **Airtable to Power Platform Migration** | Migrate Airtable apps into Microsoft platform targets including Dataverse, SharePoint Lists, app scaffolds, and Power Automate draft flows |
 | **infopath-to-canvas** | Migrate InfoPath forms (.xsn) to modern Canvas Apps |
 | **migrate-to-dataverse** | Replace SharePoint list data sources with Dataverse table equivalents |
 

@@ -45,16 +45,17 @@
       "source": "./Power Platform Migration Factory",
       "skills": [
         "./Power Platform Migration Factory/Access to Dataverse Migration",
+        "./Power Platform Migration Factory/Airtable to Power Platform Migration",
         "./Power Platform Migration Factory/infopath-to-canvas",
         "./Power Platform Migration Factory/migrate-to-dataverse"
       ],
-      "version": "1.0.1",
+      "version": "1.0.2",
       "repository": "https://github.com/microsoft/power-cat-skills",
       "license": "MIT",
       "category": "development",
       "tags": [
         "migration", "power platform", "power apps",
-        "infopath", "dataverse", "sharepoint lists",
+        "airtable", "infopath", "dataverse", "sharepoint lists",
         "microsoft power platform", "microsoft"
       ]
     },
