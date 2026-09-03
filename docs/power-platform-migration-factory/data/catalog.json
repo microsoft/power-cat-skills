@@ -607,31 +607,6 @@
   ],
   "migrationTracks": [
     {
-      "id": "Airtable to Power Platform Migration",
-      "title": "Airtable to Power Platform Migration",
-      "description": "This folder is reserved for the Airtable to Power Platform migration track in the Power Platform Migration Factory.",
-      "products": [
-        {
-          "label": "Airtable",
-          "icon": "assets/product-icons/airtable.png"
-        },
-        {
-          "label": "Dataverse",
-          "icon": "assets/product-icons/dataverse.svg"
-        },
-        {
-          "label": "Power Platform",
-          "icon": "assets/product-icons/power-platform.svg"
-        }
-      ],
-      "images": [],
-      "status": "Coming soon",
-      "cta": "Coming soon",
-      "kind": "track",
-      "skillId": null,
-      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration"
-    },
-    {
       "id": "Access to Dataverse Migration",
       "title": "Access to Dataverse Migration",
       "description": "Migrate a Microsoft Access database (.mdb/.accdb) into Microsoft Dataverse with an optional model-driven app.",
@@ -648,6 +623,32 @@
       "skillId": "Access to Dataverse Migration",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
       "detailId": "powercat-migration-factory__Access to Dataverse Migration"
+    },
+    {
+      "id": "Airtable to Power Platform Migration",
+      "title": "Airtable to Power Platform Migration",
+      "description": "Migrate an Airtable app into Microsoft platform targets:",
+      "products": [
+        {
+          "label": "Airtable",
+          "icon": "assets/product-icons/airtable.png"
+        },
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        },
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "status": "Available skill",
+      "cta": "Available skill",
+      "kind": "skill",
+      "skillId": "Airtable to Power Platform Migration",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration",
+      "detailId": null
     },
     {
       "id": "infopath-to-canvas",

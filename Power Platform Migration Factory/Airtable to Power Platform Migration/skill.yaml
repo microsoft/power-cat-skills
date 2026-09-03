@@ -1,0 +1,20 @@
+name: powercat-airtablemigration
+title: "Airtable to Microsoft App Modernization"
+description: >
+  Migrate Airtable apps to Microsoft platform targets. Exports Airtable schema/data,
+  plans and executes Dataverse table or SharePoint List migration, supports secure
+  identity/person mapping, preserves Airtable AI fields as text with regeneration
+  gaps documented, and optionally scaffolds Code App, Canvas App, and Power Automate
+  draft-flow artifacts.
+version: "0.1.0-alpha"
+connector: airtable
+authors:
+  - "PowerCAT Power Platform Migration Factory"
+tags: [airtable, dataverse, sharepoint, canvas-app, code-app, power-automate, migration]
+
+# Agent-driven skill. It owns an interactive run through SKILL.md rather than the
+# DB-shaped factory provision/load pipeline.
+pipeline: self
+inherits: []
+build_steps: []
+
