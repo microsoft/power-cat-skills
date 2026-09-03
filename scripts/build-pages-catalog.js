@@ -541,6 +541,17 @@ function skillFromPath(skillPath, plugin) {
   };
 }
 
+function migrationSkillFromPath(skillPath, plugin) {
+  const skill = skillFromPath(skillPath, plugin);
+  return {
+    ...skill,
+    category: "Migration to Power Platform",
+    categoryId: "migration-power-platform",
+    categoryLabel: "Migration to Power Platform",
+    ...(skillOverrides[skill.id] || {}),
+  };
+}
+
 function migrationTrackFromFolder(folder) {
   const fullPath = path.join(migrationRoot, folder);
   const readmePath = path.join(fullPath, "README.md");
@@ -594,17 +605,19 @@ function buildCatalog() {
     .flatMap((plugin) => (plugin.skills || []).map((skillPath) => skillFromPath(skillPath, plugin)));
 
   const migrationPlugin = marketplace.plugins.find((plugin) => plugin.name === "powercat-migration-factory");
+  const migrationFolderSkillPaths = fs
+    .readdirSync(migrationRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
+    .map((entry) => path.relative(root, path.join(migrationRoot, entry.name)))
+    .filter((skillPath) => {
+      const fullPath = path.join(root, skillPath);
+      return fs.existsSync(path.join(fullPath, "README.md")) || fs.existsSync(path.join(fullPath, "SKILL.md"));
+    });
+  const migrationSkillPaths = migrationPlugin
+    ? [...new Set([...(migrationPlugin.skills || []), ...migrationFolderSkillPaths])]
+    : migrationFolderSkillPaths;
   const migrationSkills = migrationPlugin
-    ? migrationPlugin.skills.map((skillPath) => {
-        const skill = skillFromPath(skillPath, migrationPlugin);
-        return {
-          ...skill,
-          category: "Migration to Power Platform",
-          categoryId: "migration-power-platform",
-          categoryLabel: "Migration to Power Platform",
-          ...(skillOverrides[skill.id] || {}),
-        };
-      })
+    ? migrationSkillPaths.map((skillPath) => migrationSkillFromPath(skillPath, migrationPlugin))
     : [];
 
   const migrationSkillIds = new Set(migrationSkills.map((skill) => skill.id));
