@@ -24,6 +24,10 @@
     {
       "id": "adoption-storytelling",
       "label": "Adoption & Storytelling"
+    },
+    {
+      "id": "migration-power-platform",
+      "label": "Migration to Power Platform"
     }
   ],
   "plugins": [
@@ -1212,9 +1216,9 @@
       "id": "Access to Dataverse Migration",
       "detailId": "powercat-migration-factory__Access to Dataverse Migration",
       "title": "Access to Dataverse Migration",
-      "category": "Adoption & Storytelling",
-      "categoryId": "adoption-storytelling",
-      "categoryLabel": "Adoption & Storytelling",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "The **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
@@ -1251,9 +1255,9 @@
       "id": "infopath-to-canvas",
       "detailId": "powercat-migration-factory__infopath-to-canvas",
       "title": "infopath-to-canvas",
-      "category": "Adoption & Storytelling",
-      "categoryId": "adoption-storytelling",
-      "categoryLabel": "Adoption & Storytelling",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
@@ -1291,9 +1295,9 @@
       "id": "migrate-to-dataverse",
       "detailId": "powercat-migration-factory__migrate-to-dataverse",
       "title": "migrate-to-dataverse",
-      "category": "Adoption & Storytelling",
-      "categoryId": "adoption-storytelling",
-      "categoryLabel": "Adoption & Storytelling",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
       "plugin": "powercat-migration-factory",
       "pluginLabel": "migration factory",
       "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
