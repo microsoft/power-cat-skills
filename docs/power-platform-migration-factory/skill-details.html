@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Power Platform skill detail page.">
-  <title>Skill details | Power Platform Skills Marketplace & Migration Factory</title>
+  <meta name="description" content="Formatted Power Platform skill documentation.">
+  <title>Skill documentation | Power Platform Skills Marketplace & Migration Factory</title>
   <script>
     (() => {
       const param = new URLSearchParams(window.location.search).get("scoutTheme");
@@ -42,53 +42,35 @@
   <main>
     <section class="detail-hero">
       <div>
-        <p class="eyebrow" id="detail-eyebrow">Skill details</p>
-        <h1 id="detail-title">Loading skill...</h1>
-        <p class="detail-summary" id="detail-summary"></p>
-        <div class="product-icons" id="detail-products" aria-label="Related products"></div>
+        <p class="eyebrow" id="docs-eyebrow">Skill documentation</p>
+        <h1 id="docs-title">Loading skill documentation...</h1>
+        <p class="detail-summary" id="docs-summary"></p>
+        <div class="product-icons" id="docs-products" aria-label="Related products"></div>
       </div>
       <aside class="install-box detail-install">
         <h2>Install / download</h2>
         <p>Install the plugin from the marketplace, then start a new Scout or Copilot CLI session so the skill is discovered.</p>
-        <code id="detail-install"></code>
+        <code id="docs-install"></code>
         <div class="modal-actions">
-          <a class="primary-action" id="detail-docs-link" href="#">View skill details ↗</a>
+          <a class="secondary-action" id="docs-overview-link" href="skill.html">Back to overview</a>
           <a class="secondary-action" href="index.html">Back to marketplace</a>
         </div>
       </aside>
     </section>
 
-    <section class="detail-content">
-      <div class="detail-copy">
-        <div class="modal-section">
-          <h2>What it does</h2>
-          <p id="detail-what"></p>
-        </div>
-        <div class="modal-section">
-          <h2>When to use it</h2>
-          <ul id="detail-when"></ul>
-        </div>
-        <div class="modal-section">
-          <h2>How it helps</h2>
-          <ul id="detail-how"></ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-visual-section">
+    <section class="detail-docs-section" id="readme">
       <div class="detail-section-heading">
-        <p class="eyebrow">Generated artifact preview</p>
-        <h2>What this skill can produce</h2>
+        <p class="eyebrow">Formatted skill documentation</p>
+        <h2>Skill guide</h2>
       </div>
-      <div class="detail-visuals" id="detail-visuals" aria-label="Skill generated artifacts"></div>
+      <article class="rendered-markdown" id="docs-content"></article>
     </section>
-
   </main>
 
   <footer>
     <span class="footer-platform-logo">Microsoft Power Platform</span>
     <span class="footer-power-cat-logo">Power CAT</span>
   </footer>
-  <script src="skill.js"></script>
+  <script src="skill-details.js"></script>
 </body>
 </html>

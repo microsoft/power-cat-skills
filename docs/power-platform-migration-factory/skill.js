@@ -35,6 +35,8 @@
   });
   updateThemeChoices();
 
+  const detailDocsUrl = (detailId) => `skill-details.html?id=${encodeURIComponent(detailId)}`;
+
   const renderImages = (images = []) => {
     return images.map((image) => `
       <figure class="detail-figure">
@@ -60,13 +62,14 @@
       document.getElementById("detail-when").innerHTML = listItems(item.when);
       document.getElementById("detail-how").innerHTML = listItems(item.how);
       document.getElementById("detail-install").textContent = item.install;
-      document.getElementById("detail-source").href = item.source;
+      document.getElementById("detail-docs-link").href = detailDocsUrl(id);
       const visualSection = document.querySelector(".detail-visual-section");
       if (item.images?.length) {
         document.getElementById("detail-visuals").innerHTML = renderImages(item.images);
       } else {
         visualSection.remove();
       }
+      if (!item.docsHtml) document.getElementById("detail-docs-link").remove();
     })
     .catch((error) => {
       document.getElementById("detail-title").textContent = "Skill unavailable";

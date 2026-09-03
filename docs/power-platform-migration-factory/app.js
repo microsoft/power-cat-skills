@@ -54,7 +54,7 @@
     when.innerHTML = listItems(skill.when);
     how.innerHTML = listItems(skill.how);
     install.textContent = skill.install;
-    source.href = skill.source;
+    source.href = detailUrl(detailId);
     modal.dataset.open = "true";
     document.getElementById("modal-close").focus();
   };
@@ -82,7 +82,7 @@
       <h3>${escapeHtml(skill.title)}</h3>
       <p>${escapeHtml(skill.description)}</p>
       <div class="tags">${(skill.tags || []).slice(1, 3).map((tag) => pill(tag)).join("")}</div>
-      <div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">Learn more →</span></div>
+      <div class="lab-footer"><span class="coming-soon">Skill</span><span class="lab-link">View skill details →</span></div>
     </a>`;
 
   const updateSkillFilter = (categoryId) => {
