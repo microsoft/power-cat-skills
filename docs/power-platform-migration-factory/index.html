@@ -13,7 +13,7 @@
       const requested = param || stored;
       const theme = allowed.includes(requested)
         ? requested
-        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        : "portal";
       document.documentElement.setAttribute("data-theme", theme);
     })();
   </script>
@@ -234,6 +234,19 @@
     .detail-figure img { display: block; width: 100%; border-radius: 0.5rem; border: 1px solid var(--cp-border); }
     .detail-figure figcaption, .detail-empty-visual span { display: block; margin-top: 14px; color: var(--cp-text-muted); font-size: 15px; line-height: 1.45; }
     .detail-empty-visual strong { display: block; color: var(--cp-text); font-size: 18px; }
+    .detail-docs-section { max-width: 1180px; margin: 0 auto; padding: 32px 5vw 88px; }
+    .rendered-markdown { background: var(--cp-surface); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 0.625rem; padding: clamp(24px, 4vw, 44px); box-shadow: var(--cp-shadow); color: var(--cp-text-muted); }
+    .rendered-markdown h2, .rendered-markdown h3, .rendered-markdown h4 { color: var(--cp-text); margin: 1.5em 0 0.5em; line-height: 1.15; }
+    .rendered-markdown h2:first-child, .rendered-markdown h3:first-child { margin-top: 0; }
+    .rendered-markdown p, .rendered-markdown li { font-size: 16px; line-height: 1.65; }
+    .rendered-markdown a { color: var(--cp-link); font-weight: 650; }
+    .rendered-markdown code { background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 0.375rem; padding: 0.1em 0.35em; color: var(--cp-text); }
+    .rendered-markdown pre { overflow-x: auto; background: var(--cp-bg-elevated); border: 1px solid var(--cp-border); border-radius: 0.625rem; padding: 16px; }
+    .rendered-markdown pre code { background: transparent; border: 0; padding: 0; }
+    .rendered-markdown blockquote { margin: 18px 0; padding: 14px 18px; border-left: 4px solid var(--cp-accent); background: var(--cp-accent-soft); color: var(--cp-text); }
+    .rendered-markdown table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+    .rendered-markdown th, .rendered-markdown td { border: 1px solid var(--cp-border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    .rendered-markdown th { background: var(--cp-surface-soft); color: var(--cp-text); }
     footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; border-top: 1px solid var(--cp-border); background: var(--cp-bg); color: var(--cp-text-muted); }
     .footer-platform-logo, .footer-power-cat-logo { font-weight: 700; }
     @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } .catalog-browser { grid-template-columns: 1fr; } .market-tabs { position: static; display: flex; overflow-x: auto; padding-bottom: 4px; } .market-tab { flex: 0 0 min(280px, 78vw); } }
@@ -355,7 +368,7 @@
           <p>Install the plugin from the Power CAT Skills marketplace, then start a new Scout or Copilot CLI session so the skill is discovered.</p>
           <code id="modal-install"></code>
           <div class="modal-actions">
-            <a class="primary-action" id="modal-source" href="#" target="_blank" rel="noopener">Open skill source ↗</a>
+            <a class="primary-action" id="modal-source" href="#">View skill details ↗</a>
           </div>
         </aside>
       </div>

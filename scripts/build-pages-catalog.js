@@ -178,6 +178,7 @@ function readJson(filePath) {
 }
 
 function readTextIfExists(filePath) {
+  if (!filePath) return "";
   return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
 }
 
@@ -247,6 +248,200 @@ function firstParagraph(markdown) {
   );
 }
 
+function matchesSkillHeading(heading, skillId) {
+  const normalizedSkillId = skillId.toLowerCase();
+  const normalizedSkillLabel = normalizedSkillId.replace(/-/g, " ");
+  const normalizedHeading = heading.toLowerCase();
+  return normalizedHeading.includes(normalizedSkillId) ||
+    normalizedHeading.includes(`/${normalizedSkillId}`) ||
+    normalizedHeading.includes(normalizedSkillLabel);
+}
+
+function skillSectionMarkdown(markdown, skillId) {
+  const lines = markdown.replace(/^---[\s\S]*?\n---\s*/, "").split(/\r?\n/);
+  const sectionStart = lines.findIndex((line) => {
+    const heading = line.trim().match(/^#{2,6}\s+(.+)$/);
+    return heading && matchesSkillHeading(heading[1], skillId);
+  });
+
+  if (sectionStart < 0) return "";
+  const sectionLines = [];
+  for (let index = sectionStart; index < lines.length; index += 1) {
+    if (index > sectionStart && lines[index].trim().match(/^#{1,6}\s+/)) break;
+    sectionLines.push(lines[index]);
+  }
+  return sectionLines.join("\n").trim();
+}
+
+function findSkillDocumentation(skillDir, pluginDir, skillId) {
+  const skillReadmePath = path.join(skillDir, "README.md");
+  if (fs.existsSync(skillReadmePath)) {
+    return { path: skillReadmePath, markdown: readTextIfExists(skillReadmePath) };
+  }
+
+  const relativeToMigrationRoot = path.relative(migrationRoot, skillDir);
+  const isMigrationSkill = relativeToMigrationRoot && !relativeToMigrationRoot.startsWith("..") && !path.isAbsolute(relativeToMigrationRoot);
+  if (!isMigrationSkill) {
+    const pluginReadmePath = path.join(pluginDir, "README.md");
+    if (fs.existsSync(pluginReadmePath)) {
+      return { path: pluginReadmePath, markdown: readTextIfExists(pluginReadmePath) };
+    }
+  }
+
+  const skillMarkdownPath = path.join(skillDir, "SKILL.md");
+  if (fs.existsSync(skillMarkdownPath)) {
+    return { path: skillMarkdownPath, markdown: readTextIfExists(skillMarkdownPath) };
+  }
+
+  const markdown = fs.readdirSync(skillDir).find((entry) => entry.toLowerCase().endsWith(".md"));
+  if (markdown) {
+    const markdownPath = path.join(skillDir, markdown);
+    return { path: markdownPath, markdown: readTextIfExists(markdownPath) };
+  }
+
+  return { path: null, markdown: "" };
+}
+
+function firstSkillSectionParagraph(markdown, skillId) {
+  const section = skillSectionMarkdown(markdown, skillId);
+  if (!section) return "";
+  const lines = section.split(/\r?\n/);
+  const sectionBody = [];
+  for (let index = 1; index < lines.length; index += 1) {
+    if (lines[index].trim().match(/^#{1,6}\s+/)) break;
+    sectionBody.push(lines[index]);
+  }
+  return firstParagraph(sectionBody.join("\n"));
+}
+
+function escapeHtml(value = "") {
+  return String(value).replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  }[character]));
+}
+
+function inlineMarkdown(value = "") {
+  let text = escapeHtml(value);
+  text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
+  text = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  text = text.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
+    const safeHref = escapeHtml(href.trim());
+    return `<a href="${safeHref}" target="_blank" rel="noopener">${label}</a>`;
+  });
+  return text;
+}
+
+function flushParagraph(paragraph, html) {
+  if (paragraph.length) {
+    html.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+    paragraph.length = 0;
+  }
+}
+
+function flushList(listItems, html) {
+  if (listItems.length) {
+    html.push(`<ul>${listItems.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("")}</ul>`);
+    listItems.length = 0;
+  }
+}
+
+function markdownToHtml(markdown) {
+  const cleaned = markdown
+    .replace(/^---[\s\S]*?\n---\s*/, "")
+    .split(/\r?\n/)
+    .filter((line) => !line.trim().match(/^!\[[^\]]*\]\([^)]+\)$/));
+
+  const html = [];
+  const paragraph = [];
+  const listItems = [];
+  let inCode = false;
+  let codeLines = [];
+
+  for (let index = 0; index < cleaned.length; index += 1) {
+    const line = cleaned[index];
+    const trimmed = line.trim();
+
+    if (trimmed.startsWith("```")) {
+      flushParagraph(paragraph, html);
+      flushList(listItems, html);
+      if (inCode) {
+        html.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
+        codeLines = [];
+        inCode = false;
+      } else {
+        inCode = true;
+      }
+      continue;
+    }
+
+    if (inCode) {
+      codeLines.push(line);
+      continue;
+    }
+
+    if (!trimmed) {
+      flushParagraph(paragraph, html);
+      flushList(listItems, html);
+      continue;
+    }
+
+    if (trimmed.startsWith("|") && cleaned[index + 1]?.trim().match(/^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/)) {
+      flushParagraph(paragraph, html);
+      flushList(listItems, html);
+      const headers = trimmed.split("|").map((cell) => cell.trim()).filter(Boolean);
+      index += 1;
+      const rows = [];
+      while (cleaned[index + 1]?.trim().startsWith("|")) {
+        index += 1;
+        rows.push(cleaned[index].trim().split("|").map((cell) => cell.trim()).filter(Boolean));
+      }
+      html.push(`<table><thead><tr>${headers.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("")}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table>`);
+      continue;
+    }
+
+    const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+    if (heading) {
+      flushParagraph(paragraph, html);
+      flushList(listItems, html);
+      const level = Math.min(heading[1].length + 1, 4);
+      html.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);
+      continue;
+    }
+
+    const list = trimmed.match(/^[-*]\s+(.+)$/);
+    if (list) {
+      flushParagraph(paragraph, html);
+      listItems.push(list[1]);
+      continue;
+    }
+
+    const orderedList = trimmed.match(/^\d+\.\s+(.+)$/);
+    if (orderedList) {
+      flushParagraph(paragraph, html);
+      listItems.push(orderedList[1]);
+      continue;
+    }
+
+    if (trimmed.startsWith(">")) {
+      flushParagraph(paragraph, html);
+      flushList(listItems, html);
+      html.push(`<blockquote>${inlineMarkdown(trimmed.replace(/^>\s*/, ""))}</blockquote>`);
+      continue;
+    }
+
+    paragraph.push(trimmed);
+  }
+
+  flushParagraph(paragraph, html);
+  flushList(listItems, html);
+  return html.join("\n");
+}
+
 function stripNoise(value) {
   return String(value || "")
     .replace(/\s*Triggers?:.*$/i, "")
@@ -272,17 +467,27 @@ function findSkillMarkdown(skillDir) {
 
 function skillFromPath(skillPath, plugin) {
   const skillDir = path.join(root, skillPath);
+  const id = path.basename(skillDir);
   const markdownPath = findSkillMarkdown(skillDir);
   const markdown = markdownPath ? readTextIfExists(markdownPath) : "";
   const pluginDir = path.join(root, plugin.source || "");
   const pluginReadmePath = path.join(pluginDir, "README.md");
   const pluginReadme = readTextIfExists(pluginReadmePath);
-  const frontMatter = parseFrontMatter(markdown);
-  const id = path.basename(skillDir);
+  const documentation = findSkillDocumentation(skillDir, pluginDir, id);
+  const descriptionMarkdownPath = documentation.path;
+  const descriptionMarkdown = documentation.markdown;
+  const documentationPath = documentation.path;
+  const frontMatter = parseFrontMatter(descriptionMarkdown || markdown);
   const imageSlug = slug(`${plugin.name}-${id}`);
   const title = id;
-  const heading = firstHeading(markdown);
-  const description = summarize(frontMatter.description || firstParagraph(markdown) || plugin.description);
+  const heading = firstHeading(descriptionMarkdown || markdown);
+  const description = summarize(
+    frontMatter.description ||
+      firstSkillSectionParagraph(descriptionMarkdown, id) ||
+      firstParagraph(descriptionMarkdown) ||
+      firstParagraph(markdown) ||
+      plugin.description
+  );
   const pluginLabel = pluginLabels[plugin.name] || plugin.name.replace(/^powercat-/, "").replace(/-/g, " ");
   const categoryId = skillCategories[id] || "adoption-storytelling";
   const categoryLabel = categories.find((category) => category.id === categoryId)?.label || pluginLabel;
@@ -291,6 +496,9 @@ function skillFromPath(skillPath, plugin) {
     .filter(Boolean)
     .filter((tag, index, array) => array.findIndex((item) => item.toLowerCase() === tag.toLowerCase()) === index)
     .slice(0, 3);
+  const descriptionImages = descriptionMarkdownPath !== markdownPath
+    ? markdownImages(descriptionMarkdown, descriptionMarkdownPath, imageSlug)
+    : [];
 
   return {
     id,
@@ -307,8 +515,11 @@ function skillFromPath(skillPath, plugin) {
     images: [
       ...(skillImages[id] || []),
       ...markdownImages(pluginReadme, pluginReadmePath, imageSlug),
+      ...descriptionImages,
       ...markdownImages(markdown, markdownPath, imageSlug),
     ],
+    docsHtml: markdownToHtml(documentation.markdown),
+    docsSource: documentationPath ? repoUrl(path.relative(root, documentationPath)) : "",
     what: description,
     when: [
       `Use this when you need ${description.charAt(0).toLowerCase()}${description.slice(1)}`,
