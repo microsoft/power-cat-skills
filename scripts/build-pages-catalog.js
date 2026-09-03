@@ -44,6 +44,10 @@ const categories = [
     id: "adoption-storytelling",
     label: "Adoption & Storytelling",
   },
+  {
+    id: "migration-power-platform",
+    label: "Migration to Power Platform",
+  },
 ];
 
 const skillCategories = {
@@ -593,7 +597,13 @@ function buildCatalog() {
   const migrationSkills = migrationPlugin
     ? migrationPlugin.skills.map((skillPath) => {
         const skill = skillFromPath(skillPath, migrationPlugin);
-        return { ...skill, ...(skillOverrides[skill.id] || {}) };
+        return {
+          ...skill,
+          category: "Migration to Power Platform",
+          categoryId: "migration-power-platform",
+          categoryLabel: "Migration to Power Platform",
+          ...(skillOverrides[skill.id] || {}),
+        };
       })
     : [];
 
