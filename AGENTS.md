@@ -27,6 +27,7 @@ power-cat-skills/
 │       └── skills/
 │           └── create-pp-dev-env/            # Provision a Developer environment via BAP API
 ├── Power Platform Migration Factory/         # Legacy-to-Power Platform migration plugin
+│   ├── Airtable to Power Platform Migration/ # Migrate Airtable apps to Microsoft platform targets
 │   ├── infopath-to-canvas/                   # Migrate InfoPath .xsn forms to Canvas Apps
 │   └── migrate-to-dataverse/                 # Replace SharePoint lists with Dataverse tables
 ├── shared/                   # Cross-plugin shared resources
@@ -43,6 +44,7 @@ power-cat-skills/
 |--------|-------|-------------|
 | `powercat-adoption` | `/powercat-storytelling` | Generate a polished 5-slide HTML customer story deck — brand-matched, self-contained, and presentation-ready |
 | `powercat-canvas-apps` | `/analyze-canvas-performance` | Code review and performance audit of Canvas App pa.yaml files |
+| `powercat-migration-factory` | `/powercat-airtablemigration` | Migrate Airtable apps to Dataverse, SharePoint Lists, app scaffolds, and Power Automate draft-flow artifacts |
 | `powercat-migration-factory` | `/infopath-to-canvas` | Migrate InfoPath .xsn forms to Power Apps Canvas Apps |
 | `powercat-migration-factory` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
 | `powercat-dataverse` | `/dataverse-webapi-query` | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting, error diagnosis |
