@@ -45,8 +45,8 @@ Use one of these paths:
 2. Or clone/open this folder from the repo:
 
 ```powershell
-git clone https://github.com/microsoft/Power-CAT-Skills-Internal.git
-cd "Power-CAT-Skills-Internal\plugins\powercat-powerplatform-migration-factory\skills\powercat-powerplatform-migration-factory\skills\powercat-airtablemigration"
+git clone https://github.com/microsoft/power-cat-skills.git
+cd "power-cat-skills\Power Platform Migration Factory\Airtable to Power Platform Migration"
 ```
 
 Then prompt:
