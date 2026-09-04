@@ -255,6 +255,8 @@
     .rendered-markdown th { background: var(--cp-surface-soft); color: var(--cp-text); }
     footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; border-top: 1px solid var(--cp-border); background: var(--cp-bg); color: var(--cp-text-muted); }
     .footer-platform-logo, .footer-power-cat-logo { font-weight: 700; }
+    .footer-platform-logo { display: inline-flex; align-items: center; gap: 10px; }
+    .footer-platform-logo img { width: 28px; height: 28px; object-fit: contain; }
     @media (max-width: 980px) { .needs-grid, .lab-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } .catalog-browser { grid-template-columns: 1fr; } .market-tabs { position: static; display: flex; overflow-x: auto; padding-bottom: 4px; } .market-tab { flex: 0 0 min(280px, 78vw); } }
     @media (max-width: 980px) { .detail-hero { grid-template-columns: 1fr; } .detail-copy { grid-template-columns: 1fr; } }
     @media (max-width: 780px) { .modal-body { grid-template-columns: 1fr; } }
@@ -385,7 +387,10 @@
   </div>
 
   <footer>
-    <span class="footer-platform-logo">Microsoft Power Platform</span>
+    <span class="footer-platform-logo">
+      <img src="assets/product-icons/power-platform.svg" alt="" aria-hidden="true">
+      <span>Microsoft Power Platform</span>
+    </span>
     <span class="footer-power-cat-logo">Power CAT</span>
   </footer>
   <script src="app.js"></script>
