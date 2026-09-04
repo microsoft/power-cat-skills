@@ -112,6 +112,12 @@
     .brand { display: inline-flex; align-items: center; gap: 12px; width: fit-content; text-decoration: none; }
     .brand-name { color: var(--cp-text); font-size: 17px; font-weight: 600; }
     .brand-name strong { color: var(--cp-accent); font-weight: 750; }
+    .microsoft-logo { display: inline-flex; align-items: center; gap: 10px; color: #5e5e5e; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+    .microsoft-mark { display: grid; grid-template-columns: repeat(2, 10px); grid-template-rows: repeat(2, 10px); gap: 2px; width: 22px; height: 22px; }
+    .microsoft-mark span:nth-child(1) { background: #f25022; }
+    .microsoft-mark span:nth-child(2) { background: #7fba00; }
+    .microsoft-mark span:nth-child(3) { background: #00a4ef; }
+    .microsoft-mark span:nth-child(4) { background: #ffb900; }
     nav { justify-self: end; display: flex; align-items: center; gap: 24px; }
     nav a { font-size: 14px; text-decoration: none; color: var(--cp-text-muted); }
     nav a:hover { color: var(--cp-text); }
@@ -257,8 +263,11 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="../index.html" aria-label="Power Platform Skills Marketplace and Migration Factory home">
-      <span class="brand-name">Power Platform <strong>Skills</strong></span>
+    <a class="brand" href="../index.html" aria-label="Microsoft home">
+      <span class="microsoft-logo" aria-hidden="true">
+        <span class="microsoft-mark"><span></span><span></span><span></span><span></span></span>
+        <span>Microsoft</span>
+      </span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="#tracks">Migration Tracks</a>
