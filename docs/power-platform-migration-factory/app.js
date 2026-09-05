@@ -13,7 +13,10 @@
   const resultCount = document.querySelector(".result-count");
   const skillResultsLabel = document.getElementById("skill-results-label");
   const skillResultsCount = document.getElementById("skill-results-count");
+  const exploreMoreMigration = document.getElementById("explore-more-migration");
   const themeChoices = Array.from(document.querySelectorAll("[data-theme-choice]"));
+  const migrationCategoryId = "migration-power-platform";
+  const visibleMigrationTrackCount = 3;
   let catalog = null;
   let selectedCategory = "all";
 
@@ -106,7 +109,7 @@
 
   const renderCatalog = (payload) => {
     catalog = payload;
-    migrationGrid.innerHTML = catalog.migrationTracks.map(renderMigrationTrack).join("");
+    migrationGrid.innerHTML = catalog.migrationTracks.slice(0, visibleMigrationTrackCount).map(renderMigrationTrack).join("");
     marketTabs.innerHTML = [
       { id: "all", label: "All" },
       ...catalog.categories,
@@ -131,6 +134,9 @@
   marketTabs.addEventListener("click", (event) => {
     const tab = event.target.closest("[data-category-filter]");
     if (tab) updateSkillFilter(tab.dataset.categoryFilter);
+  });
+  exploreMoreMigration?.addEventListener("click", () => {
+    updateSkillFilter(migrationCategoryId);
   });
 
   document.getElementById("modal-close").addEventListener("click", closeModal);
