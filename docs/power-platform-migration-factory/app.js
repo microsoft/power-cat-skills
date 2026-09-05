@@ -59,9 +59,9 @@
     document.getElementById("modal-close").focus();
   };
 
-  const renderMigrationTrack = (track, index) => {
+  const renderMigrationTrack = (track) => {
     const isSkill = track.kind === "skill";
-    const className = index === 0 ? "need-card guidance-card" : "need-card";
+    const className = "need-card";
     const body = [
       `<div class="card-topline">${productIcons(track.products)}</div>`,
       `<strong>${escapeHtml(track.title)}</strong>`,

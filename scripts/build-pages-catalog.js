@@ -600,7 +600,7 @@ function buildCatalog() {
       description: plugin.description,
     }));
 
-  const skills = marketplace.plugins
+  const marketplaceSkills = marketplace.plugins
     .filter((plugin) => plugin.name !== "powercat-migration-factory")
     .flatMap((plugin) => (plugin.skills || []).map((skillPath) => skillFromPath(skillPath, plugin)));
 
@@ -613,13 +613,20 @@ function buildCatalog() {
       const fullPath = path.join(root, skillPath);
       return fs.existsSync(path.join(fullPath, "README.md")) || fs.existsSync(path.join(fullPath, "SKILL.md"));
     });
-  const migrationSkillPaths = migrationPlugin
-    ? [...new Set([...(migrationPlugin.skills || []), ...migrationFolderSkillPaths])]
-    : migrationFolderSkillPaths;
+  const normalizeSkillPath = (skillPath) => path.normalize(skillPath).replace(/^\.[\\/]/, "");
+  const migrationSkillPaths = [
+    ...new Map(
+      [
+        ...(migrationPlugin?.skills || []),
+        ...migrationFolderSkillPaths,
+      ].map((skillPath) => [normalizeSkillPath(skillPath), skillPath])
+    ).values(),
+  ];
   const migrationSkills = migrationPlugin
     ? migrationSkillPaths.map((skillPath) => migrationSkillFromPath(skillPath, migrationPlugin))
     : [];
 
+  const skills = [...marketplaceSkills, ...migrationSkills];
   const migrationSkillIds = new Set(migrationSkills.map((skill) => skill.id));
   const migrationDetailIds = new Map(migrationSkills.map((skill) => [skill.id, skill.detailId]));
   const migrationTracks = fs
@@ -635,7 +642,7 @@ function buildCatalog() {
     });
 
   const details = {};
-  for (const skill of [...skills, ...migrationSkills]) {
+  for (const skill of skills) {
     details[skill.detailId] = skill;
   }
 

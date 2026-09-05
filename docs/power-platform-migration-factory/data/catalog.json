@@ -603,6 +603,168 @@
       "install": "copilot plugin install powercat-architecture-advisor@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor",
       "heading": "Power CAT Architecture Advisor Plugin"
+    },
+    {
+      "id": "Access to Dataverse Migration",
+      "detailId": "powercat-migration-factory__Access to Dataverse Migration",
+      "title": "Access to Dataverse Migration",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "The **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>Workload: PowerCAT Access Migration (<code>powercat-accessmigration</code>)</h2>\n<p>The <strong>named Access-to-Dataverse entry point</strong> of the migration factory. It migrates a Microsoft Access database (<code>.mdb</code>/<code>.accdb</code>) into a Dataverse solution and, when <code>app.name</code> is set, builds a model-driven app with every table in its navigation. It reuses the same platform pipeline and hooks as the <code>access-to-dataverse</code> reference skill — one source of truth, a friendlier name.</p>\n<h3>One-time setup</h3>\n<p>Install the Power Platform CLI (<code>pac</code>) and confirm Python 3.10+ is available. For live <code>.mdb</code>/<code>.accdb</code> reads, install <code>pyodbc</code> and the Microsoft Access Database Engine ODBC driver. If the driver is not available, export each Access table to <code>&lt;Table&gt;.csv</code> and set <code>source.type: csv</code> in <code>mapping.yaml</code>.</p>\n<h3>How to call it</h3>\n<p><strong>Natural language (recommended):</strong></p>\n<blockquote>&quot;Use PowerCAT Access Migration to migrate my Access database at <code>C:\\path\\to\\Data.mdb</code> to Dataverse,</blockquote>\n<blockquote>then evaluate and document it.&quot;</blockquote>\n<p><strong>Slash command:</strong> <code>/powercat-accessmigration</code>, then describe your database.</p>\n<p><strong>Direct CLI (what the skill runs under the hood):</strong></p>\n<pre><code># 1) Sign in to the target Dataverse environment:\npac auth create --environment https://YOUR-ORG.crm.dynamics.com\n\n# 2) Point the included mapping at your database:\n#    edit &quot;Access to Dataverse Migration/mapping.yaml&quot;\n#    set source.path to your .mdb/.accdb or CSV export folder\n#    adjust tables, columns, and relationships for your source schema</code></pre>\n<h3>Prerequisites</h3>\n<p>plus the Microsoft Access Database Engine ODBC driver. No driver? Export each table to <code>&lt;Table&gt;.csv</code> and set <code>source.type: csv</code> in the mapping.</p>\n<p>(all optional, imported lazily).</p>\n<ul><li>Python 3.10+, the Power Platform CLI (<code>pac</code>), and (for the live Access read) <code>pip install pyodbc</code></li><li>Optional: Node 18+ for generative pages; <code>python-docx</code>/<code>openpyxl</code>/<code>Pillow</code> for the DOCX/XLSX reports</li></ul>\n<h3>What you get</h3>\n<p>A Dataverse solution (tables, columns, relationships, data), an optional model-driven app, and — via <code>evaluate</code> + <code>document</code> — an executive HTML evaluation report, a DOCX design document, and XLSX parity/code-quality matrices. Sensitive source columns (PII/payment data) are flagged for review.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration/README.md",
+      "what": "The **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
+      "when": [
+        "Use this when you need the **named Access-to-Dataverse entry point** of the migration factory. It migrates a Microsoft Access database (`.mdb`/`.accdb`) into a Dataverse solution and, when `app.name` is…",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration",
+      "heading": "Workload: PowerCAT Access Migration (`powercat-accessmigration`)"
+    },
+    {
+      "id": "Airtable to Power Platform Migration",
+      "detailId": "powercat-migration-factory__Airtable to Power Platform Migration",
+      "title": "Airtable to Power Platform Migration",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Migrate an Airtable app into Microsoft platform targets:",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>Airtable to Microsoft App Modernization</h2>\n<p>Migrate an Airtable app into Microsoft platform targets:</p>\n<ul><li>Dataverse tables</li><li>SharePoint Lists</li><li>Code App scaffold</li><li>Canvas App scaffold</li><li>Power Automate draft flows</li></ul>\n<p>This is an agent-driven migration skill. Start with <a href=\"./SKILL.md\" target=\"_blank\" rel=\"noopener\"><code>SKILL.md</code></a>, then use <a href=\"./HOW-TO-USE.md\" target=\"_blank\" rel=\"noopener\"><code>HOW-TO-USE.md</code></a> for prerequisites and step-by-step operator guidance.</p>\n<h3>Scope</h3>\n<p>The skill owns the end-to-end migration flow:</p>\n<ul><li>Export Airtable schema and data through a secure local PowerShell prompt.</li><li>Analyze fields, relationships, choices, AI fields, person fields, records, and attachments.</li><li>Ask whether the target data platform is Dataverse, SharePoint Lists, both, or plan-only.</li><li>Collect target environment/site and solution/list details before creating artifacts.</li><li>Create Dataverse tables/data through Dataverse MCP when selected.</li><li>Create SharePoint Lists/data through SharePoint/Graph MCP or PnP PowerShell when selected.</li><li>Optionally generate Code App, Canvas App, and Power Automate draft-flow plans.</li><li>Produce JSON artifacts and user-friendly DOCX reports when document tooling is available.</li></ul>\n<h3>Important safety notes</h3>\n<ul><li>Do not paste Airtable tokens, Dataverse tokens, SharePoint tokens, passwords, or secrets into chat.</li><li>Airtable token entry must use <code>Read-Host -AsSecureString</code>.</li><li>Dataverse auth must use Dataverse MCP or an approved local auth path.</li><li>SharePoint auth must use SharePoint/Graph MCP, PnP PowerShell interactive auth, or an approved local auth path.</li><li>All writes are approval-gated at phase boundaries.</li></ul>\n<h3>How to run</h3>\n<p>Use one of these paths:</p>\n<ul><li>Invoke the installed skill, if available:</li></ul>\n<pre><code>/powercat-airtablemigration</code></pre>\n<ul><li>Or clone/open this folder from the repo:</li></ul>\n<pre><code>git clone https://github.com/microsoft/power-cat-skills.git\ncd &quot;power-cat-skills\\Power Platform Migration Factory\\Airtable to Power Platform Migration&quot;</code></pre>\n<p>Then prompt:</p>\n<pre><code>Use SKILL.md. Start a fresh Airtable migration run.</code></pre>\n<p>For detailed instructions, see <a href=\"./HOW-TO-USE.md\" target=\"_blank\" rel=\"noopener\"><code>HOW-TO-USE.md</code></a>.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration/README.md",
+      "what": "Migrate an Airtable app into Microsoft platform targets:",
+      "when": [
+        "Use this when you need migrate an Airtable app into Microsoft platform targets:",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/Airtable%20to%20Power%20Platform%20Migration",
+      "heading": "Airtable to Microsoft App Modernization"
+    },
+    {
+      "id": "infopath-to-canvas",
+      "detailId": "powercat-migration-factory__infopath-to-canvas",
+      "title": "infopath-to-canvas",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>Workload: Migrate InfoPath Forms to Canvas Apps (<code>infopath-to-canvas</code>)</h2>\n<p>Migrates a Microsoft InfoPath form template (<code>.xsn</code>) into a modern Power Apps Canvas App by extracting the form package, inventorying fields, rules, views, and data connections, then handing a reviewed app-generation prompt to the Canvas App generation workflow.</p>\n<p>Use this skill when you need to move off InfoPath and preserve the intent of the existing form in a Canvas App experience.</p>\n<h3>One-time setup</h3>\n<p>Have the source <code>.xsn</code> file available locally, or provide a folder that contains one or more <code>.xsn</code> files. If the form should connect to real SharePoint lists, add those lists as app data sources in Power Apps Studio before generation so schemas can be verified.</p>\n<h3>How to call it</h3>\n<p><strong>Natural language (recommended):</strong></p>\n<blockquote>&quot;Use infopath-to-canvas to migrate this InfoPath form into a Canvas App.&quot;</blockquote>\n<p><strong>Slash command:</strong> <code>/infopath-to-canvas</code>, then provide the <code>.xsn</code> path and any design or data-source preferences.</p>\n<h3>Migration workflow</h3>\n<p>The skill follows a review-first migration flow.</p>\n<h4>1. Extract the InfoPath package</h4>\n<p>The <code>.xsn</code> file is treated as a CAB archive and extracted into <code>xsn_extracted/</code>.</p>\n<p>The skill verifies that the package contains the expected InfoPath artifacts, including <code>manifest.xsf</code>, <code>schema*.xsd</code>, <code>template.xml</code>, and XSL views.</p>\n<h4>2. Inventory the form</h4>\n<p>The skill creates an inventory covering:</p>\n<ul><li>Fields, data types, constraints, defaults, and decoded field names.</li><li>Validation rules, submit behavior, and event handlers.</li><li>Lookup connections and external schemas.</li><li>Views, section headings, and field ordering.</li><li>Recommended Canvas App sections.</li></ul>\n<h4>3. Review migration decisions</h4>\n<p>Before generating the app prompt, the skill asks for approval on key choices:</p>\n<ul><li>Whether to mock data with collections or connect to real SharePoint lists.</li><li>Which sections to keep or drop.</li><li>Any aesthetic preferences for the generated Canvas App.</li></ul>\n<p>If real SharePoint lists are used, the skill compares InfoPath fields with connected list schemas and flags missing columns, type mismatches, or required columns that the original form does not populate.</p>\n<h4>4. Hand off to Canvas App generation</h4>\n<p>After review, the skill writes <code>canvas-app-prompt.md</code> with the selected sections, field lists, rule translations, mock-data plan or SharePoint mapping, and validation behavior.</p>\n<p>The generated prompt is then passed to the Canvas App generation workflow.</p>\n<h3>What you get</h3>\n<p>The final handoff includes:</p>\n<ul><li>An InfoPath form inventory.</li><li>A reviewed Canvas App generation prompt.</li><li>A clear list of data-source assumptions and schema gaps.</li><li>A Canvas App design path that preserves the form&#39;s intent while modernizing validation and layout.</li></ul>\n<h3>Example request</h3>\n<pre><code>Use infopath-to-canvas to migrate C:\\Forms\\ExpenseApproval.xsn into a Canvas App. Start with mocked\ndata, keep all sections, and use a clean professional style.</code></pre>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/infopath-to-canvas/README.md",
+      "what": "Guides modernization from InfoPath forms to Canvas Apps by assessing the legacy form, identifying data and logic patterns, and shaping a Power Apps target experience.",
+      "when": [
+        "You need to retire or replace InfoPath forms.",
+        "You want to understand migration complexity before rebuilding.",
+        "You need a structured plan for modern forms, data, and workflow."
+      ],
+      "how": [
+        "Breaks down fields, rules, views, and submit behavior.",
+        "Maps legacy form intent to Canvas App patterns.",
+        "Surfaces migration risks and implementation decisions early."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/infopath-to-canvas",
+      "heading": "Workload: Migrate InfoPath Forms to Canvas Apps (`infopath-to-canvas`)",
+      "cardCta": "Forms migration skill"
+    },
+    {
+      "id": "migrate-to-dataverse",
+      "detailId": "powercat-migration-factory__migrate-to-dataverse",
+      "title": "migrate-to-dataverse",
+      "category": "Migration to Power Platform",
+      "categoryId": "migration-power-platform",
+      "categoryLabel": "Migration to Power Platform",
+      "plugin": "powercat-migration-factory",
+      "pluginLabel": "migration factory",
+      "description": "Analyze SharePoint list-backed app data sources, recommend Dataverse table mappings, and document the app, security, relationship, and ALM changes needed for a safer migration.",
+      "tags": [
+        "migration factory",
+        "migration",
+        "power platform"
+      ],
+      "products": [
+        {
+          "label": "Dataverse",
+          "icon": "assets/product-icons/dataverse.svg"
+        },
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>Workload: Migrate Canvas App Data Sources to Dataverse (<code>migrate-to-dataverse</code>)</h2>\n<p>Migrates an existing Canvas App from non-Dataverse data sources to Dataverse by reading the app&#39;s <code>.pa.yaml</code> files and replacing Power Fx data source calls with equivalent Dataverse table references.</p>\n<p>Use this skill when a Canvas App already exists and you want formulas such as <code>Filter</code>, <code>Patch</code>, <code>LookUp</code>, <code>Collect</code>, <code>ClearCollect</code>, or connector-specific calls to point to Dataverse tables instead of SharePoint lists or other legacy data sources.</p>\n<h3>One-time setup</h3>\n<p>Make sure the Canvas App is open in an authoring/coauthoring session where the Canvas MCP tools are available. The skill depends on the app being synced locally before edits are made.</p>\n<p>The target Dataverse tables must already be connected as data sources in the app so the skill can discover their schemas and map columns safely.</p>\n<h3>How to call it</h3>\n<p><strong>Natural language (recommended):</strong></p>\n<blockquote>&quot;Use migrate-to-dataverse to update this Canvas App so its SharePoint list references point to the</blockquote>\n<blockquote>matching Dataverse tables.&quot;</blockquote>\n<p><strong>Slash command:</strong> <code>/migrate-to-dataverse</code>, then describe the source data sources and intended Dataverse targets.</p>\n<p><strong>Direct workflow:</strong></p>\n<pre><code>1. sync_canvas\n   Pulls the latest Canvas App state into local .pa.yaml files.\n\n2. list_data_sources\n   Discovers all available app data sources.\n\n3. get_data_source_schema\n   Reads Dataverse table columns and Power Fx types for accurate mapping.\n\n4. Review and approve mapping plan\n   Confirms how source columns map to Dataverse columns before any edits are made.\n\n5. Update .pa.yaml files\n   Replaces approved source data-call expressions with Dataverse equivalents.\n\n6. compile_canvas\n   Validates the updated Canvas App and fixes compile errors before finishing.</code></pre>\n<h3>Prerequisites</h3>\n<p><code>references/TechnicalGuide.md</code>.</p>\n<ul><li>A Canvas App available in the current authoring session.</li><li>Canvas MCP tools available:</li><li><code>sync_canvas</code></li><li><code>list_data_sources</code></li><li><code>get_data_source_schema</code></li><li><code>compile_canvas</code></li><li>Dataverse tables already added as app data sources.</li><li>Access to the plugin technical guide:</li></ul>\n<h3>Migration workflow</h3>\n<p>The skill follows a gated, review-first workflow.</p>\n<h4>1. Sync the Canvas App</h4>\n<p>Before reading or editing YAML files, the skill calls <code>sync_canvas</code> to pull the current app state from the authoring session into local <code>.pa.yaml</code> files.</p>\n<p>The skill only proceeds after the sync completes successfully.</p>\n<h4>2. Discover available data sources</h4>\n<p>The skill calls <code>list_data_sources</code> to enumerate all data sources connected to the current app authoring session.</p>\n<p>It then calls <code>get_data_source_schema</code> for each Dataverse table so it can read the available columns and Power Fx types.</p>\n<p>The discovery summary includes the available data sources, their types, and key columns.</p>\n<h4>3. Read Canvas App YAML files</h4>\n<p>The skill reads every <code>.pa.yaml</code> file produced by <code>sync_canvas</code> and identifies formulas that reference non-Dataverse data sources, including patterns such as:</p>\n<ul><li><code>SharePoint.GetItems</code></li><li><code>Filter(&#39;MyList&#39;, ...)</code></li><li><code>Patch(&#39;MyList&#39;, ...)</code></li><li><code>LookUp(&#39;MyList&#39;, ...)</code></li><li><code>Collect(...)</code></li><li><code>ClearCollect(...)</code></li></ul>\n<p>For each expression, it records the source table or list name, referenced columns, and operation type.</p>\n<h4>4. Build a column mapping plan</h4>\n<p>Using the discovered Dataverse schemas, the skill creates a proposed mapping table for every data source call it finds.</p>\n<p>Column mapping follows these rules:</p>\n<ul><li>Prefer exact column name matches, case-insensitive.</li><li>Fall back to semantic matches, such as <code>Title</code> to <code>name</code>.</li><li>Respect Power Fx type compatibility.</li><li>Flag unclear mappings as needing manual review.</li><li>Avoid mapping incompatible types without an explicit conversion formula.</li></ul>\n<p>The skill presents the mapping plan for approval before making any changes.</p>\n<h4>5. Apply approved replacements</h4>\n<p>After approval, the skill updates the affected <code>.pa.yaml</code> files.</p>\n<p>It replaces source data-call expressions with equivalent Dataverse Power Fx expressions while keeping the rest of the app unchanged.</p>\n<p>The skill preserves:</p>\n<ul><li>UI properties</li><li>Layout</li><li>Control structure</li><li>Non-data formulas</li><li>Existing collection and variable initialization patterns</li></ul>\n<h4>6. Validate the app</h4>\n<p>After all updates are applied, the skill calls <code>compile_canvas</code>.</p>\n<p>If compilation errors are found, it fixes them and validates again until the app compiles successfully.</p>\n<h3>What you get</h3>\n<p>An updated Canvas App whose selected data source formulas now reference Dataverse tables instead of legacy or non-Dataverse sources.</p>\n<p>The final output includes:</p>\n<ul><li>A summary of updated <code>.pa.yaml</code> files.</li><li>The number of expressions replaced per file.</li><li>The original source data sources replaced.</li><li>The Dataverse tables used as targets.</li><li>Any columns that still require manual review.</li><li>A successful <code>compile_canvas</code> validation result before completion.</li></ul>\n<h3>Example request</h3>\n<pre><code>Use migrate-to-dataverse to update this Canvas App so all SharePoint list references use the matching\nDataverse tables. Map Orders List to cr123_orders, Customers List to cr123_customers, and Products\nList to cr123_products.</code></pre>\n<h3>Example output</h3>\n<pre><code>Migration complete.\n\n| File | Expressions Replaced | Status |\n|------|----------------------|--------|\n| Screens/OrdersScreen.pa.yaml | 6 | Compiled |\n| Screens/CustomerScreen.pa.yaml | 4 | Compiled |\n| App.pa.yaml | 2 | Compiled |\n\nSource replaced: Orders List, Customers List, Products List\nTarget: cr123_orders, cr123_customers, cr123_products\nColumns requiring manual review: none</code></pre>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse/README.md",
+      "what": "Helps replace SharePoint list-backed app data sources with Dataverse tables, relationships, and implementation guidance that better support scale, security, and app lifecycle needs.",
+      "when": [
+        "A Canvas App has outgrown SharePoint lists.",
+        "You need Dataverse security, relationships, ALM, or stronger data modeling.",
+        "You are planning a low-risk move from list data to managed tables."
+      ],
+      "how": [
+        "Analyzes list structures and app usage patterns.",
+        "Suggests Dataverse table and column mappings.",
+        "Documents migration steps and app update considerations."
+      ],
+      "install": "copilot plugin install powercat-migration-factory@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/migrate-to-dataverse",
+      "heading": "Workload: Migrate Canvas App Data Sources to Dataverse (`migrate-to-dataverse`)",
+      "cardCta": "Dataverse migration skill"
     }
   ],
   "migrationTracks": [
