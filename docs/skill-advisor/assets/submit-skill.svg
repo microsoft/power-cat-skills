@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Submit a skill">
+<path d="M11 34L51 11L39 53L29 38L11 34Z" fill="#eef5ff" stroke="#0057b7" stroke-width="3" stroke-linejoin="round"/>
+<path d="M29 38L51 11" stroke="#0057b7" stroke-width="3" stroke-linecap="round"/>
+<circle cx="49" cy="48" r="10" fill="#228b22"/><path d="M44 48L48 52L55 44" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

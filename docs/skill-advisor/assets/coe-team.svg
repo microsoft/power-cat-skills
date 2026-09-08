@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CoE Team &amp; Roles">
+<path d="M32 4L56 12V28C56 44 46 56 32 60C18 56 8 44 8 28V12L32 4Z" fill="#f5f0ff" stroke="#8a3fd1" stroke-width="3"/>
+<circle cx="32" cy="24" r="7" fill="#8a3fd1"/>
+<path d="M20 44 C20 36 26 34 32 34 C38 34 44 36 44 44" fill="none" stroke="#8a3fd1" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="46" cy="22" r="5" fill="#0078d4"/>
+<circle cx="18" cy="22" r="5" fill="#16a34a"/>
+<circle cx="32" cy="50" r="4" fill="#ffb900"/>
+</svg>

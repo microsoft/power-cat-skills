@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Business Leaders">
+<rect x="8" y="18" width="48" height="38" rx="6" fill="#f5f0ff" stroke="#8a3fd1" stroke-width="3"/>
+<path d="M22 18V12C22 9.8 23.8 8 26 8H38C40.2 8 42 9.8 42 12V18" fill="none" stroke="#8a3fd1" stroke-width="3" stroke-linecap="round"/>
+<line x1="8" y1="32" x2="56" y2="32" stroke="#8a3fd1" stroke-width="2.5"/>
+<rect x="28" y="28" width="8" height="8" rx="2" fill="#ffb900" stroke="#8a3fd1" stroke-width="1.5"/>
+<path d="M16 48L24 40L32 44L44 36" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="38 36 44 36 44 42" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

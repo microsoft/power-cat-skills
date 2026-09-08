@@ -1,0 +1,3 @@
+# Informational only: nested robots.txt is not origin crawl policy.
+# Only the origin /robots.txt controls crawler access.
+# Sitemap: https://microsoft.github.io/power-cat-skills/skill-advisor/sitemap.xml

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Citizen Makers">
+<rect x="8" y="8" width="48" height="48" rx="8" fill="#fdf2f8" stroke="#d648b3" stroke-width="3"/>
+<rect x="15" y="15" width="14" height="14" rx="3" fill="#00a4ef"/>
+<rect x="35" y="15" width="14" height="14" rx="3" fill="#ffb900"/>
+<rect x="15" y="35" width="14" height="14" rx="3" fill="#7fba00"/>
+<circle cx="42" cy="42" r="10" fill="#d648b3"/>
+<path d="M42 35L44 39L48 40L44 43L43 47L41 43L37 41L41 39Z" fill="#ffffff"/>
+</svg>

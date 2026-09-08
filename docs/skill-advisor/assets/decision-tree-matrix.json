@@ -1,0 +1,230 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "25 Aug 2026",
+  "description": "Technically validated decision tree mapping for Power Platform Skills guided solution matcher.",
+  "branches": {
+    "migrate": {
+      "title": "Migrate & Modernize",
+      "description": "Modernize legacy forms, databases, SharePoint lists, and classic bots into governed Power Platform architectures.",
+      "icon": "🔄",
+      "subcategories": {
+        "infopath": {
+          "title": "InfoPath Forms to Canvas Apps",
+          "badge": "Modernization",
+          "skills": ["infopath-to-canvas", "analyze-canvas-performance", "migrate-to-dataverse"],
+          "command": "/infopath-to-canvas source:ExpenseReport.xsn target:Dataverse",
+          "intentPrompt": "Convert our legacy InfoPath form into a modern responsive Power Apps Canvas app with Dataverse tables and delegation checks."
+        },
+        "sharepoint_data": {
+          "title": "SharePoint Lists to Relational Dataverse",
+          "badge": "Modernization",
+          "skills": ["migrate-to-dataverse", "dv-metadata", "dv-data", "dv-security"],
+          "command": "/migrate-to-dataverse source:'Project Tracker' target:msft_projects",
+          "intentPrompt": "Migrate our flat SharePoint project list into a relational Dataverse enterprise schema with security roles and relationships."
+        },
+        "access_db": {
+          "title": "Microsoft Access (.accdb) to Dataverse & Model-Driven App",
+          "badge": "Modernization",
+          "skills": ["migrate-to-dataverse", "dv-metadata", "dv-data", "app-builder"],
+          "command": "/migrate-to-dataverse database:Inventory.accdb target:msft_inventory",
+          "intentPrompt": "Reverse-engineer and migrate our Microsoft Access database into Dataverse tables and generate an automated model-driven app."
+        },
+        "classic_agents": {
+          "title": "Classic Bot / PVA to Copilot Studio Generative Agent",
+          "badge": "Modernization",
+          "skills": ["Copilot Studio describe", "Copilot migration plan", "mcs-assistant architect", "Copilot Studio chat"],
+          "command": "/Copilot migration plan agent:CustomerService_Classic",
+          "intentPrompt": "Analyze classic bot dialog topics and generate an approved modern orchestration migration plan for Copilot Studio."
+        },
+        "power_pages_bootstrap": {
+          "title": "Power Pages Bootstrap 3 to Bootstrap 5",
+          "badge": "Modernization",
+          "skills": ["migrate-bootstrap", "test-site", "PowerCAT OverPage"],
+          "command": "/migrate-bootstrap target:Bootstrap5 validate:true",
+          "intentPrompt": "Migrate our Power Pages website from Bootstrap 3 to Bootstrap 5 with automated regression testing and OverPage audit."
+        }
+      }
+    },
+    "review": {
+      "title": "Review & Assure Quality",
+      "description": "Audit code quality, flow errors, security permissions, delegation bottlenecks, and architectural compliance.",
+      "icon": "🔍",
+      "subcategories": {
+        "canvas_review": {
+          "title": "Canvas Apps (Delegation & Performance Review)",
+          "badge": "Review & Quality",
+          "skills": ["analyze-canvas-performance", "compile_canvas"],
+          "command": "/analyze-canvas-performance app:FieldAudits_v2.msapp",
+          "intentPrompt": "Audit my Canvas app for 2,000-row delegation limits, formula bottlenecks, and concurrent data-loading issues."
+        },
+        "code_app_review": {
+          "title": "Code Apps & PCF Controls (React / TypeScript Review)",
+          "badge": "Review & Quality",
+          "skills": ["eval-generator-code-app", "Pro-Code Eval", "scan-code"],
+          "command": "/eval-generator-code-app app:InspectionPortal",
+          "intentPrompt": "Generate feature, unit, and security evaluations for our React/Vite Power Apps code app."
+        },
+        "cloud_flow_review": {
+          "title": "Cloud Flows (Exception & Solution Linting Review)",
+          "badge": "Review & Quality",
+          "skills": ["PowerCAT Overflow", "Findings viewer", "debug-flow", "diagnose-flow"],
+          "command": "/powercat-overflow solution:InvoiceProcessing_1_0.zip",
+          "intentPrompt": "Scan and evaluate all Power Automate cloud flows in our solution zip for exception handling, timeout resilience, and retry policies."
+        },
+        "power_pages_review": {
+          "title": "Power Pages Portals (6-Pillar & Security Review)",
+          "badge": "Review & Quality",
+          "skills": ["PowerCAT OverPage", "security-review", "audit-permissions", "test-site"],
+          "command": "/powercat-overpage solution:CustomerPortal.zip har:traffic.har",
+          "intentPrompt": "Run a comprehensive 6-pillar quality and security audit on our Power Pages portal including authentication, table permissions, and network traces."
+        },
+        "architecture_review": {
+          "title": "Solution Architecture (5-Pillar Well-Architected Review)",
+          "badge": "Review & Quality",
+          "skills": ["Power Platform Well-Architected", "plan-alm", "dv-solution"],
+          "command": "/powercat-check-design workload:OrderProcessing topology:managed",
+          "intentPrompt": "Evaluate our proposed Power Platform solution architecture against all 5 pillars of the Microsoft Well-Architected Framework."
+        },
+        "mobile_extension_review": {
+          "title": "Mobile Extension Native Bundles (.ppmplugin Review)",
+          "badge": "Review & Quality",
+          "skills": ["audit-ppmplugin", "test-native-extension", "debug-extension"],
+          "command": "/audit-ppmplugin bundle:CameraExtension.ppmplugin",
+          "intentPrompt": "Statically audit our native mobile extension bundle for iOS/Android ABI compliance and PCF contract integrity."
+        }
+      }
+    },
+    "build": {
+      "title": "Build & Scaffold",
+      "description": "Create new apps, autonomous agents, automated cloud flows, and reusable AI skills.",
+      "icon": "🔨",
+      "workloads": {
+        "app": {
+          "title": "Power Apps & Websites",
+          "surfaces": {
+            "canvas": {
+              "title": "Canvas App (Low-Code Responsive Screens)",
+              "badge": "Power Apps",
+              "skills": ["canvas-app", "generate-canvas-app", "add-data-source", "compile_canvas"],
+              "command": "/canvas-app scaffold:FieldService tables:msft_workorders",
+              "intentPrompt": "Scaffold a multi-screen responsive Canvas application connected to Dataverse with automated form validation."
+            },
+            "model": {
+              "title": "Model-Driven App & GenPages (Relational Enterprise App)",
+              "badge": "Power Apps",
+              "skills": ["app-builder", "genpage", "dv-metadata", "pac model genpage upload"],
+              "command": "/app-builder name:AssetManagement tables:msft_assets,msft_locations",
+              "intentPrompt": "Build a model-driven application with Dataverse entity tables, business process flows, and generative AI React pages."
+            },
+            "mobile": {
+              "title": "Native Mobile App (Offline iOS & Android App)",
+              "badge": "Power Apps",
+              "skills": ["create-mobile-app", "native-app-planner", "design-system", "build-ios-binary"],
+              "command": "/create-mobile-app platform:both offline:true",
+              "intentPrompt": "Build a native iOS and Android Power Apps mobile application with offline Dataverse sync and camera integration."
+            },
+            "code": {
+              "title": "Code App & PCF (Pro-Dev React / Vite / TypeScript)",
+              "badge": "Power Apps",
+              "skills": ["create-code-app", "design-guide", "add-datasource", "generate-pcf-companion"],
+              "command": "/create-code-app template:vite-react connectors:Dataverse",
+              "intentPrompt": "Create a modern pro-developer Power Apps Code App using React, TypeScript, and Vite connected directly to Dataverse."
+            },
+            "portal": {
+              "title": "Power Pages Website (External Customer Portal)",
+              "badge": "Power Pages",
+              "skills": ["create-site", "setup-datamodel", "integrate-backend", "integrate-webapi"],
+              "command": "/create-site template:customer-portal framework:react",
+              "intentPrompt": "Create an external-facing Power Pages website with React frontend, Dataverse Web API integration, and Entra ID B2C auth."
+            }
+          }
+        },
+        "agent": {
+          "title": "AI Agents & MCP Servers",
+          "surfaces": {
+            "copilot_bot": {
+              "title": "Copilot Studio Agent (Conversational Multi-Turn Bot)",
+              "badge": "Agent Skills",
+              "skills": ["mcs-assistant", "add-connector", "Copilot Studio describe", "Copilot Studio chat"],
+              "command": "/mcs-assistant orchestrate:SupportTriageAgent model:GPT-4o",
+              "intentPrompt": "Create an autonomous customer support agent in Copilot Studio connected to Dataverse knowledge and conversational actions."
+            },
+            "fastmcp_server": {
+              "title": "FastMCP Tool Server & MCP Apps (AI Tool Backend)",
+              "badge": "MCP & Tooling",
+              "skills": ["generate-mcp-app-ui", "MCP servers", "host protocol", "Plugin package"],
+              "command": "/generate-mcp-app-ui tool:DataverseQuery format:widget",
+              "intentPrompt": "Generate an interactive widget and FastMCP server integration for structured tool output in Copilot."
+            }
+          }
+        },
+        "automate": {
+          "title": "Automated Cloud Flows",
+          "surfaces": {
+            "cloud_flow": {
+              "title": "Automated Cloud Flow (Event-Driven Background Processing)",
+              "badge": "Power Automate",
+              "skills": ["build-flow", "create-flow", "browse-flows", "expression help"],
+              "command": "/build-flow prompt:'Trigger on new SharePoint invoice, parse with AI, and create Dataverse record'",
+              "intentPrompt": "Build an automated cloud flow with error handling, retry policies, and Dataverse upsert operations."
+            }
+          }
+        },
+        "skill": {
+          "title": "New AI Skill Package",
+          "surfaces": {
+            "skill_authoring": {
+              "title": "New AI Skill Package (Skill Recorder & Reusable Procedure)",
+              "badge": "Agent Skills",
+              "skills": ["Skill Recorder", "SKILL.md", "Agent Skills standard", "Plugin package"],
+              "command": "/skill-recorder name:custom-governance-audit",
+              "intentPrompt": "Create a brand new reusable Agent Skill with frontmatter metadata, helper scripts, and prompt instructions."
+            }
+          }
+        }
+      }
+    },
+    "manage": {
+      "title": "Manage & Govern",
+      "description": "Govern environments, manage Desktop RPA flows, manage ALM solution pipelines, and enforce security policies.",
+      "icon": "🛡️",
+      "subcategories": {
+        "gov_desktop_rpa": {
+          "title": "Desktop Flows & RPA Management (Power Automate Desktop)",
+          "badge": "Power Automate",
+          "skills": ["manage-desktop-flows", "build-flow", "manage-flows"],
+          "command": "/manage-desktop-flows action:scaffold-rpa",
+          "intentPrompt": "Scaffold, manage, and orchestrate Power Automate Desktop flows to automate data entry into legacy Windows desktop software."
+        },
+        "gov_env": {
+          "title": "Developer Environments & Tenant Provisioning",
+          "badge": "Governance",
+          "skills": ["create-pp-dev-env", "preferred environment", "dv-admin"],
+          "command": "/create-pp-dev-env name:Sprint24-Dev type:Developer",
+          "intentPrompt": "Provision a governed Power Platform developer environment with Northwind sample data and standard tenant policies."
+        },
+        "gov_alm": {
+          "title": "Solution ALM & Automated Deployment Pipelines",
+          "badge": "Governance",
+          "skills": ["plan-alm", "dv-solution", "setup-pipeline", "route-environments"],
+          "command": "/plan-alm solution:OrderManagement pipeline:AutomatedALM",
+          "intentPrompt": "Design and establish automated Power Platform solution ALM pipelines across Dev, Test, and Production environments."
+        },
+        "gov_security": {
+          "title": "Dataverse Security, Roles & Table Permissions",
+          "badge": "Dataverse",
+          "skills": ["dv-security", "audit-permissions", "manage-headers / firewall"],
+          "command": "/dv-security action:audit-roles environment:Production",
+          "intentPrompt": "Audit security roles, business unit hierarchies, and table permissions across our production Dataverse environments."
+        },
+        "gov_flows": {
+          "title": "Cloud Flow Ownership Governance & Orphan Remediation",
+          "badge": "Governance",
+          "skills": ["manage-flows", "Admin Digest", "browse-flows"],
+          "command": "/manage-flows action:audit-orphans environment:Default",
+          "intentPrompt": "Discover unmanaged and orphaned cloud flows, classify connection identities, and generate an executive remediation digest."
+        }
+      }
+    }
+  }
+}
