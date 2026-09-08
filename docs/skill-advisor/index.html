@@ -4280,11 +4280,13 @@ const tourSteps = [
   {
     stepNum: 6,
     kicker: "Step 6 of 7 · Product lifecycles",
-    title: "6. Delivery matrices & Type filter",
-    copy: "Each product page maps skills across its delivery stages (rows = surfaces, columns = stages). Use the Type filter to focus on just Skills, MCP capabilities, or Reference across the whole catalog.",
-    actionBadge: "🗂️ Filter by tier",
-    targetSelector: ".topbar",
-    position: "bottom-left",
+    title: "6. Explore delivery lifecycles",
+    copy: "Most product indexes map capabilities by delivery surface and lifecycle stage. Here is Power Automate's matrix; on mobile, stages stack within each surface. Empty cells mean no catalog entry for that stage. The global Type filter can narrow the catalog separately.",
+    actionBadge: "🗂️ Surfaces & lifecycle stages",
+    targetSelector: ".pa-swimlane-head",
+    mobileTargetSelector: ".pa-swimlane-row .pa-row-label",
+    scrollTarget: true,
+    position: "bottom",
     beforeStep: () => {
       closeDrawer();
       document.getElementById("coeModalOverlay")?.classList.add("hidden");
@@ -4293,12 +4295,12 @@ const tourSteps = [
   },
   {
     stepNum: 7,
-    kicker: "Step 7 of 7 · Power tools & relaunch",
-    title: "7. Search, Skill Stack & restart anytime",
-    copy: "Press Ctrl + K to search everything, build a multi-agent Skill Stack to export a workflow, and switch theme or text size. Relaunch this tour anytime from How to Use.",
-    actionBadge: "⚡ Search · Stack · Relaunch",
-    targetSelector: ".topbar",
-    position: "bottom-left",
+    kicker: "Step 7 of 7 · Search & next steps",
+    title: "7. Search for capabilities",
+    copy: "Use search to discover capabilities (Ctrl + K). Add eligible items to your Skill Stack from their details, then export your selection. Relaunch this tour anytime from How to Use.",
+    actionBadge: "🔎 Discover capabilities",
+    targetSelector: ".search-wrap",
+    position: "bottom",
     beforeStep: () => {
       closeDrawer();
       document.getElementById("coeModalOverlay")?.classList.add("hidden");
@@ -4309,6 +4311,12 @@ const tourSteps = [
 
 let tourStep = 0;
 let tourTimer = null;
+
+function resolveTourTarget(step) {
+  const primary = document.querySelector(step.targetSelector);
+  if (primary?.getClientRects().length) return primary;
+  return step.mobileTargetSelector ? document.querySelector(step.mobileTargetSelector) : null;
+}
 
 function renderTour() {
   const step = tourSteps[tourStep];
@@ -4321,10 +4329,15 @@ function renderTour() {
     if (localStorage.getItem("skillsPrototypeTourComplete") === "1" && !document.getElementById("tourCallout")?.classList.contains("tour-active-override")) {
       return;
     }
-    const el = document.querySelector(step.targetSelector);
-    if (!el) { closeTour(); showToast("Tour target unavailable; return to Mission Control and retry."); return; }
-    if (window.innerWidth <= 700 && step.targetSelector !== "#drawer") el.scrollIntoView({block:"start",behavior:"instant"});
+    const el = resolveTourTarget(step);
+    if (!el || !el.getClientRects().length) { closeTour(); showToast("Tour target unavailable; return to Mission Control and retry."); return; }
+    const initialRect = el.getBoundingClientRect();
+    if (step.scrollTarget || initialRect.bottom <= 0 || initialRect.top >= innerHeight) el.scrollIntoView({block:"center",behavior:"instant"});
+    else if (window.innerWidth <= 700 && step.targetSelector !== "#drawer") el.scrollIntoView({block:"start",behavior:"instant"});
     const rect = el.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0 || rect.bottom <= 0 || rect.top >= innerHeight || rect.right <= 0 || rect.left >= innerWidth) {
+      closeTour(); showToast("Tour target unavailable; return to Mission Control and retry."); return;
+    }
 
     // 1. Update Mask Hole
     const maskSvg = document.getElementById("spotlightMaskSvg");
@@ -4341,8 +4354,8 @@ function renderTour() {
     const pad = 8;
     const x = Math.max(10, Math.min(window.innerWidth - 20, rect.left - pad));
     const y = Math.max(10, Math.min(window.innerHeight - 20, rect.top - pad));
-    const w = Math.min(window.innerWidth - x - 10, rect.width + pad * 2);
-    const h = Math.min(window.innerHeight - y - 10, rect.height + pad * 2);
+    const w = Math.max(0, Math.min(window.innerWidth - 10, rect.right + pad) - x);
+    const h = Math.max(0, Math.min(window.innerHeight - 10, rect.bottom + pad) - y);
 
     hole.setAttribute("x", String(x));
     hole.setAttribute("y", String(y));
