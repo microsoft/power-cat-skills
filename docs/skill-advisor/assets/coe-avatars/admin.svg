@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="38" fill="#ecfeff" stroke="#0891b2" stroke-width="2.5"/>
+  <!-- Woman / Non-binary Power Platform Administrator -->
+  <circle cx="40" cy="34" r="13" fill="#e0a96d"/>
+  <path d="M28 25 C30 18 42 16 52 22 C55 26 56 32 54 35 C52 38 48 30 40 30 C32 30 28 32 28 25 Z" fill="#0f172a"/>
+  <path d="M22 66 C22 52 30 48 40 48 C50 48 58 52 58 66 Z" fill="#0891b2"/>
+  <!-- Admin Key / Gear Badge -->
+  <circle cx="56" cy="54" r="9" fill="#ffffff" stroke="#0891b2" stroke-width="1.8"/>
+  <circle cx="56" cy="54" r="4" fill="none" stroke="#0891b2" stroke-width="2"/>
+</svg>

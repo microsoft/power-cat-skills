@@ -1,0 +1,22 @@
+{
+  "name": "Power Platform + Copilot Studio AI Skills Advisor",
+  "short_name": "AI Skills Advisor",
+  "description": "One governed hub to discover and apply Microsoft-published Power Platform, Dataverse, Power CAT & Copilot Studio AI skills and MCP tools.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f4ef",
+  "theme_color": "#b11f4b",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["developer", "productivity", "business"],
+  "icons": [
+    { "src": "favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

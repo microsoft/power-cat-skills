@@ -1,0 +1,107 @@
+// Source-backed static metadata. This file never changes catalog action kinds.
+// A mention is illustrative natural language, not a verified slash command.
+function invocationExampleMetadata(repo, plugin, skillName, text, naturalRef, slashRef, options = {}) {
+  const repository = repo === 'pp' ? 'power-platform-skills' : repo === 'cat' ? 'power-cat-skills' : 'Dataverse-skills';
+  const commit = repo === 'pp' ? '3e1606be7393d82473c65b2fa22f046ef7bb9c13' : repo === 'cat' ? '609292a242628ea7304459d526ecda70625fc2a9' : 'a2bddb8c4c7f9395a771cf6c85ac701dc437a594';
+  const root = `https://github.com/microsoft/${repository}`;
+  const directory = options.directory || skillName;
+  const skillPath = repo === 'dv' ? `.github/plugins/dataverse/skills/${directory}/SKILL.md` : plugin === 'migration' ? `Power%20Platform%20Migration%20Factory/${directory}/SKILL.md` : `plugins/${plugin}/skills/${directory}/SKILL.md`;
+  const readmePath = repo === 'dv' ? 'README.md' : `plugins/${plugin}/README.md`;
+  const evidence = ref => `${root}/blob/${options.commit || commit}/${ref.startsWith('R') ? readmePath : ref.startsWith('A') ? 'AGENTS.md' : skillPath}#L${ref.slice(1)}`;
+  const source = repo === 'dv' ? `${root}/blob/main/${skillPath}` : `${root}/tree/main/${skillPath.slice(0, -9)}`;
+  const note = options.note || (slashRef ? 'Exact slash token documented by the repository; availability depends on the installed compatible host and plugin.' : 'Illustrative skill-name mention, not verified slash syntax; availability depends on the installed compatible host and skill.');
+  return {
+    source, skillName,
+    natural: { text, provenance: options.exact ? 'Repository example' : 'Illustrative intent', url: evidence(naturalRef) },
+    direct: { text: slashRef ? `/${skillName}` : `Use ${skillName} to ${text.charAt(0).toLowerCase()}${text.slice(1)}`, kind: slashRef ? 'slash' : 'mention', provenance: slashRef ? 'Repository example' : 'Illustrative intent', url: evidence(slashRef || 'S2') },
+    note, userInvocable: true
+  };
+}
+
+const INVOCATION_EXAMPLES = {
+  'skill-66': invocationExampleMetadata('pp', 'power-pages', 'add-cloud-flow', 'When a user submits an application, kick off my existing approval flow', 'R172', 'R170', { exact: true }),
+  'skill-30': invocationExampleMetadata('pp', 'mobile-apps', 'add-connector', 'Add a Power Platform connector to my mobile app.', 'S3', 'R252'),
+  'skill-110': invocationExampleMetadata('pp', 'code-apps', 'add-connector', 'Add a Power Platform connector to my code app.', 'R40', 'R40'),
+  'skill-49': invocationExampleMetadata('pp', 'code-apps', 'add-datasource', 'Recommend the right data source for my code app.', 'R41', 'R41'),
+  'skill-86': invocationExampleMetadata('pp', 'power-pages', 'add-sample-data', 'Add sample data to my tables', 'R102', 'R100', { exact: true }),
+  'skill-26': invocationExampleMetadata('cat', 'powercat-canvas-apps', 'analyze-canvas-performance', 'Analyze this Canvas App for performance problems.', 'S4', 'A45'),
+  'skill-119': invocationExampleMetadata('cat', 'powercat-canvas-apps', 'analyze-canvas-performance', 'Analyze this Canvas App for performance problems.', 'S4', 'A45'),
+  'skill-51': invocationExampleMetadata('pp', 'model-apps', 'app-builder', 'Build an app for tracking service requests', 'R109', 'R107', { exact: true }),
+  'skill-47': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'assemble-ppmplugin', 'Rerun assembly of my native extension plugin bundle.', 'R106', 'R108', { note: 'Normally orchestrated by /generate-ppmplugin. Direct invocation is documented only for rerunning or debugging this stage; see README lines 106–109.' }),
+  'skill-74': invocationExampleMetadata('pp', 'power-pages', 'audit-permissions', 'Check my table permissions for security issues', 'R207', 'R205', { exact: true }),
+  'skill-45': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'audit-ppmplugin', 'Rerun the audit of my native extension plugin bundle.', 'R106', 'R108', { note: 'Normally orchestrated by /generate-ppmplugin. Direct invocation is documented only for rerunning or debugging this stage; see README lines 106–109.' }),
+  'skill-55': invocationExampleMetadata('pp', 'power-automate', 'browse-flows', 'Browse my Power Automate environments and flows.', 'R41', null),
+  'skill-40': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'build-android-binary', 'Rerun the Android binary build for my native extension.', 'R106', 'R107', { note: 'Normally orchestrated by /generate-ppmplugin. Direct invocation is documented only for rerunning or debugging this stage; see README lines 106–109.' }),
+  'skill-8': invocationExampleMetadata('pp', 'power-automate', 'build-flow', 'Build a complete Power Automate flow from my description.', 'R43', null),
+  'skill-41': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'build-ios-binary', 'Rerun the iOS binary build for my native extension.', 'R106', 'R107', { note: 'Normally orchestrated by /generate-ppmplugin. Direct invocation is documented only for rerunning or debugging this stage; see README lines 106–109.' }),
+  'skill-35': invocationExampleMetadata('pp', 'mobile-apps', 'check-updates', 'Check my mobile app for plugin and dependency updates.', 'R256', 'R256'),
+  'skill-133': invocationExampleMetadata('dv', '', 'dv-connect', 'Connect to Dataverse', 'R81', null, { exact: true }),
+  'skill-125': { source: 'https://github.com/microsoft/copilot-studio-plugin/blob/main/commands/chat.md', skillName: null, userInvocable: false, note: 'Command Markdown, not a named SKILL.md: no frontmatter skill name. This metadata does not enable invocation or imply that the repository command itself is internal-only. Experimental, unsupported plugin; not for production.' },
+  'skill-22': { source: 'https://github.com/microsoft/copilot-studio-plugin/blob/main/commands/migrate.md', skillName: null, userInvocable: false, note: 'Command Markdown has no frontmatter skill name. /migrate is documented in commands/migrate.md line 25, but is not exposed as a verified named skill here. Experimental, unsupported plugin; not for production. Migration requires plan approval.' },
+  'skill-7': invocationExampleMetadata('pp', 'code-apps', 'create-code-app', 'Create and deploy a new Power Apps code app.', 'R32', 'R32'),
+  'skill-56': invocationExampleMetadata('pp', 'power-automate', 'create-flow', 'Guide me through creating a Power Automate flow.', 'R42', null),
+  'skill-29': invocationExampleMetadata('pp', 'mobile-apps', 'create-mobile-app', 'Create a Power Apps mobile app.', 'R248', 'R248'),
+  'skill-9': invocationExampleMetadata('pp', 'power-pages', 'create-site', 'Create a Power Pages site with React for a job board', 'R47', 'R45', { exact: true }),
+  'skill-78': invocationExampleMetadata('pp', 'power-pages', 'create-webroles', 'Create web roles for my site', 'R185', 'R183', { exact: true }),
+  'skill-32': invocationExampleMetadata('pp', 'mobile-apps', 'debug-app', 'todos not appearing on home screen', 'S3', 'S3', { exact: true }),
+  'skill-46': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'debug-extension', 'I tapped the button and nothing happened — no error, no UI.', 'S31', 'R104', { exact: true }),
+  'skill-61': invocationExampleMetadata('pp', 'power-automate', 'debug-flow', 'Help me debug a failed flow run interactively.', 'R44', null),
+  'skill-15': invocationExampleMetadata('pp', 'code-apps', 'deploy', 'Build and deploy my code app updates to Power Platform.', 'S3', null),
+  'skill-120': invocationExampleMetadata('pp', 'code-apps', 'deploy', 'Build and deploy my code app updates to Power Platform.', 'S3', null),
+  'skill-33': invocationExampleMetadata('pp', 'mobile-apps', 'deploy', 'Build and push my mobile app to its configured environment.', 'R257', 'R257'),
+  'skill-14': invocationExampleMetadata('pp', 'power-pages', 'deploy-site', 'Deploy my site to Power Pages', 'R58', 'R56', { exact: true }),
+  'skill-3': invocationExampleMetadata('cat', 'powercat-code-apps', 'code-apps-design-guide', 'Create a design guide', 'R34', 'R28', { exact: true, directory: 'design-guide' }),
+  'skill-37': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'design-native-extension-feature', 'Design a native extension feature for my Canvas app.', 'R98', 'R98'),
+  'skill-28': invocationExampleMetadata('pp', 'mobile-apps', 'design-system', 'Create a branded design system for my mobile app.', 'R260', 'R260'),
+  'skill-71': invocationExampleMetadata('pp', 'power-pages', 'diagnose-deployment', 'My last deploy failed — figure out why', 'R370', 'R368', { exact: true }),
+  'skill-17': invocationExampleMetadata('pp', 'power-automate', 'diagnose-flow', 'Perform a deep diagnosis of my failed flow run.', 'R45', null),
+  'skill-89': invocationExampleMetadata('dv', '', 'dv-admin', 'Review the administrative operations available for my Dataverse environment.', 'S3', null),
+  'skill-18': invocationExampleMetadata('dv', '', 'dv-admin', 'Review the administrative operations available for my Dataverse environment.', 'S3', null, { note: 'Catalog label combines dv-admin + dv-security, but this source and verified frontmatter identify dv-admin only. This is an illustrative mention, not a combined skill or verified slash.' }),
+  'skill-83': invocationExampleMetadata('dv', '', 'dv-connect', 'Connect to Dataverse', 'R81', null, { exact: true }),
+  'skill-85': invocationExampleMetadata('dv', '', 'dv-data', 'Import this CSV into the contacts table', 'R90', null, { exact: true }),
+  'skill-6': invocationExampleMetadata('dv', '', 'dv-metadata', 'Create a customer feedback table with name, rating, and comment columns', 'R91', null, { exact: true }),
+  'skill-81': invocationExampleMetadata('dv', '', 'dv-overview', 'Explain which Dataverse tools fit my project.', 'S3', null),
+  'skill-84': invocationExampleMetadata('dv', '', 'dv-query', 'Show me my open deals over $100K closing this quarter', 'R89', null, { exact: true }),
+  'skill-88': invocationExampleMetadata('dv', '', 'dv-security', 'Give a teammate access to this Dataverse environment.', 'S3', null),
+  'skill-16': invocationExampleMetadata('dv', '', 'dv-solution', 'Pull the schema and pack it into a solution', 'R92', null, { exact: true }),
+  'skill-34': invocationExampleMetadata('pp', 'mobile-apps', 'edit-app', 'Improve the search screen to make it easier to use on mobile', 'S19', 'R255', { exact: true }),
+  'skill-87': invocationExampleMetadata('dv', '', 'erp-xpp', 'Build and deploy my Finance and Operations X++ customization.', 'S3', null, { commit: '001b31e0c78e63a0675078ad599e44c16078cd7f', note: 'Verified from cached public source evidence; absent from the older local checkout. Illustrative skill-name mention, not verified slash. Windows only; confirm deployment and DB-sync targets; runtime mutations require approval; post-deployment validation is opt-in.' }),
+  'skill-50': invocationExampleMetadata('cat', 'powercat-procode-eval', 'eval-generator-code-app', 'Generate code app evals', 'R44', 'R34', { exact: true }),
+  'skill-52': invocationExampleMetadata('cat', 'powercat-procode-eval', 'eval-generator-gen-pages', 'Eval my generative page', 'R62', 'R52', { exact: true }),
+  'skill-58': invocationExampleMetadata('cat', 'powercat-overflow', 'powercat-overflow', "Review the cloud flows in this solution ZIP against Microsoft's coding guidelines.", 'S3', null),
+  'skill-92': invocationExampleMetadata('pp', 'mcp-apps', 'generate-mcp-app-ui', 'Show travel attractions on an interactive map', 'R32', 'R27', { exact: true, note: 'Natural example is the intent argument from the documented command example. Slash token is documented; no arguments or flags are invented.' }),
+  'skill-38': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'generate-native-extension', 'Generate Android and iOS source for my native extension.', 'R99', 'R99'),
+  'skill-43': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'generate-pcf-companion', 'Generate the dispatcher PCF control for my native extension.', 'R100', 'R100'),
+  'skill-42': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'generate-ppmplugin', 'Build and verify my native extension plugin bundle.', 'R102', 'R102'),
+  'skill-39': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'generate-ppmplugin-manifest', 'Rerun manifest generation for my native extension bundle.', 'R106', 'R107', { note: 'Normally orchestrated by /generate-ppmplugin. Direct invocation is documented only for rerunning or debugging this stage; see README lines 106–109.' }),
+  'skill-5': invocationExampleMetadata('pp', 'model-apps', 'genpage', 'Build a data grid page for my model-driven app', 'R130', 'R128', { exact: true }),
+  'skill-70': invocationExampleMetadata('cat', 'powercat-overpage', 'powercat-overpage', 'Review the Power Pages sites in this solution ZIP, using my HAR capture for performance analysis.', 'S8', null),
+  'skill-20': invocationExampleMetadata('cat', 'migration', 'infopath-to-canvas', 'Migrate this InfoPath form to a Canvas App.', 'S4', 'A46'),
+  'skill-65': invocationExampleMetadata('pp', 'power-pages', 'integrate-backend', 'I need to send a confirmation email when someone submits the contact form', 'R114', 'R112', { exact: true }),
+  'skill-73': invocationExampleMetadata('pp', 'power-pages', 'integrate-webapi', 'Connect my site to the Dataverse tables', 'R124', 'R122', { exact: true }),
+  'skill-109': invocationExampleMetadata('pp', 'code-apps', 'list-connections', 'List the connection IDs available for my code app.', 'S3', 'S43'),
+  'skill-60': invocationExampleMetadata('pp', 'power-automate', 'manage-desktop-flows', 'List and run my desktop flows.', 'R47', null),
+  'skill-59': invocationExampleMetadata('pp', 'power-automate', 'manage-flows', 'Help me publish and test my Power Automate flows.', 'R46', null),
+  'skill-67': invocationExampleMetadata('pp', 'power-pages', 'manage-headers', 'Fix my CSP errors and harden cookie settings', 'R247', 'R245', { exact: true }),
+  'skill-111': invocationExampleMetadata('pp', 'mcp-apps', 'generate-mcp-app-ui', 'Show travel attractions on an interactive map', 'R32', 'R27', { exact: true, note: 'Natural example is the intent argument from the documented command example. Slash token is documented; no arguments or flags are invented.' }),
+  'skill-126': invocationExampleMetadata('pp', 'power-pages', 'migrate-bootstrap', 'Upgrade my Power Pages site from Bootstrap 3 to Bootstrap 5', 'R395', 'R393', { exact: true }),
+  'skill-21': invocationExampleMetadata('cat', 'migration', 'migrate-to-dataverse', "Replace this Canvas App's data-source references with Dataverse table calls.", 'S4', 'A47'),
+  'skill-117': invocationExampleMetadata('cat', 'powercat-overflow', 'powercat-overflow', "Review the cloud flows in this solution ZIP against Microsoft's coding guidelines.", 'S3', null),
+  'skill-118': invocationExampleMetadata('cat', 'powercat-overpage', 'powercat-overpage', 'Review the Power Pages sites in this solution ZIP, using my HAR capture for performance analysis.', 'S8', null),
+  'skill-53': invocationExampleMetadata('pp', 'model-apps', 'genpage', 'Build a data grid page for my model-driven app', 'R130', 'R128', { exact: true }),
+  'skill-2': invocationExampleMetadata('pp', 'power-pages', 'plan-alm', 'Plan how to promote this site to staging and production', 'R269', 'R267', { exact: true }),
+  'skill-11': invocationExampleMetadata('cat', 'powercat-overflow', 'powercat-overflow', "Review the cloud flows in this solution ZIP against Microsoft's coding guidelines.", 'S3', null),
+  'skill-12': invocationExampleMetadata('cat', 'powercat-overpage', 'powercat-overpage', 'Review the Power Pages sites in this solution ZIP, using my HAR capture for performance analysis.', 'S8', null),
+  'skill-31': invocationExampleMetadata('pp', 'mobile-apps', 'preview-screens', 'Generate a new static preview', 'R232', 'R261', { exact: true }),
+  'skill-48': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'publish-pcf-companion', 'Publish my dispatcher PCF to a Power Platform environment.', 'R103', 'R103'),
+  'skill-63': invocationExampleMetadata('pp', 'power-automate', 'route-environments', 'Resolve which Power Platform environment my flow should use.', 'R48', null),
+  'skill-69': invocationExampleMetadata('pp', 'power-pages', 'scan-code', 'Check my source code and dependencies for security issues', 'R227', 'R225', { exact: true }),
+  'skill-79': invocationExampleMetadata('pp', 'power-pages', 'security-review', 'Do a full security review before we ship', 'R257', 'R255', { exact: true }),
+  'skill-54': invocationExampleMetadata('pp', 'power-automate', 'setup', 'Help me set up the Power Automate prerequisites.', 'S3', null),
+  'skill-77': invocationExampleMetadata('pp', 'power-pages', 'setup-auth', 'Set up authentication for my site', 'R195', 'R193', { exact: true }),
+  'skill-72': invocationExampleMetadata('pp', 'power-pages', 'setup-datamodel', 'Create Dataverse tables for my site', 'R91', 'R89', { exact: true }),
+  'skill-80': invocationExampleMetadata('pp', 'power-pages', 'setup-pipeline', 'Set up a Power Platform Pipeline for automated deployments', 'R316', 'R314', { exact: true }),
+  'skill-76': invocationExampleMetadata('pp', 'power-pages', 'setup-solution', 'Package my site into a solution for ALM', 'R283', 'R281', { exact: true }),
+  'skill-44': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'test-native-extension', 'Check that my native extension, manifest, and dispatcher PCF agree.', 'R101', 'R101'),
+  'skill-68': invocationExampleMetadata('pp', 'power-pages', 'test-site', 'Run a runtime smoke test on my live Power Pages site.', 'R470', 'R76')
+};

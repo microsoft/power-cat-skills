@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Request a skill">
+<path d="M12 10H52V54H12Z" fill="#eef5ff" stroke="#0057b7" stroke-width="3" stroke-linejoin="round"/>
+<path d="M20 23H44M20 33H37M20 43H32" stroke="#0057b7" stroke-width="3" stroke-linecap="round"/>
+<circle cx="49" cy="47" r="10" fill="#b11f4b"/><path d="M49 42V52M44 47H54" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+</svg>

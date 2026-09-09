@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Before and after">
+<rect x="5" y="10" width="21" height="44" rx="6" fill="#f5f5f5" stroke="#919191" stroke-width="3"/>
+<rect x="38" y="10" width="21" height="44" rx="6" fill="#eef5ff" stroke="#0057b7" stroke-width="3"/>
+<path d="M28 32H36M33 27L38 32L33 37" fill="none" stroke="#b11f4b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11 20H20M11 28H18M44 20H53M44 28H53M44 36H50" stroke-width="2.5" stroke-linecap="round" stroke="#5c5c5c"/>
+<circle cx="53" cy="48" r="7" fill="#228b22"/><path d="M49 48L52 51L57 45" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

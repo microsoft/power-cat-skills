@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maker journey">
+<path d="M9 46C17 22 29 19 39 31C47 41 51 24 55 14" fill="none" stroke="#0057b7" stroke-width="5" stroke-linecap="round"/>
+<circle cx="10" cy="46" r="7" fill="#f25022"/><circle cx="32" cy="27" r="7" fill="#ffb900"/><circle cx="54" cy="14" r="7" fill="#7fba00"/>
+<path d="M49 10L56 14L50 20" fill="none" stroke="#202020" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

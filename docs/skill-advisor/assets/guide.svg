@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="How to use this site">
+<rect x="7" y="8" width="50" height="48" rx="10" fill="#eef5ff" stroke="#0057b7" stroke-width="3"/>
+<path d="M19 20H45M19 29H39M19 38H34" stroke="#0057b7" stroke-width="4" stroke-linecap="round"/>
+<circle cx="46" cy="42" r="11" fill="#b11f4b"/><path d="M43 38L50 42L43 46V38Z" fill="#fff"/>
+</svg>

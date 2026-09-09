@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="38" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+  <!-- Migration Specialist with Headset & Modern Hair -->
+  <circle cx="40" cy="34" r="13" fill="#c68642"/>
+  <path d="M27 28 C27 18 33 16 40 16 C47 16 53 18 53 28 C53 30 52 33 52 33 C52 33 48 31 40 31 C32 31 28 33 28 33 Z" fill="#3b2219"/>
+  <path d="M22 66 C22 52 30 48 40 48 C50 48 58 52 58 66 Z" fill="#ea580c"/>
+  <!-- Migration Arrow / Database badge -->
+  <circle cx="56" cy="54" r="9" fill="#ffffff" stroke="#ea580c" stroke-width="1.8"/>
+  <path d="M52 54 L60 54 M57 51 L60 54 L57 57" stroke="#ea580c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>
