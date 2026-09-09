@@ -1,6 +1,6 @@
 """Build the frozen, verified advisor export using Python's standard library.
 
-Usage: python scripts\\build-skill-advisor-pages.py --source <verified-site>
+Usage: python scripts/build-skill-advisor-pages.py --source <verified-site>
        [--site-url https://microsoft.github.io/power-cat-skills/skill-advisor/]
 
 Only docs/skill-advisor is replaced; staging and rollback directories are siblings.
