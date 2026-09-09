@@ -7,6 +7,7 @@ Only docs/skill-advisor is replaced; staging and rollback directories are siblin
 The source is never written or checked into the repository. Unknown files, links,
 private filesystem literals and changed index bytes fail closed before publishing.
 Downloads (including the one ZIP containing 20 PDF/PNG files) stay byte-identical.
+Only the output's manually maintained README.md is preserved, scanned and hashed.
 hosting.json records deterministic input/output hashes, not local provenance.
 
 GitHub Pages does not apply Azure custom headers. The retained meta CSP only
@@ -296,6 +297,16 @@ def build(source, base):
         '<p>Use the <a href="./index.html">AI Skills Advisor</a> and its hash routes.</p>\n'
         '</body></html>\n'
     ).encode()
+    readme = output / "README.md"
+    assert_unlinked(readme)
+    try:
+        readme_stat = readme.lstat()
+    except FileNotFoundError:
+        pass
+    else:
+        if not stat.S_ISREG(readme_stat.st_mode):
+            raise ValueError("output README.md must be a regular file")
+        result["README.md"] = readme.read_bytes()
     for name, content in result.items():
         scan(content, name)
         if name.endswith(".zip"):

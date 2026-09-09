@@ -3,8 +3,10 @@
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import shutil
+import stat
 import unittest
 from unittest.mock import patch
 import uuid
@@ -101,6 +103,132 @@ class BuilderTests(unittest.TestCase):
         self.assertNotIn(str(self.source), json.dumps(manifest))
         for name, digest in manifest["files"].items():
             self.assertEqual(digest, builder.sha((self.output / name).read_bytes()))
+
+    def test_output_readme_preservation_determinism_and_hash(self):
+        self.build()
+        source = self.snapshot(self.source)
+        original_manifest = json.loads((self.output / "hosting.json").read_bytes())
+        self.assertNotIn("README.md", original_manifest["files"])
+        for content in (b"", b"\xef\xbb\xbf# Maintained notes\r\nCaf\xc3\xa9  \r\n\n"):
+            with self.subTest(content=content):
+                (self.output / "README.md").write_bytes(content)
+                (self.output / "other.md").write_bytes(b"not preserved")
+                first = self.build()
+                files = self.snapshot(self.output)
+                self.assertEqual(content, files["README.md"])
+                self.assertNotIn("other.md", files)
+                self.assertEqual(89, first["files"])
+                manifest = json.loads(files["hosting.json"])
+                self.assertEqual(builder.sha(content), manifest["files"]["README.md"])
+                self.assertEqual(
+                    {n: builder.sha(data) for n, data in files.items() if n != "hosting.json"},
+                    manifest["files"],
+                )
+                self.assertEqual(original_manifest["sourceDigestSHA256"],
+                                 manifest["sourceDigestSHA256"])
+                self.assertEqual(first, self.build())
+                self.assertEqual(files, self.snapshot(self.output))
+                self.assertEqual(source, self.snapshot(self.source))
+
+    def test_readme_is_not_allowed_in_source(self):
+        self.build()
+        previous = self.snapshot(self.output)
+        (self.source / "README.md").write_bytes(b"not part of the frozen export")
+        self.assertNotIn("README.md", builder.SOURCE_PATHS)
+        with self.assertRaisesRegex(ValueError, "unknown source artifact: README.md"):
+            self.build()
+        self.assertEqual(previous, self.snapshot(self.output))
+
+    def test_unsafe_output_readme_rejected_without_publication(self):
+        self.build()
+        for content in (b"C:\\Users\\person\\private", b"file:///private",
+                        "C:\\Users\\person\\private".encode("utf-16-le"),
+                        b"-----BEGIN PRIVATE KEY-----", b"AccountKey=secret",
+                        b"https://example.azurestaticapps.net/"):
+            with self.subTest(content=content):
+                (self.output / "README.md").write_bytes(content)
+                previous = self.snapshot(self.output)
+                with self.assertRaisesRegex(ValueError, "in README.md"):
+                    self.build()
+                self.assertEqual(previous, self.snapshot(self.output))
+                self.assertFalse(list(self.root.glob(".skill-advisor-*")))
+
+    def test_output_readme_directory_rejected(self):
+        self.build()
+        readme = self.output / "README.md"
+        readme.mkdir()
+        (readme / "keep.txt").write_bytes(b"keep")
+        previous = self.snapshot(self.output)
+        with self.assertRaisesRegex(ValueError, "README.md must be a regular file"):
+            self.build()
+        self.assertTrue(readme.is_dir())
+        self.assertEqual(previous, self.snapshot(self.output))
+        self.assertFalse(list(self.root.glob(".skill-advisor-*")))
+
+    def test_output_readme_nonregular_rejected_before_read(self):
+        self.build()
+        readme = self.output / "README.md"
+        readme.write_bytes(b"keep")
+        previous = self.snapshot(self.output)
+        lstat = Path.lstat
+        for mode in (stat.S_IFIFO, stat.S_IFSOCK, stat.S_IFCHR, stat.S_IFBLK):
+            def nonregular(path, *args, **kwargs):
+                if path == readme:
+                    return os.stat_result((mode, 0, 0, 1, 0, 0, 0, 0, 0, 0))
+                return lstat(path, *args, **kwargs)
+
+            with self.subTest(mode=mode), patch.object(Path, "lstat", nonregular):
+                with self.assertRaisesRegex(ValueError, "README.md must be a regular file"):
+                    self.build()
+            self.assertEqual(previous, self.snapshot(self.output))
+            self.assertFalse(list(self.root.glob(".skill-advisor-*")))
+
+    def test_output_readme_symlink_rejected(self):
+        self.build()
+        previous = self.snapshot(self.output)
+        target = self.root / "maintained.md"
+        target.write_bytes(b"keep")
+        readme = self.output / "README.md"
+        for destination in (target, self.root / "missing.md"):
+            with self.subTest(destination=destination.name):
+                try:
+                    readme.symlink_to(destination)
+                except OSError:
+                    self.skipTest("Windows symlink privilege unavailable")
+                try:
+                    with self.assertRaisesRegex(ValueError, "symlinks and junctions"):
+                        self.build()
+                    self.assertTrue(readme.is_symlink())
+                    self.assertEqual(destination, readme.readlink())
+                finally:
+                    readme.unlink()
+                self.assertEqual(previous, self.snapshot(self.output))
+                self.assertEqual(b"keep", target.read_bytes())
+                self.assertFalse(list(self.root.glob(".skill-advisor-*")))
+
+    @unittest.skipUnless(os.name == "nt", "Windows junction test")
+    def test_output_readme_junction_rejected(self):
+        import _winapi
+
+        self.build()
+        previous = self.snapshot(self.output)
+        target = self.root / "maintained"
+        target.mkdir()
+        (target / "keep.txt").write_bytes(b"keep")
+        readme = self.output / "README.md"
+        try:
+            _winapi.CreateJunction(str(target), str(readme))
+        except OSError:
+            self.skipTest("Windows junction creation unavailable")
+        try:
+            with self.assertRaises(ValueError):
+                self.build()
+            self.assertTrue(readme.is_dir())
+            self.assertEqual(b"keep", (target / "keep.txt").read_bytes())
+        finally:
+            readme.rmdir()
+        self.assertEqual(previous, self.snapshot(self.output))
+        self.assertFalse(list(self.root.glob(".skill-advisor-*")))
 
     def test_invalid_urls(self):
         for url in ("", "/relative", "ftp://example.org/", "https://u:p@example.org/",

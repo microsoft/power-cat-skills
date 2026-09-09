@@ -4,6 +4,10 @@
 
 A plugin marketplace for **Microsoft Scout** and **GitHub Copilot CLI** that provides specialized skills for Power Platform development — from Canvas App authoring to Dataverse query crafting, environment governance, and customer storytelling.
 
+## Skills Advisor
+
+Explore the [Power Platform Skills Advisor](docs/skill-advisor/README.md) for a quick-reference map of published skills, CoE team-based mapping, global filters, and guidance for day-to-day use.
+
 ## Plugins & Skills
 
 ### `powercat-adoption` — Adoption
