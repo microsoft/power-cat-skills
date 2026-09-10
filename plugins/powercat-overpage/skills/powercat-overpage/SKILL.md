@@ -126,6 +126,7 @@ Each finding needs category, impact (high/medium/low), description, and suggeste
 - Flag wildcard field scope all (*) as security and performance risk.
 - Recommend explicit field projection and Column Permissions per web role and CRUD.
 - Explain forward-risk: future sensitive columns may be exposed unintentionally.
+- Using * wildcard is now deprecated feature in Power Pages Web API this is a MUST FIX
 
 6. Public forms:
 - For anonymous forms, verify CAPTCHA is enabled.
