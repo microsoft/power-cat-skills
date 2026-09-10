@@ -45,6 +45,8 @@ README.md                                        ← User-facing plugin docs
 skills/
   powercat-overpage/
     SKILL.md                                     ← AI-driven Power Pages site review skill
+    SKILLAI.md                                     ← AI-driven Power Pages site review skill for AI Modernization
+    SKILLWEBAPI.md                                     ← AI-driven Power Pages site review skill for Web API field helper
     findings.schema.json                         ← Authoritative findings JSON Schema (draft-07)
 ```
 
