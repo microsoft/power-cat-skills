@@ -34,7 +34,7 @@ import zlib
 
 DEFAULT_URL = "https://microsoft.github.io/power-cat-skills/skill-advisor/"
 OUTPUT = Path(__file__).resolve().parent.parent / "docs" / "skill-advisor"
-INDEX_SHA256 = "986f2b93ede8abec55164f840e721411dbbc4a9aeef097496d47a63b2587beb1"
+INDEX_SHA256 = "279f31105798e21bfa28a70a648d339cd9c61ec12ec4c918ad4489acefa25a8f"
 DOWNLOAD_NAMES = (
     "agent-skills cross-cutting dataverse governance mcp-tooling modernization "
     "power-apps power-automate power-cat power-pages"
