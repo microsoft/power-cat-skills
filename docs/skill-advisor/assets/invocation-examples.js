@@ -105,3 +105,75 @@ const INVOCATION_EXAMPLES = {
   'skill-44': invocationExampleMetadata('pp', 'power-apps-mobile-extension', 'test-native-extension', 'Check that my native extension, manifest, and dispatcher PCF agree.', 'R101', 'R101'),
   'skill-68': invocationExampleMetadata('pp', 'power-pages', 'test-site', 'Run a runtime smoke test on my live Power Pages site.', 'R470', 'R76')
 };
+
+// Approved pinned additions, independently classified by source.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-143": {
+    "source": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mcp-apps/skills/generate-codeful-mcp-tool/SKILL.md",
+    "skillName": "generate-codeful-mcp-tool",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create a codeful MCP tool with JavaScript server logic and registration metadata.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mcp-apps/skills/generate-codeful-mcp-tool/SKILL.md"
+    },
+    "direct": {
+      "text": "/generate-codeful-mcp-tool",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mcp-apps/skills/generate-codeful-mcp-tool/SKILL.md"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Documented alias: /codeful-tool. Generates runtime and metadata, not Agent Skills."
+  },
+  "skill-144": {
+    "source": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mobile-apps/skills/setup-app-insights/SKILL.md",
+    "skillName": "setup-app-insights",
+    "userInvocable": true,
+    "natural": {
+      "text": "Enable Application Insights for this app",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mobile-apps/skills/setup-app-insights/SKILL.md"
+    },
+    "direct": {
+      "text": "/setup-app-insights",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/474e614e1f4c0ec193a9ca01caf86b701c79bc26/plugins/mobile-apps/skills/setup-app-insights/SKILL.md"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Explicit opt-in; existing customer-owned workspace-based resource only; telemetry defaults off."
+  },
+  "skill-145": {
+    "source": "https://github.com/microsoft/power-cat-skills/blob/c6c836259e7459bba01305e1d8bf2b9cdbb221e4/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration/SKILL.md",
+    "skillName": "powercat-accessmigration",
+    "userInvocable": true,
+    "natural": {
+      "text": "Migrate my Access database to Dataverse with an optional model-driven app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/c6c836259e7459bba01305e1d8bf2b9cdbb221e4/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration/SKILL.md"
+    },
+    "direct": {
+      "text": "Use powercat-accessmigration to migrate my Access database to Dataverse.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/c6c836259e7459bba01305e1d8bf2b9cdbb221e4/Power%20Platform%20Migration%20Factory/Access%20to%20Dataverse%20Migration/SKILL.md"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Source version discrepancy remains: SKILL.md 1.0.0; skill.yaml 0.1.0. No GA inference."
+  },
+  "skill-146": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/a0833db3ca5fd1014849fea1b627a9c2b63c27c1/commands/add-skill.md",
+    "skillName": "add-skill",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add an existing agent skill from my local files or the CAT gallery to my Copilot Studio workspace.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/a0833db3ca5fd1014849fea1b627a9c2b63c27c1/commands/add-skill.md"
+    },
+    "direct": {
+      "text": "/add-skill",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/commit/a0833db3ca5fd1014849fea1b627a9c2b63c27c1"
+    },
+    "note": "Plugin command, not a SKILL.md skill. Requires the installed Copilot Studio plugin; optional import requires a cloned CLI-agent workspace. This command does not publish."
+  }
+});
