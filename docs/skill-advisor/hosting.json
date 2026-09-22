@@ -87,7 +87,7 @@
     "favicon-32x32.png": "8ecda49c7cfeab5af2dc663814b6445f6f762d45a51134fb06bf7cf7a2f42e0f",
     "favicon.ico": "34ee06d943089835774ddbf9dc672c672b1b02f1b5bafe1db0d69653837bf3f1",
     "favicon.svg": "0b38ada49a062a6381c769802e65671b0522644df1b67a5f706b5daf9b0fbbc0",
-    "index.html": "af830a40c16f59733b673a1b15b1a16256ab8f912a73257dd2d9402bb7efe1f7",
+    "index.html": "75c7204dd2b96c2f678180961c93eb7c72080a5646919b0fbf60e933860944c6",
     "manifest.json": "fbbb9849c5c8921de0a33e05684a5f1e1bb579943977c583948a238aa32185c6",
     "prototype-category-preview.png": "53f9b6190e208b45b69a2208aae6a6f635b9b26fb364e136cd86f3c4c196f5e3",
     "prototype-dark-preview.png": "26f795a55d7f8674f9c72785f4d1d5c6504ebf865a2c840f72bdaa510273b62c",
@@ -104,8 +104,8 @@
     "Meta CSP enforces only meta-supported directives; no frame-ancestors coverage."
   ],
   "mode": "github-pages",
-  "sourceDigestSHA256": "44f1d04d2f15846108ff51a1c7c878d168436db7da4e607607299bfef17a12b5",
-  "sourceIndexSHA256": "4601f809261c5d67e501982675b255a55b749765eed0784adfdd4d64048723d8",
+  "sourceDigestSHA256": "62a15a4db86cd711035526cd34244eacce57c4ffc9a263150d3b5a04bfc842a0",
+  "sourceIndexSHA256": "986f2b93ede8abec55164f840e721411dbbc4a9aeef097496d47a63b2587beb1",
   "transforms": {
     "excluded": [
       "staticwebapp.config.json"
