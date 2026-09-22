@@ -1631,11 +1631,7 @@ function skillType(skill){
   return "skill";
 }
 function dispName(skill){ return (skill && skill.displayName) ? skill.displayName : (skill?skill.name:""); }
-function maturityDisplay(skill){
-  const m=skill&&skill.maturity;
-  if(m==="GA"||(skill&&skill.status==="Generally available")) return `${escapeHtml(m||"GA")} <span style="color:var(--cp-text-muted);font-weight:500">· as documented in source</span>`;
-  return escapeHtml(m||"");
-}
+function maturityDisplay(skill){ return escapeHtml(skill&&skill.maturity || ""); }
 function canonicalSkillName(skill){ const m=(typeof INVOCATION_EXAMPLES==="undefined"?null:INVOCATION_EXAMPLES[skill&&skill.id]); return (m&&m.skillName)?m.skillName:((skill&&skill.action&&skill.action.skillName)||null); }
 function skillSlug(skill){ return skill ? String(skill.name).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") : ""; }
 function skillCount(){ return DATA.skills.filter(s=>skillType(s)==="skill").length; }
