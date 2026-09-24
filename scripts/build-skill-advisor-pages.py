@@ -34,7 +34,7 @@ import zlib
 
 DEFAULT_URL = "https://microsoft.github.io/power-cat-skills/skill-advisor/"
 OUTPUT = Path(__file__).resolve().parent.parent / "docs" / "skill-advisor"
-INDEX_SHA256 = "279f31105798e21bfa28a70a648d339cd9c61ec12ec4c918ad4489acefa25a8f"
+INDEX_SHA256 = "a928fa81e13957817c9bdda3ecf28052583e11e79c28cd9e6845f2d755e323b2"
 DOWNLOAD_NAMES = (
     "agent-skills cross-cutting dataverse governance mcp-tooling modernization "
     "power-apps power-automate power-cat power-pages"
@@ -43,7 +43,7 @@ ASSETS = (
     "basics.svg before-after.svg cat-logo.png cat-paw.png coe-team.svg "
     "command-center.svg copilotstudio.png customer-journeys.svg dataverse.png "
     "decision-tree-matrix.json downloads.svg governance.svg guide.svg home.svg "
-    "icon-192.png icon-512.png invocation-examples.js mcp.svg "
+    "icon-192.png icon-512.png invocation-examples.js learn.svg mcp.svg "
     "Microsoft-Skills-Experience-All-Downloads.zip microsoft.svg modernization.svg "
     "og-cover.png power-series-mark.svg powerapps.png powerautomate.png "
     "powercat-fulllogo.png powercat-paw.png powercat-paw.svg powercat-textmark.png "

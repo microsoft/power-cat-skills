@@ -79,7 +79,7 @@ class BuilderTests(unittest.TestCase):
         self.assertEqual(files, self.snapshot(self.output))
         self.assertEqual(source, self.snapshot(self.source))
         self.assertEqual("keep", unrelated.read_text())
-        self.assertEqual(88, first["files"])
+        self.assertEqual(89, first["files"])
         self.assertFalse((self.output / "staticwebapp.config.json").exists())
         for name in builder.PUBLIC_PATHS - {"index.html", "404.html", "robots.txt", "sitemap.xml"}:
             self.assertEqual(source[name], files[name])
@@ -117,7 +117,7 @@ class BuilderTests(unittest.TestCase):
                 files = self.snapshot(self.output)
                 self.assertEqual(content, files["README.md"])
                 self.assertNotIn("other.md", files)
-                self.assertEqual(89, first["files"])
+                self.assertEqual(90, first["files"])
                 manifest = json.loads(files["hosting.json"])
                 self.assertEqual(builder.sha(content), manifest["files"]["README.md"])
                 self.assertEqual(

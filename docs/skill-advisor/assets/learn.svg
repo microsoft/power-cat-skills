@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Microsoft Learn">
+<path d="M32 12 L58 23 L32 34 L6 23 Z" fill="#0078d4"/>
+<path d="M32 34 L6 23 L6 27 L32 38 L58 27 L58 23 Z" fill="#005a9e"/>
+<path d="M16 30 v10 c0 5 7.2 8 16 8 s16 -3 16 -8 v-10 l-16 6.8 Z" fill="#50a0e0"/>
+<rect x="55.5" y="24" width="2.5" height="14" rx="1.2" fill="#0078d4"/>
+<circle cx="56.75" cy="40" r="2.4" fill="#0078d4"/>
+</svg>
