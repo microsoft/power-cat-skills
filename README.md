@@ -74,6 +74,14 @@ Explore the [Power Platform Skills Advisor](docs/skill-advisor/README.md) for a 
 |-------|-------------|
 | **powercat-overpage** | Review Power Pages site(s) in a solution (.zip) across Security, Performance, Accessibility, Maintainability, Architecture and Reliability — optionally with a browser HAR capture — and explore findings in the hosted PowerCAT OverPage viewer |
 
+### `loop-my-prompt` - Prompt Rewriting
+
+| Skill | Description |
+|-------|-------------|
+| **loop-my-prompt** | Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction and bounded stopping conditions without executing the underlying task |
+
+This instruction-only plugin has no Power Platform environment or companion-plugin dependency.
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -146,6 +154,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `powercat-admin-digest` | — |
 | `powercat-overflow` | — |
 | `powercat-overpage` | — |
+| `loop-my-prompt` | — |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -158,6 +167,7 @@ copilot plugin install powercat-procode-eval@power-cat-skills
 copilot plugin install powercat-admin-digest@power-cat-skills
 copilot plugin install powercat-overflow@power-cat-skills
 copilot plugin install powercat-overpage@power-cat-skills
+copilot plugin install loop-my-prompt@power-cat-skills
 ```
 
 ### Configure the MCP Server
@@ -194,6 +204,10 @@ Create a dev environment for adelev@contoso.com
 
 ```text
 Create a customer story deck for Contoso
+```
+
+```text
+Rewrite this prompt with observable feedback and bounded corrections: [paste prompt]
 ```
 
 ## Permissions and Approvals

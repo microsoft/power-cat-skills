@@ -191,6 +191,22 @@
         "dataverse", "governance", "security",
         "solution design", "microsoft"
       ]
+    },
+    {
+      "name": "loop-my-prompt",
+      "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+      "source": "./plugins/loop-my-prompt",
+      "skills": [
+        "./plugins/loop-my-prompt/skills/loop-my-prompt"
+      ],
+      "version": "0.1.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "power-platform", "powercat",
+        "prompt-engineering", "loop-engineering"
+      ]
     }
   ]
 }

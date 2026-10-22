@@ -49,6 +49,7 @@ power-cat-skills/
 | `powercat-migration-factory` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
 | `powercat-dataverse` | `/dataverse-webapi-query` | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting, error diagnosis |
 | `powercat-governance` | `/create-pp-dev-env` | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user |
+| `loop-my-prompt` | `/loop-my-prompt` | Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction and bounded stopping conditions without executing the underlying task |
 
 ## Local Development
 

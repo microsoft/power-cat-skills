@@ -1,0 +1,17 @@
+{
+  "name": "loop-my-prompt",
+  "version": "0.1.0",
+  "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+  "author": {
+    "name": "Power CAT"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills",
+  "repository": "https://github.com/microsoft/power-cat-skills",
+  "license": "MIT",
+  "keywords": [
+    "power-platform",
+    "powercat",
+    "prompt-engineering",
+    "loop-engineering"
+  ]
+}
