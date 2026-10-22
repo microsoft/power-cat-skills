@@ -80,6 +80,11 @@
       "id": "powercat-architecture-advisor",
       "label": "powercat-architecture-advisor",
       "description": "Power CAT style architecture advisor for Power Platform scenarios with structured discovery and comprehensive implementation recommendations."
+    },
+    {
+      "id": "loop-my-prompt",
+      "label": "loop-my-prompt",
+      "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task."
     }
   ],
   "skills": [
@@ -603,6 +608,45 @@
       "install": "copilot plugin install powercat-architecture-advisor@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor",
       "heading": "Power CAT Architecture Advisor Plugin"
+    },
+    {
+      "id": "loop-my-prompt",
+      "detailId": "loop-my-prompt__loop-my-prompt",
+      "title": "loop-my-prompt",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "loop-my-prompt",
+      "pluginLabel": "loop my prompt",
+      "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+      "tags": [
+        "loop my prompt",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>loop-my-prompt</h2>\n<p>Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.</p>\n<h3>Skills</h3>\n<ul><li><strong>loop-my-prompt</strong> - Rewrite a supplied prompt around a concrete goal, action, observation, comparison, correction and stopping loop. Return a copy-ready prompt and a concise explanation of the changes.</li></ul>\n<h3>Usage</h3>\n<p>Invoke <code>/loop-my-prompt</code> with the prompt you want to improve, or use a natural-language request:</p>\n<ul><li>&quot;Rewrite this prompt with a concrete feedback loop: [paste prompt].&quot;</li><li>&quot;Improve this implementation prompt with observable acceptance criteria and bounded corrections: [paste prompt].&quot;</li><li>&quot;Loop-engineer this writing prompt while preserving its word limit and output format: [paste prompt].&quot;</li></ul>\n<p>The result has two sections: <strong>Rewritten prompt</strong>, containing the complete prompt in one fenced text block, and <strong>What changed and why</strong>, explaining the actual edits.</p>\n<h3>Notes</h3>\n<ul><li>This is an instruction-only skill. It requires no specific model, tools, MCP server, network access or additional dependencies.</li><li>It rewrites the supplied prompt; it does not execute the task described inside it.</li><li>It preserves the original scope, constraints, output format and explicit effort limits. Missing essential inputs and unavailable verification must remain explicit.</li><li>When the source has no finite effort limit, it proposes one correction pass for simple work or at most two for multi-step work, clearly identifying these as suggested defaults.</li><li>Provide the source prompt directly or clearly identify an authorized source. Access to that source depends on the host&#39;s available capabilities and permissions.</li><li>Automatic discovery depends on the host&#39;s Agent Skills support.</li></ul>\n<h3>Installation</h3>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install loop-my-prompt@power-cat-skills</code></pre>\n<p>Start a new conversation after installation so the host can discover the skill.</p>\n<h3>License</h3>\n<p>MIT. See the <a href=\"https://github.com/microsoft/power-cat-skills/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\">repository license</a>.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/README.md",
+      "what": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+      "when": [
+        "Use this when you need rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install loop-my-prompt@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
+      "heading": "loop-my-prompt"
     },
     {
       "id": "Access to Dataverse Migration",
@@ -1374,6 +1418,45 @@
       "install": "copilot plugin install powercat-architecture-advisor@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-architecture-advisor/skills/powercat-pp-architecture-advisor",
       "heading": "Power CAT Architecture Advisor Plugin"
+    },
+    "loop-my-prompt__loop-my-prompt": {
+      "id": "loop-my-prompt",
+      "detailId": "loop-my-prompt__loop-my-prompt",
+      "title": "loop-my-prompt",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "loop-my-prompt",
+      "pluginLabel": "loop my prompt",
+      "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+      "tags": [
+        "loop my prompt",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>loop-my-prompt</h2>\n<p>Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.</p>\n<h3>Skills</h3>\n<ul><li><strong>loop-my-prompt</strong> - Rewrite a supplied prompt around a concrete goal, action, observation, comparison, correction and stopping loop. Return a copy-ready prompt and a concise explanation of the changes.</li></ul>\n<h3>Usage</h3>\n<p>Invoke <code>/loop-my-prompt</code> with the prompt you want to improve, or use a natural-language request:</p>\n<ul><li>&quot;Rewrite this prompt with a concrete feedback loop: [paste prompt].&quot;</li><li>&quot;Improve this implementation prompt with observable acceptance criteria and bounded corrections: [paste prompt].&quot;</li><li>&quot;Loop-engineer this writing prompt while preserving its word limit and output format: [paste prompt].&quot;</li></ul>\n<p>The result has two sections: <strong>Rewritten prompt</strong>, containing the complete prompt in one fenced text block, and <strong>What changed and why</strong>, explaining the actual edits.</p>\n<h3>Notes</h3>\n<ul><li>This is an instruction-only skill. It requires no specific model, tools, MCP server, network access or additional dependencies.</li><li>It rewrites the supplied prompt; it does not execute the task described inside it.</li><li>It preserves the original scope, constraints, output format and explicit effort limits. Missing essential inputs and unavailable verification must remain explicit.</li><li>When the source has no finite effort limit, it proposes one correction pass for simple work or at most two for multi-step work, clearly identifying these as suggested defaults.</li><li>Provide the source prompt directly or clearly identify an authorized source. Access to that source depends on the host&#39;s available capabilities and permissions.</li><li>Automatic discovery depends on the host&#39;s Agent Skills support.</li></ul>\n<h3>Installation</h3>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install loop-my-prompt@power-cat-skills</code></pre>\n<p>Start a new conversation after installation so the host can discover the skill.</p>\n<h3>License</h3>\n<p>MIT. See the <a href=\"https://github.com/microsoft/power-cat-skills/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\">repository license</a>.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/README.md",
+      "what": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+      "when": [
+        "Use this when you need rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install loop-my-prompt@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
+      "heading": "loop-my-prompt"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",
