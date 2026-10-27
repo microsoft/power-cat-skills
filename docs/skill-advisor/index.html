@@ -5132,8 +5132,23 @@ function applyRailPreference(){
 const tourSteps = [
   {
     stepNum: 1,
-    kicker: "Step 1 of 8 · The Capability Atlas",
-    title: "1. {TOTAL} capabilities, three clear tiers",
+    kicker: "Step 1 of 8 · Ask in Copilot Cowork",
+    title: "1. Ask Copilot Cowork which skill to use",
+    copy: "New: the read-only Skills Advisor (Live) plugin brings this catalog into Microsoft Copilot Cowork. Ask which skill fits a job; it refreshes periodically across Microsoft-published skills, so answers stay current without reinstalling.",
+    actionBadge: "🧩 Copilot Cowork plugin",
+    targetSelector: ".home-cowork",
+    scrollTarget: true,
+    position: "bottom",
+    beforeStep: () => {
+      closeDrawer();
+      document.getElementById("coeModalOverlay")?.classList.add("hidden");
+      if (state.view !== "mission") navigate("mission");
+    }
+  },
+  {
+    stepNum: 2,
+    kicker: "Step 2 of 8 · The Capability Atlas",
+    title: "2. {TOTAL} capabilities, three clear tiers",
     copy: "Everything is grouped by how you use it: {SKILL_MARK} you install & run, {MCP_MARK} capabilities you use live via a server, and {REF_MARK} standards & practices. Start here to see the whole landscape.",
     actionBadge: "🧭 Skills · MCP · Reference",
     targetSelector: ".home-atlas",
@@ -5145,9 +5160,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 2,
-    kicker: "Step 2 of 8 · Three ways in",
-    title: "2. Wizard, Explore by Role, or CoE",
+    stepNum: 3,
+    kicker: "Step 3 of 8 · Three ways in",
+    title: "3. Wizard, Explore by Role, or CoE",
     copy: "Pick your entry point: answer 4 questions in the Skill Advisor Wizard, browse by persona (Business, Makers, Developers), or open the CoE flight deck for the governance operating model.",
     actionBadge: "👆 Choose your path",
     targetSelector: ".home-modules",
@@ -5159,9 +5174,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 3,
-    kicker: "Step 3 of 8 · New to skills?",
-    title: "3. Basics & Paradigm learn-path",
+    stepNum: 4,
+    kicker: "Step 4 of 8 · New to skills?",
+    title: "4. Basics & Paradigm learn-path",
     copy: "Not sure what a Skill or MCP is? The Basics & Paradigm guide walks you through what each tier means, how they differ, and the paradigm shift behind agent skills.",
     actionBadge: "📘 Learn the basics",
     targetSelector: ".home-newto",
@@ -5173,9 +5188,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 4,
-    kicker: "Step 4 of 8 · Inside a skill",
-    title: "4. Friendly names, commands & prompts",
+    stepNum: 5,
+    kicker: "Step 5 of 8 · Inside a skill",
+    title: "5. Friendly names, commands & prompts",
     copy: "Open a capability for its friendly name and verified source. Source-defined skills offer example intent for a compatible installed host; commands appear only when documented. Supporting agents, apps and references are not standalone slash commands.",
     actionBadge: "💬 Sources & supported intent",
     targetSelector: "#drawer",
@@ -5186,9 +5201,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 5,
-    kicker: "Step 5 of 8 · MCP & Tooling",
-    title: "5. The MCP Server Hub",
+    stepNum: 6,
+    kicker: "Step 6 of 8 · MCP & Tooling",
+    title: "6. The MCP Server Hub",
     copy: "See the live MCP servers (Canvas, FlowAgent, Dataverse) and the tools each exposes — the capabilities you invoke during development — kept distinct from installable skills and reference material.",
     actionBadge: "🖥️ Servers & live tools",
     targetSelector: ".view-head",
@@ -5200,9 +5215,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 6,
-    kicker: "Step 6 of 8 · Product lifecycles",
-    title: "6. Explore delivery lifecycles",
+    stepNum: 7,
+    kicker: "Step 7 of 8 · Product lifecycles",
+    title: "7. Explore delivery lifecycles",
     copy: "Example: Power Automate's lifecycle matrix, with surfaces as rows and lifecycle stages as columns (stacked on mobile). Most product indexes use this layout. Empty cells mean no catalog entry for that stage; the Type filter narrows each matrix.",
     actionBadge: "🗂️ Example: Power Automate matrix",
     targetSelector: ".pa-swimlane-head",
@@ -5216,9 +5231,9 @@ const tourSteps = [
     }
   },
   {
-    stepNum: 7,
-    kicker: "Step 7 of 8 · Search & next steps",
-    title: "7. Search for capabilities",
+    stepNum: 8,
+    kicker: "Step 8 of 8 · Search & next steps",
+    title: "8. Search for capabilities",
     copy: "Use search to discover capabilities (Ctrl + K). Add eligible items to your Skill Stack from their details, then export your selection. Relaunch this tour anytime from How to Use.",
     actionBadge: "🔎 Discover capabilities",
     targetSelector: ".search-wrap",
@@ -5227,21 +5242,6 @@ const tourSteps = [
       closeDrawer();
       document.getElementById("coeModalOverlay")?.classList.add("hidden");
       if (state.view !== "mission") navigate("mission");
-    }
-  },
-  {
-    stepNum: 8,
-    kicker: "Step 8 of 8 · Ask in Copilot Cowork",
-    title: "8. Use this catalog in Copilot Cowork",
-    copy: "Prefer to ask instead of browse? The read-only Skills Advisor (Live) plugin brings this catalog into Microsoft Copilot Cowork and refreshes periodically across Microsoft-published skills, so answers stay current without reinstalling.",
-    actionBadge: "🤖 Copilot Cowork plugin",
-    targetSelector: ".cw-hero",
-    scrollTarget: true,
-    position: "bottom",
-    beforeStep: () => {
-      closeDrawer();
-      document.getElementById("coeModalOverlay")?.classList.add("hidden");
-      if (state.view !== "cowork") navigate("cowork");
     }
   }
 ];
