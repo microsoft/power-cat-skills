@@ -34,14 +34,14 @@ import zlib
 
 DEFAULT_URL = "https://microsoft.github.io/power-cat-skills/skill-advisor/"
 OUTPUT = Path(__file__).resolve().parent.parent / "docs" / "skill-advisor"
-INDEX_SHA256 = "a46fe9d6d2f14e34aba0231274580fcbbfa9462713a7b40b83ecc32410bc4cb6"
+INDEX_SHA256 = "5069cab45311019f453a97f8dbe667a96f8fad5b7fa59f66484bc38d9ee0d0b2"
 DOWNLOAD_NAMES = (
     "agent-skills cross-cutting dataverse governance mcp-tooling modernization "
     "power-apps power-automate power-cat power-pages"
 ).split()
 ASSETS = (
     "basics.svg before-after.svg cat-logo.png cat-paw.png coe-team.svg "
-    "command-center.svg copilotstudio.png customer-journeys.svg dataverse.png "
+    "command-center.svg copilotstudio.png cowork-plugin.svg customer-journeys.svg dataverse.png "
     "decision-tree-matrix.json downloads.svg governance.svg guide.svg home.svg "
     "icon-192.png icon-512.png invocation-examples.js learn.svg mcp.svg "
     "Microsoft-Skills-Experience-All-Downloads.zip microsoft.svg modernization.svg "
@@ -267,7 +267,7 @@ def build(source, base):
             else:
                 raise ValueError("unknown source artifact: " + rel)
     if files.keys() != SOURCE_PATHS:
-        raise ValueError("source inventory does not match frozen 87-file export")
+        raise ValueError("source inventory does not match frozen 88-file export")
     if sha(files["index.html"]) != INDEX_SHA256:
         raise ValueError("source index SHA256 differs from verified export")
     result = {n: files[n] for n in PUBLIC_PATHS}

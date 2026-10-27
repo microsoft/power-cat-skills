@@ -2,7 +2,7 @@
    Strategy: cache-first for the app shell + assets, network fallback, and a
    stale-while-revalidate refresh so deploys propagate on the next visit.
    Versioned cache name → bump CACHE on each deploy to invalidate cleanly. */
-const CACHE = "skills-advisor-v10";
+const CACHE = "skills-advisor-v11";
 const SHELL = ["./", "./index.html", "./manifest.json", "./assets/invocation-examples.js"];
 
 self.addEventListener("install", (e) => {

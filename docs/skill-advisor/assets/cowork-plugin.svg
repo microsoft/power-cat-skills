@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Copilot Cowork plugin">
+<rect x="4" y="4" width="56" height="56" rx="14" fill="#f6effa" stroke="#742774" stroke-width="2"/>
+<path d="M16 22h9a5 5 0 1 1 10 0h9v9a5 5 0 1 1 0 10v9H35a5 5 0 1 0-10 0h-9V41a5 5 0 1 0 0-10z" fill="#742774"/>
+<path d="M27 31.5l3 3 6.5-6.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="48" cy="14" r="3" fill="#f25022"/><circle cx="54" cy="14" r="3" fill="#7fba00"/>
+<circle cx="48" cy="20" r="3" fill="#00a4ef"/><circle cx="54" cy="20" r="3" fill="#ffb900"/>
+</svg>
