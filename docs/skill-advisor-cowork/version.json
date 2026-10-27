@@ -1,8 +1,17 @@
 {
-  "catalog": "catalog.json",
-  "contentSha256": "99b23b574046b9f6eabc7c1849ae4423c400dda0da91c4d0578ba3cc6a5eae81",
   "schemaVersion": 1,
   "catalogRefreshedOn": "26 Oct 2026",
-  "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/",
-  "itemCount": 143
+  "itemCount": 143,
+  "contentSha256": "99b23b574046b9f6eabc7c1849ae4423c400dda0da91c4d0578ba3cc6a5eae81",
+  "catalog": "catalog.json",
+  "plugin": {
+    "name": "PP Skills Advisor (Live)",
+    "version": "1.0.0",
+    "file": "power-platform-skills-advisor-live-1.0.0.zip",
+    "sha256": "9ba61c7677295fb38149b964d3d188aa25a43f48531cdd3c732350735aac8385",
+    "host": "Microsoft Copilot Cowork",
+    "manifestId": "118a86e1-34bd-5028-9810-9da022942f71",
+    "mcpServer": "https://pp-skills-advisor-mcp.icypond-f09139f9.uksouth.azurecontainerapps.io/mcp"
+  },
+  "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/#cowork"
 }

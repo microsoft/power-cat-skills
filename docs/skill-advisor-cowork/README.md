@@ -1,11 +1,13 @@
-# Skills Advisor catalog for Copilot Cowork
+# Skills Advisor for Copilot Cowork
 
-Machine-readable copy of the Power Platform Skills Advisor catalog, generated from the same data as the
-[Skills Advisor portal](https://microsoft.github.io/power-cat-skills/skill-advisor/).
+Machine-readable catalog and the Copilot Cowork plugin for the
+[Power Platform Skills Advisor](https://microsoft.github.io/power-cat-skills/skill-advisor/#cowork).
 
 | File | Purpose |
 |---|---|
-| `catalog.json` | Public catalog read by the read-only Skills Advisor MCP server (refreshed hourly) |
-| `version.json` | Catalog date, item count and content hash, for freshness checks |
+| `power-platform-skills-advisor-live-1.0.0.zip` | **PP Skills Advisor (Live)** Copilot Cowork plugin (Microsoft 365 app package). Upload in the M365 admin center or Cowork → Customize. |
+| `catalog.json` | Public catalog read hourly by the plugin's read-only MCP server |
+| `version.json` | Plugin version + file hash, catalog date, item count and content hash |
 
-Generated weekly; do not edit by hand.
+The plugin is read-only: it recommends catalog items and never runs skills or changes an environment.
+Generated from the portal data; do not edit by hand.
