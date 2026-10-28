@@ -82,6 +82,14 @@ Explore the [Power Platform Skills Advisor](docs/skill-advisor/README.md) for a 
 
 This instruction-only plugin has no Power Platform environment or companion-plugin dependency.
 
+### `powercat-skills-router` - Skills Routing
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-skills-router** | Find the best-fit specialist across both Power CAT and Power Platform marketplaces, reconcile installed packages, request approval for necessary changes, and continue the original task |
+
+This instruction-only plugin has no fixed companion-plugin or Power Platform environment dependency. The selected specialist may have additional prerequisites.
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -155,6 +163,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `powercat-overflow` | — |
 | `powercat-overpage` | — |
 | `loop-my-prompt` | — |
+| `powercat-skills-router` | — |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -168,6 +177,7 @@ copilot plugin install powercat-admin-digest@power-cat-skills
 copilot plugin install powercat-overflow@power-cat-skills
 copilot plugin install powercat-overpage@power-cat-skills
 copilot plugin install loop-my-prompt@power-cat-skills
+copilot plugin install powercat-skills-router@power-cat-skills
 ```
 
 ### Configure the MCP Server
@@ -208,6 +218,11 @@ Create a customer story deck for Contoso
 
 ```text
 Rewrite this prompt with observable feedback and bounded corrections: [paste prompt]
+```
+
+```text
+Find the best skill for my Power Platform task across both marketplaces.
+Recommend a skill only; do not install or change anything.
 ```
 
 ## Permissions and Approvals
