@@ -207,6 +207,22 @@
         "power-platform", "powercat",
         "prompt-engineering", "loop-engineering"
       ]
+    },
+    {
+      "name": "powercat-skills-router",
+      "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+      "source": "./plugins/powercat-skills-router",
+      "skills": [
+        "./plugins/powercat-skills-router/skills/powercat-skills-router"
+      ],
+      "version": "0.1.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "power-platform", "powercat", "skills",
+        "routing", "marketplace"
+      ]
     }
   ]
 }

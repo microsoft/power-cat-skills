@@ -1,0 +1,18 @@
+{
+  "name": "powercat-skills-router",
+  "version": "0.1.0",
+  "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+  "author": {
+    "name": "Microsoft Power CAT"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills",
+  "repository": "https://github.com/microsoft/power-cat-skills",
+  "license": "MIT",
+  "keywords": [
+    "power-platform",
+    "powercat",
+    "skills",
+    "routing",
+    "marketplace"
+  ]
+}
