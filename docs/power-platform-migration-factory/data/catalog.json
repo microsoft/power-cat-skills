@@ -85,6 +85,11 @@
       "id": "loop-my-prompt",
       "label": "loop-my-prompt",
       "description": "Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction, and bounded stopping conditions without executing the underlying task."
+    },
+    {
+      "id": "powercat-skills-router",
+      "label": "powercat-skills-router",
+      "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution."
     }
   ],
   "skills": [
@@ -647,6 +652,45 @@
       "install": "copilot plugin install loop-my-prompt@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
       "heading": "loop-my-prompt"
+    },
+    {
+      "id": "powercat-skills-router",
+      "detailId": "powercat-skills-router__powercat-skills-router",
+      "title": "powercat-skills-router",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-skills-router",
+      "pluginLabel": "skills router",
+      "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+      "tags": [
+        "skills router",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-skills-router</h2>\n<p>Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-skills-router</strong> - Discover and compare specialist skills across both marketplaces, reconcile the selected package with the host&#39;s installed state, request approval for necessary changes, and resume the original task with the selected skill.</li></ul>\n<h3>Usage</h3>\n<p>Describe the Power Platform task and whether you want a recommendation or execution:</p>\n<pre><code>Find the best available skill for reviewing my Power Automate cloud flows.\nRecommend a skill only; do not install or change anything.</code></pre>\n<pre><code>Choose a skill for building a Power Apps Code App. Compare both marketplaces\nand ask before installing any required packages.</code></pre>\n<pre><code>Find and use the appropriate skill to author a Dataverse Web API query.\nUse an already-installed skill if it fits, and ask before making changes.</code></pre>\n<h3>Notes</h3>\n<p>This instruction-only plugin searches both public marketplaces:</p>\n<ul><li><a href=\"https://github.com/microsoft/power-cat-skills\" target=\"_blank\" rel=\"noopener\">Power CAT Skills</a></li><li><a href=\"https://github.com/microsoft/power-platform-skills\" target=\"_blank\" rel=\"noopener\">Power Platform Skills</a></li></ul>\n<p>Neither marketplace has automatic priority. Candidates are ranked by task fit, supported scope, host compatibility, and the smallest necessary installation scope. The router respects explicitly requested skills and does not route unrelated requests or select itself.</p>\n<p>The executing host must be able to read repository catalogs, discover and load skills, and carry out the selected specialist&#39;s workflow. Installation and updates require a supported plugin-management interface. The router reports a blocker when a required capability is unavailable rather than inventing commands or editing hidden registries.</p>\n<p>Marketplace registration, installation, updates, enablement, permission changes, and data transmission require the applicable approvals. Discovery-only requests do not make persistent changes. Locally modified packages and unknown provenance are surfaced rather than silently overwritten.</p>\n<p>The plugin bundles no scripts, hooks, MCP servers, or telemetry configuration. It has no fixed companion-plugin or Power Platform environment dependency; the selected specialist may have additional prerequisites. Incomplete discovery, reload requirements, and unfinished execution are reported explicitly.</p>\n<p>After publication, install with GitHub Copilot CLI:</p>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install powercat-skills-router@power-cat-skills</code></pre>\n<p>Start a new conversation if the host requires it to discover the installed skill.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/README.md",
+      "what": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+      "when": [
+        "Use this when you need route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-skills-router@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
+      "heading": "powercat-skills-router"
     },
     {
       "id": "Access to Dataverse Migration",
@@ -1457,6 +1501,45 @@
       "install": "copilot plugin install loop-my-prompt@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
       "heading": "loop-my-prompt"
+    },
+    "powercat-skills-router__powercat-skills-router": {
+      "id": "powercat-skills-router",
+      "detailId": "powercat-skills-router__powercat-skills-router",
+      "title": "powercat-skills-router",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-skills-router",
+      "pluginLabel": "skills router",
+      "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+      "tags": [
+        "skills router",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-skills-router</h2>\n<p>Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-skills-router</strong> - Discover and compare specialist skills across both marketplaces, reconcile the selected package with the host&#39;s installed state, request approval for necessary changes, and resume the original task with the selected skill.</li></ul>\n<h3>Usage</h3>\n<p>Describe the Power Platform task and whether you want a recommendation or execution:</p>\n<pre><code>Find the best available skill for reviewing my Power Automate cloud flows.\nRecommend a skill only; do not install or change anything.</code></pre>\n<pre><code>Choose a skill for building a Power Apps Code App. Compare both marketplaces\nand ask before installing any required packages.</code></pre>\n<pre><code>Find and use the appropriate skill to author a Dataverse Web API query.\nUse an already-installed skill if it fits, and ask before making changes.</code></pre>\n<h3>Notes</h3>\n<p>This instruction-only plugin searches both public marketplaces:</p>\n<ul><li><a href=\"https://github.com/microsoft/power-cat-skills\" target=\"_blank\" rel=\"noopener\">Power CAT Skills</a></li><li><a href=\"https://github.com/microsoft/power-platform-skills\" target=\"_blank\" rel=\"noopener\">Power Platform Skills</a></li></ul>\n<p>Neither marketplace has automatic priority. Candidates are ranked by task fit, supported scope, host compatibility, and the smallest necessary installation scope. The router respects explicitly requested skills and does not route unrelated requests or select itself.</p>\n<p>The executing host must be able to read repository catalogs, discover and load skills, and carry out the selected specialist&#39;s workflow. Installation and updates require a supported plugin-management interface. The router reports a blocker when a required capability is unavailable rather than inventing commands or editing hidden registries.</p>\n<p>Marketplace registration, installation, updates, enablement, permission changes, and data transmission require the applicable approvals. Discovery-only requests do not make persistent changes. Locally modified packages and unknown provenance are surfaced rather than silently overwritten.</p>\n<p>The plugin bundles no scripts, hooks, MCP servers, or telemetry configuration. It has no fixed companion-plugin or Power Platform environment dependency; the selected specialist may have additional prerequisites. Incomplete discovery, reload requirements, and unfinished execution are reported explicitly.</p>\n<p>After publication, install with GitHub Copilot CLI:</p>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install powercat-skills-router@power-cat-skills</code></pre>\n<p>Start a new conversation if the host requires it to discover the installed skill.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/README.md",
+      "what": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+      "when": [
+        "Use this when you need route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-skills-router@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
+      "heading": "powercat-skills-router"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",
