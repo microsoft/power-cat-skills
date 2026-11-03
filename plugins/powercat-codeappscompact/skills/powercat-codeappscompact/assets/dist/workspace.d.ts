@@ -1,0 +1,78 @@
+import type { ReactNode } from 'react';
+import type { Field, FlatDraft, FormState, RecordScreenProps } from './contracts.js';
+import type { CollectionConfig } from './collections.js';
+import type { DemoOptions, DemoState, RevisionDraft } from './demo.js';
+import type { SummaryCardProps, Tone } from './display.js';
+export type WorkspaceView = {
+    id: string;
+    title: string;
+    count?: number;
+    render: (onFormStateChange: (state: FormState) => void) => ReactNode;
+};
+export type WorkspaceMetric = Omit<SummaryCardProps, 'onActivate'> & {
+    id: string;
+    collectionId?: string;
+};
+export type WorkspaceAttention = {
+    id: string;
+    message: ReactNode;
+    tone?: Tone;
+    action?: {
+        label: string;
+        collectionId: string;
+    };
+};
+export type CollectionWorkspaceProps = {
+    title: string;
+    subtitle?: string;
+    hostStatus?: ReactNode;
+    collections: readonly WorkspaceView[];
+    initialId?: string;
+    metrics?: readonly WorkspaceMetric[];
+    attention?: readonly WorkspaceAttention[];
+    children?: ReactNode;
+};
+export declare function collectionView<R, D extends FlatDraft>(screen: RecordScreenProps<R, D> & {
+    id: string;
+}, count?: number): WorkspaceView;
+export declare function CollectionWorkspace({ title, subtitle, hostStatus, collections, initialId, metrics, attention, children }: CollectionWorkspaceProps): import("react").JSX.Element;
+type Key<D> = Extract<keyof D, string>;
+export type DemoCollection<D extends Record<string, RevisionDraft>, K extends Key<D>> = Omit<CollectionConfig<D[K] & {
+    id: string;
+}, D[K]>, 'namespace' | 'id' | 'service' | 'defaults' | 'fields'> & {
+    fields?: readonly Field<D[K]>[];
+};
+export type DemoWorkspaceOptions<D extends Record<string, RevisionDraft>> = DemoOptions<D> & {
+    fields: {
+        [K in keyof D]: readonly Field<D[K]>[];
+    };
+    collections: {
+        [K in Key<D>]: (state: DemoState<D>) => DemoCollection<D, K>;
+    };
+    dependencies?: Readonly<Record<string, readonly string[]>>;
+    metrics?: (state: DemoState<D>) => readonly WorkspaceMetric[];
+    attention?: (state: DemoState<D>) => readonly WorkspaceAttention[];
+};
+export declare function defineDemoWorkspace<D extends Record<string, RevisionDraft>>(options: DemoWorkspaceOptions<D>): {
+    namespace: string;
+    repository: {
+        read: () => Promise<DemoState<D>>;
+        service: <K extends Extract<keyof D, string>>(kind: K) => import("./contracts.js").DataService<D[K] & {
+            id: string;
+        }, D[K]>;
+        subscribe(listener: (change: import("./collections.js").WorkspaceChange) => void): () => void;
+        project<K extends Extract<keyof D, string>>(kind: K): (row: unknown) => D[K];
+    };
+    views: (state: DemoState<D>) => WorkspaceView[];
+    dependencies: Readonly<Record<string, readonly string[]>> | undefined;
+    metrics: ((state: DemoState<D>) => readonly WorkspaceMetric[]) | undefined;
+    attention: ((state: DemoState<D>) => readonly WorkspaceAttention[]) | undefined;
+};
+export type DemoWorkspaceDefinition<D extends Record<string, RevisionDraft>> = ReturnType<typeof defineDemoWorkspace<D>>;
+export declare function DemoWorkspace<D extends Record<string, RevisionDraft>>({ definition, title, subtitle, hostStatus }: {
+    definition: DemoWorkspaceDefinition<D>;
+    title: string;
+    subtitle?: string;
+    hostStatus?: ReactNode;
+}): import("react").JSX.Element;
+export {};

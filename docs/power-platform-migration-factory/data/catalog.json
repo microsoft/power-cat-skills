@@ -90,6 +90,11 @@
       "id": "powercat-skills-router",
       "label": "powercat-skills-router",
       "description": "Route Microsoft Power Platform requests to the best-fit specialist skill across the Power CAT and Power Platform marketplaces, with approval-gated installation and execution."
+    },
+    {
+      "id": "powercat-codeappscompact",
+      "label": "CodeAppsCompact",
+      "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization."
     }
   ],
   "skills": [
@@ -691,6 +696,45 @@
       "install": "copilot plugin install powercat-skills-router@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
       "heading": "powercat-skills-router"
+    },
+    {
+      "id": "powercat-codeappscompact",
+      "detailId": "powercat-codeappscompact__powercat-codeappscompact",
+      "title": "powercat-codeappscompact",
+      "category": "App Design & UX",
+      "categoryId": "app-design-ux",
+      "categoryLabel": "App Design & UX",
+      "plugin": "powercat-codeappscompact",
+      "pluginLabel": "CodeAppsCompact",
+      "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+      "tags": [
+        "CodeAppsCompact",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-codeappscompact</h2>\n<p>Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-codeappscompact</strong> - Author general-purpose Code Apps using the bundled CodeAppsCompact 2.3.0 runtime, starter, examples, and verification tools. Not for Canvas Apps, model-driven apps, or deployment.</li></ul>\n<h3>Usage</h3>\n<pre><code>Use powercat-codeappscompact to build a service-request Code App with synthetic\ndemo data, typed collections, validation rules, and independent acceptance cases.</code></pre>\n<pre><code>Create an inventory Code App with search, filters, editable records, and a\nresponsive workspace. Review the scaffold before creating files or installing\ndependencies, and use only my authorized environment and browser tools.</code></pre>\n<pre><code>Resume my CodeAppsCompact verification run and report the actual outcomes and\nremaining blockers. Include metered finalization only when usage evidence and\nan explicit cost rate are available.</code></pre>\n<h3>Notes</h3>\n<ul><li>The marketplace plugin is version 0.1.0 and bundles the lean standalone skill and runtime at version 2.3.0.</li><li>Node.js 22.18+ and approved npm access are required. Generated apps keep the bundled runtime project-local; it is not downloaded from a private package feed.</li><li>Authenticated Local Play requires an authorized Power Apps environment and signed-in browser. Localhost preview alone is not authenticated host verification.</li><li>Mesh routes require the corresponding approved Mesh UI Automation or browser tools. The CDP route requires an explicitly authorized existing loopback endpoint. No Mesh installation, MCP server, browser-debugging setup, or permission grant is included.</li><li>Browser-local storage and saved-edit examples are for synthetic demo data only. Business rules and production authorization remain app-owned.</li><li>Copy the complete skill folder, including its prebuilt assets, scripts, starter, definitions, and references. MIT copyright notices are retained in the bundled LICENSE files.</li><li>The lean bundle omits duplicate runtime source, an unused standalone demo app, and maintainer-only instructions. The documented scaffold profiles and recipe examples remain included.</li><li>The skill does not deploy apps, bypass denied access, or claim cost savings without measured evidence.</li></ul>\n<p>After the plugin is merged into the marketplace, install it with:</p>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install powercat-codeappscompact@power-cat-skills</code></pre>\n<p>Start a new conversation if the host requires it to discover the installed skill.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/README.md",
+      "what": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+      "when": [
+        "Use this when you need build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+        "Use it when the work belongs in App Design & UX.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-codeappscompact@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
+      "heading": "powercat-codeappscompact"
     },
     {
       "id": "Access to Dataverse Migration",
@@ -1540,6 +1584,45 @@
       "install": "copilot plugin install powercat-skills-router@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
       "heading": "powercat-skills-router"
+    },
+    "powercat-codeappscompact__powercat-codeappscompact": {
+      "id": "powercat-codeappscompact",
+      "detailId": "powercat-codeappscompact__powercat-codeappscompact",
+      "title": "powercat-codeappscompact",
+      "category": "App Design & UX",
+      "categoryId": "app-design-ux",
+      "categoryLabel": "App Design & UX",
+      "plugin": "powercat-codeappscompact",
+      "pluginLabel": "CodeAppsCompact",
+      "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+      "tags": [
+        "CodeAppsCompact",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Apps",
+          "icon": "assets/product-icons/power-apps.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-codeappscompact</h2>\n<p>Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-codeappscompact</strong> - Author general-purpose Code Apps using the bundled CodeAppsCompact 2.3.0 runtime, starter, examples, and verification tools. Not for Canvas Apps, model-driven apps, or deployment.</li></ul>\n<h3>Usage</h3>\n<pre><code>Use powercat-codeappscompact to build a service-request Code App with synthetic\ndemo data, typed collections, validation rules, and independent acceptance cases.</code></pre>\n<pre><code>Create an inventory Code App with search, filters, editable records, and a\nresponsive workspace. Review the scaffold before creating files or installing\ndependencies, and use only my authorized environment and browser tools.</code></pre>\n<pre><code>Resume my CodeAppsCompact verification run and report the actual outcomes and\nremaining blockers. Include metered finalization only when usage evidence and\nan explicit cost rate are available.</code></pre>\n<h3>Notes</h3>\n<ul><li>The marketplace plugin is version 0.1.0 and bundles the lean standalone skill and runtime at version 2.3.0.</li><li>Node.js 22.18+ and approved npm access are required. Generated apps keep the bundled runtime project-local; it is not downloaded from a private package feed.</li><li>Authenticated Local Play requires an authorized Power Apps environment and signed-in browser. Localhost preview alone is not authenticated host verification.</li><li>Mesh routes require the corresponding approved Mesh UI Automation or browser tools. The CDP route requires an explicitly authorized existing loopback endpoint. No Mesh installation, MCP server, browser-debugging setup, or permission grant is included.</li><li>Browser-local storage and saved-edit examples are for synthetic demo data only. Business rules and production authorization remain app-owned.</li><li>Copy the complete skill folder, including its prebuilt assets, scripts, starter, definitions, and references. MIT copyright notices are retained in the bundled LICENSE files.</li><li>The lean bundle omits duplicate runtime source, an unused standalone demo app, and maintainer-only instructions. The documented scaffold profiles and recipe examples remain included.</li><li>The skill does not deploy apps, bypass denied access, or claim cost savings without measured evidence.</li></ul>\n<p>After the plugin is merged into the marketplace, install it with:</p>\n<pre><code>copilot plugin marketplace add microsoft/power-cat-skills\ncopilot plugin install powercat-codeappscompact@power-cat-skills</code></pre>\n<p>Start a new conversation if the host requires it to discover the installed skill.</p>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/README.md",
+      "what": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+      "when": [
+        "Use this when you need build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+        "Use it when the work belongs in App Design & UX.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-codeappscompact@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
+      "heading": "powercat-codeappscompact"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",

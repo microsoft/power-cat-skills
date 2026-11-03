@@ -90,6 +90,14 @@ This instruction-only plugin has no Power Platform environment or companion-plug
 
 This instruction-only plugin has no fixed companion-plugin or Power Platform environment dependency. The selected specialist may have additional prerequisites.
 
+### `powercat-codeappscompact` - CodeAppsCompact
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-codeappscompact** | Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
+
+This plugin bundles CodeAppsCompact 2.3.0. It requires Node.js 22.18+, approved npm access, and an authorized Power Apps environment for authenticated Local Play. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -164,6 +172,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `powercat-overpage` | — |
 | `loop-my-prompt` | — |
 | `powercat-skills-router` | — |
+| `powercat-codeappscompact` | None; includes its runtime bundle |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -178,6 +187,7 @@ copilot plugin install powercat-overflow@power-cat-skills
 copilot plugin install powercat-overpage@power-cat-skills
 copilot plugin install loop-my-prompt@power-cat-skills
 copilot plugin install powercat-skills-router@power-cat-skills
+copilot plugin install powercat-codeappscompact@power-cat-skills
 ```
 
 ### Configure the MCP Server

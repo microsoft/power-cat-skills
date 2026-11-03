@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": null,
+  "appDisplayName": "CodeAppsCompact starter",
+  "region": "prod",
+  "environmentId": "00000000-0000-0000-0000-000000000000",
+  "description": "Synthetic browser-local demo. No production connectors.",
+  "buildPath": ".\\dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:5173",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}

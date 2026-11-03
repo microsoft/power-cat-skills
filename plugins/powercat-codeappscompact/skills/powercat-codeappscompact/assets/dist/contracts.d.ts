@@ -1,0 +1,103 @@
+import type * as React from 'react';
+import type { IOperationResult } from '@microsoft/power-apps/data';
+export type FlatDraft = Record<string, string | number>;
+export type ReferenceOption = {
+    value: string;
+    label: string;
+    disabledReason?: string;
+};
+export type SelectOption = string | ReferenceOption;
+export type ReferenceSource = {
+    options: readonly ReferenceOption[];
+    loadOptions?: never;
+    resolveOption?: never;
+    emptyText?: string;
+} | {
+    options?: never;
+    loadOptions: (search: string, signal: AbortSignal) => Promise<readonly ReferenceOption[]>;
+    resolveOption: (value: string, signal: AbortSignal) => Promise<ReferenceOption | null>;
+    emptyText?: string;
+};
+export type Field<D> = {
+    name: Extract<keyof D, string>;
+    label: string;
+    kind: 'text' | 'email' | 'number' | 'select' | 'reference' | 'textarea' | 'datetime-utc';
+    required?: boolean;
+    minLength?: number;
+    maxLength?: number;
+    min?: number;
+    max?: number;
+    integer?: boolean;
+    step?: number;
+    pattern?: RegExp;
+    patternMessage?: string;
+    helpText?: string;
+    unit?: string;
+    options?: readonly SelectOption[];
+    reference?: ReferenceSource;
+    rows?: number;
+};
+export type SortValue = string | number | null;
+export type Column<R> = {
+    header: string;
+    render: (row: R) => React.ReactNode;
+} & ({
+    id: string;
+    sortValue: (row: R) => SortValue;
+} | {
+    id?: string;
+    sortValue?: undefined;
+});
+export type SortState = {
+    column: string;
+    direction: 'asc' | 'desc';
+};
+export type CollectionFilter<R> = {
+    id: string;
+    label: string;
+    options: readonly SelectOption[];
+    matches?: (row: R, value: string) => boolean;
+};
+export type QueryCapabilities = {
+    search: 'local' | 'remote';
+    filtering: 'local' | 'remote';
+    sorting: 'local' | 'remote';
+    pagination: 'none' | 'cursor';
+};
+export type ListRequest = {
+    skipToken?: string;
+    search?: string;
+    filters?: Readonly<Record<string, string>>;
+    sort?: SortState;
+    signal?: AbortSignal;
+};
+export type DataService<R, D> = {
+    capabilities?: QueryCapabilities;
+    getAll(options?: ListRequest): Promise<IOperationResult<R[]>>;
+    create(draft: D): Promise<IOperationResult<R>>;
+    update(id: string, draft: D): Promise<IOperationResult<R>>;
+};
+export type FormState = {
+    dirty: boolean;
+    saving: boolean;
+};
+export type RecordScreenProps<R, D extends FlatDraft> = {
+    title: string;
+    queryKey: readonly unknown[];
+    service: DataService<R, D>;
+    fields: readonly Field<D>[];
+    columns: readonly Column<R>[];
+    defaults: D;
+    createDefaults?: () => D;
+    getId: (row: R) => string;
+    getLabel?: (row: R) => string;
+    toDraft: (row: R) => D;
+    searchText: (row: R) => string;
+    searchScope?: 'loaded' | 'all';
+    capabilities?: QueryCapabilities;
+    filters?: readonly CollectionFilter<R>[];
+    mobileLayout?: 'table' | 'cards';
+    className?: string;
+    headingLevel?: 1 | 2 | 3;
+    onFormStateChange?: (state: FormState) => void;
+};
