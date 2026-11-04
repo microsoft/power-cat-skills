@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "dataScope": "synthetic-demo",
+  "collection": "Requests",
+  "recordLabel": "Prepare checklist",
+  "field": "Notes",
+  "valueTemplate": "Local Play verification {verificationId}",
+  "restore": true
+}

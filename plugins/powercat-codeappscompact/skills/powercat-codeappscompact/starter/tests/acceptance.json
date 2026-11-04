@@ -1,0 +1,15 @@
+{
+  "id": "codeappscompact-example-2.2",
+  "description": "Neutral Requests/Projects example criteria. Replace with the same domain-specific criteria across benchmark variants.",
+  "checks": [
+    { "id": "standalone-truth", "description": "Standalone preview is not labeled authenticated Local Play." },
+    { "id": "full-search", "description": "All local rows are loaded and searchable." },
+    { "id": "payload-persistence", "description": "Searchable reference labels, notes and UTC save as flat payloads and survive reload." },
+    { "id": "stable-filter-editor", "description": "Filtering and sorting preserve an unsaved draft." },
+    { "id": "dirty-navigation", "description": "Declining discard keeps an unsaved draft and the active collection." },
+    { "id": "revision-conflict", "description": "A stale cross-tab edit fails without replacing the winning data." },
+    { "id": "domain-validation", "description": "Invalid persisted references fail visibly and are not overwritten." },
+    { "id": "responsive-accessibility", "description": "Navigation and mobile cards pass axe at 390, 768 and 1440 pixels." },
+    { "id": "storage-failures", "description": "Corrupt data is preserved; quota errors preserve stored state and draft." }
+  ]
+}

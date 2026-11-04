@@ -1,0 +1,2 @@
+# Signature manifests hash exact text, so preserve LF in the portable bundle.
+skills/powercat-codeappscompact/** text=auto eol=lf

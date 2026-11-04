@@ -1,0 +1,65 @@
+CodeAppsCompact 2.3.0: display
+Generated from emitted TypeScript declarations. Read only the capability you need.
+
+--- display.d.ts ---
+import type { ReactNode } from 'react';
+export type Tone = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
+export declare function StatusBadge({ children, tone }: {
+    children: ReactNode;
+    tone?: Tone;
+}): import("react").JSX.Element;
+export declare function PrimarySecondaryCell({ primary, secondary }: {
+    primary: ReactNode;
+    secondary?: ReactNode;
+}): import("react").JSX.Element;
+export declare function NumberCell({ value, locale, options }: {
+    value: number;
+    locale?: string;
+    options?: Intl.NumberFormatOptions;
+}): import("react").JSX.Element;
+export declare function CurrencyCell({ value, currency, locale }: {
+    value: number;
+    currency: string;
+    locale?: string;
+}): import("react").JSX.Element;
+export declare function DateTimeCell({ value, timeZone, locale, options }: {
+    value: string;
+    timeZone: string;
+    locale?: string;
+    options?: Omit<Intl.DateTimeFormatOptions, 'timeZone'>;
+}): import("react").JSX.Element;
+export declare function UtcCell(props: Omit<Parameters<typeof DateTimeCell>[0], 'timeZone'>): import("react").JSX.Element;
+export declare function ProgressCell({ value, max, label, locale }: {
+    value: number;
+    max?: number;
+    label: string;
+    locale?: string;
+}): import("react").JSX.Element;
+export type SummaryCardProps = {
+    title: string;
+    value: ReactNode;
+    detail?: ReactNode;
+    tone?: Tone;
+    onActivate?: () => void;
+};
+export declare function SummaryCard({ title, value, detail, tone, onActivate }: SummaryCardProps): import("react").JSX.Element;
+export declare function MetricGrid({ items, label }: {
+    items: readonly (SummaryCardProps & {
+        id: string;
+    })[];
+    label?: string;
+}): import("react").JSX.Element;
+export type AttentionItem = {
+    id: string;
+    message: ReactNode;
+    tone?: Tone;
+    action?: {
+        label: string;
+        onActivate: () => void;
+    };
+};
+export declare function AttentionList({ items, label, emptyMessage }: {
+    items: readonly AttentionItem[];
+    label?: string;
+    emptyMessage?: string;
+}): import("react").JSX.Element;

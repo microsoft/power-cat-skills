@@ -1,0 +1,119 @@
+{
+  "version": "2.3.0",
+  "capabilities": {
+    "authoring": {
+      "files": [
+        "authoring.d.ts"
+      ],
+      "sha256": "16a3bba00da0d34de37fca2fda9758c02d942276464b00bc37bf296249bdd11e",
+      "characters": 1227
+    },
+    "workspace": {
+      "files": [
+        "workspace.d.ts"
+      ],
+      "sha256": "9a601ea9ddc44b9a01c4531662a45f6e14cafccd927d9dd808bf5b39942ce9bb",
+      "characters": 3547
+    },
+    "records": {
+      "files": [
+        "contracts.d.ts",
+        "RecordScreen.d.ts"
+      ],
+      "sha256": "b8a955bea74e700bcc0d28517f08f59be530f196dade1c11d48fee086cf4cccf",
+      "characters": 3416
+    },
+    "validation": {
+      "files": [
+        "fields.d.ts"
+      ],
+      "sha256": "3e708524215db4a2c4e340cd9d098e6b64a6b6de9c036f66751042236e4d1596",
+      "characters": 3170
+    },
+    "collections": {
+      "files": [
+        "collections.d.ts",
+        "query.d.ts"
+      ],
+      "sha256": "2de569400ce3dc4c53ac20a1a1d9ad0cf3fe40bfa198641140c7a7e290ae7188",
+      "characters": 8248
+    },
+    "reference": {
+      "files": [
+        "reference.d.ts"
+      ],
+      "sha256": "6398ae357290cad4d9488385433c4b8401d1561cffad12f72adcb66a627ec050",
+      "characters": 1162
+    },
+    "display": {
+      "files": [
+        "display.d.ts"
+      ],
+      "sha256": "c568eba3f705afc8f2234d33d5090d7152ef31da9a44d93c6aa4e0fec4a1d65b",
+      "characters": 2225
+    },
+    "demo": {
+      "files": [
+        "demo.d.ts"
+      ],
+      "sha256": "6b2de42076c9b15d0b57b9a2b91d6e063c60e74993848ec610dca6ba7295a688",
+      "characters": 1680
+    },
+    "host": {
+      "files": [
+        "host.d.ts"
+      ],
+      "sha256": "9794e71fd9be42afe141bc3b4a08cce610c1664224cdcd6391c095004a32aa6e",
+      "characters": 790
+    },
+    "recipe-conditional-validation": {
+      "files": [
+        "recipes\\conditional-validation.d.ts"
+      ],
+      "sha256": "8f4c51a65759604d81a728819bd95473116e15645de687f2376a958caf88ec76",
+      "characters": 688
+    },
+    "recipe-date-policy": {
+      "files": [
+        "recipes\\date-policy.d.ts"
+      ],
+      "sha256": "53ecaa6036c2526b90502a1b2a800616a2e9e88491695f242d414d128d7432ce",
+      "characters": 561
+    },
+    "recipe-defaults": {
+      "files": [
+        "recipes\\defaults.d.ts"
+      ],
+      "sha256": "4dfbc94c223222caef9251017d9f9fd53b8586a40a1f90180c8e29ac90b845dd",
+      "characters": 411
+    },
+    "recipe-fixtures": {
+      "files": [
+        "recipes\\fixtures.d.ts"
+      ],
+      "sha256": "41e3191f47deef3a0118ada9153121016c4605ef1d3b820c3b56be2e2bc988a4",
+      "characters": 497
+    },
+    "recipe-resource-reservations": {
+      "files": [
+        "recipes\\resource-reservations.d.ts"
+      ],
+      "sha256": "30fb3f9e090efd552158296abb8844f35af40c0f4ad93da2be839acf528a8122",
+      "characters": 584
+    },
+    "recipe-schema-evolution": {
+      "files": [
+        "recipes\\schema-evolution.d.ts"
+      ],
+      "sha256": "95ffa0d95d924f325ee08081af7995dd0dd0e74527f0c4af72f314138c2a2804",
+      "characters": 779
+    },
+    "recipe-status-transitions": {
+      "files": [
+        "recipes\\status-transitions.d.ts"
+      ],
+      "sha256": "d008d34e756e996f49172b8cdcbbaee1607ca14ad1c5f65f2bf26e6c7664dad7",
+      "characters": 325
+    }
+  }
+}
