@@ -58,10 +58,10 @@ export async function runWorkflow(appPath, options = {}, overrides = {}) {
   const simulated = Object.keys(overrides).length > 0;
   const services = { preflight, npm: runNpm, authenticationReadiness, serverReadiness, localPlay: verifyLocalPlay, portability: verifyPortability, ...overrides };
   const state = options.resume ? readJson(join(output, 'verification.json')) : {
-    schemaVersion: 3, runId: randomUUID(), app, kit: 'codeappscompact', version: '2.3.0', simulated,
+    schemaVersion: 3, runId: randomUUID(), app, kit: 'codeappscompact', version: '2.7.0', simulated,
     startedAtUtc: new Date().toISOString(), attempt: 0, checks: [], request: { browser: false, localPlay: false, hostEdit: false, portability: false, accounting: false },
   };
-  if (state.schemaVersion !== 3 || state.version !== '2.3.0' || state.app !== app || state.simulated !== simulated || !Array.isArray(state.checks) || !state.request || !Number.isSafeInteger(state.attempt)) throw new Error('Resume state belongs to another app, format or execution mode. No evidence was reused.');
+  if (state.schemaVersion !== 3 || state.version !== '2.7.0' || state.app !== app || state.simulated !== simulated || !Array.isArray(state.checks) || !state.request || !Number.isSafeInteger(state.attempt)) throw new Error('Resume state belongs to another app, format or execution mode. No evidence was reused.');
   if (options.hostRoute !== undefined && !hostRoutes.includes(options.hostRoute)) throw new Error('Host route must be cdp, mesh-uia or mesh-browser.');
   const selectedRoute = options.hostRoute ?? (options.cdpUrl ? 'cdp' : state.hostRoute);
   if (options.cdpUrl && selectedRoute !== 'cdp') throw new Error('Choose one explicitly authorized browser route; no automatic fallback is allowed.');
@@ -168,7 +168,7 @@ export async function runWorkflow(appPath, options = {}, overrides = {}) {
       if (options.hostReceipt) throw new Error('A Mesh receipt requires its explicitly selected Mesh route.');
       return services.authenticationReadiness(options.cdpUrl, Math.min(timeoutMs, 3000));
     });
-    const ready = await localCheck('preflight', () => services.preflight(app), false);
+    const ready = await localCheck('preflight', () => services.preflight(app, false, { localOnly: !state.request.localPlay }), false);
     let localPassed = ready.passed;
     const pkg = readJson(join(app, 'package.json'));
     for (const id of ['build', 'lint', 'test', ...(state.request.browser ? ['browser'] : [])]) {

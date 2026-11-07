@@ -44,7 +44,7 @@ Provide `tests\local-play.json` in an integrated definition, or add it explicitl
 }
 ```
 
-The live edit driver requires the stock 2.3 form dirty/saving hooks and refuses missing or unknown state; it does not assume an incompatible custom/legacy editor is clean. The field must be an ordinary text/textarea field, not the record label, a secret, or a side-effecting operation. Presence of this file retains saved-edit scope across resumes. `--host-edit` requires it explicitly; without it a host-only check must not be reported as saved-edit verification. App authors supply a real valid synthetic fixture; the toolkit never guesses one from field names.
+The live edit driver requires the stock 2.5 form dirty/saving hooks and refuses missing or unknown state; it does not assume an incompatible custom/legacy editor is clean. The field must be an ordinary text/textarea field, not the record label, a secret, or a side-effecting operation. Presence of this file retains saved-edit scope across resumes. `--host-edit` requires it explicitly; without it a host-only check must not be reported as saved-edit verification. App authors supply a real valid synthetic fixture; the toolkit never guesses one from field names.
 
 ## Existing authorized CDP
 

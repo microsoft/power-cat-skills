@@ -106,3 +106,20 @@
   [data-cc-mobile=cards] [data-cc-part=record-cards] { display: block; }
 }
 [data-cc-tone=neutral] { --cc-tone: var(--cc-text); --cc-tone-bg: var(--cc-bg); }
+
+[data-cc=data-table] { min-width: 0; padding: 1rem; background: var(--cc-surface); border: 1px solid var(--cc-border); border-radius: var(--cc-radius); }
+[data-cc=data-table] .section-heading, [data-cc=data-table] .actions, [data-cc=data-table] .table-tools, [data-cc=data-table] .pagination { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
+[data-cc=data-table] .section-heading { justify-content: space-between; }
+[data-cc=data-table] .section-heading h2 { margin: 0; }
+[data-cc=data-table] .table-tools { align-items: end; margin-top: 1rem; }
+[data-cc=data-table] .table-tools label { flex: 1 1 11rem; min-width: 0; }
+[data-cc=data-table] .table-scroll { width: 100%; max-width: 100%; overflow-x: auto; }
+[data-cc=data-table] table { width: 100%; border-collapse: collapse; }
+[data-cc=data-table] th, [data-cc=data-table] td { min-width: 7rem; max-width: 24rem; padding: .7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--cc-border); overflow-wrap: anywhere; }
+[data-cc=data-table] th { background: var(--cc-bg); }
+[data-cc=data-table] .pagination { margin-top: 1rem; justify-content: space-between; }
+[data-cc=data-table] .muted, [data-cc=data-table] .empty { color: var(--cc-muted); }
+[data-cc=data-table] .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+[data-cc=data-table] input[type=checkbox] { width: 24px; min-width: 24px; }
+[data-cc=data-table] button.primary { color: #fff; background: var(--cc-accent); }
+[data-cc=data-table] button:hover:not(:disabled) { color: var(--cc-accent); background: var(--cc-bg); }

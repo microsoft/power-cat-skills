@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { withBrowserHarness, recordUi, assertResponsive } from './browser-harness.mjs';
+import { withBrowserHarness, recordUi, assertResponsive, seedLocalStorage } from './browser-harness.mjs';
 
 export async function fillFields(page, values) {
   if (!values || !Object.keys(values).length) throw new Error('A scenario needs explicit field labels and values.');
@@ -94,7 +94,7 @@ export function storageScenario({ id = 'storage-failures', storageKey, collectio
   return { id, async run({ browser, base }) {
     const corrupt = await browser.newContext();
     try {
-      await corrupt.addInitScript(key => localStorage.setItem(key, '{corrupt'), storageKey);
+      await seedLocalStorage(corrupt, base, { [storageKey]: '{corrupt' });
       const page = await corrupt.newPage(); await page.goto(base);
       await recordUi(page).expectError('not valid JSON');
       assert.equal(await page.evaluate(key => localStorage.getItem(key), storageKey), '{corrupt');

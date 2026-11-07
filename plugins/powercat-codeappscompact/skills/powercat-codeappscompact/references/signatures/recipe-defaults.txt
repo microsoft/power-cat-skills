@@ -1,7 +1,0 @@
-CodeAppsCompact 2.3.0: recipe-defaults
-Generated from emitted TypeScript declarations. Read only the capability you need.
-
---- recipes/defaults.d.ts ---
-import type { FlatDraft } from '../contracts.js';
-export declare function createDefaults<C, D extends FlatDraft>(schema: D, factory: (context: C) => D): (context: C) => D;
-export declare function utcMinute(now: () => number, offsetMinutes?: number): string;

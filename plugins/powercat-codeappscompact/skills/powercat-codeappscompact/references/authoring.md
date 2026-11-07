@@ -11,7 +11,7 @@ Author ordinary TypeScript collections, rules, synthetic records and independent
 - `tests\acceptance.json` declares unique `checks[].id` entries for every scenario, including domain negatives. The harness requires the exact set to run.
 - When saved-edit host verification is requested, include `tests\local-play.json` binding one named synthetic fixture/text field with a unique marker and restoration. See [host evidence](host-verification.md); never guess a record or use production data.
 
-The complete neutral definition is `definitions\service-requests`, not a required business model. Other examples cover inventory, reservations and migration. No definition executes during copying; later execution remains permission-bound.
+Supply an app-owned definition following the contract above. Use `--profile example` for a runnable flat-record scaffold or `--profile aggregate` for nested records. Optional [recipes](recipes.md) cover reservations and migration. No definition executes during copying; later execution remains permission-bound.
 
 ```powershell
 node "<skill>\scripts\create-app.mjs" "<new-app>" --name "My Workspace" --environment "<authorized-guid>" --port 5173 --definition "<app-definition>" --dry-run

@@ -1,5 +1,0 @@
-CodeAppsCompact 2.3.0: recipe-status-transitions
-Generated from emitted TypeScript declarations. Read only the capability you need.
-
---- recipes/status-transitions.d.ts ---
-export declare function assertTransition<S extends string>(previous: S, next: S, transitions: Readonly<Record<S, readonly S[]>>, field?: string): void;

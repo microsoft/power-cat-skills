@@ -5,6 +5,7 @@ import { args, cli, exists, isMain, readJson, writeJson } from './lib.mjs';
 import { phaseNames } from './mark-phase.mjs';
 
 const categories = ['input', 'cache_read', 'cache_write', 'output'];
+const timestamp = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) && Number.isFinite(Date.parse(value));
 const number = (value, label, integer = false) => {
   if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || (integer && !Number.isSafeInteger(value))) throw new Error(`Invalid provider ${label}.`);
   return value;
@@ -32,17 +33,17 @@ export function measureUsage(events, { usdPerCredit = null, phases = null, fromU
   if (phases !== null) {
     if (phases.schemaVersion !== 1 || typeof phases.runId !== 'string' || !Array.isArray(phases.markers) || !phases.markers.length) throw new Error('Invalid phase markers.');
     markers = phases.markers;
-    if (markers[0].phase !== 'setup' || markers.some((marker, index) => !phaseNames.includes(marker.phase) || !Number.isFinite(Date.parse(marker.atUtc)) || (index && Date.parse(marker.atUtc) <= Date.parse(markers[index - 1].atUtc)) || (marker.phase === 'end' && index !== markers.length - 1))) throw new Error('Phase markers must start at setup, increase, and end only at the final marker.');
+    if (markers[0].phase !== 'setup' || markers.some((marker, index) => !phaseNames.includes(marker.phase) || !timestamp(marker.atUtc) || (index && Date.parse(marker.atUtc) <= Date.parse(markers[index - 1].atUtc)) || (marker.phase === 'end' && index !== markers.length - 1))) throw new Error('Phase markers must start at setup, increase, and end only at the final marker.');
   }
   const start = fromUtc ?? markers[0]?.atUtc;
   const end = toUtc ?? (markers.at(-1)?.phase === 'end' ? markers.at(-1).atUtc : undefined);
-  if ((start && !Number.isFinite(Date.parse(start))) || (end && !Number.isFinite(Date.parse(end))) || (start && end && Date.parse(start) >= Date.parse(end))) throw new Error('Invalid accounting scope.');
+  if ((start !== undefined && !timestamp(start)) || (end !== undefined && !timestamp(end)) || (start && end && Date.parse(start) >= Date.parse(end))) throw new Error('Invalid accounting scope: use ISO timestamps with an explicit timezone (Z or an offset), never locale-formatted dates.');
   const breakdown = Object.fromEntries(categories.map(category => [category, { category, tokens: 0, credits: 0 }]));
   const perCall = []; const seen = new Map();
   for (const event of events) {
     if (event.type !== 'session.usage_record') continue;
     const time = Date.parse(event.timestamp);
-    if (!Number.isFinite(time)) throw new Error('Usage record has no valid completion timestamp.');
+    if (!timestamp(event.timestamp)) throw new Error('Usage record has no valid timezone-qualified completion timestamp.');
     if ((start && time < Date.parse(start)) || (end && time >= Date.parse(end))) continue;
     const usage = event.data?.usage;
     if (usage?.provider?.id !== 'copilot' || usage.aiCreditsStatus !== 'complete' || !Array.isArray(usage.copilotUsage?.tokenDetails) || !usage.copilotUsage.tokenDetails.length) throw new Error('Incomplete or unsupported usage metering; refusing a success-shaped partial total.');

@@ -28,7 +28,7 @@ const policy = ({ previous, next, id }: DemoMutation<Drafts>) => {
 // Pass policy as validateMutation, never validate.
 ```
 
-`assertFutureDate` skips an unchanged previous value by default, so editing notes on an old reservation does not become impossible. Set `enforceUnchanged:true` only when the app explicitly requires it, such as activating an existing booking. It still validates timestamp structure. Inject clocks in tests. Historical data must stay readable when time advances or a policy changes. See `assets\examples\reservations.ts` for full integration.
+`assertFutureDate` skips an unchanged previous value by default, so editing notes on an old reservation does not become impossible. Set `enforceUnchanged:true` only when the app explicitly requires it, such as activating an existing booking. It still validates timestamp structure. Inject clocks in tests. Historical data must stay readable when time advances or a policy changes. Read the `recipe-date-policy` and `recipe-resource-reservations` signatures for typed integration points.
 
 ## Defaults and fixtures
 
@@ -40,4 +40,4 @@ const policy = ({ previous, next, id }: DemoMutation<Drafts>) => {
 
 `writeBackup(data,schemaVersion,clock)` validates finite, acyclic JSON and creates a versioned string. `readBackup(text,expectedVersion,decode)` validates the envelope then calls the app's validating decoder. `migrateBackup(text,targetVersion,steps,decode)` applies explicit consecutive `{from,to,migrate}` steps and validates the final result. Missing steps, downgrades, invalid JSON/version/data and non-JSON values fail visibly. The original input string/object is not modified; these helpers perform NO storage writes.
 
-Store an authorized backup before an upgrade, preview migration results, validate them, then use an app-owned, explicitly approved commit/restore procedure. `assets\examples\backup-restore.ts` demonstrates restoration into a new unused authorized demo key, leaving the original untouched. Existing keys are rejected; the demo repository still performs shape/revision checks. Production backups, migrations, retention and authorization belong to the production data layer, not this recipe. Never auto-reset storage on decode/migration failure.
+Store an authorized backup before an upgrade, preview migration results, validate them, then use an app-owned, explicitly approved commit/restore procedure. Restore into a new unused authorized demo key and leave the original untouched; reject existing keys and retain shape/revision checks. Read the `recipe-schema-evolution` signature for typed helpers. Production backups, migrations, retention and authorization belong to the production data layer, not this recipe. Never auto-reset storage on decode/migration failure.

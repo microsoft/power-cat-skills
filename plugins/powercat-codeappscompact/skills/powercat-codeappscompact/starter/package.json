@@ -16,12 +16,13 @@
     "preflight": "node tools/preflight.mjs .",
     "verify": "node tools/verify.mjs . --browser --local-play",
     "verify:local": "node tools/verify.mjs . --browser",
-    "finalize": "node tools/finalize.mjs . --browser --local-play"
+    "finalize": "node tools/finalize.mjs . --browser --local-play",
+    "finalize:local": "node tools/finalize.mjs . --browser"
   },
   "dependencies": {
     "@microsoft/power-apps": "1.5.0",
     "@tanstack/react-query": "5.90.5",
-    "codeappscompact": "file:vendor/codeappscompact-2.3.0",
+    "codeappscompact": "file:vendor/codeappscompact-2.7.0",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },

@@ -57,7 +57,7 @@ export async function finalize(appPath, options = {}, overrides = {}) {
     url.searchParams.set('_localAppUrl', request.appOrigin + '/'); localPlayUrl = url.href;
   }
   const report = {
-    schemaVersion: 1, version: '2.3.0', app, localPlayUrl, runId: result.runId, status: result.status, completeWithinRequestedScope: result.passed && !result.simulated, simulated: result.simulated,
+    schemaVersion: 1, version: '2.7.0', app, localPlayUrl, runId: result.runId, status: result.status, completeWithinRequestedScope: result.passed && !result.simulated, simulated: result.simulated,
     requested: result.request, authenticatedLocalPlay: result.authenticatedLocalPlay, savedEditReloadVerified: result.authenticatedLocalPlay && host?.detail.savedEditReloadVerified === true,
     hostMethod: host?.passed ? host.detail.method : null, hostObservedAtUtc: host?.passed ? host.detail.checkedAtUtc ?? null : null,
     outstanding: result.checks.filter(check => !check.passed).map(check => ({ id: check.id, status: check.status, reason: check.error ?? check.detail?.reason })),

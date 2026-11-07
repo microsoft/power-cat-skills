@@ -1,70 +1,29 @@
 {
   "name": "codeappscompact",
-  "version": "2.3.0",
-  "description": "Portable typed workspaces, accessible controls, demo storage and optional business recipes for Power Apps Code Apps",
+  "version": "2.7.0",
+  "description": "Portable typed workspaces, accessible aggregate editors, demo storage and independent acceptance for Power Apps Code Apps",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./validation": {
-      "types": "./dist/fields.d.ts",
-      "import": "./dist/fields.js"
-    },
-    "./collections": {
-      "types": "./dist/collections.d.ts",
-      "import": "./dist/collections.js"
-    },
-    "./workspace": {
-      "types": "./dist/workspace.d.ts",
-      "import": "./dist/workspace.js"
-    },
-    "./display": {
-      "types": "./dist/display.d.ts",
-      "import": "./dist/display.js"
-    },
-    "./reference": {
-      "types": "./dist/reference.d.ts",
-      "import": "./dist/reference.js"
-    },
-    "./demo": {
-      "types": "./dist/demo.d.ts",
-      "import": "./dist/demo.js"
-    },
-    "./host": {
-      "types": "./dist/host.d.ts",
-      "import": "./dist/host.js"
-    },
-    "./recipes/*": {
-      "types": "./dist/recipes/*.d.ts",
-      "import": "./dist/recipes/*.js"
-    },
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./validation": { "types": "./dist/fields.d.ts", "import": "./dist/fields.js" },
+    "./collections": { "types": "./dist/collections.d.ts", "import": "./dist/collections.js" },
+    "./workspace": { "types": "./dist/workspace.d.ts", "import": "./dist/workspace.js" },
+    "./display": { "types": "./dist/display.d.ts", "import": "./dist/display.js" },
+    "./reference": { "types": "./dist/reference.d.ts", "import": "./dist/reference.js" },
+    "./demo": { "types": "./dist/demo.d.ts", "import": "./dist/demo.js" },
+    "./host": { "types": "./dist/host.d.ts", "import": "./dist/host.js" },
+    "./recipes/*": { "types": "./dist/recipes/*.d.ts", "import": "./dist/recipes/*.js" },
     "./theme.css": "./theme.css",
-    "./authoring": {
-      "types": "./dist/authoring.d.ts",
-      "import": "./dist/authoring.js"
-    }
+    "./aggregate.css": "./aggregate.css",
+    "./authoring": { "types": "./dist/authoring.d.ts", "import": "./dist/authoring.js" },
+    "./aggregate": { "types": "./dist/aggregate.d.ts", "import": "./dist/aggregate.js" }
   },
-  "files": [
-    "dist",
-    "theme.css",
-    "API.txt",
-    "examples"
-  ],
-  "sideEffects": [
-    "./theme.css"
-  ],
-  "engines": {
-    "node": ">=22.18.0"
-  },
-  "peerDependencies": {
-    "@microsoft/power-apps": "^1.5.0",
-    "@tanstack/react-query": ">=5.90.5 <6",
-    "react": ">=18.3.1 <20"
-  },
+  "files": ["dist", "theme.css", "aggregate.css"],
+  "sideEffects": ["./theme.css", "./aggregate.css"],
+  "engines": { "node": ">=22.18.0" },
+  "peerDependencies": { "@microsoft/power-apps": "^1.5.0", "@tanstack/react-query": ">=5.90.5 <6", "react": ">=18.3.1 <20" },
   "private": true
 }

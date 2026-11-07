@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AppShell, RecordScreen, useNavigationGuard } from 'codeappscompact';
 import { QueryState, useWorkspace } from 'codeappscompact/collections';
 import { MetricGrid } from 'codeappscompact/display';
-import { PowerAppsHostStatus } from 'codeappscompact/host';
+import HostStatus from './HostStatus.tsx';
 import { defineScreens } from './collections.tsx';
 import { repository } from './repository.ts';
 import config from './app-config.json';
@@ -20,7 +20,7 @@ export default function App() {
   }
   return <AppShell title={config.title} subtitle="Synthetic demo - saved in this browser only" activeId={page} onNavigate={navigate}
     items={[{ id: 'requests', label: 'Requests', count: state?.requests.length }, { id: 'projects', label: 'Projects', count: state?.projects.length }]}
-    hostStatus={<PowerAppsHostStatus environmentId={config.environmentId} appUrl={config.appUrl} />}>
+    hostStatus={<HostStatus />}>
     {guard.message && <p role="alert">{guard.message}</p>}
     <QueryState pending={query.isPending} error={query.error ?? query.refreshError} retrying={query.isFetching} onRetry={() => { void query.retry(); }} />
     {state && <MetricGrid items={[

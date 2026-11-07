@@ -96,7 +96,7 @@ This instruction-only plugin has no fixed companion-plugin or Power Platform env
 |-------|-------------|
 | **powercat-codeappscompact** | Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
 
-This plugin bundles CodeAppsCompact 2.3.0. It requires Node.js 22.18+, approved npm access, and an authorized Power Apps environment for authenticated Local Play. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
+This plugin bundles CodeAppsCompact 2.7.0 lean, including typed workspaces, accessible aggregate editors, atomic synthetic storage, and independent acceptance workflows. It requires Node.js 22.18+ and approved npm access. Explicitly unbound local-only apps need no tenant environment; authenticated Local Play requires an authorized environment and signed-in browser. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
 
 ## Prerequisites
 

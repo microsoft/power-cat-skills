@@ -1,6 +1,6 @@
 {
   "name": "powercat-codeappscompact",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
   "author": {
     "name": "Ilya Fainberg"

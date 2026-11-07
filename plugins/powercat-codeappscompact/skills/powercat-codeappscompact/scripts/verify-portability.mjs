@@ -8,7 +8,7 @@ export async function verifyPortability(app, destination) {
   readJson(join(app, 'package-lock.json'));
   copyTree(app, destination, new Set(['node_modules', 'dist', '.git', 'evidence']));
   runNpm(destination, ['ci', '--install-links', '--ignore-scripts', '--strict-peer-deps', '--legacy-peer-deps=false', '--force=false', '--no-audit', '--no-fund'], join(destination, 'evidence', 'restore.log'));
-  await preflight(destination);
+  await preflight(destination, false, { localOnly: true });
   runNpm(destination, ['run', 'build', '--silent'], join(destination, 'evidence', 'build.log'));
   return { cleanRestore: true, destination, skillFolderDependency: false, note: 'The explicitly created restore copy is retained; inspect and remove only that copy when no longer needed.' };
 }

@@ -5,6 +5,6 @@ import config from './src/app-config.json';
 
 const app = new URL(config.appUrl);
 export default defineConfig({
-  plugins: [react(), powerApps()],
+  plugins: [react(), ...(config.localOnly ? [] : [powerApps()])],
   server: { host: app.hostname, port: Number(app.port), strictPort: true },
 });

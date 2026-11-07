@@ -110,7 +110,7 @@ function setup() {
   if (pkg.name !== 'codeappscompact' || pkg.private !== true || pkg.scripts ||
       !/^\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?$/.test(pkg.version)) fail('Invalid bundled package; reinstall the complete skill.');
   if (manifest.name === pkg.name) fail('Choose the consuming app, not the kit itself.');
-  for (const path of ['API.txt', 'theme.css', 'dist/index.js', 'dist/index.d.ts', 'dist/demo.js', 'dist/demo.d.ts', 'dist/host.js', 'dist/host.d.ts']) {
+  for (const path of ['theme.css', 'aggregate.css', 'dist/index.js', 'dist/index.d.ts', 'dist/aggregate.js', 'dist/aggregate.d.ts', 'dist/demo.js', 'dist/demo.d.ts', 'dist/host.js', 'dist/host.d.ts']) {
     if (!filesIn(assets).includes(join(...path.split('/')))) fail(`Missing bundled file: ${path}`);
   }
   const vendor = join(app, 'vendor');

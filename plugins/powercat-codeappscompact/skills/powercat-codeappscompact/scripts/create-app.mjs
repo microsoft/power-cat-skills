@@ -6,10 +6,12 @@ import { args, cli, copyTree, environmentGuid, exists, filesIn, isMain, noLinked
 
 const skill = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export function createApp(argv) {
-  const { options, positional } = args(argv, ['name', 'environment', 'port', 'slug', 'profile', 'definition', 'dry-run'], ['dry-run']);
-  if (positional.length !== 1 || !options.name?.trim() || !environmentGuid(options.environment)) throw new Error('Usage: node create-app.mjs <new-app-folder> --name <display-name> --environment <guid> [--port 5173] [--profile minimal|example|integrated] [--definition <typed-definition-folder>] [--dry-run]');
+  const { options, positional } = args(argv, ['name', 'environment', 'local-only', 'port', 'slug', 'profile', 'definition', 'dry-run'], ['dry-run', 'local-only']);
+  const localOnly = Boolean(options['local-only']);
+  if (positional.length !== 1 || !options.name?.trim() || (localOnly ? options.environment !== undefined : !environmentGuid(options.environment))) throw new Error('Usage: node create-app.mjs <new-app-folder> --name <display-name> (--local-only | --environment <authorized-guid>) [--port 5173] [--profile minimal|example|integrated|aggregate] [--definition <typed-definition-folder>] [--dry-run]');
+  const environmentId = localOnly ? '' : options.environment;
   const profile = options.profile ?? (options.definition ? 'integrated' : 'minimal');
-  if (!['minimal', 'example', 'integrated'].includes(profile)) throw new Error('Profile must be minimal, example or integrated.');
+  if (!['minimal', 'example', 'integrated', 'aggregate'].includes(profile)) throw new Error('Profile must be minimal, example, integrated or aggregate.');
   if ((profile === 'integrated') !== Boolean(options.definition)) throw new Error('The integrated profile requires --definition; other profiles must not receive it.');
   const port = Number(options.port ?? 5173);
   if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('Port must be an integer from 1024 through 65535.');
@@ -21,8 +23,8 @@ export function createApp(argv) {
   if (exists(app)) throw new Error(`Destination already exists; nothing was replaced: ${app}`);
   const assets = join(skill, 'assets');
   const pkg = readJson(join(assets, 'package.json'));
-  if (pkg.name !== 'codeappscompact' || pkg.version !== '2.3.0') throw new Error('The complete 2.3.0 skill bundle is required.');
-  const tools = ['lib.mjs', 'atomic-json.mjs', 'add-collection.mjs', 'browser-harness.mjs', 'acceptance-scenarios.mjs', 'preflight.mjs', 'verify.mjs', 'workflow.mjs', 'workflow-options.mjs', 'finalize.mjs', 'host-request.mjs', 'host-edit.mjs', 'fingerprints.mjs', 'readiness.mjs', 'verify-local-play.mjs', 'verify-portability.mjs', 'mark-phase.mjs', 'measure-usage.mjs', 'compare-runs.mjs'];
+  if (pkg.name !== 'codeappscompact' || pkg.version !== '2.7.0') throw new Error('The complete 2.7.0 skill bundle is required.');
+  const tools = ['lib.mjs', 'atomic-json.mjs', 'add-collection.mjs', 'browser-harness.mjs', 'acceptance-scenarios.mjs', 'preflight.mjs', 'verify.mjs', 'workflow.mjs', 'workflow-options.mjs', 'finalize.mjs', 'host-request.mjs', 'host-edit.mjs', 'fingerprints.mjs', 'readiness.mjs', 'verify-local-play.mjs', 'verify-portability.mjs', 'mark-phase.mjs', 'measure-usage.mjs'];
   filesIn(assets);
   const starter = join(skill, 'starter');
   const templates = new Map(filesIn(starter).map(file => [file, join(starter, file)]));
@@ -60,7 +62,7 @@ export function createApp(argv) {
   const manifest = readJson(templates.get('package.json'));
   const power = readJson(templates.get('power.config.json'));
   const html = readFileSync(templates.get('index.html'), 'utf8');
-  const plan = { app, skill: 'powercat-codeappscompact', version: pkg.version, profile, dryRun: Boolean(options['dry-run']), files: [...templates.keys()], installedDependencies: false, definitionExecuted: false };
+  const plan = { app, skill: 'powercat-codeappscompact', version: pkg.version, profile, localOnly, dryRun: Boolean(options['dry-run']), files: [...templates.keys()], installedDependencies: false, definitionExecuted: false };
   if (options['dry-run']) return plan;
   mkdirSync(app, { recursive: true });
   for (const [file, source] of templates) {
@@ -74,13 +76,20 @@ export function createApp(argv) {
   copyTree(assets, join(app, 'vendor', `codeappscompact-${pkg.version}`));
   mkdirSync(join(app, 'tools'));
   for (const file of tools) copyFileSync(join(skill, 'scripts', file), join(app, 'tools', file), constants.COPYFILE_EXCL);
-  const appUrl = `http://localhost:${port}`;
+  const appUrl = `http://127.0.0.1:${port}`;
+  if (localOnly) {
+    manifest.scripts.preflight += ' --local-only';
+    manifest.scripts.verify = manifest.scripts['verify:local'];
+    manifest.scripts.finalize = manifest.scripts['finalize:local'];
+  }
   manifest.name = slug; writeJson(join(app, 'package.json'), manifest, true);
-  Object.assign(power, { appDisplayName: name, environmentId: options.environment, localAppUrl: appUrl });
+  Object.assign(power, { appDisplayName: name, environmentId, localAppUrl: appUrl });
   writeJson(join(app, 'power.config.json'), power, true);
-  writeJson(join(app, 'src', 'app-config.json'), { title: name, environmentId: options.environment, appUrl, profile, storageKey: `${slug}-demo-${randomUUID()}` }, true);
+  writeJson(join(app, 'src', 'app-config.json'), { title: name, environmentId, localOnly, appUrl, profile, storageKey: `${slug}-demo-${randomUUID()}` }, true);
   const title = name.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
   writeFileSync(join(app, 'index.html'), html.replace('<title>CodeAppsCompact</title>', `<title>${title}</title>`));
-  return { ...plan, next: 'Review the manifest and domain acceptance contract, then restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run npm run verify with the explicitly authorized host route; Local Play is part of the default requested scope. Use verify:local only when local-only work was explicitly requested. Consume the Mesh handoff with npm run finalize -- --resume <run> --host-receipt <receipt> and requested metering inputs; it returns completion evidence and the cost table together. No existing app/profile/process was changed.' };
+  return { ...plan, next: localOnly
+    ? 'Replace the neutral domain and acceptance checks; reuse the supplied infrastructure. Restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify:local, repair collected independent failures and resume. Finish once with finalize:local and original usage markers when requested. This app is unbound: no host authentication or deployment.'
+    : 'Review the domain contract and restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify with the explicitly authorized host route, then finalize --resume with fresh host evidence and original metering inputs. No existing app/profile/process was changed.' };
 }
 if (isMain(import.meta.url)) await cli(() => console.log(JSON.stringify(createApp(process.argv.slice(2)), null, 2)));

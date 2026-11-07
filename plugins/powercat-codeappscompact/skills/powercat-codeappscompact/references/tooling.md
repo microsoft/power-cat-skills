@@ -1,43 +1,37 @@
 # Focused authoring and verification
 
-Tools remain local and permission-bound. They never install a skill, grant access, upload code/telemetry, enable browser debugging or bypass a denial. Use only the selected authorized route.
+Tools remain local and permission-bound. They never install a skill, grant access, upload code/telemetry, enable browser debugging or bypass a denial.
 
 ## Scaffold once
 
-`create-app.mjs <new-app> --name <name> --environment <guid> --definition <folder> [--port 5173] [--dry-run]` copies typed definitions, independent tests, prebuilt vendor files and complete wiring without executing a definition. Minimal/example profiles remain; existing apps retain their own infrastructure. `add-collection --dry-run` creates opt-in stubs, not automatic rewrites. `setup.mjs` reuses identical vendor contents and refuses conflicts.
+`create-app.mjs <new-app> --name <name> (--local-only | --environment <authorized-guid>) --profile aggregate [--port 5173] [--dry-run]` copies prebuilt assets, generic nested editor/state wiring and neutral example assertions. Use `--definition <folder>` for integrated flat workspaces; minimal/example profiles remain. Scaffolding never overwrites, executes a definition, installs dependencies or changes processes. `setup.mjs` supports existing standalone npm apps and refuses conflicting vendor contents.
 
-Restore dependencies only after a manifest change or missing-dependency failure using the permitted npm workflow with `--install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`. No TLS/registry/peer-policy workaround is allowed.
+Local-only is a real scaffold mode: environment ID is empty, the host status is explicitly standalone, SDK context/plugin host work is disabled, and default preflight/verify/finalize scripts remain local. The official SDK/plugin packages remain included for a separately authorized hosted workflow. A host request always requires an actual environment; a local-only flag cannot satisfy it. Do not patch tools or invent a GUID to use localhost.
 
-## One workflow, then one final report
+Restore only after manifest changes or missing-dependency failures with approved npm and `--install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`. No TLS/registry/peer-policy bypass.
 
-Generated `npm run verify` and `npm run finalize` BOTH request browser acceptance and authenticated Local Play. `verify:local` explicitly requests only local checks; it is not an authenticated app outcome. Start the configured app server separately through an authorized action and confirm it is responsive. The verifier never starts/stops a server or browser.
+## One workflow, one final report
 
-```powershell
-npm run verify -- --host-route mesh-uia --out ".\evidence\verification-01"
-# After the actual Mesh host observations, finish all remaining scopes and accounting together:
-npm run finalize -- --resume ".\evidence\verification-01" --host-receipt ".\evidence\verification-01\mesh-receipt.json" --events "<authorized-events>" --phases ".\evidence\phases.json" --usd-per-credit 0.01
-```
+`npm run verify:local -- --out <new-run>` requests build, lint, unit and local browser acceptance. Fix all independently reported failures coherently and resume via `--resume <run>`. `finalize:local` resumes those checks and, when requested, closes one immutable accounting snapshot with the original phase markers. Use its result directly instead of extra reporting-only turns.
 
-Use `mesh-browser` if it is the authorized signed-in route, or `--cdp-url <explicitly-authorized-existing-loopback-origin>` for CDP. Route selection is not evidence or permission. Read the emitted host request/template; see [host evidence](host-verification.md) only if needed. Mesh denials are retained and cannot trigger fallback. Host and saved-edit scope are retained from the beginning, even if Windows is locked or the browser is unavailable.
+Only environment-bound scaffolds default `verify`/`finalize` to authenticated Local Play. Choose the authorized `--host-route mesh-uia|mesh-browser` or existing `--cdp-url`; host access denials never trigger a route fallback. Observe the emitted request once and provide a fresh receipt. Start the owner-authorized live app separately and confirm responsiveness; the host workflow does not manage existing processes. The browser test harness, separately, owns and closes its isolated ephemeral preview and browser.
 
-Stages: early route prerequisite, preflight, app build/lint/domain tests, requested isolated browser acceptance, optional portability, live server/host checks, and requested provider accounting. Output is a compact passed/failed/blocked result; full logs remain in immutable attempt folders. Exit codes: 0 passed within requested scope, 1 failed, 2 blocked. Every missing/failed/blocked stage remains explicit. Finalization prints that outcome, saved-edit status, the input/output/total table, cutoff and artifact paths. Use it directly rather than running extra report-only model turns.
-
-On code failures, repair only the reported cause and resume the same run. On an unchanged external blocker, report it once; no repeated polling through model turns. `--timeout-ms` bounds server/CDP readiness (100-120000; default 10000). The live host driver waits boundedly for frame/SDK readiness. No preview, CLI sign-in or synthetic test driver establishes authentication.
+Stages remain explicit passed/failed/blocked; exit codes are 0/1/2. Missing checks never count as completion. Localhost, sign-in or mock contexts never prove authenticated Local Play. Report an unchanged external blocker once rather than polling through model turns.
 
 ## Evidence and retained scopes
 
-`--out` requires a new folder. `--resume` requires the same app, current 2.3 format and execution mode. Required scopes cannot be dropped. Use fresh evidence after upgrading older verification tools; don't relabel their results as 2.3.
+`--out` requires a new folder; `--resume` requires the same app, 2.6 format and execution mode. Required scopes cannot be dropped. Never relabel 2.5 evidence as 2.6.
 
-Fingerprints cover app source, kit (vendor AND installed), dependency lockfiles, configuration, tests/acceptance, tool code and runtime. Reuse requires identical inputs, intact artifact hashes and unchanged build output. Source/tests changes rerun affected app checks; dependency/vendor/config changes also affect portability. Preflight/server/host/accounting remain live. Mesh receipts are fresh observations of a pending one-use challenge, not reuse of an old passed host check. The final report points to an immutable attempt checkpoint.
+Fingerprints cover source, vendor/installed kit, dependencies, configuration, tests, tools and runtime. Reuse additionally requires intact evidence and unchanged build output. For the exact bundled compiler/Vite configuration, build fingerprints omit only the standalone `tests\browser.mjs` entry when no source/test dependency references it. Custom configuration, build commands, dynamic imports or an import of that browser entry retain the conservative full test fingerprint. Lint and unit checks continue to include all tests. This is not a cache hit claim about model billing.
 
-An exclusive `.run.lock` prevents parallel verifiers. Do not remove an unknown lock or kill a process. After a crash, inspect the exact lock before an authorized targeted removal. Checkpoint writes use bounded atomic replacement; a persistent sharing failure is explicit, never a permission workaround. Mid-run input changes invalidate the attempt. In-app output belongs under `evidence`; external dedicated folders are supported. Fingerprints are integrity checks, not security signatures.
+Preflight/server/host/accounting remain live. Mesh receipts are fresh, scoped and single-use. `--fresh` reruns checks after external state changes that file hashes cannot establish. Mid-run edits invalidate evidence. An exclusive `.run.lock` prevents parallel verifiers; do not remove an unknown lock or kill an existing process. In-app artifacts belong under `evidence`. Fingerprints are integrity checks, not security signatures.
 
-`--fresh` reruns app checks after external state changes that fingerprints cannot prove (such as a browser/backend update). A repeated clean portability restore needs a NEW destination. `--portability-destination <new-isolated-folder>` explicitly requests the approved clean-restore workflow when vendor/dependencies change, not on every field edit.
+## Independent browser scenarios
 
-## Reusable acceptance
+`withBrowserScenarios(options, scenarios)` gives each unique check ID its own clean context, runs every independent case before reporting failure and uses one test-owned server/browser. The acceptance IDs must exactly match the runnable cases. A scenario failure remains failed; unrelated cases still run. Create both tabs inside one scenario for conflict tests. `prepare(context, base)` permits corruption/quota setup before navigation; `seedLocalStorage(context, base, {key: serializedValue})` seeds only empty keys on the exact app origin, never about:blank or browser-internal frames. Never share mutated fixtures across independent checks.
 
-The harness owns only its ephemeral preview server and isolated browser/context; it closes only those resources and emits `authenticatedLocalPlay:false`. It never targets the live Mesh host, existing app ports or private profiles. Use the explicitly selected installed browser channel; don't silently install one.
+Use `localOnly: true` for synthetic local apps: external HTTP(S)/WebSocket traffic is blocked and fails the case; browser-internal `edge:` download pages are not app network requests. Checks include exceptions from each scenario's pages. Use a selected installed browser channel, never silently install one.
 
-Reuse `crudScenario`, `draftScenario`, `conflictScenario`, `storageScenario`, `responsiveScenario`, `previewScenario`, and `rejectedSaveScenario`. The last takes collection/storage bindings, optional `recordLabel` for an edit, explicit invalid `values` and `errorText`, plus optional independent `assertUnchanged`. It checks visible error, unchanged full persisted state and preserved draft before discarding the test draft. No custom per-domain rejected-save plumbing is needed. The harness requires every acceptance ID to actually run; expected business answers must remain independent.
+Legacy `withBrowserHarness` and `runAcceptance` preserve their shared-scenario behavior for existing apps. Existing CRUD/rejected-save/conflict helpers remain compatible; their collection-oriented selectors are for the integrated RecordScreen profile. Aggregate editors use actual dialog/field bindings and independent persisted/domain assertions. Do not force a collection helper onto a different UI or count neutral starter checks as domain coverage.
 
-See [accounting](accounting.md) for phase scope, one-cutoff finalization, optional metered budgets and matched cost gates. A budget blocks outstanding work; it never omits tests to appear cheaper.
+See [accounting](accounting.md) for phase scope, budget gates and cost-reporting limitations. Runtime JavaScript and declarations are prebuilt. The lean distribution needs no toolkit build and omits maintainer sources, tests, standalone definitions and benchmark-comparison tooling.
