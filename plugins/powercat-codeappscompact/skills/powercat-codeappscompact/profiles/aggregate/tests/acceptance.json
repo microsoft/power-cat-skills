@@ -1,0 +1,13 @@
+{
+  "scope": "Neutral aggregate infrastructure only. Replace these with the requested app's independent domain requirements; this starter does not certify a business app.",
+  "checks": [
+    { "id": "nested-save-reload" },
+    { "id": "rejected-draft" },
+    { "id": "discard-guard" },
+    { "id": "cross-tab-conflict" },
+    { "id": "storage-failure" },
+    { "id": "scoped-reset" },
+    { "id": "responsive-accessibility" },
+    { "id": "standalone-truth" }
+  ]
+}

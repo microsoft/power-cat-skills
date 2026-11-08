@@ -1,0 +1,46 @@
+{
+  "name": "codeappscompact-starter",
+  "version": "2.7.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "lint": "eslint src tests",
+    "test": "node --test tests/*.test.ts",
+    "test:browser": "node tests/browser.mjs",
+    "preflight": "node tools/preflight.mjs .",
+    "verify": "node tools/verify.mjs . --browser --local-play",
+    "verify:local": "node tools/verify.mjs . --browser",
+    "finalize": "node tools/finalize.mjs . --browser --local-play",
+    "finalize:local": "node tools/finalize.mjs . --browser"
+  },
+  "dependencies": {
+    "@microsoft/power-apps": "1.5.0",
+    "@tanstack/react-query": "5.90.5",
+    "codeappscompact": "file:vendor/codeappscompact-2.7.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@eslint/js": "^9.39.1",
+    "@microsoft/power-apps-vite": "1.0.13",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "playwright": "1.64.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
+  }
+}

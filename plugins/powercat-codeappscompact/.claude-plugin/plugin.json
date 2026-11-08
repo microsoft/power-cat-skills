@@ -1,0 +1,20 @@
+{
+  "name": "powercat-codeappscompact",
+  "version": "2.7.0",
+  "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.",
+  "author": {
+    "name": "Ilya Fainberg"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills",
+  "repository": "https://github.com/microsoft/power-cat-skills",
+  "license": "MIT",
+  "keywords": [
+    "power-platform",
+    "powercat",
+    "power-apps",
+    "code-apps",
+    "react",
+    "typescript",
+    "acceptance-testing"
+  ]
+}

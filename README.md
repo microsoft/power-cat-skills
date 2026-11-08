@@ -90,6 +90,14 @@ This instruction-only plugin has no Power Platform environment or companion-plug
 
 This instruction-only plugin has no fixed companion-plugin or Power Platform environment dependency. The selected specialist may have additional prerequisites.
 
+### PowerCat-CodeAppsCompact 2.7
+
+| Skill | Description |
+|-------|-------------|
+| **PowerCat-CodeAppsCompact** (`powercat-codeappscompact`) | Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
+
+PowerCat-CodeAppsCompact 2.7 uses version 2.7.0 for the plugin, skill, runtime, and starter package. The lean bundle includes typed workspaces, accessible aggregate editors, atomic synthetic storage, and independent acceptance workflows. It requires Node.js 22.18+ and approved npm access. Explicitly unbound local-only apps need no tenant environment; authenticated Local Play requires an authorized environment and signed-in browser. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -164,6 +172,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `powercat-overpage` | — |
 | `loop-my-prompt` | — |
 | `powercat-skills-router` | — |
+| `powercat-codeappscompact` | None; includes its runtime bundle |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -178,6 +187,7 @@ copilot plugin install powercat-overflow@power-cat-skills
 copilot plugin install powercat-overpage@power-cat-skills
 copilot plugin install loop-my-prompt@power-cat-skills
 copilot plugin install powercat-skills-router@power-cat-skills
+copilot plugin install powercat-codeappscompact@power-cat-skills
 ```
 
 ### Configure the MCP Server

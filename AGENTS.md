@@ -51,6 +51,7 @@ power-cat-skills/
 | `powercat-governance` | `/create-pp-dev-env` | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user |
 | `loop-my-prompt` | `/loop-my-prompt` | Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction and bounded stopping conditions without executing the underlying task |
 | `powercat-skills-router` | `/powercat-skills-router` | Route Power Platform requests across both public marketplaces, reconcile installed packages, obtain approval for changes, and resume the original task with the selected specialist |
+| `powercat-codeappscompact` | `/powercat-codeappscompact` | PowerCat-CodeAppsCompact 2.7: build React/TypeScript Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
 
 ## Local Development
 

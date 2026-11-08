@@ -1,0 +1,3 @@
+# The portable runtime ships prebuilt modules; retain them despite the root dist/ ignore.
+!skills/powercat-codeappscompact/assets/dist/
+!skills/powercat-codeappscompact/assets/dist/**

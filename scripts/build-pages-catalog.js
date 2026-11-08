@@ -11,6 +11,7 @@ const pluginLabels = {
   "powercat-adoption": "Adoption",
   "powercat-canvas-apps": "Canvas Apps",
   "powercat-code-apps": "Code Apps",
+  "powercat-codeappscompact": "PowerCat-CodeAppsCompact",
   "powercat-dataverse": "Dataverse",
   "powercat-governance": "Governance",
   "powercat-procode-eval": "Pro-Code Eval",
@@ -58,6 +59,7 @@ const skillCategories = {
   "eval-generator-gen-pages": "testing-release",
   "dataverse-webapi-query": "dataverse-development",
   "design-guide": "app-design-ux",
+  "powercat-codeappscompact": "app-design-ux",
   "create-pp-dev-env": "governance-admin",
   "powercat-admin-digest": "governance-admin",
   "powercat-storytelling": "adoption-storytelling",
@@ -95,6 +97,7 @@ const skillProducts = {
   "infopath-to-canvas": ["powerApps"],
   "migrate-to-dataverse": ["dataverse", "powerApps"],
   "design-guide": ["powerApps"],
+  "powercat-codeappscompact": ["powerApps"],
   "dataverse-webapi-query": ["dataverse"],
   "create-pp-dev-env": ["powerPlatform"],
   "powercat-overflow": ["powerAutomate"],
@@ -126,6 +129,9 @@ const skillImages = {
 };
 
 const skillOverrides = {
+  "powercat-codeappscompact": {
+    title: pluginLabels["powercat-codeappscompact"],
+  },
   "infopath-to-canvas": {
     description:
       "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
@@ -483,7 +489,7 @@ function skillFromPath(skillPath, plugin) {
   const documentationPath = documentation.path;
   const frontMatter = parseFrontMatter(descriptionMarkdown || markdown);
   const imageSlug = slug(`${plugin.name}-${id}`);
-  const title = id;
+  const title = skillOverrides[id]?.title || id;
   const heading = firstHeading(descriptionMarkdown || markdown);
   const description = summarize(
     frontMatter.description ||
