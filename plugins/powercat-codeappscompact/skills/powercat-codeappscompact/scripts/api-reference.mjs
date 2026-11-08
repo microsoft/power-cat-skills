@@ -14,7 +14,7 @@ function groups() {
   };
 }
 function signature(name, files) {
-  return `CodeAppsCompact ${readJson(join(skill, 'assets', 'package.json')).version}: ${name}\nGenerated from emitted TypeScript declarations. Read only the capability you need.\n\n` + files.map(file => `--- ${file.replaceAll('\\', '/')} ---\n${readFileSync(join(dist, file), 'utf8')}`).join('\n');
+  return `PowerCat-CodeAppsCompact ${readJson(join(skill, 'assets', 'package.json')).version}: ${name}\nGenerated from emitted TypeScript declarations. Read only the capability you need.\n\n` + files.map(file => `--- ${file.replaceAll('\\', '/')} ---\n${readFileSync(join(dist, file), 'utf8')}`).join('\n');
 }
 if (isMain(import.meta.url)) await cli(() => {
   const { options, positional } = args(process.argv.slice(2), ['list'], ['list']);

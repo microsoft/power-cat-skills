@@ -26,7 +26,7 @@ export function createDemoRepository(options) {
                 listener(change);
             }
             catch (error) {
-                console.error('[CodeAppsCompact] Data was saved, but a refresh subscriber failed', error);
+                console.error('[PowerCat-CodeAppsCompact] Data was saved, but a refresh subscriber failed', error);
             }
         }
     }

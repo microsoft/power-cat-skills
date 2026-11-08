@@ -87,7 +87,7 @@ export function createApp(argv) {
   writeJson(join(app, 'power.config.json'), power, true);
   writeJson(join(app, 'src', 'app-config.json'), { title: name, environmentId, localOnly, appUrl, profile, storageKey: `${slug}-demo-${randomUUID()}` }, true);
   const title = name.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-  writeFileSync(join(app, 'index.html'), html.replace('<title>CodeAppsCompact</title>', `<title>${title}</title>`));
+  writeFileSync(join(app, 'index.html'), html.replace('<title>PowerCat-CodeAppsCompact</title>', `<title>${title}</title>`));
   return { ...plan, next: localOnly
     ? 'Replace the neutral domain and acceptance checks; reuse the supplied infrastructure. Restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify:local, repair collected independent failures and resume. Finish once with finalize:local and original usage markers when requested. This app is unbound: no host authentication or deployment.'
     : 'Review the domain contract and restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify with the explicitly authorized host route, then finalize --resume with fresh host evidence and original metering inputs. No existing app/profile/process was changed.' };

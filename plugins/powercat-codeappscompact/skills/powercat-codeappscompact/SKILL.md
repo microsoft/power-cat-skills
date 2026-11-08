@@ -8,7 +8,7 @@ metadata:
   distribution: "lean"
 ---
 
-# CodeAppsCompact 2.7 (lean)
+# PowerCat-CodeAppsCompact 2.7 (lean)
 
 Reuse working infrastructure; author domain rules, fixtures, views and independent assertions. Do not copy a previous benchmark app or hide repairs. Browser-local persistence is synthetic-demo storage, not production authorization.
 

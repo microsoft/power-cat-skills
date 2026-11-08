@@ -11,7 +11,7 @@ const pluginLabels = {
   "powercat-adoption": "Adoption",
   "powercat-canvas-apps": "Canvas Apps",
   "powercat-code-apps": "Code Apps",
-  "powercat-codeappscompact": "CodeAppsCompact",
+  "powercat-codeappscompact": "PowerCat-CodeAppsCompact",
   "powercat-dataverse": "Dataverse",
   "powercat-governance": "Governance",
   "powercat-procode-eval": "Pro-Code Eval",
@@ -129,6 +129,9 @@ const skillImages = {
 };
 
 const skillOverrides = {
+  "powercat-codeappscompact": {
+    title: pluginLabels["powercat-codeappscompact"],
+  },
   "infopath-to-canvas": {
     description:
       "Assess InfoPath forms, identify fields, rules, views, submit behavior, and workflow dependencies, then shape a Canvas App modernization plan with migration risks called out early.",
@@ -486,7 +489,7 @@ function skillFromPath(skillPath, plugin) {
   const documentationPath = documentation.path;
   const frontMatter = parseFrontMatter(descriptionMarkdown || markdown);
   const imageSlug = slug(`${plugin.name}-${id}`);
-  const title = id;
+  const title = skillOverrides[id]?.title || id;
   const heading = firstHeading(descriptionMarkdown || markdown);
   const description = summarize(
     frontMatter.description ||

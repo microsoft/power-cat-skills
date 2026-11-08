@@ -1,10 +1,10 @@
-# powercat-codeappscompact
+# PowerCat-CodeAppsCompact 2.7
 
 Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization.
 
 ## Skills
 
-- **powercat-codeappscompact** - Author general-purpose Code Apps using the bundled CodeAppsCompact 2.7.0 lean runtime, typed workspaces, accessible nested-record editors, atomic synthetic storage, and independent acceptance workflows. Supports explicitly unbound local-only apps. Not for Canvas Apps, model-driven apps, or deployment.
+- **PowerCat-CodeAppsCompact** (`powercat-codeappscompact`) - Author general-purpose Code Apps using the bundled 2.7 lean runtime, typed workspaces, accessible nested-record editors, atomic synthetic storage, and independent acceptance workflows. Supports explicitly unbound local-only apps. Not for Canvas Apps, model-driven apps, or deployment.
 
 ## Usage
 
@@ -21,14 +21,15 @@ dependencies, and use only my authorized environment and browser tools.
 ```
 
 ```text
-Resume my CodeAppsCompact verification run and report the actual outcomes and
+Resume my PowerCat-CodeAppsCompact verification run and report the actual outcomes and
 remaining blockers. Include metered finalization only when usage evidence and
 an explicit cost rate are available.
 ```
 
 ## Notes
 
-- The marketplace plugin is version 0.1.2 and bundles the lean standalone skill and runtime at version 2.7.0.
+- PowerCat-CodeAppsCompact release 2.7 uses version 2.7.0 consistently for the marketplace plugin, skill metadata, runtime, and starter package.
+- The install/skill identifier remains `powercat-codeappscompact`; the runtime package and import identifier remain `codeappscompact`. Dependency, configuration-schema, and persisted-data format versions are independent of the release version.
 - Node.js 22.18+ and approved npm access are required. Generated apps keep the bundled runtime project-local; it is not downloaded from a private package feed.
 - Use the aggregate profile for nested records, approvals, ledgers, or atomic multi-record commands. Reuse its draft lifecycle, accessible dialogs, related-record tables, metrics, and UTC calendars; applications own domain rules and independent acceptance criteria.
 - Explicit local-only scaffolds have no tenant binding, host authentication, or deployment. Authenticated Local Play requires an authorized Power Apps environment and signed-in browser; localhost preview alone is not authenticated host verification.

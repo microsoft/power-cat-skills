@@ -157,6 +157,6 @@ function setup() {
 try {
   setup();
 } catch (error) {
-  console.error(`CodeAppsCompact setup failed: ${error instanceof Error ? error.message : String(error)}`);
+  console.error(`PowerCat-CodeAppsCompact setup failed: ${error instanceof Error ? error.message : String(error)}`);
   process.exitCode = 1;
 }

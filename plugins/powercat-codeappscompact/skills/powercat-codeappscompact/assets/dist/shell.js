@@ -10,7 +10,7 @@ export function AppShell({ title, subtitle, items, activeId, onNavigate, hostSta
 export class AppErrorBoundary extends Component {
     state = { error: null };
     static getDerivedStateFromError(error) { return { error: errorMessage(error) }; }
-    componentDidCatch(error, info) { console.error('[CodeAppsCompact] Rendering failed', error, info.componentStack); }
+    componentDidCatch(error, info) { console.error('[PowerCat-CodeAppsCompact] Rendering failed', error, info.componentStack); }
     render() {
         if (this.state.error)
             return _jsxs("main", { "data-cc": "fatal", children: [_jsx("h1", { children: "Workspace unavailable" }), _jsx("p", { role: "alert", children: this.state.error }), _jsx("p", { children: "Saved data has not been reset or deleted." }), _jsx("button", { onClick: () => window.location.reload(), children: "Reload workspace" })] });

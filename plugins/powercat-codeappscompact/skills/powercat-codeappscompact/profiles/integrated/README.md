@@ -1,4 +1,4 @@
-# Integrated CodeAppsCompact 2.6 application
+# Integrated PowerCat-CodeAppsCompact 2.7 application
 
 This app uses the stock accessible workspace and browser-local synthetic data. Definitions are in `src\definition`; independent assertions and host/acceptance bindings are in `tests`. Collections, navigation, counts, query refresh and flat editor guards are wired. Nested drafts should use the aggregate profile instead of forcing them into flat contracts.
 

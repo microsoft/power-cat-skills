@@ -71,7 +71,7 @@ export function PowerAppsHostStatus({ environmentId, appUrl }) {
         }).catch(error => {
             if (controller.signal.aborted)
                 return;
-            console.error('[CodeAppsCompact] Host verification failed', error);
+            console.error('[PowerCat-CodeAppsCompact] Host verification failed', error);
             setHost({ state: 'failed', message: errorMessage(error) });
         });
         return () => controller.abort();

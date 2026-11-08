@@ -1,4 +1,4 @@
-# CodeAppsCompact 2.7.0
+# PowerCat-CodeAppsCompact 2.7
 
 Prebuilt React/TypeScript controls for Power Apps Code Apps. This lean runtime package contains JavaScript, TypeScript declarations, styles and the MIT license. Keep it in the app's vendor folder; no source repository, runtime rebuild, nested archive or registry publication is needed.
 

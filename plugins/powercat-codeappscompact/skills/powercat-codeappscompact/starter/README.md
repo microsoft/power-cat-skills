@@ -1,6 +1,6 @@
 # Neutral Code App example
 
-Generated with CodeAppsCompact **2.7.0** and `--profile example`. Demonstrates synthetic Requests/Projects, labeled relationships, notes, UTC fields, shared validation, scoped refresh, filters/sorting, mobile cards and metrics. It is not production or a finished requested domain. Prefer an integrated app-owned definition for new multi-collection apps; use the minimal profile when no example model is wanted.
+Generated with PowerCat-CodeAppsCompact **2.7** and `--profile example`. Demonstrates synthetic Requests/Projects, labeled relationships, notes, UTC fields, shared validation, scoped refresh, filters/sorting, mobile cards and metrics. It is not production or a finished requested domain. Prefer an integrated app-owned definition for new multi-collection apps; use the minimal profile when no example model is wanted.
 
 Domain types/data/rules live in `src\domain.ts`, collection configuration in `src\collections.tsx`, repository in `src\repository.ts` and shell in `src\App.tsx`. Keep shared constraints and query/navigation/storage infrastructure; replace the domain and its independent tests rather than copying another framework. Optional `codeappscompact/authoring` reference/column/filter helpers avoid repeated configuration.
 

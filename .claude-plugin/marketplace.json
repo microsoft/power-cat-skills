@@ -231,7 +231,7 @@
       "skills": [
         "./plugins/powercat-codeappscompact/skills/powercat-codeappscompact"
       ],
-      "version": "0.1.2",
+      "version": "2.7.0",
       "repository": "https://github.com/microsoft/power-cat-skills",
       "license": "MIT",
       "category": "development",

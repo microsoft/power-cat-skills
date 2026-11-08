@@ -1,6 +1,6 @@
 # Aggregate starter
 
-Generated with CodeAppsCompact **2.7.0**. This neutral notes example demonstrates nested drafts, stale-revision rejection, field validation, scoped reset and isolated acceptance. It is not the requested business application.
+Generated with PowerCat-CodeAppsCompact **2.7**. This neutral notes example demonstrates nested drafts, stale-revision rejection, field validation, scoped reset and isolated acceptance. It is not the requested business application.
 
 Replace `src\domain.ts`, the neutral fields/views and `tests\acceptance.json` with the actual domain and independent assertions. Reuse `DraftDialog`, `FormField`, `FormSelect`, `useTransactionState`, `DataTable` and the transaction store instead of rebuilding their lifecycle. A draft captures the revision at opening; never substitute a newer background revision. Use a new React key only for a newly opened draft, never for a background refresh or query change. Keep domain policies app-owned.
 
