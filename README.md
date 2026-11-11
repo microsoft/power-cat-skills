@@ -10,7 +10,7 @@ Explore the [Power Platform Skills Advisor](docs/skill-advisor/README.md) for a 
 
 ## QA Studio demo
 
-Open the [self-contained PowerCAT QA Studio demo](https://microsoft.github.io/power-cat-skills/PowerCAT-QAStudio-Demo.html) and choose **Explore demo**. No installation or Power Platform connection is required; the HTML file also works offline.
+Open the [self-contained Power Platform QA Studio demo](https://microsoft.github.io/power-cat-skills/PowerCAT-QAStudio-Demo.html) and choose **Explore demo**. No installation or Power Platform connection is required; the HTML file also works offline.
 
 Includes 25 sample assets, 103 illustrative findings, interactive viewers, and browser-local autosave. Live agents, Re-run, auto-fix execution, Pipelines integration, and email are not connected. Sample findings are curated examples, not analysis results for files supplied through **New**.
 
