@@ -95,6 +95,11 @@
       "id": "powercat-codeappscompact",
       "label": "PowerCat-CodeAppsCompact",
       "description": "Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization."
+    },
+    {
+      "id": "powercat-pcf",
+      "label": "powercat-pcf",
+      "description": "Create accessible virtual PCF controls for model-driven apps using host-provided React and Fluent UI v9."
     }
   ],
   "skills": [
@@ -735,6 +740,45 @@
       "install": "copilot plugin install powercat-codeappscompact@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
       "heading": "PowerCat-CodeAppsCompact 2.7"
+    },
+    {
+      "id": "create-pcf",
+      "detailId": "powercat-pcf__create-pcf",
+      "title": "create-pcf",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-pcf",
+      "pluginLabel": "pcf",
+      "description": "Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+      "tags": [
+        "pcf",
+        "model-driven apps",
+        "power apps"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-pcf</h2>\n<p>Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.</p>\n<h3>Skills</h3>\n<ul><li><strong>create-pcf</strong> - Gather requirements, scaffold and implement a virtual control, and verify its data contract, accessibility, keyboard behavior, and model-driven form integration.</li></ul>\n<h3>Usage</h3>\n<pre><code>/create-pcf Create a nullable rating control for a model-driven app.\nUse Fluent v9, display --- when empty, and select 3 stars on activation.\nSupport clearing, keyboard operation, and screen readers.</code></pre>\n<pre><code>Create a virtual PCF dataset control for a model-driven subgrid.\nPreserve the bound view&#39;s scope and ordering, and support keyboard navigation.</code></pre>\n<pre><code>Extend my existing virtual PCF control with a static read-only value label.\nPreserve field security, clear-to-null behavior, and the form save lifecycle.</code></pre>\n<h3>Notes</h3>\n<p>Editable non-text field controls display <code>---</code> when null. Deliberate activation selects a control-specific default agreed during requirements; focus and rendering do not modify data. Popup editors keep that default as a draft until confirmation. Editable text boxes retain normal empty-input behavior; readable read-only values use static labels or <code>---</code>.</p>\n<h4>Install</h4>\n<pre><code>/plugin marketplace add microsoft/power-cat-skills\n/plugin install powercat-pcf@power-cat-skills</code></pre>\n<p>For local development:</p>\n<pre><code>copilot --plugin-dir .\\plugins\\powercat-pcf</code></pre>\n<p>Run the local-development command from this repository&#39;s root. The skill requires PAC CLI, Node/npm, and the MSBuild/.NET tooling needed by the generated PCF project. It needs no companion plugin or MCP server. Use your configured npm registry and organization policies; no Microsoft-internal feed is required.</p>\n<p>The workflow supports field controls bound to a single column and dataset controls bound to views/subgrids. It asks for binding details, default and commit semantics where applicable, placement, packaging, and any deployment target. Creating a project does not authorize deployment.</p>\n<h4>Authoring and delivery contract</h4>\n<ul><li>Every new control is scaffolded with <code>pac pcf init --framework react</code>, using the <code>field</code> or <code>dataset</code> template.</li><li>All authored control logic/components/tests use TypeScript, never plain JavaScript. Auto-generated files are never edited; authored inputs are changed and tooling regenerates outputs.</li><li>Read-only fields/cells show just the formatted value label, not a disabled editor. Readable null values show static <code>---</code>; secured data remains hidden and mode changes never auto-save drafts or apply defaults.</li><li>View/subgrid data comes from the bound dataset. Dataverse operations use <code>context.webAPI</code>; field saves retain the normal PCF bound-output/form lifecycle.</li><li>Local interactive testing uses <code>npm start watch</code>, with separate model-driven host tests for APIs and behavior the harness does not support.</li><li>Solution packaging uses <code>pac solution init</code>, <code>pac solution add-reference</code>, and <code>msbuild /t:build /restore</code> with explicit production and managed/unmanaged settings.</li><li>Approved releases use <code>pac solution import</code> with a verified ZIP and explicit environment. Promote the same managed artifact across downstream environments.</li><li><code>pac pcf push</code> remains an optional, approved development shortcut, never a substitute for production packaging or downstream deployment.</li></ul>\n<h4>Quality gates</h4>\n<p>See the <a href=\"./skills/create-pcf/SKILL.md\" target=\"_blank\" rel=\"noopener\">skill</a> and its <a href=\"./skills/create-pcf/references/quality-checklist.md\" target=\"_blank\" rel=\"noopener\">quality checklist</a>. Gates cover host-library reuse, null round trips, form lifecycle, accessibility, keyboard/focus, theme and contrast, localization/RTL, responsive/touch interaction, security, offline behavior, and performance.</p>\n<p>Microsoft&#39;s <a href=\"https://learn.microsoft.com/en-us/power-apps/developer/component-framework/react-controls-platform-libraries\" target=\"_blank\" rel=\"noopener\">React controls and platform libraries</a> documentation is the authority for supported library versions. The skill checks it at execution time rather than treating a runtime version as a supported build target.</p>\n<h4>Authoring references</h4>\n<p>These original guides synthesize official Microsoft Learn and Fluent documentation, with source links and an explicit distinction between platform facts and this plugin&#39;s interaction policies:</p>\n<ul><li><a href=\"./skills/create-pcf/references/component-patterns.md\" target=\"_blank\" rel=\"noopener\">Component patterns</a> - Text, choice, nullable immediate/popup editors, asynchronous lookups, and view/subgrid presentations.</li><li><a href=\"./skills/create-pcf/references/manifest-reference.md\" target=\"_blank\" rel=\"noopener\">Manifest reference</a> - Identity, typed properties, dataset mappings, resources, shared libraries, and feature declarations.</li><li><a href=\"./skills/create-pcf/references/control-lifecycle.md\" target=\"_blank\" rel=\"noopener\">Control lifecycle</a> - Virtual initialization/rendering, bound outputs, drafts, host reconciliation, and cleanup.</li></ul>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/README.md",
+      "what": "Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+      "when": [
+        "Use this when you need create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-pcf@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
+      "heading": "powercat-pcf"
     },
     {
       "id": "Access to Dataverse Migration",
@@ -1623,6 +1667,45 @@
       "install": "copilot plugin install powercat-codeappscompact@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
       "heading": "PowerCat-CodeAppsCompact 2.7"
+    },
+    "powercat-pcf__create-pcf": {
+      "id": "create-pcf",
+      "detailId": "powercat-pcf__create-pcf",
+      "title": "create-pcf",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-pcf",
+      "pluginLabel": "pcf",
+      "description": "Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+      "tags": [
+        "pcf",
+        "model-driven apps",
+        "power apps"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-pcf</h2>\n<p>Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.</p>\n<h3>Skills</h3>\n<ul><li><strong>create-pcf</strong> - Gather requirements, scaffold and implement a virtual control, and verify its data contract, accessibility, keyboard behavior, and model-driven form integration.</li></ul>\n<h3>Usage</h3>\n<pre><code>/create-pcf Create a nullable rating control for a model-driven app.\nUse Fluent v9, display --- when empty, and select 3 stars on activation.\nSupport clearing, keyboard operation, and screen readers.</code></pre>\n<pre><code>Create a virtual PCF dataset control for a model-driven subgrid.\nPreserve the bound view&#39;s scope and ordering, and support keyboard navigation.</code></pre>\n<pre><code>Extend my existing virtual PCF control with a static read-only value label.\nPreserve field security, clear-to-null behavior, and the form save lifecycle.</code></pre>\n<h3>Notes</h3>\n<p>Editable non-text field controls display <code>---</code> when null. Deliberate activation selects a control-specific default agreed during requirements; focus and rendering do not modify data. Popup editors keep that default as a draft until confirmation. Editable text boxes retain normal empty-input behavior; readable read-only values use static labels or <code>---</code>.</p>\n<h4>Install</h4>\n<pre><code>/plugin marketplace add microsoft/power-cat-skills\n/plugin install powercat-pcf@power-cat-skills</code></pre>\n<p>For local development:</p>\n<pre><code>copilot --plugin-dir .\\plugins\\powercat-pcf</code></pre>\n<p>Run the local-development command from this repository&#39;s root. The skill requires PAC CLI, Node/npm, and the MSBuild/.NET tooling needed by the generated PCF project. It needs no companion plugin or MCP server. Use your configured npm registry and organization policies; no Microsoft-internal feed is required.</p>\n<p>The workflow supports field controls bound to a single column and dataset controls bound to views/subgrids. It asks for binding details, default and commit semantics where applicable, placement, packaging, and any deployment target. Creating a project does not authorize deployment.</p>\n<h4>Authoring and delivery contract</h4>\n<ul><li>Every new control is scaffolded with <code>pac pcf init --framework react</code>, using the <code>field</code> or <code>dataset</code> template.</li><li>All authored control logic/components/tests use TypeScript, never plain JavaScript. Auto-generated files are never edited; authored inputs are changed and tooling regenerates outputs.</li><li>Read-only fields/cells show just the formatted value label, not a disabled editor. Readable null values show static <code>---</code>; secured data remains hidden and mode changes never auto-save drafts or apply defaults.</li><li>View/subgrid data comes from the bound dataset. Dataverse operations use <code>context.webAPI</code>; field saves retain the normal PCF bound-output/form lifecycle.</li><li>Local interactive testing uses <code>npm start watch</code>, with separate model-driven host tests for APIs and behavior the harness does not support.</li><li>Solution packaging uses <code>pac solution init</code>, <code>pac solution add-reference</code>, and <code>msbuild /t:build /restore</code> with explicit production and managed/unmanaged settings.</li><li>Approved releases use <code>pac solution import</code> with a verified ZIP and explicit environment. Promote the same managed artifact across downstream environments.</li><li><code>pac pcf push</code> remains an optional, approved development shortcut, never a substitute for production packaging or downstream deployment.</li></ul>\n<h4>Quality gates</h4>\n<p>See the <a href=\"./skills/create-pcf/SKILL.md\" target=\"_blank\" rel=\"noopener\">skill</a> and its <a href=\"./skills/create-pcf/references/quality-checklist.md\" target=\"_blank\" rel=\"noopener\">quality checklist</a>. Gates cover host-library reuse, null round trips, form lifecycle, accessibility, keyboard/focus, theme and contrast, localization/RTL, responsive/touch interaction, security, offline behavior, and performance.</p>\n<p>Microsoft&#39;s <a href=\"https://learn.microsoft.com/en-us/power-apps/developer/component-framework/react-controls-platform-libraries\" target=\"_blank\" rel=\"noopener\">React controls and platform libraries</a> documentation is the authority for supported library versions. The skill checks it at execution time rather than treating a runtime version as a supported build target.</p>\n<h4>Authoring references</h4>\n<p>These original guides synthesize official Microsoft Learn and Fluent documentation, with source links and an explicit distinction between platform facts and this plugin&#39;s interaction policies:</p>\n<ul><li><a href=\"./skills/create-pcf/references/component-patterns.md\" target=\"_blank\" rel=\"noopener\">Component patterns</a> - Text, choice, nullable immediate/popup editors, asynchronous lookups, and view/subgrid presentations.</li><li><a href=\"./skills/create-pcf/references/manifest-reference.md\" target=\"_blank\" rel=\"noopener\">Manifest reference</a> - Identity, typed properties, dataset mappings, resources, shared libraries, and feature declarations.</li><li><a href=\"./skills/create-pcf/references/control-lifecycle.md\" target=\"_blank\" rel=\"noopener\">Control lifecycle</a> - Virtual initialization/rendering, bound outputs, drafts, host reconciliation, and cleanup.</li></ul>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/README.md",
+      "what": "Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+      "when": [
+        "Use this when you need create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-pcf@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
+      "heading": "powercat-pcf"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",
