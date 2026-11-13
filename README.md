@@ -104,6 +104,14 @@ This instruction-only plugin has no fixed companion-plugin or Power Platform env
 
 PowerCat-CodeAppsCompact 2.7 uses version 2.7.0 for the plugin, skill, runtime, and starter package. The lean bundle includes typed workspaces, accessible aggregate editors, atomic synthetic storage, and independent acceptance workflows. It requires Node.js 22.18+ and approved npm access. Explicitly unbound local-only apps need no tenant environment; authenticated Local Play requires an authorized environment and signed-in browser. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
 
+### `powercat-pcf` — PCF Controls
+
+| Skill | Description |
+|-------|-------------|
+| **create-pcf** | Create virtual PCF controls for model-driven apps with host-provided Fluent UI v9, explicit null/default behavior, accessibility, and keyboard navigation |
+
+See the [PCF plugin guide](./plugins/powercat-pcf/README.md) for runtime compatibility and validation gates.
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -179,6 +187,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `loop-my-prompt` | — |
 | `powercat-skills-router` | — |
 | `powercat-codeappscompact` | None; includes its runtime bundle |
+| `powercat-pcf` | — |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -194,11 +203,12 @@ copilot plugin install powercat-overpage@power-cat-skills
 copilot plugin install loop-my-prompt@power-cat-skills
 copilot plugin install powercat-skills-router@power-cat-skills
 copilot plugin install powercat-codeappscompact@power-cat-skills
+copilot plugin install powercat-pcf@power-cat-skills
 ```
 
 ### Configure the MCP Server
 
-If you use Canvas App skills, ask Scout or Copilot CLI to run the **configure-canvas-mcp** skill and set up the Canvas Authoring MCP server:
+If you use Canvas App skills, ask Scout or Copilot CLI to run the **configure-canvas-mcp** skill and set up the Canvas Authoring MCP server. The PCF workflow does not require this server:
 
 ```text
 Configure the Canvas MCP server for my environment
@@ -239,6 +249,11 @@ Rewrite this prompt with observable feedback and bounded corrections: [paste pro
 ```text
 Find the best skill for my Power Platform task across both marketplaces.
 Recommend a skill only; do not install or change anything.
+```
+
+```text
+Create a virtual PCF rating control for a model-driven app using Fluent v9.
+Show --- when null, select 3 stars on activation, and support keyboard navigation.
 ```
 
 ## Permissions and Approvals
@@ -289,6 +304,9 @@ power-cat-skills/
 ├── .claude-plugin/
 │   └── marketplace.json      # Marketplace manifest recognized by Copilot CLI
 ├── plugins/                  # Individual Power CAT plugins
+│   ├── powercat-pcf/
+│   │   └── skills/
+│   │       └── create-pcf/
 │   └── <plugin-name>/
 │       └── skills/           # Skills included in the plugin
 ├── shared/
