@@ -1,0 +1,20 @@
+{
+  "name": "powercat-pcf",
+  "version": "1.0.0",
+  "description": "Create accessible virtual PCF controls for model-driven Power Apps using host-provided React and Fluent UI v9.",
+  "author": {
+    "name": "Microsoft",
+    "url": "https://github.com/microsoft"
+  },
+  "homepage": "https://github.com/microsoft/power-cat-skills/",
+  "repository": "https://github.com/microsoft/power-cat-skills/",
+  "license": "MIT",
+  "keywords": [
+    "pcf",
+    "model-driven-apps",
+    "power-apps",
+    "fluent-ui",
+    "accessibility",
+    "power-platform"
+  ]
+}

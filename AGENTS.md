@@ -23,6 +23,9 @@ power-cat-skills/
 │   │   └── skills/
 │   │       ├── dataverse-webapi-query/       # Author & ship Dataverse Web API queries
 │   │       └── powercat-storytelling/        # (shared) Generate a 5-slide HTML customer story deck
+│   ├── powercat-pcf/         # Virtual PCF controls for model-driven apps
+│   │   └── skills/
+│   │       └── create-pcf/   # Host-provided Fluent v9, null states, accessibility
 │   └── powercat-governance/  # Power Platform governance & admin plugin
 │       └── skills/
 │           └── create-pp-dev-env/            # Provision a Developer environment via BAP API
@@ -52,6 +55,7 @@ power-cat-skills/
 | `loop-my-prompt` | `/loop-my-prompt` | Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction and bounded stopping conditions without executing the underlying task |
 | `powercat-skills-router` | `/powercat-skills-router` | Route Power Platform requests across both public marketplaces, reconcile installed packages, obtain approval for changes, and resume the original task with the selected specialist |
 | `powercat-codeappscompact` | `/powercat-codeappscompact` | PowerCat-CodeAppsCompact 2.7: build React/TypeScript Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
+| `powercat-pcf` | `/create-pcf` | Create accessible virtual PCF controls for model-driven apps with host-provided Fluent UI v9 |
 
 ## Local Development
 
