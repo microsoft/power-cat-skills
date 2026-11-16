@@ -2,7 +2,7 @@
  "meta": {
   "schemaVersion": 1,
   "catalogRefreshedOn": "16 Nov 2026",
-  "itemCount": 143,
+  "itemCount": 149,
   "personas": [
    "Developer or maker",
    "Architect",
@@ -22,7 +22,7 @@
    "MCP & Tooling"
   ],
   "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/",
-  "contentSha256": "99b23b574046b9f6eabc7c1849ae4423c400dda0da91c4d0578ba3cc6a5eae81"
+  "contentSha256": "ccb833f390b47f759bb1dced39875ed48013dbf81945505aafc238fa2f27ad06"
  },
  "items": [
   {
@@ -4451,6 +4451,192 @@
    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
    "verified": "26 Oct 2026",
    "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-162"
+  },
+  {
+   "id": "skill-163",
+   "name": "compare-site-configurations",
+   "displayName": "Compare Site Configurations",
+   "description": "Compare two Power Pages sites' configurations and explain behavior-changing differences.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use compare-site-configurations: Compare two Power Pages sites' configurations and explain behavior-changing differences.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/compare-site-configurations",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-163"
+  },
+  {
+   "id": "skill-164",
+   "name": "create-pcf",
+   "displayName": "Create PCF",
+   "description": "Create or extend accessible virtual PCF controls for model-driven apps.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps",
+    "Power CAT"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install powercat-pcf@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use create-pcf: Create or extend accessible virtual PCF controls for model-driven apps.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-164"
+  },
+  {
+   "id": "skill-165",
+   "name": "powercat-skills-router",
+   "displayName": "Power CAT Skills Router",
+   "description": "Route a Power Platform request to the best-fit skill across both marketplaces.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power CAT"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install powercat-skills-router@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use powercat-skills-router: Route a Power Platform request to the best-fit skill across both marketplaces.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-165"
+  },
+  {
+   "id": "skill-166",
+   "name": "powercat-codeappscompact",
+   "displayName": "PowerCat-CodeAppsCompact",
+   "description": "Build React/TypeScript Code Apps with typed workspaces and nested-record editors.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps",
+    "Power CAT"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install powercat-codeappscompact@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use powercat-codeappscompact: Build React/TypeScript Code Apps with typed workspaces and nested-record editors.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-166"
+  },
+  {
+   "id": "skill-167",
+   "name": "code-app-architect",
+   "displayName": "Code App Architect",
+   "description": "Advise on Code App architecture, Dataverse integration and connectors.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/code-apps/com.github.copilot/agents/code-app-architect.agent.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-167"
+  },
+  {
+   "id": "skill-168",
+   "name": "erp-sql",
+   "displayName": "ERP SQL",
+   "description": "Read Finance and Operations dev-environment tables through temporary Reader-only SQL access.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Dataverse"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Dataverse Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install dataverse@awesome-copilot",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use erp-sql: Read Finance and Operations dev-environment tables through temporary Reader-only SQL access.",
+   "prerequisites": [],
+   "access": {
+    "tag": "Dataverse role",
+    "requirement": "UDE-only (ErpDeploymentType = OnlineDev); the user must already have the environment System administrator (sysAdmin) role."
+   },
+   "source": "https://github.com/microsoft/Dataverse-skills/blob/main/.github/plugins/dataverse/skills/erp-sql/SKILL.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-168"
   }
  ],
  "mcpServers": [

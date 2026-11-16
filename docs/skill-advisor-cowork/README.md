@@ -5,7 +5,7 @@ Machine-readable catalog and the Copilot Cowork plugin for the
 
 | File | Purpose |
 |---|---|
-| `power-platform-skills-advisor-live-1.0.0.zip` | **PP Skills Advisor (Live)** Copilot Cowork plugin (Microsoft 365 app package). Upload in the M365 admin center or Cowork → Customize. |
+| `power-platform-skills-advisor-live-1.0.1.zip` | **PP Skills Advisor (Live)** Copilot Cowork plugin (Microsoft 365 app package). Upload in the M365 admin center or Cowork → Customize. |
 | `catalog.json` | Public catalog read hourly by the plugin's read-only MCP server |
 | `version.json` | Plugin version + file hash, catalog date, item count and content hash |
 

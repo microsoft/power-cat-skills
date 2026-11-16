@@ -446,3 +446,93 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Instruction-only: it rewrites the prompt and does not run the task inside it."
   }
 });
+
+// Approved 16 Nov 2026 additions, pinned to power-platform-skills 198d91b9 / power-cat-skills 67ed2d24 / Dataverse-skills 3821c2c9.
+// skill-167 code-app-architect is an agent persona (not a direct user command) and intentionally has no examples.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-163": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/compare-site-configurations",
+    "skillName": "compare-site-configurations",
+    "userInvocable": true,
+    "natural": {
+      "text": "My site works in dev but not in the test environment",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L106"
+    },
+    "direct": {
+      "text": "/compare-site-configurations",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L104"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Compares two sites (downloaded folder, URL or website record ID) and produces an HTML report plus a JSON file VS Code can import."
+  },
+  "skill-164": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
+    "skillName": "create-pcf",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create a virtual PCF dataset control for a model-driven subgrid.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-pcf/README.md#L18"
+    },
+    "direct": {
+      "text": "/create-pcf",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-pcf/README.md#L12"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Virtual React controls for model-driven apps with platform-provided Fluent UI v9."
+  },
+  "skill-165": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-skills-router/skills/powercat-skills-router",
+    "skillName": "powercat-skills-router",
+    "userInvocable": true,
+    "natural": {
+      "text": "Find the best available skill for reviewing my Power Automate cloud flows.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-skills-router/README.md#L14"
+    },
+    "direct": {
+      "text": "Use powercat-skills-router to find the best available skill for reviewing my Power Automate cloud flows.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-skills-router/skills/powercat-skills-router/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Installation, updates and other changes need your approval; recommendation-only requests make no changes."
+  },
+  "skill-166": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
+    "skillName": "powercat-codeappscompact",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create an inventory Code App with search, filters, editable records, and a responsive workspace.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-codeappscompact/README.md#L18"
+    },
+    "direct": {
+      "text": "Use powercat-codeappscompact to build a local-only approvals Code App with nested records, synthetic demo data, accessible editors, and independent acceptance cases.",
+      "kind": "mention",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/67ed2d245f8d0cc8024fd2a572b67983567fb520/plugins/powercat-codeappscompact/README.md#L12"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this skill-name mention, not a slash token. Needs Node.js 22.18+; does not deploy apps."
+  },
+  "skill-168": {
+    "source": "https://github.com/microsoft/Dataverse-skills/blob/main/.github/plugins/dataverse/skills/erp-sql/SKILL.md",
+    "skillName": "erp-sql",
+    "userInvocable": true,
+    "natural": {
+      "text": "Request temporary Reader-only SQL access to my Finance and Operations development environment.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/Dataverse-skills/blob/3821c2c930f0149777d387cc75e95f9691599161/.github/plugins/dataverse/skills/erp-sql/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use erp-sql to request temporary Reader-only SQL access to my Finance and Operations development environment.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/Dataverse-skills/blob/3821c2c930f0149777d387cc75e95f9691599161/.github/plugins/dataverse/skills/erp-sql/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Unified development environments (UDEs) only; you must already hold the environment System administrator (sysAdmin) role. Illustrative skill-name mention, not documented slash syntax."
+  }
+});
