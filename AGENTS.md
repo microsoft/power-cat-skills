@@ -32,7 +32,8 @@ power-cat-skills/
 ├── Power Platform Migration Factory/         # Legacy-to-Power Platform migration plugin
 │   ├── Airtable to Power Platform Migration/ # Migrate Airtable apps to Microsoft platform targets
 │   ├── infopath-to-canvas/                   # Migrate InfoPath .xsn forms to Canvas Apps
-│   └── migrate-to-dataverse/                 # Replace SharePoint lists with Dataverse tables
+│   ├── migrate-to-dataverse/                 # Replace SharePoint lists with Dataverse tables
+│   └── powercat-nintex-form-to-canvas/       # Migrate Nintex form exports to Canvas Apps
 ├── shared/                   # Cross-plugin shared resources
 │   └── skills/               # Shared skill definitions
 │       └── <skill-name>/     # SKILL.template.md + workflow .md files
@@ -50,6 +51,7 @@ power-cat-skills/
 | `powercat-migration-factory` | `/powercat-airtablemigration` | Migrate Airtable apps to Dataverse, SharePoint Lists, app scaffolds, and Power Automate draft-flow artifacts |
 | `powercat-migration-factory` | `/infopath-to-canvas` | Migrate InfoPath .xsn forms to Power Apps Canvas Apps |
 | `powercat-migration-factory` | `/migrate-to-dataverse` | Replace SharePoint list sources in a Canvas App with Dataverse tables |
+| `powercat-migration-factory` | `/powercat-nintex-form-to-canvas` | Inventory and verify Nintex form exports, then hand off an approved Canvas App migration prompt |
 | `powercat-dataverse` | `/dataverse-webapi-query` | Author and ship Dataverse Web API queries — natural language → OData URL, FetchXML conversion, multi-surface targeting, error diagnosis |
 | `powercat-governance` | `/create-pp-dev-env` | Provision a Power Platform Developer environment with standard governance defaults on behalf of any user |
 | `loop-my-prompt` | `/loop-my-prompt` | Rewrite prompts with explicit outcomes, observable feedback, evidence-based correction and bounded stopping conditions without executing the underlying task |

@@ -1,6 +1,6 @@
 {
   "name": "powercat-migration-factory",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Power Platform Migration Factory skills for modernizing legacy forms and app data sources into Power Apps and Dataverse.",
   "author": {
     "name": "Microsoft",
@@ -13,7 +13,8 @@
     "Access to Dataverse Migration",
     "Airtable to Power Platform Migration",
     "infopath-to-canvas",
-    "migrate-to-dataverse"
+    "migrate-to-dataverse",
+    "powercat-nintex-form-to-canvas"
   ],
   "keywords": [
     "migration",
@@ -22,6 +23,8 @@
     "power-apps",
     "dataverse",
     "infopath",
+    "nintex",
+    "canvas-apps",
     "sharepoint-lists"
   ]
 }
