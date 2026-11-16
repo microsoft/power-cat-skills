@@ -536,3 +536,925 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Requires a compatible installed host and plugin. Unified development environments (UDEs) only; you must already hold the environment System administrator (sysAdmin) role. Illustrative skill-name mention, not documented slash syntax."
   }
 });
+
+// Approved 16 Nov 2026 full-catalog additions (user: 'everything must be added'), pinned to power-platform-skills 198d91b9. Agent-only workers and user-invocable:false skills intentionally have no examples.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-169": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/canvas-apps/skills/configure-canvas-mcp",
+    "skillName": "configure-canvas-mcp",
+    "userInvocable": true,
+    "natural": {
+      "text": "Configure MCP for Canvas Apps",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/canvas-apps/README.md#L112"
+    },
+    "direct": {
+      "text": "/configure-canvas-mcp",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/canvas-apps/README.md#L110"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-170": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/canvas-apps/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the canvas-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/canvas-apps/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use report-issue to report a bug with the canvas-apps plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/canvas-apps/skills/report-issue/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-178": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-dataverse",
+    "skillName": "add-dataverse",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add Dataverse tables to my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-dataverse/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-dataverse",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L74"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-179": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-sharepoint",
+    "skillName": "add-sharepoint",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add SharePoint lists to my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-sharepoint/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-sharepoint",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L75"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-180": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-excel",
+    "skillName": "add-excel",
+    "userInvocable": true,
+    "natural": {
+      "text": "Read and write Excel workbook data from my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-excel/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-excel",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L76"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-181": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-onedrive",
+    "skillName": "add-onedrive",
+    "userInvocable": true,
+    "natural": {
+      "text": "Let my code app upload and list OneDrive files.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-onedrive/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-onedrive",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L77"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-182": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-teams",
+    "skillName": "add-teams",
+    "userInvocable": true,
+    "natural": {
+      "text": "Post Teams channel messages from my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-teams/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-teams",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L78"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-183": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-office365",
+    "skillName": "add-office365",
+    "userInvocable": true,
+    "natural": {
+      "text": "Send email and read calendars from my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-office365/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-office365",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L79"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-184": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-azuredevops",
+    "skillName": "add-azuredevops",
+    "userInvocable": true,
+    "natural": {
+      "text": "Query Azure DevOps work items from my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-azuredevops/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-azuredevops",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L80"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-185": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-mcscopilot",
+    "skillName": "add-mcscopilot",
+    "userInvocable": true,
+    "natural": {
+      "text": "Call my Copilot Studio agent from my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-mcscopilot/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-mcscopilot",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L83"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-186": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-workiq",
+    "skillName": "add-workiq",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add Microsoft 365 search to my code app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/add-workiq/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-workiq",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L84"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-187": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the code-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/report-issue",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/code-apps/README.md#L87"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-188": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mcp-apps/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the mcp-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mcp-apps/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use report-issue to report a bug with the mcp-apps plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mcp-apps/skills/report-issue/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-189": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/setup-datamodel",
+    "skillName": "setup-datamodel",
+    "userInvocable": true,
+    "natural": {
+      "text": "Design the Dataverse data model for my mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/setup-datamodel/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/setup-datamodel",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L404"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-190": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-datasource",
+    "skillName": "add-datasource",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add a data source to my mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/add-datasource/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-datasource",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L418"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-191": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-dataverse",
+    "skillName": "add-dataverse",
+    "userInvocable": true,
+    "natural": {
+      "text": "I need an Asset table with name, serial number, and a lookup to an existing Account",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L230"
+    },
+    "direct": {
+      "text": "/add-dataverse",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L230"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-192": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-sharepoint",
+    "skillName": "add-sharepoint",
+    "userInvocable": true,
+    "natural": {
+      "text": "Show SharePoint list items in my mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/add-sharepoint/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-sharepoint",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L267"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-193": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/list-connections",
+    "skillName": "list-connections",
+    "userInvocable": true,
+    "natural": {
+      "text": "Find the connection ID my mobile app needs.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/list-connections/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/list-connections",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L313"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-194": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/set-app-registration-native",
+    "skillName": "set-app-registration-native",
+    "userInvocable": true,
+    "natural": {
+      "text": "Set up the app registration for my Wrap mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/set-app-registration-native/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/set-app-registration-native",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L402"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-195": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native",
+    "skillName": "add-native",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add a barcode scanner to my mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/add-native/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/add-native",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L242"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-196": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-sample-data",
+    "skillName": "add-sample-data",
+    "userInvocable": true,
+    "natural": {
+      "text": "Seed my tables with realistic sample data.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/add-sample-data/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use add-sample-data to seed my tables with realistic sample data.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/add-sample-data/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Private Preview."
+  },
+  "skill-197": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/setup-offline-profile",
+    "skillName": "setup-offline-profile",
+    "userInvocable": true,
+    "natural": {
+      "text": "Enable offline mode for my mobile app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/setup-offline-profile/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/setup-offline-profile",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L420"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-198": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/open-wrap-url",
+    "skillName": "open-wrap-url",
+    "userInvocable": true,
+    "natural": {
+      "text": "Open the Wrap page for my app.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/open-wrap-url/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/open-wrap-url",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L413"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-199": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the mobile-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/report-issue",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/mobile-apps/README.md#L315"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Private Preview."
+  },
+  "skill-220": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/model-apps/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the model-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/model-apps/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/report-issue",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/model-apps/README.md#L124"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-221": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/model-apps/skills/telemetry",
+    "skillName": "telemetry",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn off telemetry for the model-apps plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/model-apps/skills/telemetry/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use telemetry to turn off telemetry for the model-apps plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/model-apps/skills/telemetry/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-222": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-automate/skills/telemetry",
+    "skillName": "telemetry",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn off telemetry for the power-automate plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-automate/skills/telemetry/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use telemetry to turn off telemetry for the power-automate plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-automate/skills/telemetry/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-223": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-automate/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the power-automate plugin.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-automate/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use report-issue to report a bug with the power-automate plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-automate/skills/report-issue/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-224": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/setup",
+    "skillName": "setup",
+    "userInvocable": true,
+    "natural": {
+      "text": "Set up Process Intelligence for my Process Mining environment.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/setup/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use setup to set up Process Intelligence for my Process Mining environment.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/setup/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-225": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analytics",
+    "skillName": "analytics",
+    "userInvocable": true,
+    "natural": {
+      "text": "Give me an overview of my invoice approval process.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analytics/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use analytics to give me an overview of my invoice approval process.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analytics/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-226": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/derive-metric",
+    "skillName": "derive-metric",
+    "userInvocable": true,
+    "natural": {
+      "text": "Calculate the average rework rate per department.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/derive-metric/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use derive-metric to calculate the average rework rate per department.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/derive-metric/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-227": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/investigate-process",
+    "skillName": "investigate-process",
+    "userInvocable": true,
+    "natural": {
+      "text": "Why did order fulfilment slow down last quarter?",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/investigate-process/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use investigate-process to why did order fulfilment slow down last quarter?",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/investigate-process/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-228": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-performance",
+    "skillName": "analyze-performance",
+    "userInvocable": true,
+    "natural": {
+      "text": "Where are the bottlenecks in my purchase-to-pay process?",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-performance/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use analyze-performance to where are the bottlenecks in my purchase-to-pay process?",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-performance/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-229": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-variants",
+    "skillName": "analyze-variants",
+    "userInvocable": true,
+    "natural": {
+      "text": "Show the slowest variants and repeated work in my process.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-variants/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use analyze-variants to show the slowest variants and repeated work in my process.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-variants/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-230": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-drivers",
+    "skillName": "analyze-drivers",
+    "userInvocable": true,
+    "natural": {
+      "text": "Which case attributes are linked to longer durations?",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-drivers/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use analyze-drivers to which case attributes are linked to longer durations?",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-drivers/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-231": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/compare-cohorts",
+    "skillName": "compare-cohorts",
+    "userInvocable": true,
+    "natural": {
+      "text": "Compare this quarter's process performance with last quarter.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/compare-cohorts/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use compare-cohorts to compare this quarter's process performance with last quarter.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/compare-cohorts/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-232": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-objects",
+    "skillName": "analyze-objects",
+    "userInvocable": true,
+    "natural": {
+      "text": "Analyze how orders and deliveries interact in my process.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-objects/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use analyze-objects to analyze how orders and deliveries interact in my process.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/analyze-objects/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-233": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Draft a support summary for this failed Process Intelligence request.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/report-issue/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "Use report-issue to draft a support summary for this failed Process Intelligence request.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/process-intelligence/skills/report-issue/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs Node.js 22+, Azure CLI 2.54+ and an authorized Power Automate Process Mining account."
+  },
+  "skill-234": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/activate-site",
+    "skillName": "activate-site",
+    "userInvocable": true,
+    "natural": {
+      "text": "Activate my site",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L135"
+    },
+    "direct": {
+      "text": "/activate-site",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L133"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-235": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-localization",
+    "skillName": "add-localization",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add French and German to my site",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L523"
+    },
+    "direct": {
+      "text": "/add-localization",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L521"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-236": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-seo",
+    "skillName": "add-seo",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add SEO to my site",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L554"
+    },
+    "direct": {
+      "text": "/add-seo",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L552"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-237": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/exceptional-web-design",
+    "skillName": "exceptional-web-design",
+    "userInvocable": true,
+    "natural": {
+      "text": "Review the design of https://contoso.powerappsportals.com",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L509"
+    },
+    "direct": {
+      "text": "/exceptional-web-design",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L507"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-238": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-server-logic",
+    "skillName": "add-server-logic",
+    "userInvocable": true,
+    "natural": {
+      "text": "Move my pricing calculation out of the browser and onto the server",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L273"
+    },
+    "direct": {
+      "text": "/add-server-logic",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L271"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-239": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-ai-webapi",
+    "skillName": "add-ai-webapi",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add AI summaries to my site",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L257"
+    },
+    "direct": {
+      "text": "/add-ai-webapi",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L255"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-240": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/manage-firewall",
+    "skillName": "manage-firewall",
+    "userInvocable": true,
+    "natural": {
+      "text": "Block traffic from a specific country and add a rate limit to /login",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L349"
+    },
+    "direct": {
+      "text": "/manage-firewall",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L347"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-241": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/scan-site",
+    "skillName": "scan-site",
+    "userInvocable": true,
+    "natural": {
+      "text": "Scan my production site for vulnerabilities",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L329"
+    },
+    "direct": {
+      "text": "/scan-site",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L327"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-242": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/ensure-pipelines-host",
+    "skillName": "ensure-pipelines-host",
+    "userInvocable": true,
+    "natural": {
+      "text": "Make sure my tenant has a Power Platform Pipelines host",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L464"
+    },
+    "direct": {
+      "text": "/ensure-pipelines-host",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L462"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-243": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/configure-env-variables",
+    "skillName": "configure-env-variables",
+    "userInvocable": true,
+    "natural": {
+      "text": "Make these site settings environment-specific so they differ between dev and prod",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L486"
+    },
+    "direct": {
+      "text": "/configure-env-variables",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L484"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-244": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/export-solution",
+    "skillName": "export-solution",
+    "userInvocable": true,
+    "natural": {
+      "text": "Export the solution as a zip for deployment",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L420"
+    },
+    "direct": {
+      "text": "/export-solution",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L418"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-245": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/import-solution",
+    "skillName": "import-solution",
+    "userInvocable": true,
+    "natural": {
+      "text": "Import this solution zip into the staging environment",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L431"
+    },
+    "direct": {
+      "text": "/import-solution",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L429"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-246": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/deploy-pipeline",
+    "skillName": "deploy-pipeline",
+    "userInvocable": true,
+    "natural": {
+      "text": "Deploy the site to staging via my pipeline",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L453"
+    },
+    "direct": {
+      "text": "/deploy-pipeline",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L451"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-247": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/force-link-environment",
+    "skillName": "force-link-environment",
+    "userInvocable": true,
+    "natural": {
+      "text": "This environment is already linked to another pipelines host — force-link it",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L475"
+    },
+    "direct": {
+      "text": "/force-link-environment",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L473"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-248": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug with the create-site skill",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L602"
+    },
+    "direct": {
+      "text": "/report-issue",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L600"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  },
+  "skill-249": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/telemetry",
+    "skillName": "telemetry",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn off telemetry",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L612"
+    },
+    "direct": {
+      "text": "/telemetry",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/198d91b94abc29fcd59962d6202b454274500411/plugins/power-pages/README.md#L610"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
+  }
+});

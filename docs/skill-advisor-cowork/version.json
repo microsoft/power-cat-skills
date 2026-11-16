@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "catalogRefreshedOn": "16 Nov 2026",
-  "itemCount": 149,
-  "contentSha256": "ccb833f390b47f759bb1dced39875ed48013dbf81945505aafc238fa2f27ad06",
+  "itemCount": 238,
+  "contentSha256": "92514a5631f820a0bd18a8b03fb15be191f992ac0b0b5c1a9be4d9f2336f7cde",
   "catalog": "catalog.json",
   "plugin": {
     "name": "PP Skills Advisor (Live)",
     "version": "1.0.1",
     "file": "power-platform-skills-advisor-live-1.0.1.zip",
-    "sha256": "b4d196ec819807f181a6d7a1be2c90b10fecd6d45c172fc2c1e3fe27c4996aba",
+    "sha256": "05b653b0f3d48aacc84253270b2d47cc839b6a8f692df25444cafebad90097a4",
     "host": "Microsoft Copilot Cowork",
     "manifestId": "118a86e1-34bd-5028-9810-9da022942f71",
     "mcpServer": "https://pp-skills-advisor-mcp.icypond-f09139f9.uksouth.azurecontainerapps.io/mcp"

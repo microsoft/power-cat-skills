@@ -2,7 +2,7 @@
  "meta": {
   "schemaVersion": 1,
   "catalogRefreshedOn": "16 Nov 2026",
-  "itemCount": 149,
+  "itemCount": 238,
   "personas": [
    "Developer or maker",
    "Architect",
@@ -22,7 +22,7 @@
    "MCP & Tooling"
   ],
   "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/",
-  "contentSha256": "ccb833f390b47f759bb1dced39875ed48013dbf81945505aafc238fa2f27ad06"
+  "contentSha256": "92514a5631f820a0bd18a8b03fb15be191f992ac0b0b5c1a9be4d9f2336f7cde"
  },
  "items": [
   {
@@ -4637,6 +4637,2740 @@
    "source": "https://github.com/microsoft/Dataverse-skills/blob/main/.github/plugins/dataverse/skills/erp-sql/SKILL.md",
    "verified": "16 Nov 2026",
    "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-168"
+  },
+  {
+   "id": "skill-169",
+   "name": "configure-canvas-mcp",
+   "displayName": "Configure Canvas MCP",
+   "description": "Connect the Canvas Authoring MCP server to the app open in Studio.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use configure-canvas-mcp: Connect the Canvas Authoring MCP server to the app open in Studio.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/canvas-apps/skills/configure-canvas-mcp",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-169"
+  },
+  {
+   "id": "skill-170",
+   "name": "report-issue",
+   "displayName": "Report Issue · Canvas Apps",
+   "description": "Draft a bug report for the canvas-apps plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Draft a bug report for the canvas-apps plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/canvas-apps/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-170"
+  },
+  {
+   "id": "skill-171",
+   "name": "canvas-app-planner",
+   "displayName": "Canvas App Planner",
+   "description": "Plan scoped edits to an existing Canvas App, including new screens.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-app-planner.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-171"
+  },
+  {
+   "id": "skill-172",
+   "name": "canvas-screen-builder",
+   "displayName": "Canvas Screen Builder",
+   "description": "Add or modify one screen in an existing Canvas App from a shared contract.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-screen-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-172"
+  },
+  {
+   "id": "skill-173",
+   "name": "canvas-create-functionality",
+   "displayName": "Canvas Create Functionality",
+   "description": "Define users, tasks, actions and outcomes for a new Canvas App.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-create-functionality.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-173"
+  },
+  {
+   "id": "skill-174",
+   "name": "canvas-create-screens",
+   "displayName": "Canvas Create Screens",
+   "description": "Group approved intent into task-oriented screens and navigation.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-create-screens.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-174"
+  },
+  {
+   "id": "skill-175",
+   "name": "canvas-create-layout",
+   "displayName": "Canvas Create Layout",
+   "description": "Design visual hierarchy, regions and responsive layout before control choice.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-create-layout.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-175"
+  },
+  {
+   "id": "skill-176",
+   "name": "canvas-create-discovery",
+   "displayName": "Canvas Create Discovery",
+   "description": "Check experience feasibility against real controls, data and APIs.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "QA lead"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-create-discovery.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-176"
+  },
+  {
+   "id": "skill-177",
+   "name": "canvas-create-builder",
+   "displayName": "Canvas Create Builder",
+   "description": "Write one new Canvas screen from approved experience decisions.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install canvas-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/canvas-apps/agents/canvas-create-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-177"
+  },
+  {
+   "id": "skill-178",
+   "name": "add-dataverse",
+   "displayName": "Add Dataverse · Code Apps",
+   "description": "Add Dataverse tables with generated TypeScript models and services.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-dataverse: Add Dataverse tables with generated TypeScript models and services.",
+   "prerequisites": [],
+   "access": {
+    "tag": "Dataverse role",
+    "requirement": "Requires System Administrator or System Customizer security role."
+   },
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-dataverse",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-178"
+  },
+  {
+   "id": "skill-179",
+   "name": "add-sharepoint",
+   "displayName": "Add SharePoint · Code Apps",
+   "description": "Add the SharePoint Online connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-sharepoint: Add the SharePoint Online connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-sharepoint",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-179"
+  },
+  {
+   "id": "skill-180",
+   "name": "add-excel",
+   "displayName": "Add Excel",
+   "description": "Add the Excel Online (Business) connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-excel: Add the Excel Online (Business) connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-excel",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-180"
+  },
+  {
+   "id": "skill-181",
+   "name": "add-onedrive",
+   "displayName": "Add OneDrive",
+   "description": "Add the OneDrive for Business connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-onedrive: Add the OneDrive for Business connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-onedrive",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-181"
+  },
+  {
+   "id": "skill-182",
+   "name": "add-teams",
+   "displayName": "Add Teams",
+   "description": "Add the Microsoft Teams connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-teams: Add the Microsoft Teams connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-teams",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-182"
+  },
+  {
+   "id": "skill-183",
+   "name": "add-office365",
+   "displayName": "Add Office 365 Outlook",
+   "description": "Add the Office 365 Outlook connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-office365: Add the Office 365 Outlook connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-office365",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-183"
+  },
+  {
+   "id": "skill-184",
+   "name": "add-azuredevops",
+   "displayName": "Add Azure DevOps",
+   "description": "Add the Azure DevOps connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-azuredevops: Add the Azure DevOps connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-azuredevops",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-184"
+  },
+  {
+   "id": "skill-185",
+   "name": "add-mcscopilot",
+   "displayName": "Add Copilot Studio",
+   "description": "Add a Copilot Studio agent connector to a code app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-mcscopilot: Add a Copilot Studio agent connector to a code app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-mcscopilot",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-185"
+  },
+  {
+   "id": "skill-186",
+   "name": "add-workiq",
+   "displayName": "Add Work IQ",
+   "description": "Add Microsoft 365 search and chat through Work IQ.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-workiq: Add Microsoft 365 search and chat through Work IQ.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/add-workiq",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-186"
+  },
+  {
+   "id": "skill-187",
+   "name": "report-issue",
+   "displayName": "Report Issue · Code Apps",
+   "description": "Prepare a public bug report for the code-apps plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install code-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Prepare a public bug report for the code-apps plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/code-apps/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-187"
+  },
+  {
+   "id": "skill-188",
+   "name": "report-issue",
+   "displayName": "Report Issue · MCP Apps",
+   "description": "Draft a bug report for the mcp-apps plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "MCP & Tooling"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mcp-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Draft a bug report for the mcp-apps plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mcp-apps/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-188"
+  },
+  {
+   "id": "skill-189",
+   "name": "setup-datamodel",
+   "displayName": "Setup Data Model · Mobile",
+   "description": "Plan and approve the Dataverse schema and connectors for a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use setup-datamodel: Plan and approve the Dataverse schema and connectors for a mobile app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/setup-datamodel",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-189"
+  },
+  {
+   "id": "skill-190",
+   "name": "add-datasource",
+   "displayName": "Add Data Source · Mobile",
+   "description": "Route an unspecified data source to Dataverse, SharePoint or a connector.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-datasource: Route an unspecified data source to Dataverse, SharePoint or a connector.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-datasource",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-190"
+  },
+  {
+   "id": "skill-191",
+   "name": "add-dataverse",
+   "displayName": "Add Dataverse · Mobile",
+   "description": "Add existing or new Dataverse tables to a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-dataverse: Add existing or new Dataverse tables to a mobile app.",
+   "prerequisites": [],
+   "access": {
+    "tag": "Dataverse role",
+    "requirement": "Requires the user to hold System Administrator or System Customizer in this environment."
+   },
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-dataverse",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-191"
+  },
+  {
+   "id": "skill-192",
+   "name": "add-sharepoint",
+   "displayName": "Add SharePoint · Mobile",
+   "description": "Read or write SharePoint lists and documents from a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-sharepoint: Read or write SharePoint lists and documents from a mobile app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-sharepoint",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-192"
+  },
+  {
+   "id": "skill-193",
+   "name": "list-connections",
+   "displayName": "List Connections · Mobile",
+   "description": "Find or create a connection ID for a mobile app.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use list-connections: Find or create a connection ID for a mobile app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/list-connections",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-193"
+  },
+  {
+   "id": "skill-194",
+   "name": "set-app-registration-native",
+   "displayName": "Set App Registration (Native)",
+   "description": "Wire an Entra ID app registration to a Wrap mobile app.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use set-app-registration-native: Wire an Entra ID app registration to a Wrap mobile app.",
+   "prerequisites": [],
+   "access": {
+    "tag": "Azure tenant admin",
+    "requirement": "Some permission repairs require an Azure tenant admin."
+   },
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/set-app-registration-native",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-194"
+  },
+  {
+   "id": "skill-195",
+   "name": "add-native",
+   "displayName": "Add Native Capability",
+   "description": "Add camera, scanner, GPS, PDF or pen capabilities to a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-native: Add camera, scanner, GPS, PDF or pen capabilities to a mobile app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-195"
+  },
+  {
+   "id": "skill-196",
+   "name": "add-sample-data",
+   "displayName": "Add Sample Data · Mobile",
+   "description": "Seed Dataverse tables with realistic sample records for a new app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-sample-data: Seed Dataverse tables with realistic sample records for a new app.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-sample-data",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-196"
+  },
+  {
+   "id": "skill-197",
+   "name": "setup-offline-profile",
+   "displayName": "Setup Offline Profile",
+   "description": "Enable offline mode and create a Mobile Offline Profile.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use setup-offline-profile: Enable offline mode and create a Mobile Offline Profile.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/setup-offline-profile",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-197"
+  },
+  {
+   "id": "skill-198",
+   "name": "open-wrap-url",
+   "displayName": "Open Wrap URL",
+   "description": "Open the Power Apps Wrap page for an app in the active environment.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use open-wrap-url: Open the Power Apps Wrap page for an app in the active environment.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/open-wrap-url",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-198"
+  },
+  {
+   "id": "skill-199",
+   "name": "report-issue",
+   "displayName": "Report Issue · Mobile Apps",
+   "description": "Prepare a GitHub issue body for the mobile-apps plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Prepare a GitHub issue body for the mobile-apps plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-199"
+  },
+  {
+   "id": "skill-200",
+   "name": "add-camera",
+   "displayName": "Add Camera",
+   "description": "Camera, image picker and barcode/QR scanning for add-native.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native/add-camera",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-200"
+  },
+  {
+   "id": "skill-201",
+   "name": "add-geolocation",
+   "displayName": "Add Geolocation",
+   "description": "Background GPS tracking with durable storage for add-native.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native/add-geolocation",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-201"
+  },
+  {
+   "id": "skill-202",
+   "name": "add-pdf-report",
+   "displayName": "Add PDF Report",
+   "description": "App-generated PDF report workflows for add-native.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native/add-pdf-report",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-202"
+  },
+  {
+   "id": "skill-203",
+   "name": "add-pdf-viewer",
+   "displayName": "Add PDF Viewer",
+   "description": "Native PDF viewing for add-native.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native/add-pdf-viewer",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-203"
+  },
+  {
+   "id": "skill-204",
+   "name": "add-pen-input",
+   "displayName": "Add Pen Input",
+   "description": "Pen, signature and handwriting capture for add-native.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-native/add-pen-input",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-204"
+  },
+  {
+   "id": "skill-205",
+   "name": "enable-tables-offline",
+   "displayName": "Enable Tables Offline",
+   "description": "Enable Dataverse tables for offline sync before profile setup.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/enable-tables-offline",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-205"
+  },
+  {
+   "id": "skill-206",
+   "name": "add-table-to-offline-profile",
+   "displayName": "Add Table to Offline Profile",
+   "description": "Add one Dataverse table to an existing offline profile.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/add-table-to-offline-profile",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-206"
+  },
+  {
+   "id": "skill-207",
+   "name": "edit-offline-profile",
+   "displayName": "Edit Offline Profile",
+   "description": "Change one table's offline scope, columns or sync frequency.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/edit-offline-profile",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-207"
+  },
+  {
+   "id": "skill-208",
+   "name": "assign-offline-profile",
+   "displayName": "Assign Offline Profile",
+   "description": "Bind users or teams to a Mobile Offline Profile.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/assign-offline-profile",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-208"
+  },
+  {
+   "id": "skill-209",
+   "name": "preview-offline-scope",
+   "displayName": "Preview Offline Scope",
+   "description": "Estimate offline download size and sync cost before rollout.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/preview-offline-scope",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-209"
+  },
+  {
+   "id": "skill-210",
+   "name": "data-model-architect",
+   "displayName": "Data Model Architect · Mobile",
+   "description": "Propose a Dataverse data model and ER diagram for a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/data-model-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-210"
+  },
+  {
+   "id": "skill-211",
+   "name": "screen-planner",
+   "displayName": "Screen Planner",
+   "description": "Plan the screen graph and per-screen specs for a mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/screen-planner.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-211"
+  },
+  {
+   "id": "skill-212",
+   "name": "offline-profile-architect",
+   "displayName": "Offline Profile Architect",
+   "description": "Design an offline profile: row scope, columns and sync frequency.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/offline-profile-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-212"
+  },
+  {
+   "id": "skill-213",
+   "name": "screen-builder",
+   "displayName": "Screen Builder",
+   "description": "Implement one mobile app screen from its spec.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/screen-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-213"
+  },
+  {
+   "id": "skill-214",
+   "name": "genpage-planner",
+   "displayName": "GenPage Planner",
+   "description": "Plan a generative page: requirements, entities and approval.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-planner.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-214"
+  },
+  {
+   "id": "skill-215",
+   "name": "genpage-edit-planner",
+   "displayName": "GenPage Edit Planner",
+   "description": "Plan edits to an existing generative page.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-edit-planner.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-215"
+  },
+  {
+   "id": "skill-216",
+   "name": "genpage-entity-builder",
+   "displayName": "GenPage Entity Builder",
+   "description": "Create the Dataverse tables, columns and sample data a page needs.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-entity-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-216"
+  },
+  {
+   "id": "skill-217",
+   "name": "genpage-page-builder",
+   "displayName": "GenPage Page Builder",
+   "description": "Generate one complete .tsx generative page from the plan.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-page-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-217"
+  },
+  {
+   "id": "skill-218",
+   "name": "genpage-connector-builder",
+   "displayName": "GenPage Connector Builder",
+   "description": "Discover and bind connectors for a generative page.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-connector-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-218"
+  },
+  {
+   "id": "skill-219",
+   "name": "genpage-customapi-builder",
+   "displayName": "GenPage Custom API Builder",
+   "description": "Discover and bind Dataverse Custom APIs for a generative page.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/model-apps/agents/genpage-customapi-builder.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-219"
+  },
+  {
+   "id": "skill-220",
+   "name": "report-issue",
+   "displayName": "Report Issue · Model Apps",
+   "description": "Draft a bug report for the model-apps plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Draft a bug report for the model-apps plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/model-apps/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-220"
+  },
+  {
+   "id": "skill-221",
+   "name": "telemetry",
+   "displayName": "Telemetry · Model Apps",
+   "description": "Enable, disable or check the model-apps plugin's usage telemetry.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install model-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use telemetry: Enable, disable or check the model-apps plugin's usage telemetry.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/model-apps/skills/telemetry",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-221"
+  },
+  {
+   "id": "skill-222",
+   "name": "telemetry",
+   "displayName": "Telemetry · Power Automate",
+   "description": "Enable, disable or check the power-automate plugin's usage telemetry.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-automate@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use telemetry: Enable, disable or check the power-automate plugin's usage telemetry.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-automate/skills/telemetry",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-222"
+  },
+  {
+   "id": "skill-223",
+   "name": "report-issue",
+   "displayName": "Report Issue · Power Automate",
+   "description": "Draft a bug report for the power-automate plugin.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-automate@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Draft a bug report for the power-automate plugin.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-automate/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-223"
+  },
+  {
+   "id": "skill-224",
+   "name": "setup",
+   "displayName": "Setup · Process Intelligence",
+   "description": "Configure, sign in to and diagnose the Process Intelligence connection.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use setup: Configure, sign in to and diagnose the Process Intelligence connection.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/setup",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-224"
+  },
+  {
+   "id": "skill-225",
+   "name": "analytics",
+   "displayName": "Process Analytics",
+   "description": "Select a process, get an overview and route follow-up questions.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use analytics: Select a process, get an overview and route follow-up questions.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analytics",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-225"
+  },
+  {
+   "id": "skill-226",
+   "name": "derive-metric",
+   "displayName": "Derive Metric",
+   "description": "Reuse saved metrics or run a validated ephemeral formula.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "Developer or maker",
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use derive-metric: Reuse saved metrics or run a validated ephemeral formula.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/derive-metric",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-226"
+  },
+  {
+   "id": "skill-227",
+   "name": "investigate-process",
+   "displayName": "Investigate Process",
+   "description": "Test a business hypothesis across analytical perspectives.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use investigate-process: Test a business hypothesis across analytical perspectives.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/investigate-process",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-227"
+  },
+  {
+   "id": "skill-228",
+   "name": "analyze-performance",
+   "displayName": "Analyze Performance · Process Mining",
+   "description": "Find slow activities, waiting, handoffs and bottlenecks.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use analyze-performance: Find slow activities, waiting, handoffs and bottlenecks.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-performance",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-228"
+  },
+  {
+   "id": "skill-229",
+   "name": "analyze-variants",
+   "displayName": "Analyze Variants",
+   "description": "Compare variants, examine rework and find a specific case.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use analyze-variants: Compare variants, examine rework and find a specific case.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-variants",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-229"
+  },
+  {
+   "id": "skill-230",
+   "name": "analyze-drivers",
+   "displayName": "Analyze Drivers",
+   "description": "Investigate which case attributes relate to delays or rework.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use analyze-drivers: Investigate which case attributes relate to delays or rework.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-drivers",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-230"
+  },
+  {
+   "id": "skill-231",
+   "name": "compare-cohorts",
+   "displayName": "Compare Cohorts",
+   "description": "Compare matched groups or time periods in a process.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use compare-cohorts: Compare matched groups or time periods in a process.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/compare-cohorts",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-231"
+  },
+  {
+   "id": "skill-232",
+   "name": "analyze-objects",
+   "displayName": "Analyze Objects",
+   "description": "Analyze object-centric executions and cross-object delay.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use analyze-objects: Analyze object-centric executions and cross-object delay.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/analyze-objects",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-232"
+  },
+  {
+   "id": "skill-233",
+   "name": "report-issue",
+   "displayName": "Report Issue · Process Intelligence",
+   "description": "Prepare a support draft for a failed Process Intelligence operation.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Automate"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install process-intelligence@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Prepare a support draft for a failed Process Intelligence operation.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/process-intelligence/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-233"
+  },
+  {
+   "id": "skill-234",
+   "name": "activate-site",
+   "displayName": "Activate Site",
+   "description": "Provision and activate a Power Pages site with a public URL.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use activate-site: Provision and activate a Power Pages site with a public URL.",
+   "prerequisites": [],
+   "access": {
+    "tag": "Site creator role",
+    "requirement": "Insufficient permissions. Inform user they need the \"Power Pages site creator\" or \"System Administrator\" role."
+   },
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/activate-site",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-234"
+  },
+  {
+   "id": "skill-235",
+   "name": "add-localization",
+   "displayName": "Add Localization",
+   "description": "Add languages and a language selector to a code-site SPA.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-localization: Add languages and a language selector to a code-site SPA.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-localization",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-235"
+  },
+  {
+   "id": "skill-236",
+   "name": "add-seo",
+   "displayName": "Add SEO",
+   "description": "Add robots.txt, sitemap, meta and Open Graph tags to an SPA site.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-seo: Add robots.txt, sitemap, meta and Open Graph tags to an SPA site.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-seo",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-236"
+  },
+  {
+   "id": "skill-237",
+   "name": "exceptional-web-design",
+   "displayName": "Exceptional Web Design",
+   "description": "Review a site's design and recommend what to change.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "QA lead",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use exceptional-web-design: Review a site's design and recommend what to change.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/exceptional-web-design",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-237"
+  },
+  {
+   "id": "skill-238",
+   "name": "add-server-logic",
+   "displayName": "Add Server Logic",
+   "description": "Create and manage server-side JavaScript on the Power Pages runtime.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-server-logic: Create and manage server-side JavaScript on the Power Pages runtime.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-server-logic",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-238"
+  },
+  {
+   "id": "skill-239",
+   "name": "add-ai-webapi",
+   "displayName": "Add AI Web API",
+   "description": "Add generative-AI search and data summaries to an SPA site (preview APIs).",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker",
+    "QA lead"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use add-ai-webapi: Add generative-AI search and data summaries to an SPA site (preview APIs).",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/add-ai-webapi",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-239"
+  },
+  {
+   "id": "skill-240",
+   "name": "manage-firewall",
+   "displayName": "Manage Firewall",
+   "description": "Inspect and configure the web application firewall for a site.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use manage-firewall: Inspect and configure the web application firewall for a site.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/manage-firewall",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-240"
+  },
+  {
+   "id": "skill-241",
+   "name": "scan-site",
+   "displayName": "Scan Site",
+   "description": "Run a security scan on a deployed site and summarize the findings.",
+   "purpose": "Review",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "QA lead",
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use scan-site: Run a security scan on a deployed site and summarize the findings.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/scan-site",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-241"
+  },
+  {
+   "id": "skill-242",
+   "name": "ensure-pipelines-host",
+   "displayName": "Ensure Pipelines Host",
+   "description": "Make sure the tenant has a usable Power Platform Pipelines host.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use ensure-pipelines-host: Make sure the tenant has a usable Power Platform Pipelines host.",
+   "prerequisites": [
+    "PAC CLI logged in (pac env who succeeds)",
+    "Azure CLI logged in (az account show succeeds)",
+    "A source Dataverse environment URL (read from powerpages.config.json if invoked from a Power Pages project; passed as arg otherwise)",
+    "One cheap probe: GET {finalHostEnvUrl}/api/data/v9.0/solutions?$filter=uniquename eq 'msdynAppDeploymentAnchor'&$select=version&$top=1 (proves Pipelines is installed AND captures version in one round-trip)",
+    "200 → cache is valid. Set RESOLUTION from the cached file. Set ACTIONTAKEN = \"none\". Skip Phases 2–5; jump to Phase 6 with a \"reused cached host\" summary.",
+    "404 / 403 / timeout / network → cache is stale or no longer accessible. Continue to Step 1 (full resolution). Do NOT fail — stale cache is expected after env deletion or permission changes."
+   ],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/ensure-pipelines-host",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-242"
+  },
+  {
+   "id": "skill-243",
+   "name": "configure-env-variables",
+   "displayName": "Configure Environment Variables",
+   "description": "Make site settings environment-specific with environment variables.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use configure-env-variables: Make site settings environment-specific with environment variables.",
+   "prerequisites": [
+    "PAC CLI authenticated: pac auth who",
+    "Azure CLI token available: az account get-access-token",
+    ".solution-manifest.json exists in the project root (run setup-solution first)",
+    "Power Pages site deployed to dev environment (.powerpages-site/ folder exists)"
+   ],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/configure-env-variables",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-243"
+  },
+  {
+   "id": "skill-244",
+   "name": "export-solution",
+   "displayName": "Export Solution",
+   "description": "Export a solution with site components as a deployable zip.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use export-solution: Export a solution with site components as a deployable zip.",
+   "prerequisites": [
+    "PAC CLI installed and authenticated",
+    "Azure CLI installed and logged in",
+    "Solution exists in the environment (run setup-solution first if needed)"
+   ],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/export-solution",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-244"
+  },
+  {
+   "id": "skill-245",
+   "name": "import-solution",
+   "displayName": "Import Solution",
+   "description": "Import a solution zip into a target environment.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use import-solution: Import a solution zip into a target environment.",
+   "prerequisites": [
+    "PAC CLI installed and authenticated to the target environment",
+    "Azure CLI installed and logged in",
+    "Solution zip file exists on disk (produced by export-solution)",
+    "Run az account get-access-token --resource \"{environmentUrl}\" --query accessToken -o tsv — capture token",
+    "Present target environment URL and ask user to confirm this is correct before proceeding."
+   ],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/import-solution",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-245"
+  },
+  {
+   "id": "skill-246",
+   "name": "deploy-pipeline",
+   "displayName": "Deploy Pipeline",
+   "description": "Run a Power Platform Pipelines deployment for a site solution.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use deploy-pipeline: Run a Power Platform Pipelines deployment for a site solution.",
+   "prerequisites": [
+    ".solution-manifest.json exists",
+    "Azure CLI logged in (az account show succeeds)",
+    "PAC CLI logged in (pac env who succeeds)",
+    "\"Validate package\" — in MULTIRUNMODE this becomes a single parallel batch (Phase 3.6) covering all N non-skipped solutions; in single-solution / legacy v2 mode it runs per-iteration inline in Phase 4"
+   ],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/deploy-pipeline",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-246"
+  },
+  {
+   "id": "skill-247",
+   "name": "force-link-environment",
+   "displayName": "Force-Link Environment",
+   "description": "Force-link an environment to a Pipelines host.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use force-link-environment: Force-link an environment to a Pipelines host.",
+   "prerequisites": [
+    "PAC CLI auth — pac env who must report an authenticated environment (for --dev-env auto-discovery).",
+    "Azure CLI auth — az account show succeeds.",
+    "Host-scoped token — the caller must have Deployment Pipeline Administrator on the target host (the host the env is being linked TO). Without it, ManageEnvironmentStamp returns 403."
+   ],
+   "access": {
+    "tag": "Pipelines admin",
+    "requirement": "the caller must have Deployment Pipeline Administrator on the target host"
+   },
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/force-link-environment",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-247"
+  },
+  {
+   "id": "skill-248",
+   "name": "report-issue",
+   "displayName": "Report Issue · Power Pages",
+   "description": "Draft a bug report for a Power Pages skill.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use report-issue: Draft a bug report for a Power Pages skill.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/report-issue",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-248"
+  },
+  {
+   "id": "skill-249",
+   "name": "telemetry",
+   "displayName": "Telemetry · Power Pages",
+   "description": "Enable, disable or check the power-pages plugin's usage telemetry.",
+   "purpose": "Operate",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use telemetry: Enable, disable or check the power-pages plugin's usage telemetry.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/telemetry",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-249"
+  },
+  {
+   "id": "skill-250",
+   "name": "data-model-architect",
+   "displayName": "Data Model Architect · Power Pages",
+   "description": "Propose a Dataverse data model and ER diagram for a site.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker",
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/data-model-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-250"
+  },
+  {
+   "id": "skill-251",
+   "name": "webapi-integration",
+   "displayName": "Web API Integration",
+   "description": "Generate a typed Web API client and CRUD services for one table.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/webapi-integration.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-251"
+  },
+  {
+   "id": "skill-252",
+   "name": "webapi-settings-architect",
+   "displayName": "Web API Settings Architect",
+   "description": "Propose and create Web API site settings for tables and columns.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Architect",
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/webapi-settings-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-252"
+  },
+  {
+   "id": "skill-253",
+   "name": "ai-webapi-integration",
+   "displayName": "AI Web API Integration",
+   "description": "Wire a generative-AI summarization API into site code.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/ai-webapi-integration.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-253"
+  },
+  {
+   "id": "skill-254",
+   "name": "ai-webapi-settings-architect",
+   "displayName": "AI Web API Settings Architect",
+   "description": "Propose and create generative-AI summarization site settings.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Architect",
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/ai-webapi-settings-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-254"
+  },
+  {
+   "id": "skill-255",
+   "name": "table-permissions-architect",
+   "displayName": "Table Permissions Architect",
+   "description": "Plan and create table permissions for web roles.",
+   "purpose": "Govern",
+   "tier": "skill",
+   "products": [
+    "Power Pages"
+   ],
+   "personas": [
+    "Architect",
+    "Admin"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/power-pages/agents/table-permissions-architect.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-255"
+  },
+  {
+   "id": "skill-256",
+   "name": "copilot-studio-init",
+   "displayName": "Copilot Studio Init",
+   "description": "Set up an empty Copilot Studio agent workspace with pac copilot init.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Agent Skills"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Experimental",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Copilot Studio Plugin",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install copilot-studio-plugin@copilot-studio-plugin",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/copilot-studio-plugin/blob/main/agents/copilot-studio-init.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-256"
+  },
+  {
+   "id": "skill-257",
+   "name": "copilot-studio-manage",
+   "displayName": "Copilot Studio Manage",
+   "description": "Run PAC CLI ALM operations for existing Copilot Studio agent workspaces.",
+   "purpose": "Deploy",
+   "tier": "skill",
+   "products": [
+    "Agent Skills"
+   ],
+   "personas": [
+    "Admin"
+   ],
+   "status": "Experimental",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Copilot Studio Plugin",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install copilot-studio-plugin@copilot-studio-plugin",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/copilot-studio-plugin/blob/main/agents/copilot-studio-manage.md",
+   "verified": "16 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-257"
   }
  ],
  "mcpServers": [
