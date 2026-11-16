@@ -35,6 +35,7 @@ Includes 25 sample assets, 103 illustrative findings, interactive viewers, and b
 | **Airtable to Power Platform Migration** | Migrate Airtable apps into Microsoft platform targets including Dataverse, SharePoint Lists, app scaffolds, and Power Automate draft flows |
 | **infopath-to-canvas** | Migrate InfoPath forms (.xsn) to modern Canvas Apps |
 | **migrate-to-dataverse** | Replace SharePoint list data sources with Dataverse table equivalents |
+| **powercat-nintex-form-to-canvas** | Inventory and verify Nintex form exports, then migrate to a Power Apps Canvas app through an approved generation handoff |
 
 ### `powercat-code-apps` — Code Apps
 

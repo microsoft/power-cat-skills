@@ -47,15 +47,16 @@
         "./Power Platform Migration Factory/Access to Dataverse Migration",
         "./Power Platform Migration Factory/Airtable to Power Platform Migration",
         "./Power Platform Migration Factory/infopath-to-canvas",
-        "./Power Platform Migration Factory/migrate-to-dataverse"
+        "./Power Platform Migration Factory/migrate-to-dataverse",
+        "./Power Platform Migration Factory/powercat-nintex-form-to-canvas"
       ],
-      "version": "1.0.2",
+      "version": "1.0.3",
       "repository": "https://github.com/microsoft/power-cat-skills",
       "license": "MIT",
       "category": "development",
       "tags": [
         "migration", "power platform", "power apps",
-        "airtable", "infopath", "dataverse", "sharepoint lists",
+        "airtable", "infopath", "nintex", "canvas apps", "dataverse", "sharepoint lists",
         "microsoft power platform", "microsoft"
       ]
     },
