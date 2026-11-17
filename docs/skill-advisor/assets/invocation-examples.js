@@ -1458,3 +1458,24 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Requires a compatible installed host and plugin. The repository documents this slash token."
   }
 });
+
+// Approved 17 Nov 2026 additions, pinned to power-cat-skills 78e6b6bf.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-258": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/powercat-nintex-form-to-canvas",
+    "skillName": "powercat-nintex-form-to-canvas",
+    "userInvocable": true,
+    "natural": {
+      "text": "Migrate this Nintex form to a Power Apps Canvas app using my SharePoint list.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/78e6b6bf1f1226906b41077d512911d6325f8022/Power%20Platform%20Migration%20Factory/README.md#L25"
+    },
+    "direct": {
+      "text": "Use powercat-nintex-form-to-canvas to migrate this Nintex form to a Power Apps Canvas app using my SharePoint list.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/78e6b6bf1f1226906b41077d512911d6325f8022/Power%20Platform%20Migration%20Factory/powercat-nintex-form-to-canvas/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Forms only: Nintex workflows, approvals and notifications are out of scope; hands off to /canvas-app after your approval."
+  }
+});

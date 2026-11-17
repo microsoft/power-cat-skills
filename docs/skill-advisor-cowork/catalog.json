@@ -1,8 +1,8 @@
 {
  "meta": {
   "schemaVersion": 1,
-  "catalogRefreshedOn": "16 Nov 2026",
-  "itemCount": 238,
+  "catalogRefreshedOn": "17 Nov 2026",
+  "itemCount": 239,
   "personas": [
    "Developer or maker",
    "Architect",
@@ -22,7 +22,7 @@
    "MCP & Tooling"
   ],
   "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/",
-  "contentSha256": "92514a5631f820a0bd18a8b03fb15be191f992ac0b0b5c1a9be4d9f2336f7cde"
+  "contentSha256": "f5a392d27537902139316e1ba87afc06449d19567ba2954575d097b49be0db3f"
  },
  "items": [
   {
@@ -7371,6 +7371,37 @@
    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/main/agents/copilot-studio-manage.md",
    "verified": "16 Nov 2026",
    "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-257"
+  },
+  {
+   "id": "skill-258",
+   "name": "powercat-nintex-form-to-canvas",
+   "displayName": "Nintex Form To Canvas",
+   "description": "Inventory and verify a Nintex form export, then hand off an approved Canvas App migration.",
+   "purpose": "Migrate",
+   "tier": "skill",
+   "products": [
+    "Modernization",
+    "Power CAT"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install Power%20Platform%20Migration%20Factory@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use powercat-nintex-form-to-canvas: Inventory and verify a Nintex form export, then hand off an approved Canvas App migration.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/powercat-nintex-form-to-canvas",
+   "verified": "17 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-258"
   }
  ],
  "mcpServers": [
