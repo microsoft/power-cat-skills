@@ -113,6 +113,14 @@ PowerCat-CodeAppsCompact 2.7 uses version 2.7.0 for the plugin, skill, runtime, 
 
 See the [PCF plugin guide](./plugins/powercat-pcf/README.md) for runtime compatibility and validation gates.
 
+### `powercat-template` - Power CAT Branding
+
+| Skill | Description |
+|-------|-------------|
+| **powercat-template** | Apply the official Power CAT template to presentations, documents, apps, and other branded assets |
+
+This instruction-only plugin retrieves the public template when needed and complements the host's available presentation, document, or app-building workflow. See the [template plugin guide](./plugins/powercat-template/README.md).
+
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and authenticated
@@ -189,6 +197,7 @@ Install any combination of these plugins. Install the companion foundation plugi
 | `powercat-skills-router` | — |
 | `powercat-codeappscompact` | None; includes its runtime bundle |
 | `powercat-pcf` | — |
+| `powercat-template` | No fixed dependency; use the host's asset-creation workflow |
 
 ```bash
 copilot plugin install powercat-adoption@power-cat-skills
@@ -205,6 +214,7 @@ copilot plugin install loop-my-prompt@power-cat-skills
 copilot plugin install powercat-skills-router@power-cat-skills
 copilot plugin install powercat-codeappscompact@power-cat-skills
 copilot plugin install powercat-pcf@power-cat-skills
+copilot plugin install powercat-template@power-cat-skills
 ```
 
 ### Configure the MCP Server
@@ -255,6 +265,10 @@ Recommend a skill only; do not install or change anything.
 ```text
 Create a virtual PCF rating control for a model-driven app using Fluent v9.
 Show --- when null, select 3 stars on activation, and support keyboard navigation.
+```
+
+```text
+Use the Power CAT template for this presentation, document, or app.
 ```
 
 ## Permissions and Approvals

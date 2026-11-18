@@ -58,6 +58,7 @@ power-cat-skills/
 | `powercat-skills-router` | `/powercat-skills-router` | Route Power Platform requests across both public marketplaces, reconcile installed packages, obtain approval for changes, and resume the original task with the selected specialist |
 | `powercat-codeappscompact` | `/powercat-codeappscompact` | PowerCat-CodeAppsCompact 2.7: build React/TypeScript Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
 | `powercat-pcf` | `/create-pcf` | Create accessible virtual PCF controls for model-driven apps with host-provided Fluent UI v9 |
+| `powercat-template` | `/powercat-template` | Apply the official Power CAT template to presentations, documents, apps, and other branded assets |
 
 ## Local Development
 
