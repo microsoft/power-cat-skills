@@ -100,6 +100,11 @@
       "id": "powercat-pcf",
       "label": "powercat-pcf",
       "description": "Create accessible virtual PCF controls for model-driven apps using host-provided React and Fluent UI v9."
+    },
+    {
+      "id": "powercat-template",
+      "label": "powercat-template",
+      "description": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets."
     }
   ],
   "skills": [
@@ -779,6 +784,45 @@
       "install": "copilot plugin install powercat-pcf@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
       "heading": "powercat-pcf"
+    },
+    {
+      "id": "powercat-template",
+      "detailId": "powercat-template__powercat-template",
+      "title": "powercat-template",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-template",
+      "pluginLabel": "template",
+      "description": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+      "tags": [
+        "template",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-template</h2>\n<p>Apply the official Power CAT template to presentations, documents, apps, and other branded assets.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-template</strong> - Inspect the official template and reuse its layouts for presentations or adapt its visual identity for documents and accessible, responsive apps.</li></ul>\n<h3>Usage</h3>\n<ul><li>&quot;Use the Power CAT template to create a presentation about our project.&quot;</li><li>&quot;Create a project brief document using Power CAT branding.&quot;</li><li>&quot;Apply the Power CAT template&#39;s visual identity to this app.&quot;</li></ul>\n<h3>Notes</h3>\n<ul><li>Canonical template: https://github.com/microsoft/power-cat-skills/blob/main/Common/PowerCAT%20Template.pptx</li><li>Direct download: https://raw.githubusercontent.com/microsoft/power-cat-skills/main/Common/PowerCAT%20Template.pptx</li><li>The template is retrieved when needed, not bundled. Internet access is required unless the user supplies an accessible copy.</li><li>This instruction-only skill complements the host&#39;s available presentation, document, or app-building workflow; it does not install those capabilities.</li><li>Derive visual choices from the inspected template, preserve the original, and disclose necessary adaptations or font substitutions.</li><li>Reuse branding only where authorized. The skill does not grant rights to logos or artwork.</li><li>Invoking this skill does not authorize publishing, deployment, or sharing.</li></ul>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/README.md",
+      "what": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+      "when": [
+        "Use this when you need apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-template@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/skills/powercat-template",
+      "heading": "powercat-template"
     },
     {
       "id": "Access to Dataverse Migration",
@@ -1763,6 +1807,45 @@
       "install": "copilot plugin install powercat-pcf@power-cat-skills",
       "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-pcf/skills/create-pcf",
       "heading": "powercat-pcf"
+    },
+    "powercat-template__powercat-template": {
+      "id": "powercat-template",
+      "detailId": "powercat-template__powercat-template",
+      "title": "powercat-template",
+      "category": "Adoption & Storytelling",
+      "categoryId": "adoption-storytelling",
+      "categoryLabel": "Adoption & Storytelling",
+      "plugin": "powercat-template",
+      "pluginLabel": "template",
+      "description": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+      "tags": [
+        "template",
+        "power-platform",
+        "powercat"
+      ],
+      "products": [
+        {
+          "label": "Power Platform",
+          "icon": "assets/product-icons/power-platform.svg"
+        }
+      ],
+      "images": [],
+      "docsHtml": "<h2>powercat-template</h2>\n<p>Apply the official Power CAT template to presentations, documents, apps, and other branded assets.</p>\n<h3>Skills</h3>\n<ul><li><strong>powercat-template</strong> - Inspect the official template and reuse its layouts for presentations or adapt its visual identity for documents and accessible, responsive apps.</li></ul>\n<h3>Usage</h3>\n<ul><li>&quot;Use the Power CAT template to create a presentation about our project.&quot;</li><li>&quot;Create a project brief document using Power CAT branding.&quot;</li><li>&quot;Apply the Power CAT template&#39;s visual identity to this app.&quot;</li></ul>\n<h3>Notes</h3>\n<ul><li>Canonical template: https://github.com/microsoft/power-cat-skills/blob/main/Common/PowerCAT%20Template.pptx</li><li>Direct download: https://raw.githubusercontent.com/microsoft/power-cat-skills/main/Common/PowerCAT%20Template.pptx</li><li>The template is retrieved when needed, not bundled. Internet access is required unless the user supplies an accessible copy.</li><li>This instruction-only skill complements the host&#39;s available presentation, document, or app-building workflow; it does not install those capabilities.</li><li>Derive visual choices from the inspected template, preserve the original, and disclose necessary adaptations or font substitutions.</li><li>Reuse branding only where authorized. The skill does not grant rights to logos or artwork.</li><li>Invoking this skill does not authorize publishing, deployment, or sharing.</li></ul>",
+      "docsSource": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/README.md",
+      "what": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+      "when": [
+        "Use this when you need apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+        "Use it when the work belongs in Adoption & Storytelling.",
+        "Use it when you want a guided workflow instead of starting from a blank prompt."
+      ],
+      "how": [
+        "Guides the agent through a repeatable Power CAT delivery pattern.",
+        "Structures inputs, decisions, and outputs so the work is easier to review.",
+        "Links back to the source skill so teams can inspect or extend the workflow."
+      ],
+      "install": "copilot plugin install powercat-template@power-cat-skills",
+      "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/skills/powercat-template",
+      "heading": "powercat-template"
     },
     "powercat-migration-factory__Access to Dataverse Migration": {
       "id": "Access to Dataverse Migration",
