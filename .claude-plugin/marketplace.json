@@ -48,9 +48,10 @@
         "./Power Platform Migration Factory/Airtable to Power Platform Migration",
         "./Power Platform Migration Factory/infopath-to-canvas",
         "./Power Platform Migration Factory/migrate-to-dataverse",
-        "./Power Platform Migration Factory/powercat-nintex-form-to-canvas"
+        "./Power Platform Migration Factory/powercat-nintex-form-to-canvas",
+        "./Power Platform Migration Factory/powercat-nintex-workflow-to-power-automate"
       ],
-      "version": "1.0.3",
+      "version": "1.0.4",
       "repository": "https://github.com/microsoft/power-cat-skills",
       "license": "MIT",
       "category": "development",
