@@ -257,6 +257,22 @@
         "fluent ui", "accessibility", "power platform",
         "microsoft"
       ]
+    },
+    {
+      "name": "powercat-template",
+      "description": "Apply the official Power CAT template to presentations, documents, apps, and other branded assets.",
+      "source": "./plugins/powercat-template",
+      "skills": [
+        "./plugins/powercat-template/skills/powercat-template"
+      ],
+      "version": "0.1.0",
+      "repository": "https://github.com/microsoft/power-cat-skills",
+      "license": "MIT",
+      "category": "development",
+      "tags": [
+        "power-platform", "powercat", "branding",
+        "templates", "presentations", "documents", "apps"
+      ]
     }
   ]
 }
