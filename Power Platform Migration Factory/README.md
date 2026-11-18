@@ -11,6 +11,7 @@ Power Platform Migration Factory is the public home for migration-focused Power 
 | [infopath-to-canvas](infopath-to-canvas/SKILL.md) | Migrate Microsoft InfoPath forms into modern Power Apps Canvas Apps. |
 | [migrate-to-dataverse](migrate-to-dataverse/SKILL.md) | Replace SharePoint list data sources with Dataverse table equivalents. |
 | [powercat-nintex-form-to-canvas](powercat-nintex-form-to-canvas/SKILL.md) | Inventory and verify Nintex form exports, then hand off an approved migration prompt to Canvas App generation. |
+| [powercat-nintex-workflow-to-power-automate](powercat-nintex-workflow-to-power-automate/SKILL.md) | Inventory and verify Nintex workflow exports, then build a validated Power Automate flow with FlowAgent and `/build-flow`. |
 
 ## Nintex form migration
 
