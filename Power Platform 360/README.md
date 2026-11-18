@@ -4,6 +4,9 @@
 
 Power Platform 360 brings inventory, governance, AI and agent oversight, environment management and usage insights into a single app that runs on **live tenant data**. You don't install a solution or import a package. You rebuild the app in your own tenant from one prompt and a set of reference screenshots. This folder contains everything you need to do that.
 
+> [!IMPORTANT]
+> **This is a sample solution, not a supported Microsoft product.** Power Platform 360 is provided by Microsoft Power CAT "as is" for learning and demonstration. It isn't covered by any Microsoft support program or service, and it comes with no warranty or SLA. The app you build is yours to own, secure, test and maintain. Review the generated app, and test it in a non-production tenant before you use it with production data.
+
 ![Power Platform 360 command center](screenshots/01-command-center.png)
 
 > The screenshots in this kit use sample **Contoso** data. When you rebuild the app, it shows your own tenant's data.
@@ -162,12 +165,13 @@ The prompt is a starting point. Once the app is built, keep the Cowork conversat
 
 - "Add a Dataverse capacity trend chart to the command center."
 - "Change the theme to our brand colours: primary #0F6CBD."
-- "Add a Solutions page listing unmanaged solutions per environment."
 
 ---
 
-## Feedback
+## Support and disclaimer
 
-Open an issue in this repository. Use the `report-issue` shared skill, or file one directly on GitHub.
+Power Platform 360 is a **sample**. It isn't a Microsoft product, and it isn't supported through Microsoft Support, Premier, Unified or any other Microsoft support channel. Don't open support tickets for it.
 
-Maintained by Microsoft **Power CAT** (Customer Advisory Team).
+The app is generated in your tenant by Copilot Cowork App Builder, so each build can differ, and you're responsible for reviewing and validating what gets built. The app can perform admin actions: quarantining, reassigning and deleting resources, changing policies and sending email. Make sure whoever uses it is authorised to take those actions.
+
+The sample is provided under the repository's [MIT license](../LICENSE), without warranty of any kind.
