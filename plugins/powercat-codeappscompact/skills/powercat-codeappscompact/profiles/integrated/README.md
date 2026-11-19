@@ -1,11 +1,11 @@
-# Integrated PowerCat-CodeAppsCompact 2.7 application
+# Integrated CodeAppsCompact v3.1R app
 
-This app uses the stock accessible workspace and browser-local synthetic data. Definitions are in `src\definition`; independent assertions and host/acceptance bindings are in `tests`. Collections, navigation, counts, query refresh and flat editor guards are wired. Nested drafts should use the aggregate profile instead of forcing them into flat contracts.
+Uses the stock accessible workspace and browser-local synthetic data. Definitions are in `src\definition`; independent domain/browser assertions are in `tests`. Collections, navigation, global counts, queries and flat-editor guards are already wired. Use the aggregate profile for nested drafts.
 
-Restore approved dependencies with `npm install --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`. Start the configured server and confirm responsiveness. A `--local-only` scaffold remains unbound: `preflight`, `verify` and `finalize` request only local scope. No tenant GUID, host request or deployment is needed. Use `verify:local` and `finalize:local` to make that scope explicit.
+Run `npm run check:dependencies` before an approved restore. After manifest changes or missing dependencies, use `npm install --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`.
 
-For an environment-bound scaffold only, `npm run verify -- --host-route mesh-uia --out <new-run>` also requests authenticated Local Play. Observe the emitted request with the authorized tools; other explicitly authorized routes are alternatives, never bypasses after denial. `npm run finalize -- --resume <run> --host-receipt <fresh-receipt>` completes the same scopes. Add original usage/phase inputs and an explicit USD rate when costs were requested; omit the receipt for explicitly authorized CDP. Keep repair calls within the original boundaries and finalize once.
+`npm run verify` runs preflight, build/type checks, lint, domain tests and isolated browser checks; `verify:local` is the same local scope. `npm run dev` starts the configured loopback server; confirm it responds. Browser checks use installed Edge by default and close only their own resources. No command authenticates or publishes; verify hosted behavior separately with approved tools.
 
-A `tests\local-play.json` binding requests a reversible synthetic saved-edit check. Without it, do not claim edit/reload evidence. Local preview cannot prove authentication. No command publishes.
+Reuse authoring/reference helpers rather than repeating mappings. Structural rules belong in `validate`; transition/time-sensitive rules belong in `validateMutation`. Keep assertions independent of implementation and replace scaffold coverage with the user's actual requirements.
 
-Reuse authoring/reference helpers rather than repeating mappings. Keep structural checks in `validate` and transition/time-sensitive policies in `validateMutation`. Business expectations must be independent of implementation. Keep vendor files, lockfile and tools; no source skill path is required. Production authentication and authorization remain app-owned.
+Keep `vendor\codeappscompact-3.1.0-r.1`, the lockfile and tools; no source skill path is required. Synthetic storage is not production authentication or authorization.

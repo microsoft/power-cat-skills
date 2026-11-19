@@ -9,7 +9,6 @@ Author ordinary TypeScript collections, rules, synthetic records and independent
 - `tests\domain.test.ts` contains independent domain assertions, importing plain TypeScript from `../src/definition/...`. Node type stripping does not execute JSX.
 - `tests\acceptance.mjs` exports `scenarios` using app-local `../tools/acceptance-scenarios.mjs`. It can read the generated storage key from `src\app-config.json`.
 - `tests\acceptance.json` declares unique `checks[].id` entries for every scenario, including domain negatives. The harness requires the exact set to run.
-- When saved-edit host verification is requested, include `tests\local-play.json` binding one named synthetic fixture/text field with a unique marker and restoration. See [host evidence](host-verification.md); never guess a record or use production data.
 
 Supply an app-owned definition following the contract above. Use `--profile example` for a runnable flat-record scaffold or `--profile aggregate` for nested records. Optional [recipes](recipes.md) cover reservations and migration. No definition executes during copying; later execution remains permission-bound.
 
@@ -49,4 +48,4 @@ Reference bindings reuse existing option validation, missing-reference messages 
 
 `crudScenario` requires explicit create/edit labels, values and independent `assertStored` callbacks, checking each after reload. Reference values support `{kind:'select', label:'Friendly name', search:'optional'}`. `rejectedSaveScenario` covers expected errors, unchanged persisted state and retained drafts for create or a named edit. Use it for invalid quantities, transitions, dates or relationship rules rather than re-authoring rejection plumbing.
 
-Draft/conflict/storage/responsive/preview scenarios own the generic interaction. Add custom `{id, async run(context) {...}}` only for genuinely domain-specific behavior. Assertions must specify independent expected answers, not infer them from generated defaults. Do not remove features or checks to appear cheaper. The runner owns isolated server/browser setup and cleanup; read [tooling](tooling.md) for resumption/finalization.
+Draft/conflict/storage/responsive/preview scenarios own the generic interaction. Add custom `{id, async run(context) {...}}` only for genuinely domain-specific behavior. Assertions must specify independent expected answers, not infer them from generated defaults. The runner owns isolated server/browser setup and cleanup; use the [workflow](workflow.md) for local app checks.

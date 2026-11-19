@@ -1,6 +1,7 @@
 import { createServer } from 'node:net';
-import { isAbsolute, join, relative, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 import { args, appOrigin, cli, environmentGuid, exists, isMain, noLinkedAncestors, readJson, runNpm } from './lib.mjs';
+import { checkDependencies } from './dependency-contract.mjs';
 
 export async function preflight(app, requireFreePort = false, { localOnly = false } = {}) {
   noLinkedAncestors(app);
@@ -13,20 +14,7 @@ export async function preflight(app, requireFreePort = false, { localOnly = fals
   if (!environmentConfigured && !(localOnly && explicitlyUnbound)) throw new Error('Authenticated Local Play requires an authorized environment. An unbound local check requires both --local-only and an explicitly local-only app; do not fabricate an environment ID.');
   const origin = appOrigin(power.localAppUrl);
   if (pkg.workspaces || (pkg.packageManager && !pkg.packageManager.startsWith('npm@')) || ['yarn.lock', 'pnpm-lock.yaml', 'bun.lock', 'bun.lockb'].some(file => exists(join(app, file)))) throw new Error('Use the existing package-manager/workspace workflow; this helper does not switch tooling.');
-  const installed = readJson(join(app, 'node_modules', 'codeappscompact', 'package.json'));
-  if (installed.name !== 'codeappscompact') throw new Error('Expected codeappscompact is not installed.');
-  const spec = pkg.dependencies?.codeappscompact;
-  if (typeof spec !== 'string') throw new Error('codeappscompact must be an explicit app dependency.');
-  if (spec.startsWith('file:')) {
-    const target = resolve(app, spec.slice(5));
-    const rel = relative(app, target);
-    if (isAbsolute(spec.slice(5)) || rel.startsWith('..') || isAbsolute(rel)) throw new Error('Vendor dependencies must stay project-relative and inside the app.');
-    noLinkedAncestors(target);
-    if (readJson(join(target, 'package.json')).version !== installed.version) throw new Error('The installed kit differs from its vendor manifest. Restore the lockfile.');
-    const lock = readJson(join(app, 'package-lock.json'));
-    const entry = lock.packages?.['node_modules/codeappscompact'];
-    if (lock.packages?.['']?.dependencies?.codeappscompact !== spec || entry?.resolved !== spec || entry.version !== installed.version || entry.link) throw new Error('Expected matching local vendor entries in the manifest and lockfile. Use npm install --install-links.');
-  }
+  const installed = checkDependencies(app, { requireLock: true, installed: true });
   if (config && (config.environmentId !== power.environmentId || new URL(config.appUrl).origin !== origin.origin)) throw new Error('Starter configuration disagrees with power.config.json.');
   runNpm(app, ['ls', '--install-links', '--omit=dev', '--depth=0', '--json']);
   if (requireFreePort) await new Promise((accept, reject) => {

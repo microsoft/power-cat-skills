@@ -21,8 +21,16 @@ export type FormSelectProps = CommonField & {
     options: readonly ReferenceOption[];
     empty?: string | false;
 };
+export type FormChoiceProps<T extends string> = Omit<CommonField, 'value' | 'onChange'> & {
+    options: readonly (Omit<ReferenceOption, 'value'> & {
+        value: T;
+    })[];
+    value: NoInfer<T>;
+    onChange: (value: NoInfer<T>) => void;
+};
 export declare function FormField({ name, label, value, onChange, required, disabled, hint, type, multiline, step, min, max, maxLength }: FormFieldProps): import("react").JSX.Element;
 export declare function FormSelect({ name, label, value, onChange, required, disabled, hint, options, empty }: FormSelectProps): import("react").JSX.Element;
+export declare function FormChoice<T extends string>({ options, value, onChange, ...field }: FormChoiceProps<T>): import("react").JSX.Element;
 export declare function Modal({ title, children, onClose, busy }: {
     title: string;
     children: ReactNode;

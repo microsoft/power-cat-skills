@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { AppShell } from 'codeappscompact';
-import { createTransactionStore, DataTable, DraftDialog, FormField, useTransactionState } from 'codeappscompact/aggregate';
+import { useNavigationGuard } from 'codeappscompact';
+import { createTransactionStore, DetailTable, FormField, useTransactionState } from 'codeappscompact/aggregate';
+import { RecordFlow } from 'codeappscompact/record-flow';
+import { DemoShell } from 'codeappscompact/demo-shell';
 import { errorMessage } from 'codeappscompact/validation';
 import type { Entry } from './domain.ts';
 import { seed, decode, reduce } from './domain.ts';
@@ -9,16 +11,14 @@ import config from './app-config.json';
 import 'codeappscompact/aggregate.css';
 
 const store = createTransactionStore(config.storageKey, { seed, decode, reduce });
+const users = [{ value: 'demo', label: 'Alex - Coordinator' }, { value: 'reviewer', label: 'Taylor - Manager' }];
 export default function App() {
   const data = useTransactionState(store, config.storageKey);
-  const [editor, setEditor] = useState<{ initial: Entry; revision: string; key: string } | null>(null);
+  const navigation = useNavigationGuard();
+  const [user, setUser] = useState('demo');
+  const [selected, setSelected] = useState<string[]>([]);
+  const [cards, setCards] = useState(false);
   const [notice, setNotice] = useState(''); const [problem, setProblem] = useState('');
-  function open(id?: string) {
-    if (!data.state) return;
-    const entry = id ? data.state.entries.find(item => item.id === id) : { id: '', title: '', lines: [] };
-    if (!entry) throw new Error('The selected note is missing.');
-    setEditor({ initial: structuredClone(entry), revision: data.state.revision, key: crypto.randomUUID() });
-  }
   async function reset() {
     setProblem('');
     try {
@@ -27,19 +27,26 @@ export default function App() {
       await data.reset(expected); setNotice('Demo data reset.');
     } catch (error) { setProblem(errorMessage(error)); }
   }
-  return <AppShell title={config.title} subtitle="Aggregate starter - replace the neutral notes with your domain" items={[{ id: 'notes', label: 'Notes' }]} activeId="notes" onNavigate={id => { if (id !== 'notes') throw new Error('Unknown screen.'); }} hostStatus={<HostStatus />}>
+  return <DemoShell title={config.title} items={[{ id: 'notes', label: 'Notes' }]} activeId="notes" onNavigate={id => { if (id !== 'notes') throw new Error('Unknown screen.'); }} hostStatus={<HostStatus />}
+    users={users} user={user} onUserChange={setUser} navigation={navigation}>
     {data.loading && <p role="status">Loading browser-local records...</p>}
     {(data.error || problem) && <div role="alert"><p>{data.error || problem}</p><button type="button" onClick={() => void data.reload()}>Retry loading</button></div>}
     {data.externalChange > 0 && <p role="status">Another tab changed the data. Open drafts are preserved; reopen a stale draft before saving.</p>}
     {notice && <p role="status" data-cc-part="saved">{notice}</p>}
-    {data.state && <DataTable title="Notes" rows={data.state.entries.map(entry => ({ id: entry.id, label: entry.title, values: { title: entry.title, lines: entry.lines.length } }))} columns={[{ key: 'title', label: 'Title' }, { key: 'lines', label: 'Lines' }]} onAdd={() => open()} addLabel="Add note" onOpen={id => open(id)} />}
-    <button type="button" disabled={data.saving} onClick={() => void reset()}>Reset demo data</button>
-    {editor && <DraftDialog key={editor.key} title={editor.initial.id ? 'Edit note' : 'Add note'} initial={editor.initial} onClose={() => setEditor(null)} onSave={async draft => {
-      await data.commit(editor.revision, { id: draft.id || undefined, title: draft.title, lines: draft.lines }, 'demo');
-      setNotice('Saved.');
-    }}>{(draft, setDraft) => <>
+    {data.state && <RecordFlow<Entry, Entry>
+      title="Notes" records={data.state.entries} revision={data.state.revision}
+      toRow={entry => ({ id: entry.id, label: entry.title, values: { title: entry.title, lines: entry.lines.length } })}
+      columns={[{ key: 'title', label: 'Title' }, { key: 'lines', label: 'Lines' }]}
+      selected={selected} onSelect={setSelected} onFormStateChange={navigation.onFormStateChange}
+      toolbar={<div className="cc-toolbar"><button type="button" aria-pressed={!cards} onClick={() => setCards(false)}>List view</button><button type="button" aria-pressed={cards} onClick={() => setCards(true)}>Cards view</button><span>{selected.length} selected</span></div>}
+      alternate={cards ? (rows, open) => <ul>{rows.map(row => <li key={row.id}><button type="button" onClick={() => open(row.id)}>Open {row.label}</button></li>)}</ul> : undefined}
+      addLabel="Add note" createDraft={() => ({ id: '', title: '', lines: [] })} editDraft={entry => entry}
+      details={entry => <DetailTable title="Lines" columns={['Line']} rows={entry.lines.map(line => [line])} />}
+      onSave={async (draft, context) => { await data.commit(context.revision, { id: context.id, title: draft.title, lines: draft.lines }, user); }}
+    >{(draft, setDraft) => <>
       <FormField name="title" label="Title" value={draft.title} required onChange={title => setDraft(current => ({ ...current, title }))} />
       <FormField name="lines" label="Lines" multiline value={draft.lines.join('\n')} hint="One nested line per row." onChange={text => setDraft(current => ({ ...current, lines: text.split('\n') }))} />
-    </>}</DraftDialog>}
-  </AppShell>;
+    </>}</RecordFlow>}
+    <button type="button" disabled={data.saving} onClick={() => void reset()}>Reset demo data</button>
+  </DemoShell>;
 }

@@ -1,6 +1,6 @@
 {
-  "id": "codeappscompact-example-2.2",
-  "description": "Neutral Requests/Projects example criteria. Replace with the same domain-specific criteria across benchmark variants.",
+  "id": "codeappscompact-example",
+  "description": "Neutral Requests/Projects scaffold checks. Replace with the actual application's acceptance criteria.",
   "checks": [
     { "id": "standalone-truth", "description": "Standalone preview is not labeled authenticated Local Play." },
     { "id": "full-search", "description": "All local rows are loaded and searchable." },

@@ -1,13 +1,11 @@
 # Minimal Code App
 
-Generated with PowerCat-CodeAppsCompact **2.7**. Contains the responsive shell, error boundary, query provider and verification tools; no domain or finished application. Prefer the integrated profile for flat CRUD or `--profile aggregate` for nested forms and atomic commands. Minimal is the custom-shell escape hatch.
+Generated with CodeAppsCompact **v3.1R**. Includes the responsive shell, error boundary, query provider and app checks, not a finished domain. Prefer an integrated definition for flat CRUD or `--profile aggregate` for custom drafts and atomic commands.
 
-`node .\tools\add-collection.mjs . --id inventory --title Inventory --dry-run` previews a typed stub/test and integration points. It never rewrites routes, repositories, manifests or acceptance. Supply domain rules and independent tests. Use existing navigation/editor guards; filtering and background refresh must not remount drafts.
+`node .\tools\add-collection.mjs . --id inventory --title Inventory --dry-run` previews a typed stub/test and integration points without rewriting routes or repositories. Supply domain rules and independent assertions. Reuse draft/navigation guards.
 
-Restore approved dependencies with `npm install --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`. `npm run dev` starts the configured loopback server without replacing processes. Confirm responsiveness.
+Run `npm run check:dependencies` before restoring approved dependencies after manifest changes or missing-dependency failures. Use `npm install --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund`.
 
-A `--local-only` scaffold is explicitly unbound. `preflight`, `verify` and `finalize` remain local; use `verify:local` / `finalize:local` explicitly when documenting local results. No authentication is requested or claimed, no synthetic tenant GUID is needed and nothing deploys.
+`npm run verify` runs preflight, build/type checks, lint, domain tests and isolated browser checks; `verify:local` is the same local scope. `npm run dev` starts the configured loopback server. Confirm responsiveness. No command authenticates or publishes. Hosted behavior requires separate authorized verification.
 
-For an environment-bound scaffold only, `npm run verify -- --host-route mesh-uia --out <new-run>` requests local and authenticated scopes. Follow the emitted handoff with permitted tools, then finalize the same run with a fresh receipt. `mesh-browser` or an authorized existing CDP endpoint are alternatives, never bypasses after denial. Optional saved-edit host checks require independent synthetic bindings in `tests\local-play.json`.
-
-Keep `vendor\codeappscompact-2.7.0`, tools and the lockfile. The source skill folder is not needed to restore/build. Preserve existing storage; browser-local synthetic data is not production authorization, shared storage or secret storage. When metering is requested, retain the original start/repair markers and finalize once.
+Keep `vendor\codeappscompact-3.1.0-r.1`, tools and the lockfile. The source skill folder is not needed to restore/build. Browser checks use installed Edge by default and close only their own resources. Preserve existing storage; synthetic browser-local data is not production authorization or a secret store.

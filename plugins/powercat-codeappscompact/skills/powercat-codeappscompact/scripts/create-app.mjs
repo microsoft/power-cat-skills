@@ -3,6 +3,7 @@ import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { args, cli, copyTree, environmentGuid, exists, filesIn, isMain, noLinkedAncestors, readJson, writeJson } from './lib.mjs';
+import { checkDependencies } from './dependency-contract.mjs';
 
 const skill = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export function createApp(argv) {
@@ -23,8 +24,8 @@ export function createApp(argv) {
   if (exists(app)) throw new Error(`Destination already exists; nothing was replaced: ${app}`);
   const assets = join(skill, 'assets');
   const pkg = readJson(join(assets, 'package.json'));
-  if (pkg.name !== 'codeappscompact' || pkg.version !== '2.7.0') throw new Error('The complete 2.7.0 skill bundle is required.');
-  const tools = ['lib.mjs', 'atomic-json.mjs', 'add-collection.mjs', 'browser-harness.mjs', 'acceptance-scenarios.mjs', 'preflight.mjs', 'verify.mjs', 'workflow.mjs', 'workflow-options.mjs', 'finalize.mjs', 'host-request.mjs', 'host-edit.mjs', 'fingerprints.mjs', 'readiness.mjs', 'verify-local-play.mjs', 'verify-portability.mjs', 'mark-phase.mjs', 'measure-usage.mjs'];
+  if (pkg.name !== 'codeappscompact' || pkg.version !== '3.1.0-r.1') throw new Error('The complete v3.1R skill bundle is required.');
+  const tools = ['lib.mjs', 'add-collection.mjs', 'browser-harness.mjs', 'acceptance-scenarios.mjs', 'dependency-contract.mjs', 'preflight.mjs'];
   filesIn(assets);
   const starter = join(skill, 'starter');
   const templates = new Map(filesIn(starter).map(file => [file, join(starter, file)]));
@@ -73,23 +74,20 @@ export function createApp(argv) {
     const appFile = join(app, 'src', 'App.tsx');
     writeFileSync(appFile, readFileSync(appFile, 'utf8').replace('__DEFINITION_ENTRY__', definitionEntry));
   }
-  copyTree(assets, join(app, 'vendor', `codeappscompact-${pkg.version}`));
+  copyTree(assets, join(app, 'vendor', `codeappscompact-${pkg.version}`), new Set(['source']));
   mkdirSync(join(app, 'tools'));
   for (const file of tools) copyFileSync(join(skill, 'scripts', file), join(app, 'tools', file), constants.COPYFILE_EXCL);
   const appUrl = `http://127.0.0.1:${port}`;
-  if (localOnly) {
-    manifest.scripts.preflight += ' --local-only';
-    manifest.scripts.verify = manifest.scripts['verify:local'];
-    manifest.scripts.finalize = manifest.scripts['finalize:local'];
-  }
+  if (localOnly) manifest.scripts.preflight += ' --local-only';
   manifest.name = slug; writeJson(join(app, 'package.json'), manifest, true);
   Object.assign(power, { appDisplayName: name, environmentId, localAppUrl: appUrl });
   writeJson(join(app, 'power.config.json'), power, true);
   writeJson(join(app, 'src', 'app-config.json'), { title: name, environmentId, localOnly, appUrl, profile, storageKey: `${slug}-demo-${randomUUID()}` }, true);
   const title = name.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
   writeFileSync(join(app, 'index.html'), html.replace('<title>PowerCat-CodeAppsCompact</title>', `<title>${title}</title>`));
+  checkDependencies(app);
   return { ...plan, next: localOnly
-    ? 'Replace the neutral domain and acceptance checks; reuse the supplied infrastructure. Restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify:local, repair collected independent failures and resume. Finish once with finalize:local and original usage markers when requested. This app is unbound: no host authentication or deployment.'
-    : 'Review the domain contract and restore approved npm dependencies with --install-links --ignore-scripts --strict-peer-deps --legacy-peer-deps=false --force=false --no-audit --no-fund. Run verify with the explicitly authorized host route, then finalize --resume with fresh host evidence and original metering inputs. No existing app/profile/process was changed.' };
+    ? 'Replace the neutral domain and app checks. Run check:dependencies before an approved npm restore, then npm run verify for build/type, lint, domain and browser checks. This app is unbound; no authentication or deployment is performed.'
+    : 'Review the domain contract. Run check:dependencies before an approved npm restore, then npm run verify for local app checks. Verify authenticated Power Apps behavior separately with approved tools. Nothing was authenticated or deployed.' };
 }
 if (isMain(import.meta.url)) await cli(() => console.log(JSON.stringify(createApp(process.argv.slice(2)), null, 2)));
