@@ -7,6 +7,11 @@ import AxeBuilder from '@axe-core/playwright';
 import { createServer, preview } from 'vite';
 import { exists, noLinkedAncestors } from './lib.mjs';
 
+export function recordFlowDetails(page, name) {
+  if (typeof name !== 'string' || !name.trim()) throw new Error('RecordFlow details require the exact saved record label.');
+  return page.getByRole('region', { name, exact: true }).and(page.locator('[data-cc-part="record-details"]'));
+}
+
 export function recordUi(page) {
   const form = page.locator('[data-cc-part="form"]');
   return {
@@ -61,6 +66,7 @@ export async function withBrowserScenarios(options, scenarios) {
   return runHarness(options, scenarios);
 }
 async function runHarness(options, scenarios) {
+  if (options.preflight !== undefined && typeof options.preflight !== 'function') throw new Error('preflight must be a shared startup assertion function.');
   const root = resolve(options.root ?? process.cwd());
   const output = resolve(process.env.CODECOMPACT_BROWSER_EVIDENCE ?? options.output ?? join(root, 'evidence', `browser-${Date.now()}`));
   noLinkedAncestors(output);
@@ -72,13 +78,13 @@ async function runHarness(options, scenarios) {
   const isolated = scenarios[0].id !== null;
   if (isolated && required) assert.deepEqual(scenarios.map(item => item.id).sort(), [...required].sort(), 'Every requirement needs exactly one runnable isolated scenario.');
   await mkdir(output, { recursive: true });
-  const checks = []; const errors = []; let server; let browser;
+  const checks = []; const errors = []; let server; let browser; let preflight = null;
   const record = (id, passed, error) => {
     if (typeof id !== 'string' || !id || checks.some(check => check.id === id) || (required && !required.includes(id))) throw new Error(`Unexpected or repeated browser check: ${id}`);
     checks.push({ id, passed, ...(error ? { error } : {}) });
   };
   const passed = id => record(id, true);
-  // OS-selected ports can include Chromium-blocked SIP/X11 ports. Keep browser probes in the high dynamic range.
+  // Avoid Chromium-blocked SIP/X11 ports when choosing a test-owned loopback server.
   const port = randomInt(49152, 65536);
   try {
     if (options.mode === 'development') {
@@ -90,7 +96,8 @@ async function runHarness(options, scenarios) {
     }
     const base = server.resolvedUrls.local[0];
     browser = await chromium.launch({ channel: process.env.CODECOMPACT_BROWSER_CHANNEL ?? 'msedge', headless: true });
-    for (const scenario of scenarios) {
+    const runs = options.preflight ? [{ preflight: true, run: options.preflight }, ...scenarios] : scenarios;
+    for (const scenario of runs) {
       const pageErrors = []; const violations = new Set();
       const context = await browser.newContext({ viewport: { width: 1440, height: 1100 }, timezoneId: options.timezoneId ?? 'America/Los_Angeles', ...(options.localOnly ? { serviceWorkers: 'block' } : {}) });
       context.setDefaultTimeout(options.actionTimeoutMs ?? 10000);
@@ -101,26 +108,32 @@ async function runHarness(options, scenarios) {
         const page = await context.newPage();
         const response = await page.goto(base);
         assert.ok(response?.ok(), 'The isolated loopback server must respond successfully.');
-        const caseOutput = isolated ? join(output, `case-${checks.length + 1}`) : output;
-        if (isolated) await mkdir(caseOutput);
-        await scenario.run({ page, context, browser, base, ...(isolated ? {} : { passed }), output: caseOutput, ui: recordUi(page) });
+        const caseOutput = scenario.preflight ? join(output, 'startup') : isolated ? join(output, `case-${checks.length + 1}`) : output;
+        if (isolated || scenario.preflight) await mkdir(caseOutput);
+        await scenario.run({ page, context, browser, base, ...(isolated || scenario.preflight ? {} : { passed }), output: caseOutput, ui: recordUi(page) });
         assert.deepEqual(pageErrors, [], 'Unexpected browser exceptions.');
         assert.deepEqual([...violations], [], 'Local-only app attempted external network traffic.');
-        if (isolated) record(scenario.id, true);
+        if (scenario.preflight) preflight = { passed: true };
+        else if (isolated) record(scenario.id, true);
       } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        if (scenario.preflight) {
+          preflight = { passed: false, error: message };
+          throw new Error(`Shared startup prerequisite failed; business checks were NOT run: ${message}`, { cause: error });
+        }
         if (!isolated) throw error;
-        record(scenario.id, false, error instanceof Error ? error.message : String(error));
+        record(scenario.id, false, message);
       } finally { errors.push(...pageErrors); await context.close(); }
     }
     if (required) assert.deepEqual(checks.map(check => check.id).sort(), [...required].sort(), 'Every declared acceptance check must actually run.');
     const failed = checks.filter(check => !check.passed);
     if (failed.length) throw new Error(`${failed.length}/${checks.length} browser scenarios failed: ${failed.map(check => `${check.id}: ${check.error.slice(0, 250)}`).join('; ')}. All independent scenarios ran; inspect failure.json before one coherent repair.`);
-    const evidence = { version: '2.7.0', checkedAtUtc: new Date().toISOString(), passed: true, ...(criteriaBytes ? { criteriaSha256: createHash('sha256').update(criteriaBytes).digest('hex') } : {}), checks, authenticatedLocalPlay: false, pageErrors: errors };
+    const evidence = { version: '3.1.0-r.1', checkedAtUtc: new Date().toISOString(), passed: true, preflight, ...(criteriaBytes ? { criteriaSha256: createHash('sha256').update(criteriaBytes).digest('hex') } : {}), checks, authenticatedLocalPlay: false, pageErrors: errors };
     await writeFile(join(output, 'acceptance.json'), JSON.stringify(evidence, null, 2), { flag: 'wx' });
     console.log(`${checks.length} browser checks passed (${isolated ? 'fresh context per scenario' : 'legacy shared scenario'}). Evidence: ${output}`);
     return evidence;
   } catch (error) {
-    await writeFile(join(output, 'failure.json'), JSON.stringify({ checkedAtUtc: new Date().toISOString(), passed: false, checks, error: String(error), pageErrors: errors, authenticatedLocalPlay: false }, null, 2), { flag: 'wx' });
+    await writeFile(join(output, 'failure.json'), JSON.stringify({ checkedAtUtc: new Date().toISOString(), passed: false, preflight, checks, notRun: scenarios.filter(scenario => scenario.id && !checks.some(check => check.id === scenario.id)).map(scenario => scenario.id), error: String(error), pageErrors: errors, authenticatedLocalPlay: false }, null, 2), { flag: 'wx' });
     throw error;
   } finally {
     try { await browser?.close(); }

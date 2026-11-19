@@ -97,13 +97,13 @@ This instruction-only plugin has no Power Platform environment or companion-plug
 
 This instruction-only plugin has no fixed companion-plugin or Power Platform environment dependency. The selected specialist may have additional prerequisites.
 
-### PowerCat-CodeAppsCompact 2.7
+### PowerCat-CodeAppsCompact v3.1R
 
 | Skill | Description |
 |-------|-------------|
-| **PowerCat-CodeAppsCompact** (`powercat-codeappscompact`) | Build React/TypeScript Power Apps Code Apps with typed workspaces, reusable authoring helpers, acceptance workflows, permission-bound host verification, and metered finalization |
+| **PowerCat-CodeAppsCompact** (`powercat-codeappscompact`) | Build React/TypeScript Power Apps Code Apps by configuring bundled, accessible controls and compositions (record flows, workspaces, tables, editors, dashboards, schedules, CSV), loading only the control cards each app needs |
 
-PowerCat-CodeAppsCompact 2.7 uses version 2.7.0 for the plugin, skill, runtime, and starter package. The lean bundle includes typed workspaces, accessible aggregate editors, atomic synthetic storage, and independent acceptance workflows. It requires Node.js 22.18+ and approved npm access. Explicitly unbound local-only apps need no tenant environment; authenticated Local Play requires an authorized environment and signed-in browser. Mesh host routes require the corresponding approved Mesh tools; the CDP route requires an explicitly authorized existing browser endpoint. It does not deploy apps or grant permissions.
+PowerCat-CodeAppsCompact v3.1R uses version 3.1.0-r.1 for the plugin, skill, runtime, and starter package. The essentials-only bundle pairs a compact control router and on-demand cards with prebuilt record flows, workspaces, tables, editors, dashboards, schedules, and CSV helpers. It requires Node.js 22.18+ and approved npm access. Explicitly unbound local-only apps need no tenant environment; authenticated Local Play requires an authorized environment and signed-in browser. It does not deploy apps or grant permissions.
 
 ### `powercat-pcf` — PCF Controls
 

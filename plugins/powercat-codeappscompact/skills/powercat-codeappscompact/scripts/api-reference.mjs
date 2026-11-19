@@ -7,6 +7,10 @@ const skill = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(skill, 'assets', 'dist');
 function groups() {
   return {
+    flow: ['RecordFlow.d.ts'], table: ['DataTable.d.ts'], csv: ['csv.d.ts'],
+    editor: ['DraftDialog.d.ts'], views: ['AggregateViews.d.ts'],
+    shell: ['shell.d.ts', 'navigation.d.ts', 'DemoShell.d.ts'],
+    transactions: ['transactions.d.ts', 'useTransactionState.d.ts'],
     aggregate: ['DataTable.d.ts', 'csv.d.ts', 'transactions.d.ts'], authoring: ['authoring.d.ts'], workspace: ['workspace.d.ts'], records: ['contracts.d.ts', 'RecordScreen.d.ts'], validation: ['fields.d.ts'],
     'aggregate-ui': ['DraftDialog.d.ts', 'useTransactionState.d.ts', 'AggregateViews.d.ts'],
     collections: ['collections.d.ts', 'query.d.ts'], reference: ['reference.d.ts'], display: ['display.d.ts'], demo: ['demo.d.ts'], host: ['host.d.ts'],

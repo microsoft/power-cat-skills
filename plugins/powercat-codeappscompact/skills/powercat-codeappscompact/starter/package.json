@@ -1,6 +1,6 @@
 {
   "name": "codeappscompact-starter",
-  "version": "2.7.0",
+  "version": "3.1.0-r.1",
   "private": true,
   "type": "module",
   "packageManager": "npm@11.20.0",
@@ -13,16 +13,15 @@
     "lint": "eslint src tests",
     "test": "node --test tests/*.test.ts",
     "test:browser": "node tests/browser.mjs",
+    "check:dependencies": "node tools/dependency-contract.mjs .",
     "preflight": "node tools/preflight.mjs .",
-    "verify": "node tools/verify.mjs . --browser --local-play",
-    "verify:local": "node tools/verify.mjs . --browser",
-    "finalize": "node tools/finalize.mjs . --browser --local-play",
-    "finalize:local": "node tools/finalize.mjs . --browser"
+    "verify": "npm run preflight && npm run build && npm run lint && npm test && npm run test:browser",
+    "verify:local": "npm run verify"
   },
   "dependencies": {
     "@microsoft/power-apps": "1.5.0",
     "@tanstack/react-query": "5.90.5",
-    "codeappscompact": "file:vendor/codeappscompact-2.7.0",
+    "codeappscompact": "file:vendor/codeappscompact-3.1.0-r.1",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },

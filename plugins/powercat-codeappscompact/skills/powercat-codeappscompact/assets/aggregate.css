@@ -55,3 +55,5 @@
 .cc-calendar h3, .cc-calendar h4 { margin-block: .4rem; }
 .cc-calendar .booking-card p { margin-block: .55rem; }
 @media (max-width: 1100px) { .cc-calendar .week-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); } }
+.cc-record-details { min-width: 0; overflow-wrap: anywhere; }
+.cc-record-details h2:focus-visible { outline: 3px solid #1d5ed1; outline-offset: 3px; }
