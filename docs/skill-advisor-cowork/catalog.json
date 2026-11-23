@@ -1,8 +1,8 @@
 {
  "meta": {
   "schemaVersion": 1,
-  "catalogRefreshedOn": "17 Nov 2026",
-  "itemCount": 239,
+  "catalogRefreshedOn": "23 Nov 2026",
+  "itemCount": 244,
   "personas": [
    "Developer or maker",
    "Architect",
@@ -22,7 +22,7 @@
    "MCP & Tooling"
   ],
   "portal": "https://microsoft.github.io/power-cat-skills/skill-advisor/",
-  "contentSha256": "f5a392d27537902139316e1ba87afc06449d19567ba2954575d097b49be0db3f"
+  "contentSha256": "62438cbf04f63cc197ff04a8a19d6c74e7f9780b081340e5e84f54cabee05316"
  },
  "items": [
   {
@@ -699,7 +699,7 @@
    "id": "skill-35",
    "name": "check-updates",
    "displayName": "Check Updates",
-   "description": "Check the plugin, native host, Microsoft packages, and direct npm dependencies with per-package approval and rollback.",
+   "description": "Update dependencies, migrate templates or repair the native host, with per-package approval and rollback.",
    "purpose": "Operate",
    "tier": "skill",
    "products": [
@@ -718,7 +718,7 @@
     "command": "/plugin install mobile-apps@power-platform-skills",
     "note": "Then start a new session so the skill is discovered."
    },
-   "examplePrompt": "Use check-updates: Check the plugin, native host, Microsoft packages, and direct npm dependencies with per-package approval and rollback.",
+   "examplePrompt": "Use check-updates: Update dependencies, migrate templates or repair the native host, with per-package approval and rollback.",
    "prerequisites": [],
    "access": null,
    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/mobile-apps/skills/check-updates",
@@ -4547,7 +4547,7 @@
    "id": "skill-166",
    "name": "powercat-codeappscompact",
    "displayName": "PowerCat-CodeAppsCompact",
-   "description": "Build React/TypeScript Code Apps with typed workspaces and nested-record editors.",
+   "description": "Build Power Apps Code Apps by configuring bundled, accessible controls and compositions.",
    "purpose": "Build",
    "tier": "skill",
    "products": [
@@ -4567,7 +4567,7 @@
     "command": "/plugin install powercat-codeappscompact@power-cat-skills",
     "note": "Then start a new session so the skill is discovered."
    },
-   "examplePrompt": "Use powercat-codeappscompact: Build React/TypeScript Code Apps with typed workspaces and nested-record editors.",
+   "examplePrompt": "Use powercat-codeappscompact: Build Power Apps Code Apps by configuring bundled, accessible controls and compositions.",
    "prerequisites": [],
    "access": null,
    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
@@ -5615,7 +5615,7 @@
    "id": "skill-201",
    "name": "add-geolocation",
    "displayName": "Add Geolocation",
-   "description": "Background GPS tracking with durable storage for add-native.",
+   "description": "One-shot location or background GPS tracking with durable storage for add-native.",
    "purpose": "Build",
    "tier": "skill",
    "products": [
@@ -7402,6 +7402,160 @@
    "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/powercat-nintex-form-to-canvas",
    "verified": "17 Nov 2026",
    "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-258"
+  },
+  {
+   "id": "skill-259",
+   "name": "architecture-planner",
+   "displayName": "Architecture Planner",
+   "description": "Propose the architecture and, when Dataverse is selected, the data model for a previewed mobile app.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "QA lead",
+    "Architect"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/architecture-planner.md",
+   "verified": "23 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-259"
+  },
+  {
+   "id": "skill-260",
+   "name": "preview-screen-builder",
+   "displayName": "Preview Screen Builder",
+   "description": "Build one screen of the sample-data preview from the approved screen graph.",
+   "purpose": "Build",
+   "tier": "skill",
+   "products": [
+    "Power Apps"
+   ],
+   "personas": [
+    "Developer or maker",
+    "QA lead"
+   ],
+   "status": "Private Preview",
+   "maturity": "Preview",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent-only: invoked by its parent agent/plugin, not called directly by the user.",
+   "install": {
+    "command": "/plugin install mobile-apps@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": null,
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/blob/main/plugins/mobile-apps/agents/preview-screen-builder.md",
+   "verified": "23 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-260"
+  },
+  {
+   "id": "skill-261",
+   "name": "migrate-datamodel",
+   "displayName": "Migrate Datamodel",
+   "description": "Migrate an existing Power Pages site from the Standard to the Enhanced data model with PAC CLI.",
+   "purpose": "Migrate",
+   "tier": "skill",
+   "products": [
+    "Modernization"
+   ],
+   "personas": [
+    "Architect"
+   ],
+   "status": "Generally available",
+   "maturity": "GA",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power Platform Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install power-pages@power-platform-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use migrate-datamodel: Migrate an existing Power Pages site from the Standard to the Enhanced data model with PAC CLI.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/migrate-datamodel",
+   "verified": "23 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-261"
+  },
+  {
+   "id": "skill-262",
+   "name": "powercat-nintex-workflow-to-power-automate",
+   "displayName": "Nintex Workflow To Power Automate",
+   "description": "Inventory and verify a Nintex workflow export, then build a validated Power Automate cloud flow.",
+   "purpose": "Migrate",
+   "tier": "skill",
+   "products": [
+    "Modernization",
+    "Power CAT"
+   ],
+   "personas": [
+    "QA lead"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install Power%20Platform%20Migration%20Factory@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use powercat-nintex-workflow-to-power-automate: Inventory and verify a Nintex workflow export, then build a validated Power Automate cloud flow.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/powercat-nintex-workflow-to-power-automate",
+   "verified": "23 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-262"
+  },
+  {
+   "id": "skill-263",
+   "name": "powercat-template",
+   "displayName": "Power CAT Template",
+   "description": "Apply the official Power CAT template to presentations, documents and apps.",
+   "purpose": "Author",
+   "tier": "skill",
+   "products": [
+    "Power CAT"
+   ],
+   "personas": [
+    "Developer or maker"
+   ],
+   "status": "Release status not established",
+   "maturity": "Unspecified",
+   "publisher": "Microsoft",
+   "license": "MIT licensed",
+   "marketplace": "Power CAT Skills",
+   "whereItRuns": "Agent Skill: runs in a coding-agent host that has the plugin installed (for example GitHub Copilot CLI). This Cowork plugin recommends it; it does not run it.",
+   "install": {
+    "command": "/plugin install powercat-template@power-cat-skills",
+    "note": "Then start a new session so the skill is discovered."
+   },
+   "examplePrompt": "Use powercat-template: Apply the official Power CAT template to presentations, documents and apps.",
+   "prerequisites": [],
+   "access": null,
+   "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/skills/powercat-template",
+   "verified": "23 Nov 2026",
+   "portalUrl": "https://microsoft.github.io/power-cat-skills/skill-advisor/#skill--skill-263"
   }
  ],
  "mcpServers": [

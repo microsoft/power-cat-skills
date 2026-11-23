@@ -1479,3 +1479,75 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Forms only: Nintex workflows, approvals and notifications are out of scope; hands off to /canvas-app after your approval."
   }
 });
+
+// Approved 23 Nov 2026 additions and the skill-166 v3.1R refresh, pinned to power-platform-skills 28c209c9 / power-cat-skills 247ceed9. Agent-only workers intentionally have no examples.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-261": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/migrate-datamodel",
+    "skillName": "migrate-datamodel",
+    "userInvocable": true,
+    "natural": {
+      "text": "Migrate my existing site from the Standard to the Enhanced data model",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/28c209c9eec2b7dedd598b3e211104a0b04e94c7/plugins/power-pages/README.md#L212"
+    },
+    "direct": {
+      "text": "/migrate-datamodel",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/28c209c9eec2b7dedd598b3e211104a0b04e94c7/plugins/power-pages/README.md#L210"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Uses PAC CLI against an existing site."
+  },
+  "skill-262": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/Power%20Platform%20Migration%20Factory/powercat-nintex-workflow-to-power-automate",
+    "skillName": "powercat-nintex-workflow-to-power-automate",
+    "userInvocable": true,
+    "natural": {
+      "text": "Migrate this Nintex workflow export to a Power Automate cloud flow.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/Power%20Platform%20Migration%20Factory/powercat-nintex-workflow-to-power-automate/SKILL.md#L4"
+    },
+    "direct": {
+      "text": "Use powercat-nintex-workflow-to-power-automate to migrate this Nintex workflow export to a Power Automate cloud flow.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/Power%20Platform%20Migration%20Factory/powercat-nintex-workflow-to-power-automate/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Needs the power-automate plugin (FlowAgent /build-flow) and az login; the flow is created turned off. Nintex forms are out of scope."
+  },
+  "skill-263": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-template/skills/powercat-template",
+    "skillName": "powercat-template",
+    "userInvocable": true,
+    "natural": {
+      "text": "Use the Power CAT template to create a presentation about our project.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/plugins/powercat-template/README.md#L11"
+    },
+    "direct": {
+      "text": "/powercat-template",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/plugins/powercat-template/skills/powercat-template/SKILL.md#L3"
+    },
+    "note": "Requires a compatible installed host and plugin. The skill's own description documents this slash token. Retrieves the template when needed (internet access); grants no rights to logos or artwork."
+  },
+  "skill-166": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-codeappscompact/skills/powercat-codeappscompact",
+    "skillName": "powercat-codeappscompact",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create an inventory Code App with search, filters, editable records, and a responsive workspace.",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/plugins/powercat-codeappscompact/README.md#L18"
+    },
+    "direct": {
+      "text": "Use powercat-codeappscompact to build a local-only approvals Code App with nested records, synthetic demo data, and accessible editors.",
+      "kind": "mention",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/247ceed931a763f1cb93d4aab3da500913d193b9/plugins/powercat-codeappscompact/README.md#L12"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this skill-name mention, not a slash token. Needs Node.js 22.18+ and approved npm access; does not deploy apps."
+  }
+});
